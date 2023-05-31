@@ -7,6 +7,7 @@ author_profile: true
 
 ### Working papers
 
+- **Equilibirum Labor Market Consequences of Equity Laws** (with Steve Lehrer and Nuno Souso Pereira) (*Draft coming soon.*)
 
 - **Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers**, with Mehreen Mookerjee and Sanket Roy
 [**[PDF]**](/papers/Alam_JMP_Oct21.pdf) (*Updated May 2023*)  *Submitted*
@@ -15,8 +16,9 @@ author_profile: true
 
 - **Female Inheritance Rights and Household Sanitation** (with Monica Agarwal) (*Updated draft coming soon.*)
      <details style="font-size:80%; font-family:Verdana; width =20%;">  <summary style="color:blue; font-family:courier; font-size:80%; font-family:Verdana; width=80%;"> Abstract </summary>  Health hazards due to open defecation are most prominent in India. Females benefit from toilets in households more than males. In this paper we estimate the impact of increased inheritance rights of females on the presence of a toilet in the household. Daughters being usually married away to the household of the groom, available household level nationally representative data do not have all original (natal) household characteristics – which determines treatment eligibility. Under generic assumptions, we show that when the treatment is partially observed to the researcher, we can derive a lower bound on the average treatment effect in a difference in differences framework. We estimate that the policy increased the probability of the presence of a toilet in the household a woman is married into, by at least 4.3% points. We uncover conditional treatment effects by the age of the daughter at the time of policy implementation and find it to be the largest for the group of females who were the youngest at the time of policy implementation.  </details>
-
      
+- **Optimal Place-Based Redistribution** (with Morris Davis and Jesse Gregory) (*Pilots to begin*)
+
 ---
 
 ### Selected Works in Progress
