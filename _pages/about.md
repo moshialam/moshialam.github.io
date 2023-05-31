@@ -14,7 +14,7 @@ I am a  Post-Doctoral Research Fellow at the [Department of Economics, Queen's U
 
 I am a labor economist. I received my PhD in Economics from the [Department of Economics, University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Most of my current work revolves around economic inequality resulting due to differences in preferences, beliefs and information in various contexts. 
 
-For more details on my work please see my [Research page](https://moshialam.github.io/research/) and [Research](/_pages/research_page.html) and [CV](/papers/Alam_MdMoshiUl_CV.pdf).
+For more details on my work please see my [Research page](https://moshialam.github.io/research/) and [CV](/papers/Alam_MdMoshiUl_CV.pdf).
 
 **Research Fields:**
   Labor Economics, Public Economics and Applied Econometrics.
