@@ -4,10 +4,10 @@ title: "Research"
 permalink: /research/
 author_profile: true
 ---
-Jump to:
+<!-- Jump to:
 - [Working papers](#working-papers)
 - [Selected works in progress](#selected-works-in-progress)
-- [Publications](#publications)
+- [Publications](#publications) -->
 
 ### Working papers <a name="working-papers"></a>
 
