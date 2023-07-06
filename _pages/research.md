@@ -7,16 +7,7 @@ author_profile: true
 
 ### Working papers
 
-- **Equilibirum Labor Market Consequences of Equity Laws** (with Steve Lehrer and Nuno Souso Pereira) ( <i class='fas fa-file-pdf' style='font-size:24px;color:red'></i> and <i class='fas fa-code' style='font-size:24px;color:red'></i> <i class='fab fa-github-square' style='font-size:24px;color:red'></i> *coming soon*)
-    <details>
-  <summary><strong style="font-size:90%; color:red;">Abstract</strong></summary>
-  
-  <div style="background-color: #f9f9f9; padding: 10px;">
-    Here is an abstract.
-  </div>
-    </details>
-
-
+- **Equilibirum Labor Market Consequences of Equity Laws** (with Steve Lehrer and Nuno Souso Pereira) ( <i class='fas fa-file-pdf' style='font-size:24px;color:darkred'></i> and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab fa-github-square' style='font-size:24px;color:black'></i> *coming soon*)
 
 - **Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers**, with Mehreen Mookerjee and Sanket Roy
 [<button style='font-size:12px'> <i class='fas fa-file-pdf' style='font-size:24px;color:red'></i></button>](/papers/Alam_JMP_Oct21.pdf) (*Updated May 2023*)  *Submitted*
