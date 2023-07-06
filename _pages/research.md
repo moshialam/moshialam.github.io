@@ -25,7 +25,7 @@ author_profile: true
 <!-- a comment -->
 - "Optimal Place-Based Redistribution" (with Morris Davis and Jesse Gregory) (*IRB in process. Pilots to begin*)
 - "Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions" (*Administrative datasets obtained.*)
-- "Disentangling Demand-side Discrimination from Supply-side Preferences" (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. RCT design in progress*)
+- "Disentangling Demand-side Discrimination from Supply-side Preferences" (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. RCT design in progress*) [GitHub Repo](https://github.com) <i class="fab fa-github"></i>
 - "Labor Market Policies and Human Capital Accumulation" (with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira)
 - "Identification in Models of Discrimination" 
 
