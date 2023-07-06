@@ -4,6 +4,10 @@ title: "Research"
 permalink: /research/
 author_profile: true
 ---
+# Table of Contents
+- [Working papers](###working-papers)
+- [Selected works in progress](###selected-works-in-progress)
+- [Publications](###publications)
 
 ### Working papers
 
@@ -21,9 +25,8 @@ author_profile: true
 
 ---
 
-### Selected Works in Progress
+### Selected works in progress
 <!-- a comment -->
-- "Optimal Place-Based Redistribution" (with Morris Davis and Jesse Gregory) (*IRB in process. Pilots to begin*)
 - "Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions" (*Administrative datasets obtained.*)
 - "Disentangling Demand-side Discrimination from Supply-side Preferences" (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. RCT design in progress*) [<button style='font-size:12px'> <i class='fas fa-code' style='font-size:24px'></i> on <i class='fab fa-github' style='font-size:24px;color:black'></i></button>](https://github.com) 
 - "Labor Market Policies and Human Capital Accumulation" (with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira)
