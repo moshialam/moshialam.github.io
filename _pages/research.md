@@ -10,9 +10,38 @@ author_profile: true
 - **Equilibirum Labor Market Consequences of Equity Laws** (with Steve Lehrer and Nuno Souso Pereira) (*Draft coming soon.*) <i class='fas fa-code' style='font-size:24px;color:red'></i>
 <i class='fab fa-github-square' style='font-size:24px;color:red'></i>
 <i class='fas fa-file-pdf' style='font-size:24px;color:red'></i>
+<head>
+  <title>Button with Dialogue Box</title>
+  <style>
+    .dialogue-box {
+      display: none;
+      padding: 10px;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <button id="abstractButton" style="font-size: 12px">
+    Abstract
+  </button>
+
+  <div id="abstractDialogue" class="dialogue-box">
+    Here is an abstract.
+  </div>
+
+  <script>
+    document.getElementById("abstractButton").addEventListener("click", function() {
+      var dialogueBox = document.getElementById("abstractDialogue");
+      dialogueBox.style.display = "block";
+      setTimeout(function() {
+        dialogueBox.style.display = "none";
+      }, 2000); // Hide the dialogue box after 2 seconds (adjust as needed)
+    });
+  </script>
+</body>
 
 - **Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers**, with Mehreen Mookerjee and Sanket Roy
-[<button style='font-size:12px'> <i class='fas fa-file-pdf' style='font-size:24px;color:red'></i></button>](/papers/Alam_JMP_Oct21.pdf) (*Updated May 2023*)  *Submitted*
+[<button style='font-size:12px'> <i class='fas fa-file-pdf' style='font-size:24px;color:darkred'></i></button>](/papers/Alam_JMP_Oct21.pdf) (*Updated May 2023*)  *Submitted*
     <details style="font-size:80%; font-family:Verdana; width =20%;">  <summary style="color:blue; font-family:courier; font-size:80%; font-family:Verdana; width=80%;"> Abstract </summary> Tight labor markets are associated with high costs of worker-turnover. In such settings, firms might put significant weight on whom workers want to work for, while deciding promotions. Should workers prefer not to work for female managers, it could lower the chances of females being promoted. In this paper, we provide novel evidence on the distribution of workers' preferences on manager gender and their beliefs on managers' mentoring ability, which affects their job search and choice. In the absence of information on manager quality, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers---as exhibited by their willingness to forgo 1.3--2.2\% of average annual wages. Hence, absent additional information on mentorship skill, workers on average believe that female managers' mentoring ability is worse than male managers', with the magnitude of this evaluation corresponding to a wage differential of 1.6\% of average annual wages. These averages mask rich heterogeneity. We find that 60\% of workers prefer to work for female managers, and in the absence of information on mentorship ability, 62\% believe male managers to be better mentors. An ex-post survey directly eliciting worker beliefs corroborates this finding. We find policy-relevant heterogeneity by maternal education level, parental employment status and worker major. Our results imply, the distribution of worker preferences could be used to test for discriminatory practices by the firm. </details>
     **Awards:** Richard E. Stockwell Dissertation Fellowship, UW-Madison.
 
@@ -27,7 +56,7 @@ author_profile: true
 <!-- a comment -->
 - "Optimal Place-Based Redistribution" (with Morris Davis and Jesse Gregory) (*IRB in process. Pilots to begin*)
 - "Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions" (*Administrative datasets obtained.*)
-- "Disentangling Demand-side Discrimination from Supply-side Preferences" (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. RCT design in progress*) [<button style='font-size:12px'> <i class='fab fa-github' style='font-size:24px;color:maroon'></i></button>](https://github.com) <i class="fab fa-github" style='font-size:24px;color:purple'></i>
+- "Disentangling Demand-side Discrimination from Supply-side Preferences" (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. RCT design in progress*) [<button style='font-size:12px'> <i class='fas fa-code' style='font-size:24px;color:red'></i> on <i class='fab fa-github' style='font-size:24px;color:maroon'></i></button>](https://github.com) 
 - "Labor Market Policies and Human Capital Accumulation" (with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira)
 - "Identification in Models of Discrimination" 
 
