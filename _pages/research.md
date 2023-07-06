@@ -10,35 +10,9 @@ author_profile: true
 - **Equilibirum Labor Market Consequences of Equity Laws** (with Steve Lehrer and Nuno Souso Pereira) (*Draft coming soon.*) <i class='fas fa-code' style='font-size:24px;color:red'></i>
 <i class='fab fa-github-square' style='font-size:24px;color:red'></i>
 <i class='fas fa-file-pdf' style='font-size:24px;color:red'></i>
-<head>
-  <title>Button with Dialogue Box</title>
-  <style>
-    .dialogue-box {
-      display: none;
-      padding: 10px;
-      background-color: #f1f1f1;
-    }
-  </style>
-</head>
-<body>
-  <button id="abstractButton" style="font-size: 12px">
-    Abstract
-  </button>
+||Abstract||
+Here is an abstract.
 
-  <div id="abstractDialogue" class="dialogue-box">
-    Here is an abstract.
-  </div>
-
-  <script>
-    document.getElementById("abstractButton").addEventListener("click", function() {
-      var dialogueBox = document.getElementById("abstractDialogue");
-      dialogueBox.style.display = "block";
-      setTimeout(function() {
-        dialogueBox.style.display = "none";
-      }, 2000); // Hide the dialogue box after 2 seconds (adjust as needed)
-    });
-  </script>
-</body>
 
 - **Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers**, with Mehreen Mookerjee and Sanket Roy
 [<button style='font-size:12px'> <i class='fas fa-file-pdf' style='font-size:24px;color:darkred'></i></button>](/papers/Alam_JMP_Oct21.pdf) (*Updated May 2023*)  *Submitted*
