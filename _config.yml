@@ -6,10 +6,10 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 #If you want toc hange theme then uncomment the following three lines and also uncomment assets from the exclude list
-plugins:
-  - jekyll-remote-theme
-remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dirt" #"dark"  "air", "aqua", "contrast", "dark", "mint", "neon", "sunrise", "plum", "sunrise"
+#plugins:
+#  - jekyll-remote-theme
+#remote_theme           : "mmistakes/minimal-mistakes"
+#minimal_mistakes_skin    : "dirt" #"dark"  "air", "aqua", "contrast", "dark", "mint", "neon", "sunrise", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -21,7 +21,7 @@ url                      : https://moshialam.github.io # the base hostname & pro
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "moshialam/moshialam.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
-breadcrumbs              : true # true, false (default)
+breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
@@ -142,7 +142,7 @@ exclude:
   - LICENSE
   - README
   - Rakefile
-  - assets
+  #- assets
   - assets/js/_main.js
   - assets/js/plugins
   - assets/js/vendor
