@@ -6,10 +6,10 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 #If you want toc hange theme then uncomment the following three lines and also uncomment assets from the exclude list
-#plugins:
- # - jekyll-remote-theme
-#remote_theme           : "mmistakes/minimal-mistakes"
-#minimal_mistakes_skin    : "sunrise" #"dark"  "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+plugins:
+  - jekyll-remote-theme
+remote_theme           : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "mint" #"dark"  "air", "aqua", "contrast", "dark", "dirt", "neon", "sunrise", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
