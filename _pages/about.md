@@ -23,6 +23,6 @@ For more details on my work please see my [Research page](https://moshialam.gith
 
 **References**
   - <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:ctaber@ssc.wisc.edu){: .btn--research} (PhD Advisor)
-  - [Jeff Smith](https://sites.google.com/site/econjeffsmith/home) [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
-  - [Jesse Gregory](https://www.ssc.wisc.edu/~jmgregory/) [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
+  - <a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
+  - <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
 
