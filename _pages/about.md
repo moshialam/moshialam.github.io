@@ -22,7 +22,7 @@ For more details on my work please see my [Research page](https://moshialam.gith
   Labor Economics, Public Economics and Applied Econometrics.
 
 **References**
-  - [Chris Taber](https://www.ssc.wisc.edu/~ctaber/) [[Email](mailto:ctaber@ssc.wisc.edu)] (PhD Advisor)
-  - [Jeff Smith](https://sites.google.com/site/econjeffsmith/home) [[Email](mailto:econjeff@ssc.wisc.edu)]
-  - [Jesse Gregory](https://www.ssc.wisc.edu/~jmgregory/) [[Email](mailto:jmgregory@ssc.wisc.edu)]
+  - [Chris Taber](https://www.ssc.wisc.edu/~ctaber/) [Email](mailto:ctaber@ssc.wisc.edu){: .btn--research} (PhD Advisor)
+  - [Jeff Smith](https://sites.google.com/site/econjeffsmith/home) [Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
+  - [Jesse Gregory](https://www.ssc.wisc.edu/~jmgregory/) [Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
 
