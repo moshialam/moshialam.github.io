@@ -21,6 +21,8 @@ with Steve Lehrer and Nuno Souso Pereira
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Updated May 2023 and Submitted*)
 
+- **Equilibirum Labor Market Consequences of Equity Laws** with Steve Lehrer and Nuno Souso Pereira
+  ( <i class='fas fa-file-pdf' style='font-size:24px;color:darkred'></i>  *coming soon*)
 
 - **Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers**, with Mehreen Mookerjee and Sanket Roy
 
