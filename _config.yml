@@ -10,7 +10,7 @@
 #  - jekyll-remote-theme
 #remote_theme           : "mmistakes/minimal-mistakes"
 #minimal_mistakes_skin    : "dirt" #"dark"  "air", "aqua", "contrast", "dark", "mint", "neon", "sunrise", "plum", "sunrise"
-
+theme                      : cayman
 # Site Settings
 locale                   : "en-US"
 title                    : "Moshi Alam"
