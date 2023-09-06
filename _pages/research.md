@@ -30,7 +30,7 @@ with Monica Agarwal <br />
      
 ### Optimal Place-Based Redistribution
 with Morris Davis and Jesse Gregory <br />
-(*Pilots in progress*)
+(*Data collection in progress*)
 
 ---
 
@@ -38,10 +38,14 @@ with Morris Davis and Jesse Gregory <br />
 <!-- a comment -->
 ### Spatial Inequality and School Choice Mechanisms
 with Monica Agarwal, Chao Fu, YingHua He
+(*Administrative datasets obtained.*)
+### Disentangling Demand-side Discrimination from Supply-side Preferences 
+with Sitian Liu and Thorstein Koeppl
+(*Administrative datasets obtained.*) 
+### Labor Market Policies and Human Capital Accumulation 
+with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira 
 ### Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions
 (*Administrative datasets obtained.*)
-<!-- ### Disentangling Demand-side Discrimination from Supply-side Preferences (with Sitian Liu and Thorstein Koeppl)  (*Administrative datasets obtained. Pilots in progress*) [<button style='font-size:12px'> <i class='fas fa-code' style='font-size:24px'></i> on <i class='fab fa-github' style='font-size:24px;color:black'></i></button>](https://github.com) -->
-<!-- ### Labor Market Policies and Human Capital Accumulation (with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira) -->
 ### Identification in Models of Discrimination
 
 ---
