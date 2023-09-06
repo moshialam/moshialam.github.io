@@ -13,3 +13,6 @@ redirect_from:
 
 
 [<i class="fa fa-download"></i> Download my CV](/papers/Alam_MdMoshiUl_CV.pdf){: .btn--research + .btn--large}
+
+
+<a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large}
