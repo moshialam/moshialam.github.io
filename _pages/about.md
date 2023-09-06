@@ -10,7 +10,7 @@ redirect_from:
 
 Hi! Welcome to my website!
 
-I am a  Post-Doctoral Research Fellow at the [Department of Economics, Queen's University](https://www.econ.queensu.ca/). 
+I am a  Post-Doctoral Research Fellow at the <a href="https://www.econ.queensu.ca/" target="_blank">Department of Economics, Queen's University</a>
 
 I am a labor economist. I received my PhD in Economics from the [Department of Economics, University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Most of my current work revolves around economic inequality resulting due to differences in preferences, beliefs and information in various contexts. 
 
