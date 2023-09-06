@@ -14,11 +14,9 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
 
 # Working papers <a name="working-papers"></a>
 
-
+<!--
 <button type="button" class="btn btn-outline-info btn-xs" data-toggle="modal" data-target="#modaltest">abstract</button>
-  
 <!--Create all modals-->
-  
 <div class="modal fade show" id="modaltest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="padding-right: 15px; display: block;" aria-modal="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -34,7 +32,7 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
     </div>
   </div>
 </div>
-
+-->
 ### Equilibirum Labor Market Consequences of Equity Laws
 with Steve Lehrer and Nuno Souso Pereira <br />
 ( <i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i>  *coming soon*)
