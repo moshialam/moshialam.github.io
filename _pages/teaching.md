@@ -16,8 +16,7 @@ author_profile: true
   - Applied Econometrics: structural and reduced form methods as complements 
 - Undergraduate (2021 - 2023)
   - Applied Econometrics: Causal Inference.
-    - [Course Outline](https://moshialam.github.io/_pages/452_outline/){: .btn--research} [Course Website](https://onq.queensu.ca/d2l/home/764511){: .btn--research} [Schedule Office Hours](https://fantastical.app/moshialam/econ-452){: .btn--research}
-    - [Resources for students](https://moshialam.github.io/_pages/resourcesforstudents/){: .btn--research}
+    - [Course Outline](https://moshialam.github.io/_pages/452_outline/){: .btn--research} [Course Website](https://onq.queensu.ca/d2l/home/764511){: .btn--research + .btn--small} [Schedule Office Hours](https://fantastical.app/moshialam/econ-452){: .btn--research + .btn--small} [Resources for students](https://moshialam.github.io/_pages/resourcesforstudents/){: .btn--research + .btn--small}
 
 ### [University of Wisconsin-Madison](https://econ.wisc.edu/) (TA)
 
