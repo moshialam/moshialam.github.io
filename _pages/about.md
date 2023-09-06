@@ -24,5 +24,5 @@ For more details on my work please see my [Research page](https://moshialam.gith
 **References**
   - [Chris Taber](https://www.ssc.wisc.edu/~ctaber/) [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:ctaber@ssc.wisc.edu){: .btn--research} (PhD Advisor)
   - [Jeff Smith](https://sites.google.com/site/econjeffsmith/home) [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
-  - [Jesse Gregory](https://www.ssc.wisc.edu/~jmgregory/) [<i class="fa fa-envelope" style="font-size:16px"></i>Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
+  - [Jesse Gregory](https://www.ssc.wisc.edu/~jmgregory/) [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
 
