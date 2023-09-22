@@ -55,8 +55,8 @@ with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira
     <details style="font-size:90%; font-family:Verdana; width =20%;">  <summary style="color:midnightblue; font-family:courier; font-size:90%; font-family:Verdana; width=80%;"> <strong style="font-size:90%; color:midnightblue;">Abstract</strong> </summary>   This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce  </details>
     - *"Editor's Choice"* article
 
-<!DOCTYPE html>
-<html>
+
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -99,11 +99,11 @@ with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira
 </head>
 <body>
 
-<h2>Animated Collapsibles</h2>
+
 
 <p>A Collapsible:</p>
 <button class="collapsible">Open Collapsible</button>
 <div class="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
-</html>
+
