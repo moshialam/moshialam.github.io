@@ -56,9 +56,9 @@ with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira
     - *"Editor's Choice"* article
 
 
-
+<html>
 <button type="button" class="collapsible">Open Collapsible</button>
 <div class="content">
   <p>Lorem ipsum...</p>
 </div>
-
+</html>
