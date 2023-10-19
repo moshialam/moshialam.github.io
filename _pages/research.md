@@ -57,3 +57,17 @@ with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira
 
     test
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Test abstract</h3>
+    <p>This is a test abstract</p>
+  </div>
+
+</div>
+
+<!-- Button that opens the modal -->
+<button id="myBtn">Abstract</button>
