@@ -40,16 +40,15 @@ ul.references {
 ul.references li {
   break-inside: avoid;
   padding-bottom: 1em;
+
 }
 </style>
 
 <ul class="references">
-  <li><a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> <a href="mailto:ctaber@ssc.wisc.edu" target="_blank"> <i class="fa fa-envelope" style="font-size:16px"></i>Email</a> (PhD Advisor)</li>
   <li><a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span> (PhD Advisor)</li>
-  <li><a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> [Email](mailto:econjeff@ssc.wisc.edu)</li>
-  <li><a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steven Lehrer</a>  [Email](mailto:lehrers@queensu.ca)</li>
-  <li><a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a>  [Email](mailto:jmgregory@ssc.wisc.edu)</li>
-  <li><a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span> (PhD Advisor)</li>
+<li><a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> <span class="btn--research"><a href="mailto:econjeff@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
+<li><a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steven Lehrer</a> <span class="btn--research"><a href="mailto:lehrers@queensu.ca" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
+<li><a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a> <span class="btn--research"><a href="mailto:jmgregory@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
 </ul>
 
 
