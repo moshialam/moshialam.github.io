@@ -47,7 +47,7 @@ ul.references li {
 <ul class="references">
   <li>
   <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a><br>
-  <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span> (PhD Advisor)
+  <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span>
 </li>
 <li>
   <a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a><br>
