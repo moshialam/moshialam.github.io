@@ -45,10 +45,22 @@ ul.references li {
 </style>
 
 <ul class="references">
-  <li><a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span> (PhD Advisor)</li>
-<li><a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> <span class="btn--research"><a href="mailto:econjeff@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
-<li><a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steven Lehrer</a> <span class="btn--research"><a href="mailto:lehrers@queensu.ca" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
-<li><a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a> <span class="btn--research"><a href="mailto:jmgregory@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span></li>
+  <li>
+  <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a><br>
+  <span class="btn--research"><a href="mailto:ctaber@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span> (PhD Advisor)
+</li>
+<li>
+  <a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a><br>
+  <span class="btn--research"><a href="mailto:econjeff@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span>
+</li>
+<li>
+  <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steven Lehrer</a><br>
+  <span class="btn--research"><a href="mailto:lehrers@queensu.ca" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span>
+</li>
+<li>
+  <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a><br>
+  <span class="btn--research"><a href="mailto:jmgregory@ssc.wisc.edu" target="_blank"><i class="fa fa-envelope" style="font-size:16px"></i> Email</a></span>
+</li>
 </ul>
 
 
