@@ -14,7 +14,8 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
 
 # Working papers <a name="working-papers"></a>
 
-### Equilibirum Labor Market Consequences of Equity Laws
+## Job Market Paper:
+### Labor Market Consequences of Pay-Equity Laws
 with Steve Lehrer and Nuno Souso Pereira <br />
 ( <i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i>  *coming soon*)
 ### Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers
