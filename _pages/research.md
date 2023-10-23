@@ -53,8 +53,8 @@ with Monica Agarwal, Chao Fu, YingHua He
 ### Disentangling Demand-side Discrimination from Supply-side Preferences 
 with Sitian Liu and Thorstein Koeppl
 (*Administrative datasets obtained. RCT design in progress*) 
-### Labor Market Policies and Human Capital Accumulation 
-with Monica Agarwal, Steven Lehrer and Nuno Souso Pereira 
+### Labor Market Inequality and Collective Bargaining 
+with Steven Lehrer and Nuno Souso Pereira 
 ### Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions
 (*Administrative datasets obtained.*)
 ### Identification in Models of Discrimination
