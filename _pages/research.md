@@ -12,7 +12,7 @@ toc: true
 and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab fa-github-square' style='font-size:24px;color:black'></i>
 -->
 
-# Job Market Paper:
+## <ins>Job Market Paper<\ins>:
 ### Labor Market Consequences of Pay-Equity Laws
 with Steve Lehrer and Nuno Souso Pereira <br />
 ( <i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i>  *coming soon*)
