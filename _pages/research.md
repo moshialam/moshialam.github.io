@@ -17,6 +17,8 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
 with Steve Lehrer and Nuno Souso Pereira <br />
 ( <i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i>  *coming soon*)
 
+---
+
 # Other Working papers <a name="working-papers"></a>
 ### Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers
 with Mehreen Mookerjee and Sanket Roy   
@@ -41,6 +43,18 @@ with Monica Agarwal <br />
 
 ---
 
+# Publications <a name="publications"></a>
+- ["Increases in shared custody after divorce in the United States."](https://www.demographic-research.org/volumes/vol46/38/default.htm) (with Daniel Meyer and Marcia Carlson) *Demographic Research* 46 (2022): 1137-1162.
+   - *"Editor's Choice"* article
+    <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
+      <summary style="color: white; background-color: #2c627e ; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-family: Verdana; font-size: 80%; width: fit-content; border: none; display: list-item;">
+        <strong style="font-size:90%;">Abstract</strong>
+      </summary>
+      This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.
+    </details> 
+
+---
+
 # Selected works in progress <a name="selected-works-in-progress"></a>
 <!-- a comment -->
 ### Optimal Place-Based Redistribution
@@ -58,17 +72,7 @@ with Sitian Liu and Thorstein Koeppl
 (*Administrative datasets obtained.*)
 ### Identification in Models of Discrimination
 
----
 
-# Publications <a name="publications"></a>
-- ["Increases in shared custody after divorce in the United States."](https://www.demographic-research.org/volumes/vol46/38/default.htm) (with Daniel Meyer and Marcia Carlson) *Demographic Research* 46 (2022): 1137-1162.
-   - *"Editor's Choice"* article
-    <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
-      <summary style="color: white; background-color: #2c627e ; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-family: Verdana; font-size: 80%; width: fit-content; border: none; display: list-item;">
-        <strong style="font-size:90%;">Abstract</strong>
-      </summary>
-      This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.
-    </details> 
       
 
 
