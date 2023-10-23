@@ -39,22 +39,21 @@ with Monica Agarwal <br />
   Health hazards due to open defecation are most prominent in India. Females benefit from toilets in households more than males. In this paper we estimate the impact of increased inheritance rights of females on the presence of a toilet in the household. Daughters being usually married away to the household of the groom, available household level nationally representative data do not have all original (natal) household characteristics – which determines treatment eligibility. Under generic assumptions, we show that when the treatment is partially observed to the researcher, we can derive a lower bound on the average treatment effect in a difference in differences framework. We estimate that the policy increased the probability of the presence of a toilet in the household a woman is married into, by at least 4.3% points. We uncover conditional treatment effects by the age of the daughter at the time of policy implementation and find it to be the largest for the group of females who were the youngest at the time of policy implementation. 
 </details>
 
-### Optimal Place-Based Redistribution
-with Morris Davis and Jesse Gregory <br />
-(*Data collection in progress*)
-
 ---
 
 # Selected works in progress <a name="selected-works-in-progress"></a>
 <!-- a comment -->
+### Optimal Place-Based Redistribution
+with Morris Davis and Jesse Gregory <br />
+(*Data collection in progress*)
 ### Spatial Inequality and School Choice Mechanisms
 with Monica Agarwal, Chao Fu, YingHua He
 (*Administrative datasets obtained.*)
+### Labor Market Inequality and Collective Bargaining 
+with Steven Lehrer and Nuno Souso Pereira 
 ### Disentangling Demand-side Discrimination from Supply-side Preferences 
 with Sitian Liu and Thorstein Koeppl
 (*Administrative datasets obtained. RCT design in progress*) 
-### Labor Market Inequality and Collective Bargaining 
-with Steven Lehrer and Nuno Souso Pereira 
 ### Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions
 (*Administrative datasets obtained.*)
 ### Identification in Models of Discrimination
