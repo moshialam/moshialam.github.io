@@ -64,7 +64,7 @@ with Monica Agarwal <br />
 # Selected works in progress <a name="selected-works-in-progress"></a>
 <!-- a comment -->
 ### Optimal Place-Based Redistribution
-with Morris Davis and Jesse Gregory <br />
+with Morris Davis and Jesse Gregory
 (*Data collection in progress*)
 ### Spatial Inequality and School Choice Mechanisms
 with Monica Agarwal, Chao Fu, YingHua He
