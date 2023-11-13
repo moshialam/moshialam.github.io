@@ -11,6 +11,7 @@ toc: true
 - [Publications](#publications) 
 and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab fa-github-square' style='font-size:24px;color:black'></i>
 -->
+My interests primarily revolves around answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
 
 ## <ins>Job Market Paper:</ins>
 ### Labor Market Consequences of Pay-Equity Laws
