@@ -9,5 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-
 <a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large}
+
+*Updated November 20th, 2023*
