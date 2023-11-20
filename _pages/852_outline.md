@@ -43,7 +43,7 @@ permalink: /_pages/852_outline/
         - "Discretizing Unobserved heterogeneity" Bonhomme, Lamadon, Manresa (2019)
         - "Monopsony in Movers: The Elasticity of Labor Supply to Firm Wage Policies", Bassier, Dube, Naidu (2021)
 - Using both reduced form and structural models 
-    - "Worker-side discrimination--beliefs and preferences", Alam, Mookerjee, Roy (2022) 
+    - "Worker-side discrimination--Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers", Alam, Mookerjee, Roy (2022) 
     - "Estimating Equilibrium Effects of Job Search Assistance," Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)
     - "The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models" Angelucci and Attanasio (2013)
     - Lise, Seitz and Smith (2015)
