@@ -1,5 +1,5 @@
 ---
-title: "Econ 852: Course Outline"
+title: "Structural and reduced form methods in labor economics: Course Outline"
 layout: archive
 author_profile: true
 permalink: /_pages/852_outline/
