@@ -9,6 +9,7 @@ permalink: /_pages/852_outline/
 - Principles of empirical research 
     - Identification
         - "Non-parametric identification", Matzkin (2007)
+        - "Identification of models of the labor market" Taber and French (2010)
     - Advantages of reduced form methods
     - Advantages of structural models
     - Feasibility of each approach individually and jointly 
@@ -19,12 +20,12 @@ permalink: /_pages/852_outline/
     - Variation in treatment timings and heterogenous effects
         - "What's trending in difference-in-differences?" Roth and Santa'Anna (2022)
         - "Two-way fixed effects estimators with heterogeneous treatment effects" de Chaisemartin and d`Haultfoeuille (2020)
-        - "Inheritance rights and household sanitation" Alam and Agarwal (2019) 
+        - "Inheritance rights and household sanitation" Alam and Agarwal (2023) 
     - Empirical Bayes
         - "Empirical Bayes deconvolution estimates." Efron (2016)
         - "Systemic discrimination among large US employers", Kline, Rose and Walters (2022)
         - "Robust empirical bayes confidence intervals" Armstrong, Kolesár and Plagborg-Møller (2022) 
-    - Bunching and kink designs
+    - Discontinuity based designs
         - "Inference on causal effects in a generalized regression kink design" Card et al. (2015)
         - "Inference in Regression Discontinuity Designs with a Discrete Running Variable", Kolesar and Rothe (2018)
 - Structural models 
@@ -37,7 +38,7 @@ permalink: /_pages/852_outline/
         - "Preference for the workplace, investment in human capital and gender", Wiswall Zafar (2018)
         - "Optimal Place-based redistribution" Alam, Davis and Gregory (2023)  
         - "Understanding Migration Aversion Using Elicited Choice Probabilities", Kosar, Ransom, van der Klaauw (2022)
-    - Search, sorting and matching
+    - Models on wage inequality
         - "High wage workers and high wage firms" Abowd, Kramarz and Margolis (1999)
         - "A Distributional Framework for Matched Employer-employee data", Bonhomme, Lamadon, Manresa (2019)
         - "Racial Gaps in Wage Growth: Discrimination and Search Frictions" Alam (2020) 
@@ -52,7 +53,7 @@ permalink: /_pages/852_outline/
     - "Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model" Hansen and Liu (2015)
     - "The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women," Keane and Wolpin (2010)
     - "Approximating the Equilibrium Effects of Informed School Choice," Allende, Gallego and Nielson (2019)
-- Coding in Julia (1 week)
+- Coding in Julia (if time permits)
     - Why Julia?
     - Efficient code, version control and large project workflow
     - Automatic testing and reproducibility
