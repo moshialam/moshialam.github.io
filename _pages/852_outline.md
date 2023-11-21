@@ -9,8 +9,9 @@ permalink: /_pages/852_outline/
 - Principles of empirical research 
     - Identification
         - "Non-parametric identification", Matzkin (2007)
-    - Pros and cons of reduced form methods and structural models
-    - Empirical questions, feasibility of each approach individually and jointly 
+    - Advantages of reduced form methods
+    - Advantages of structural models
+    - Feasibility of each approach individually and jointly 
 - Reduced form methods
     - Shift-share exclusion restrictions
         - "Bartik Instruments: What, When, Why and How" Goldsmith-Pinkham, Sorkin and Swift (2020)
