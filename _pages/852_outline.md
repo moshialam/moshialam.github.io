@@ -10,9 +10,9 @@ permalink: /_pages/852_outline/
     - Identification
         - "Non-parametric identification", Matzkin (2007)
         - "Identification of models of the labor market" Taber and French (2010)
-    - Advantages of reduced form methods
-    - Advantages of structural models
-    - Feasibility of each approach individually and jointly 
+    - Advantages of reduced form methods and advantages of structural models
+    - Feasibility of each approach individually and jointly
+    - "Structural Equations, Treatment Effects and Econometric Policy Evaluation" Heckman and Vytlacil (2003)
 - Reduced form methods
     - Shift-share exclusion restrictions
         - "Bartik Instruments: What, When, Why and How" Goldsmith-Pinkham, Sorkin and Swift (2020)
