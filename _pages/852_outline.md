@@ -48,7 +48,7 @@ permalink: /_pages/852_outline/
     - "Worker-side discrimination--Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers", Alam, Mookerjee, Roy (2022) 
     - "Estimating Equilibrium Effects of Job Search Assistance," Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)
     - "The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models" Angelucci and Attanasio (2013)
-    - Lise, Seitz and Smith (2015)
+    - "Evaluating Search and Matching Models Using Experimental Data" Lise, Seitz and Smith (2015)
     - "Evaluating a Structural Model of Labor Supply and Welfare Participation: Evidence from State Welfare Reform Experiments," Choi (2018)
     - "Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model" Hansen and Liu (2015)
     - "The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women," Keane and Wolpin (2010)
