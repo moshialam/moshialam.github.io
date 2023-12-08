@@ -19,7 +19,7 @@ I am a labor and public economist. I am currently a  Post-Doctoral Research Fell
 **References**
   - <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:ctaber@ssc.wisc.edu){: .btn--research} (PhD Advisor)
   - <a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
-  - <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steven Lehrer</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:lehrers@queensu.ca){: .btn--research}
+  - <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steve Lehrer</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:lehrers@queensu.ca){: .btn--research}
   - <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
 
 
