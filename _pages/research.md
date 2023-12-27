@@ -31,7 +31,7 @@ with Steve Lehrer and Nuno Souso Pereira <br />
 **R&R at *Quantitative Economics***
 
 with Mehreen Mookerjee and Sanket Roy   
-[<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Updated May 2023 and Submitted*) <br />
+[<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
 *Awards:* Richard E. Stockwell Dissertation Fellowship, UW-Madison. <br />
 <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
   <summary style="color: white; background-color: #2c627e ; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-family: Verdana; font-size: 80%; width: fit-content; border: none; display: list-item;">
