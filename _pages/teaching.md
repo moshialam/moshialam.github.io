@@ -21,7 +21,7 @@ author_profile: true
 
 ### [University of Wisconsin-Madison](https://econ.wisc.edu/) (TA)
 
-_Department of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019_
+  - _Department of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019_
  
 - Econ 705 -- Econometric Theory (Master's). _Instructors: [Jack Porter](https://www.ssc.wisc.edu/~jrporter/) & [Jeffrey Smith](https://sites.google.com/site/econjeffsmith/home)_
   - _Juli Plant Grainger Teaching Excellence Award_
