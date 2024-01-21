@@ -75,7 +75,7 @@ with Monica Agarwal, Chao Fu, YingHua He
 (*Administrative datasets obtained.*)
 ### Labor Market Inequality and Collective Bargaining 
 with Steven Lehrer and Nuno Souso Pereira 
-### Disentangling Demand-side Discrimination from Supply-side Preferences 
+### Disentangling Supply-side Discrimination from Demand-side Preferences 
 with Sitian Liu and Thorstein Koeppl
 (*Administrative datasets obtained. RCT design in progress*) 
 ### Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions
