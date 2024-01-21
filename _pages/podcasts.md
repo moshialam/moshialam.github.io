@@ -1,5 +1,7 @@
 Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics. I found the following to be particularly interesting. 
 
+This is a continously evolving list. Suggestions are welcome!
+
 ### RCT:
 
 - "A Nobel-Prize for Development RCTs!" by David McKenzie [World Bank Blog](https://blogs.worldbank.org/impactevaluations/nobel-prize-development-rcts)
