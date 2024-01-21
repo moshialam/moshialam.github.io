@@ -17,7 +17,7 @@ author_profile: true
     - [Course Outline](https://moshialam.github.io/_pages/852_outline/){: .btn--research + .btn--small} 
 - Undergraduate (2021 - 2023)
   - Applied Econometrics: Causal Inference.
-    - [Course Outline](https://moshialam.github.io/_pages/452_outline/){: .btn--research + .btn--small} [Course Website](https://onq.queensu.ca/d2l/home/764511){: .btn--research + .btn--small} [Resources for students](https://moshialam.github.io/_pages/resourcesforstudents/){: .btn--research + .btn--small}
+    - [Course Outline](https://moshialam.github.io/_pages/452_outline/){: .btn--research + .btn--small} [Course Website](https://onq.queensu.ca/d2l/home/764511){: .btn--research + .btn--small} [Resources for students](https://moshialam.github.io/_pages/resourcesforstudents/){: .btn--research + .btn--small} - [Podcasts](https://moshialam.github.io/_pages/podcasts/){: .btn--research + .btn--small} 
 
 ### [University of Wisconsin-Madison](https://econ.wisc.edu/) (TA)
 
