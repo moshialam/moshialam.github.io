@@ -30,6 +30,7 @@ with Steve Lehrer and Nuno Souso Pereira <br />
 ## <ins>PhD Job Market Paper:</ins>
 ### Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers
 **Revise & Resubmit at *Quantitative Economics***
+
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
 **Awards:** Richard E. Stockwell Dissertation Fellowship, UW-Madison. <br />
