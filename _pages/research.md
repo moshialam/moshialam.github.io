@@ -14,7 +14,7 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
 My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
 
 ## <ins>Working papers:</ins>
-### Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers
+<b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b>
 **Revise & Resubmit at *Quantitative Economics***
 
 with Mehreen Mookerjee and Sanket Roy   
