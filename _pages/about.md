@@ -37,12 +37,13 @@ with Mehreen Mookerjee and Sanket Roy
 
 <b> Labor Market Consequences of Pay-Equity Laws </b> (Post-doc JMP)
 with Steve Lehrer and Nuno Souso Pereira <br />
+[<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_payequity.pdf){: .btn--research + .btn--small} <br />
 <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
   <summary style="color: white; background-color: #2c627e ; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-family: Verdana; font-size: 80%; width: fit-content; border: none; display: list-item;">
     <strong style="font-size:90%;">Abstract</strong>
   </summary>
         Many countries are committed to achieving pay equity, with the aim of reducing wage disparities that typically average around 15% in hourly earnings between men and women performing the same job within the same organization. In 2018, Portugal revised its pay equity legislation to impose pay-equity policy targeting larger firms, imposing fines on those that maintained a gender wage gap exceeding five percent. Using detailed matched employer-employee data and an event study design, we examine the immediate labor market effects of this legislation and reveal significant unintended consequences. In aggregate, we find that the number of women experiencing reductions in wage growth far exceeded those who saw increased wage growth. Specifically, within firms with existing wage gaps exceeding five percent, the gap decreased by an average of 13%, primarily due to reduced male wage growth. Conversely, firms with gaps below five percent witnessed a more than 25% increase in the wage gap, primarily due to larger reductions in female wage growth. Moreover, among a small proportion of workers not covered by collective bargaining agreements, the law reduced wage gaps by one-fifth, driven by increased female wage growth. We discuss the mechanisms behind these findings centered around how the law eliminates ambiguity regarding the consequences of gender disparities by setting a target wage gap for all treated firms.
-</details> [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_payequity.pdf){: .btn--research + .btn--small} <br />
+</details> 
 
 
 
