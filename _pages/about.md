@@ -10,13 +10,12 @@ redirect_from:
 
 Hi! Welcome to my website! 
 
-I am a labor and public economist. I am currently a  Post-Doctoral Research Fellow at the <a href="https://www.econ.queensu.ca/" target="_blank">Department of Economics, Queen's University.</a> I received my PhD [in Economics, from the University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Starting Fall of 2024, I will join Clark University as an Assistant Professor of Economics. [CV](/papers/Alam_MdMoshiUl_CV.pdf) *(updated December 25, 2023)*.
+I am a labor and public economist. I am currently a  Post-Doctoral Research Fellow at the <a href="https://www.econ.queensu.ca/" target="_blank">Department of Economics, Queen's University.</a> I received my PhD [in Economics, from the University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Starting Fall of 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/) as an Assistant Professor of Economics. 
+
+<a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large} *Updated December 25th, 2023*
 
 **References**
-  - <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:ctaber@ssc.wisc.edu){: .btn--research} (PhD Advisor)
-  - <a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:econjeff@ssc.wisc.edu){: .btn--research}
-  - <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steve Lehrer</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:lehrers@queensu.ca){: .btn--research}
-  - <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
+<a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> (PhD Advisor)<a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steve Lehrer</a>  <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a> 
 
 # Research: 
 **Fields:** Labor Economics, Public Economics and Applied Econometrics.
