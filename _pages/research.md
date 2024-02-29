@@ -16,7 +16,7 @@ My research interests are in answering applied microeconomic questions on econom
 ## <ins>Working papers:</ins>
 <b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
 
-Revise & Resubmit at *Quantitative Economics*
+Revise & Resubmit at *Quantitative Economics* (December 2023)
 
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
