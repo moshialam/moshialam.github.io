@@ -18,8 +18,8 @@ I am a labor and public economist. I am currently a  Post-Doctoral Research Fell
   - <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steve Lehrer</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:lehrers@queensu.ca){: .btn--research}
   - <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a>  [<i class="fa fa-envelope" style="font-size:16px"></i> Email](mailto:jmgregory@ssc.wisc.edu){: .btn--research}
 
-
-**Research Fields:** Labor Economics, Public Economics and Applied Econometrics.
+# Research: 
+**Fields:** Labor Economics, Public Economics and Applied Econometrics.
 My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
 
 ## <ins>Working papers:</ins>
