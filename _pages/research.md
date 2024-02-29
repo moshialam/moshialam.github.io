@@ -14,8 +14,9 @@ and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab
 My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
 
 ## <ins>Working papers:</ins>
-<b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b>
-**Revise & Resubmit at *Quantitative Economics***
+<b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
+
+Revise & Resubmit at *Quantitative Economics*
 
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
@@ -27,7 +28,7 @@ with Mehreen Mookerjee and Sanket Roy
   Tight labor markets are associated with high costs of worker-turnover. In such settings, firms might put significant weight on whom workers want to work for, while deciding promotions. Should workers prefer not to work for female managers, it could lower the chances of females being promoted. In this paper, we present novel evidence on the distribution of workers' preferences regarding manager gender and their beliefs of managers' mentoring capabilities, which influence their job search and choice decisions. Using formal identification arguments in settings with varying information, we design an information experiment to separately identify worker beliefs from their preferences in a structural model. In the absence of information on manager quality, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers---as exhibited by their willingness to forgo 1.3--2.2% of average annual wages. Hence, absent additional information on mentorship skill, workers on average believe that female managers' mentoring ability is worse than male managers', with the magnitude of this evaluation corresponding to a wage differential of 1.6% of average annual wages. These averages mask rich heterogeneity. We find that 60% of workers prefer to work for female managers, and in the absence of information on mentorship ability, 62% believe male managers to be better mentors. An ex-post survey directly eliciting worker beliefs corroborates this finding. We find policy-relevant heterogeneity by maternal education level, parental employment status and worker major. Our results imply, the distribution of worker preferences could be used to test for discriminatory practices by the firm.
 </details>
 
-### Labor Market Consequences of Pay-Equity Laws
+<b> Labor Market Consequences of Pay-Equity Laws </b> (Post-doc JMP)
 with Steve Lehrer and Nuno Souso Pereira <br />
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_payequity.pdf){: .btn--research + .btn--small} <br />
 <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
@@ -39,7 +40,7 @@ with Steve Lehrer and Nuno Souso Pereira <br />
 
 
 
-### Female Inheritance Rights and Household Sanitation
+<b> Female Inheritance Rights and Household Sanitation </b>
 with Monica Agarwal <br />
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Agarwal_Alam_sanitation.pdf){: .btn--research + .btn--small} (*In preparation for submission*)
 <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
