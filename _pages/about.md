@@ -8,11 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Hi! Welcome to my website! 
+Hi! Welcome to my website! I am currently a  Post-Doctoral Research Fellow at the <a href="https://www.econ.queensu.ca/" target="_blank">Department of Economics, Queen's University.</a> I received my PhD [in Economics, from the University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Starting Fall of 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/) as an Assistant Professor of Economics. 
 
-I am a labor and public economist. I am currently a  Post-Doctoral Research Fellow at the <a href="https://www.econ.queensu.ca/" target="_blank">Department of Economics, Queen's University.</a> I received my PhD [in Economics, from the University of Wisconsin-Madison](https://econ.wisc.edu/) in 2021. Starting Fall of 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/) as an Assistant Professor of Economics. 
-
-<a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large} *Updated December 25th, 2023*
+<a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large} *December 25th, 2023*
 
 **References**
 <a href="https://www.ssc.wisc.edu/~ctaber/" target="_blank">Chris Taber</a> (PhD Advisor)<a href="https://sites.google.com/site/econjeffsmith/home" target="_blank">Jeff Smith</a> <a href="https://www.econ.queensu.ca/people/faculty/steven-lehrer" target="_blank">Steve Lehrer</a>  <a href="https://www.ssc.wisc.edu/~jmgregory/" target="_blank">Jesse Gregory</a> 
