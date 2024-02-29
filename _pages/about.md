@@ -20,7 +20,8 @@ I am a labor and public economist. I am currently a  Post-Doctoral Research Fell
 
 # Research: 
 **Fields:** Labor Economics, Public Economics and Applied Econometrics.
-My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
+
+*My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.*
 
 ## <ins>Working papers:</ins>
 <b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
