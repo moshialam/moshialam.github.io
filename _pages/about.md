@@ -23,7 +23,7 @@ Hi! Welcome to my website! I am currently a  Post-Doctoral Research Fellow at th
 ## <ins>Working papers:</ins>
 <b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
 
-<p style="background-color:StateBlue;"> R&R at *Quantitative Economics* </p> (December 2023)
+<b style="background-color:StateBlue;"> R&R at *Quantitative Economics* </b> (December 2023)
 
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
