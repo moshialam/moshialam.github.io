@@ -11,12 +11,13 @@ toc: true
 - [Publications](#publications) 
 and <i class='fas fa-code' style='font-size:24px;color:black'></i> <i class='fab fa-github-square' style='font-size:24px;color:black'></i>
 -->
-My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.
+*My research interests lie in the microeconomic aspects of economic inequality. Depending on the question at hand, I employ either reduced-form methods, structural models, or a combination of both.*
+
 
 ## <ins>Working papers:</ins>
 <b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
 
-Revise & Resubmit at *Quantitative Economics* (December 2023)
+Revise & Resubmit at ***Quantitative Economics*** (December 2023)
 
 with Mehreen Mookerjee and Sanket Roy   
 [<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_Oct21.pdf){: .btn--research + .btn--small}  (*Version: May 2023*) <br />
