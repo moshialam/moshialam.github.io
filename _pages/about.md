@@ -18,7 +18,7 @@ Hi! Welcome to my website! I am currently a  Post-Doctoral Research Fellow at th
 # Research: 
 **Fields:** Labor Economics, Public Economics and Applied Econometrics.
 
-*My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either reduced-form methods, or structural models, or both.*
+*My research interests lie in the microeconomic aspects of economic inequality. Depending on the question at hand, I employ either reduced-form methods, structural models, or a combination of both.*
 
 ## <ins>Working papers:</ins>
 <b> Worker Side Discrimination: Beliefs and Preferences--Evidence from an Information Experiment on Job-seekers </b> (PhD JMP)
