@@ -37,7 +37,7 @@ with Mehreen Mookerjee and Sanket Roy
 
 <b> Labor Market Consequences of Pay-Equity Laws </b> (Post-doc JMP)
 with Steve Lehrer and Nuno Souso Pereira <br />
-[<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_payequity.pdf){: .btn--research + .btn--small} <br />
+[<i class='fas fa-file-pdf' style='font-size:16px;color:darkred'></i> PDF](/papers/Alam_JMP_payequity.pdf){: .btn--research + .btn--small} (*In preparation for submission*) <br />
 <details style="font-size:90%; font-family:Verdana; display: block; width: auto;">
   <summary style="color: white; background-color: #2c627e ; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-family: Verdana; font-size: 80%; width: fit-content; border: none; display: list-item;">
     <strong style="font-size:90%;">Abstract</strong>
