@@ -11,4 +11,4 @@ redirect_from:
 
 <a href="/papers/Alam_MdMoshiUl_CV.pdf" target="_blank"><i class="fa fa-download"></i> Download my CV</a>{: .btn--research + .btn--large}
 
-*Updated December 25th, 2023*
+*Updated April 15th, 2024*
