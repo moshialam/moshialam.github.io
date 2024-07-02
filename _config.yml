@@ -93,7 +93,7 @@ author:
   location         : "Kingston, ON"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : # "http://yourfullgooglescholarurl.com"
+  googlescholar    :  "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" #  "http://yourfullgooglescholarurl.com"
   email            : "alam.m@queensu.ca"
   researchgate     :  # # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
