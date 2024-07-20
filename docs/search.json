@@ -208,5 +208,369 @@
     "title": "Moshi Alam",
     "section": "Abstract",
     "text": "Abstract"
+  },
+  {
+    "objectID": "old/CONTRIBUTING.html",
+    "href": "old/CONTRIBUTING.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Contributions are welcome! Please add issues and make pull requests. There are no stupid questions. All ideas are welcome. This is a volunteer project. Be excellent to each other.\nFork from master and go from there. This repository is intended to remain a generic, ready-to-fork template that demonstrates the features of academicpages.\nIf you make a pull request and change code, please make sure there is a closed issue tagged with ‘code change’ that has some comment linking to either the single commit (if the change was just one commit) or a diff comparing before/after the change (see issue 21 for example). This is so that those who have forked this repo and modified it for their purposes can more easily patch bugs and new features."
+  },
+  {
+    "objectID": "old/CHANGELOG.html",
+    "href": "old/CHANGELOG.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Improve UX of static comment forms. #448"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section",
+    "href": "old/CHANGELOG.html#section",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Improve UX of static comment forms. #448"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-1",
+    "href": "old/CHANGELOG.html#section-1",
+    "title": "Moshi Alam",
+    "section": "3.4.1",
+    "text": "3.4.1\n\nEnhancements\n\nAdd staticman.filename configuration with UNIX timestamp for sorting data files. example ~&gt; comment-1470943149.\n\n\n\nBug Fixes\n\nDon’t add &lt;a&gt; to author name if URL is blank."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-2",
+    "href": "old/CHANGELOG.html#section-2",
+    "title": "Moshi Alam",
+    "section": "3.4.0",
+    "text": "3.4.0\n\nEnhancements\n\nSupport static-based commenting via Staticman for sites hosted with GitHub Pages. #424"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-3",
+    "href": "old/CHANGELOG.html#section-3",
+    "title": "Moshi Alam",
+    "section": "3.3.7",
+    "text": "3.3.7\n\nBug Fixes\n\nRe-enabled Jekyll plugins in _config.yml in case they aren’t autoloaded in Gemfile. #417\n\n\n\nEnhancements\n\nFallback to site.github.url for use in { base_path } when site.url is nil.\nReplace Sass and Autoprefixer npm build scripts with Jekyll’s built-in asset support. #333\n\n\n\nMaintenance\n\nDocument site.repository and its role with github-metadata gem.\nAdd sample archive page with content for testing styles on demo site."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-4",
+    "href": "old/CHANGELOG.html#section-4",
+    "title": "Moshi Alam",
+    "section": "3.3.6",
+    "text": "3.3.6\n\nBug Fixes\n\nFix blank site.teaser bug. #412"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-5",
+    "href": "old/CHANGELOG.html#section-5",
+    "title": "Moshi Alam",
+    "section": "3.3.5",
+    "text": "3.3.5\n\nEnhancements\n\nAdd English default text site.locale strings. #407\nAdd Portuguese localized UI text. #411\nAdd Italian localized UI text. #409\n\n\n\nMaintenance\n\nRemove unused Google AdSense variables in _config.yml. #404\nUpdate Gemfile instructions for using github-pages vs. native jekyll gems.\nDisable gems: in _config.yml and enable plugins with Bundler instead.\nAdd repository to _config.yml to suppress GitHub Pages error Liquid Exception: No repo name found."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-6",
+    "href": "old/CHANGELOG.html#section-6",
+    "title": "Moshi Alam",
+    "section": "3.3.4",
+    "text": "3.3.4\n\nEnhancements\n\nAdd support for configurable feed URL to use a service like FeedBurner instead of linking directly to feed.xml in &lt;head&gt; and the site footer. #378, #379, #406\nAdd Turkish localized UI text. #403\n\n\n\nMaintenance\n\nUpdate gems: activesupport (4.2.7), ffi (1.9.14), github-pages (88), jekyll-redirect-from (0.11.0), jekyll-watch (1.5.0)."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-7",
+    "href": "old/CHANGELOG.html#section-7",
+    "title": "Moshi Alam",
+    "section": "3.3.3",
+    "text": "3.3.3\n\nEnhancements\n\nMake footer stick to the bottom of the page.\n\n\n\nBug Fixes\n\nFix gallery size bug #402\n\n\n\nMaintenance\n\nSet default lang to en."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-8",
+    "href": "old/CHANGELOG.html#section-8",
+    "title": "Moshi Alam",
+    "section": "3.3.2",
+    "text": "3.3.2\n\nBug Fixes\n\nFix JavaScript that triggers “sticky” sidebar to avoid layout issues on screen sizes &lt; 1024px. #396"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-9",
+    "href": "old/CHANGELOG.html#section-9",
+    "title": "Moshi Alam",
+    "section": "3.3.1",
+    "text": "3.3.1\n\nEnhancements\n\nEnable image popup on &lt; 500px wide screens. #385\nIndicate the relationship between component URLs in a paginated series by applying rel=\"prev\" and rel=\"next\" to pages that use site.paginator. #253\nImprove link posts in archive listings. #276\n\n\n\nMaintenance\n\nUpdate gems: github-pages (86), ffi 1.9.13, jekyll-mentions 1.1.3, and rouge 1.11.1\nFix note about custom sidebar content appearing below author profile. #388"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-10",
+    "href": "old/CHANGELOG.html#section-10",
+    "title": "Moshi Alam",
+    "section": "3.2.13",
+    "text": "3.2.13\n\nEnhancements\n\nAdd English default UI text for Canada, Great Britain, and Australia. #377\nSwitch default locale from en-US to en."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-11",
+    "href": "old/CHANGELOG.html#section-11",
+    "title": "Moshi Alam",
+    "section": "3.2.12",
+    "text": "3.2.12\n\nEnhancements\n\nRemove window width “magic number” from sticky sidebar check in main.js for improved flexibility. #375\n\n\n\nBug Fixes\n\nFix author override conditional where a missing authors.yml would show broken sidebar content. Defaults to site.author. #376"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-12",
+    "href": "old/CHANGELOG.html#section-12",
+    "title": "Moshi Alam",
+    "section": "3.2.11",
+    "text": "3.2.11\n\nBug Fixes\n\nFix disappearing author sidebar links #372\n\n\n\nMaintenance\n\nUpdate gems: github-pages (84), jekyll-github-metadata 2.0.2, and kramdown 1.11.1\nUpdate vendor JavaScript: jQuery 1.12.4, Stickyfill.js 1.1.4\nUpdate Font Awesome 4.6.3"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-13",
+    "href": "old/CHANGELOG.html#section-13",
+    "title": "Moshi Alam",
+    "section": "3.2.10",
+    "text": "3.2.10\n\nMaintenance\n\nAdd CONTRIBUTING.md"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-14",
+    "href": "old/CHANGELOG.html#section-14",
+    "title": "Moshi Alam",
+    "section": "3.2.9",
+    "text": "3.2.9\n\nEnhancements\n\nAdd support for header overlay images for Open Graph images. #358\n\n\n\nBug Fixes\n\nFix Person typo Schema.org type #358\n\n\n\nMaintenance\n\nUpdate github-pages gem and dependencies.\nRemove minutes_read to avoid awkward reading time wording #356"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-15",
+    "href": "old/CHANGELOG.html#section-15",
+    "title": "Moshi Alam",
+    "section": "3.2.8",
+    "text": "3.2.8\n\nBug Fixes\n\nRemove cursor: pointer that appears on white-space surrounding author side list items and links. #354\n\n\n\nMaintenance\n\nAdd contributing information to README.md. #357"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-16",
+    "href": "old/CHANGELOG.html#section-16",
+    "title": "Moshi Alam",
+    "section": "3.2.7",
+    "text": "3.2.7\n\nEnhancements\n\nAdd French localized UI text. #346\n\n\n\nBug Fixes\n\nFix branch logic for Yandex and Alexa in seo.html. #348"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-17",
+    "href": "old/CHANGELOG.html#section-17",
+    "title": "Moshi Alam",
+    "section": "3.2.6",
+    "text": "3.2.6\n\nBug Fixes\n\nFix error Liquid Exception: divided by 0 in _includes/archive-single.html, included in _layouts/single.html caused by null words_per_minute in _config.yml. #345"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-18",
+    "href": "old/CHANGELOG.html#section-18",
+    "title": "Moshi Alam",
+    "section": "3.2.5",
+    "text": "3.2.5\n\nBug Fixes\n\nFix link color in hero overlay to be white.\nRemove underlines from archive item titles."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-19",
+    "href": "old/CHANGELOG.html#section-19",
+    "title": "Moshi Alam",
+    "section": "3.2.4",
+    "text": "3.2.4\n\nEnhancements\n\nImprove text alignment of masthead, hero overlay, page footer to be flush left and remove awkward white-space gaps. #342\nAdd Spanish localized UI text. #338\n\n\n\nBug Fixes\n\nFix alignment of icons in author sidebar #341\n\n\n\nMaintenance\n\nAdd background color to page footer to set it apart from main content. #342\nAdd terms and privacy policy to theme’s demo site. #343\nUpdate screenshots found in theme documentation."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-20",
+    "href": "old/CHANGELOG.html#section-20",
+    "title": "Moshi Alam",
+    "section": "3.2.3",
+    "text": "3.2.3\n\nEnhancements\n\nAdd Discourse as a commenting provider. #335"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-21",
+    "href": "old/CHANGELOG.html#section-21",
+    "title": "Moshi Alam",
+    "section": "3.2.2",
+    "text": "3.2.2\n\nEnhancements\n\nAdd support for image captions in Magnific Popup overlays via the gallery helper. #334"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-22",
+    "href": "old/CHANGELOG.html#section-22",
+    "title": "Moshi Alam",
+    "section": "3.2.1",
+    "text": "3.2.1\n\nBug Fixes\n\nRemove need for “double tapping” masthead menu links on iOS devices. #315\n\n\n\nMaintenance\n\nAdd ISSUE_TEMPLATE.md for improve issue submission process."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-23",
+    "href": "old/CHANGELOG.html#section-23",
+    "title": "Moshi Alam",
+    "section": "3.2.0",
+    "text": "3.2.0\n\nBug Fixes\n\nFix missing category/tag links in post footer due to possible conflict with site.tags and site.categories. #329"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-24",
+    "href": "old/CHANGELOG.html#section-24",
+    "title": "Moshi Alam",
+    "section": "3.1.8",
+    "text": "3.1.8\n\nBug Fixes\n\nFix Liquid Exception: undefined method 'gsub' for nil:NilClass in _layouts/single.html error when page.title is null. &lt;h1&gt; element is now conditional if title: is not set for a page or collection item. #312\n\n\n\nMaintenance\n\nRemove duplicate fa-twitter and fa-twitter-square classes from _utilities.scss. #302\nDocument installing additional Jekyll gem dependencies when using gem \"jekyll\" instead of gem \"github-pages\" to avoid any errors on run. #305"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-25",
+    "href": "old/CHANGELOG.html#section-25",
+    "title": "Moshi Alam",
+    "section": "3.1.7",
+    "text": "3.1.7\n\nEnhancements\n\nAdd translation key for “Recent Posts” used in home page index.html. #316\n\n\n\nMaintenance\n\nSmall fix to avoid underlying the whitespace between icons and related text when hovering. #303"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-26",
+    "href": "old/CHANGELOG.html#section-26",
+    "title": "Moshi Alam",
+    "section": "3.1.6",
+    "text": "3.1.6\n\nMaintenance\n\nUpdate gem dependencies. Run bundle to update Gemfile.lock."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-27",
+    "href": "old/CHANGELOG.html#section-27",
+    "title": "Moshi Alam",
+    "section": "3.1.5",
+    "text": "3.1.5\n\nMaintenance\n\nFix www and https links in author profile include #293"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-28",
+    "href": "old/CHANGELOG.html#section-28",
+    "title": "Moshi Alam",
+    "section": "3.1.4",
+    "text": "3.1.4\n\nEnhancements\n\nAdd overlay_filter param to hero headers #298"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-29",
+    "href": "old/CHANGELOG.html#section-29",
+    "title": "Moshi Alam",
+    "section": "3.1.3",
+    "text": "3.1.3\n\nEnhancements\n\nImprove site.locale documentation #284\nRemove ProTip note about protocol-less site.url as it is an anti-pattern #288\n\n\n\nBug Fixes\n\nFix og_image URL in seo.html #277\nFix author_profile toggle when assigned in a _layout #285\nFix typo in build:all npm script #283\nFix URL typo documentation #287\nSEO author bug. If twitter.username is set and author.twitter is nil bad things happen. #289"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-30",
+    "href": "old/CHANGELOG.html#section-30",
+    "title": "Moshi Alam",
+    "section": "3.1.2",
+    "text": "3.1.2\n\nEnhancements\n\nExplain how to use nav_list helper in documentation.\nReduce left/right padding on smaller screens to increase width of main content column.\n\n\n\nBug Fixes\n\nFix alignment issues with related posts #273 and “Follow” button in author profile #274."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-31",
+    "href": "old/CHANGELOG.html#section-31",
+    "title": "Moshi Alam",
+    "section": "3.1.1",
+    "text": "3.1.1\n\nBug Fix\n\nFixed reading time bug when words_per_minute wasn’t set in _config.yml #271"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-32",
+    "href": "old/CHANGELOG.html#section-32",
+    "title": "Moshi Alam",
+    "section": "3.1.0",
+    "text": "3.1.0\n\nEnhancements\n\nUpdated Font Awesome to version 4.6.1\nAdded optional GitHub and Bitbucket links to footer if set on site.author in _config.yml.\n\n\n\nBug Fixes\n\nFixed Bitbucket URL typo in author sidebar."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-33",
+    "href": "old/CHANGELOG.html#section-33",
+    "title": "Moshi Alam",
+    "section": "3.0.3",
+    "text": "3.0.3\n\nEnhancements\n\nRebuilt the entire theme: layouts, includes, stylesheets, scripts, you name it.\nRefreshed the look and feel while staying true to the original design of the theme (author sidebar/main content).\nReplaced grid system with Susy.\nReplaced Grunt tasks with npm scripts.\nRemoved Google Fonts and replaced with system fonts to improve performance (they can be added back if desired)\nGreatly improved theme documentation.\nIncreased the amount of sample posts, sample pages, and sample collections to throughly test the theme and edge-cases.\nMoved all sample content and assets out of master to keep it as clean as possible for forking.\nAdded new layouts for splash pages, archives for jekyll-archives if enabled, and compress.html to improve performance.\nAdded taxonomy links to posts (tags and categories).\nAdded optional “reading time” meta data.\nImproved Liquid used for Twitter Cards and Open Graph data in &lt;head&gt;.\nImproved gallery include helper and added feature_row for use with splash page layout.\nAdded Keybase.io, author web URI, and Bitbucket optional links to sidebar.\nAdd feed.xml link to footer.\nAdded a UI text data file to easily change all text found in the theme.\nAdded LinkedIn to optional social share buttons.\nAdded Facebook, Google+, and custom commenting options in addition to Disqus.\nAdded optional breadcrumb links."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-34",
+    "href": "old/CHANGELOG.html#section-34",
+    "title": "Moshi Alam",
+    "section": "2.2.1",
+    "text": "2.2.1"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-35",
+    "href": "old/CHANGELOG.html#section-35",
+    "title": "Moshi Alam",
+    "section": "2.2.0",
+    "text": "2.2.0\n\nEnhancements\n\nAdd support for Jekyll 3.0\nMinor updates to syntax highlighting CSS and theme documentation"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-36",
+    "href": "old/CHANGELOG.html#section-36",
+    "title": "Moshi Alam",
+    "section": "2.1.3",
+    "text": "2.1.3\n\nEnhancements\n\nCleaner print styles that remove the top navigation, social sharing buttons, and other elements not needed when printed."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-37",
+    "href": "old/CHANGELOG.html#section-37",
+    "title": "Moshi Alam",
+    "section": "2.1.2",
+    "text": "2.1.2\n\nEnhancements\n\nAdd optional CodePen icon/url to author side bar #156\nDocumented Stackoverflow username explanation in _config.yml #157\nSimplified Liquid in post-index.html to better handle year listings #166\n\n\n\nBug Fixes\n\nCleanup Facebook related Open Graph meta tags #149\nCorrected minor typos #158 #175"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-38",
+    "href": "old/CHANGELOG.html#section-38",
+    "title": "Moshi Alam",
+    "section": "2.1.1",
+    "text": "2.1.1\n\nEnhancements\n\nAdd optional XING profile link to author sidebar\nInclude open graph meta tags for feature image (if assigned) #149\nCreate an include for feed footer\n\n\n\nBug Fixes\n\nRemove http protocol from Google search form on sample 404 page\nOnly show related posts if there are one or more available\nFix alignment of email address link in author sidebar"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-39",
+    "href": "old/CHANGELOG.html#section-39",
+    "title": "Moshi Alam",
+    "section": "2.1.0",
+    "text": "2.1.0\n\nEnhancements\n\nAdd optional social sharing buttons (#42)\n\n\n\n\nsocial sharing buttons\n\n\n\nAdd Soundcloud, YouTube (#95), Flickr (#119), and Weibo (#116) icons for use in author sidebar.\nFix typos in posts and documentation and remove references to Less\nInclude note about Octopress gem being optional\nPost author override support extended to the Atom feed (#71)\nOnly include email address in feed if specified in _config.yml or author _data\nWrap all page content in #main to harmonize article and post index styles (#86)\nInclude new sample feature images for posts and pages\nTable of contents improvements: fix collapse toggle, indent nested elements, show on small screens, and create an _include for reusing in posts and pages.\nInclude note about running Jekyll with bundle exec when using Bundler\nFix home page path in top navigation\nRemove Google Authorship (#120)\nRemove duplicate author content that displayed in div.article-author-bottom\nRemoved unused _sass/print.scss styles\nImprove comments in .scss files"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-40",
+    "href": "old/CHANGELOG.html#section-40",
+    "title": "Moshi Alam",
+    "section": "2.0.0",
+    "text": "2.0.0"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-41",
+    "href": "old/CHANGELOG.html#section-41",
+    "title": "Moshi Alam",
+    "section": "1.3.3",
+    "text": "1.3.3\n\nEnhancements\n\nAdded new icons and profile links for Stackoverflow, Dribbble, Pinterest, Foursquare, and Steam to the author bio sidebar.\nCleaned up the Kramdown auto table of contents styling to be more readable\nRemoved page width specific .less stylesheets and created mixins for easier updating\nRemoved Modernizr since it wasn’t being used\nAdded pages to sitemap.xml\nAdded category: to rake new_post task\nMinor typographic changes\n\n\n\nBug Fixes\n\nCorrected various broken links in README and Theme Setup."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-42",
+    "href": "old/CHANGELOG.html#section-42",
+    "title": "Moshi Alam",
+    "section": "1.3.1",
+    "text": "1.3.1\n\nEnhancements\n\nCleaned up table of contents styling\nReworked top navigation to be a better experience on small screens. Nav items now display vertically when the menu button is tapped, revealing links with larger touch targets.\n\n\n\n\nmenu animation"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-43",
+    "href": "old/CHANGELOG.html#section-43",
+    "title": "Moshi Alam",
+    "section": "1.2.0",
+    "text": "1.2.0\n\nBug Fixes\n\nTable weren’t filling the entire width of the content container. They now scale at 100%. Thanks @dhruvbhatia\n\n\n\nEnhancements\n\nDecreased spacing between Markdown footnotes\nRemoved dark background on footer\nRemoved UPPERCASE styling on post titles in the index listing"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-44",
+    "href": "old/CHANGELOG.html#section-44",
+    "title": "Moshi Alam",
+    "section": "1.1.4",
+    "text": "1.1.4\n\nBug Fixes\n\nFix top navigation bug issue (#10) for real this time. Remember to clear your floats kids."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-45",
+    "href": "old/CHANGELOG.html#section-45",
+    "title": "Moshi Alam",
+    "section": "1.1.3",
+    "text": "1.1.3\n\nBug Fixes\n\nFix top navigation links that weren’t click able on small viewports (Issue #10).\nRemove line wrap from top navigation links that may span multiple lines."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-46",
+    "href": "old/CHANGELOG.html#section-46",
+    "title": "Moshi Alam",
+    "section": "1.1.2",
+    "text": "1.1.2\n\nEnhancements\n\nAdded Grunt build script for compiling Less/JavaScript and optimizing image assets.\nAdded support for large image summary Twitter card.\nStylesheet adjustments"
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-47",
+    "href": "old/CHANGELOG.html#section-47",
+    "title": "Moshi Alam",
+    "section": "1.1.1",
+    "text": "1.1.1\n\nBug Fixes\n\nRemoved Typeplate styles. Was causing issues with newer versions of Less and is no longer maintained.\n\n\n\nEnhancements\n\nAdded image attribution for post and page feature images.\nAdded 404 page.\nCleaned up various Less variables to better align with naming conventions used in other MM Jekyll themes.\nRemoved Chrome Frame references.\nAdded global CSS3 transitions to text and block elements.\nImproved typography in a few places."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-48",
+    "href": "old/CHANGELOG.html#section-48",
+    "title": "Moshi Alam",
+    "section": "1.0.2",
+    "text": "1.0.2\n\nEnhancements\n\nGoogle Analytics, Google Authorship, webmaster verifies, and Twitter card meta are now optional."
+  },
+  {
+    "objectID": "old/CHANGELOG.html#section-49",
+    "href": "old/CHANGELOG.html#section-49",
+    "title": "Moshi Alam",
+    "section": "1.0.1",
+    "text": "1.0.1"
   }
 ]
