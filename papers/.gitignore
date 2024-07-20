@@ -1,0 +1,10 @@
+*.aux
+*.gz
+*.xdev
+*.xdv
+*.tex
+*.synctex.gz
+*.synctex.gz(busy)
+*.synctex(busy)
+Alam_MdMoshiUl_CV.synctex.gz
+*/*.synctex*

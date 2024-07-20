@@ -1,0 +1,23 @@
+---
+title: Resources for undergrad students
+---
+
+## Coding resources
+Students are free to use any language of their preference--Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. 
+
+_I strongly encourage students to use open-source languages like R, julia and python._
+
+Besides google search being a very good friend while picking up any language, here are some resources on **Stata** from the internet that may be useful for students. 
+
+1. [Social Science Computing Center at UW-Madison](https://www.ssc.wisc.edu/statistics/stata/)
+2. [Data and Statistical services at Princeton](https://dss.princeton.edu/training/)
+3. [Advanced Research computing at UCLA](https://stats.oarc.ucla.edu/stata/)
+4. [Project management in Stata](https://sscc.wisc.edu/sscc/pubs/dws/data_wrangling_stata8.htm)
+5. [Transitioning between Stata and R](https://stata2r.github.io)
+
+Most of them, have corresponding pages for R as well. 
+
+## Best practices
+
+- [Useful checklist while working with regression outputs](https://blogs.worldbank.org/impactevaluations/crowd-sourced-checklist-top-10-little-things-drive-us-crazy-regression-output?CID=WBW_AL_BlogNotification_EN_EXT)
+- [Code and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro](https://scholar.harvard.edu/files/shapiro/files/codeanddata.pdf)

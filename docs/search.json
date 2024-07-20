@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Download my CV \nLast updated: December 25, 2023"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Labor Market Consequences of Pay-Equity Laws\n\nwith Steve Lehrer and Nuno Souso Pereira  [+ Abstract] \nEmployee-Side Discrimination: Beliefs and Preferences\n\nwith Mehreen Mookerjee and Sanket Roy  [+ Abstract] \n\nR&R at Quantitative Economics\n\nFemale Inheritance Rights and Household Sanitation\n\nwith Monica Agarwal  [+ Abstract]"
+  },
+  {
+    "objectID": "research.html#working-papers",
+    "href": "research.html#working-papers",
+    "title": "Research",
+    "section": "",
+    "text": "Labor Market Consequences of Pay-Equity Laws\n\nwith Steve Lehrer and Nuno Souso Pereira  [+ Abstract] \nEmployee-Side Discrimination: Beliefs and Preferences\n\nwith Mehreen Mookerjee and Sanket Roy  [+ Abstract] \n\nR&R at Quantitative Economics\n\nFemale Inheritance Rights and Household Sanitation\n\nwith Monica Agarwal  [+ Abstract]"
+  },
+  {
+    "objectID": "research.html#publicationsforthcoming",
+    "href": "research.html#publicationsforthcoming",
+    "title": "Research",
+    "section": " Publications/Forthcoming",
+    "text": "Publications/Forthcoming\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+ Abstract]   [ Replication] \n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\nEmployee-Side Discrimination: Beliefs and Preferences\n\nwith Mehreen Mookerjee and Sanket Roy  [+ Abstract]  [ Replication]\n\nConditionally aceepted at Quantitative Economics"
+  },
+  {
+    "objectID": "research.html#research-in-progress",
+    "href": "research.html#research-in-progress",
+    "title": "Research",
+    "section": " Research in progress",
+    "text": "Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbstract\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "research.html#abs_divorce-title",
+    "href": "research.html#abs_divorce-title",
+    "title": "Research",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "research.html#abs_payequity-title",
+    "href": "research.html#abs_payequity-title",
+    "title": "Research",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "research.html#abs_workerdisc-title",
+    "href": "research.html#abs_workerdisc-title",
+    "title": "Research",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "research.html#abs_sanitation-title",
+    "href": "research.html#abs_sanitation-title",
+    "title": "Research",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html",
+    "href": "morepages/resourcesforugstudents.html",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper.\nI strongly encourage students to use open-source languages like R, julia and python.\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#coding-resources",
+    "href": "morepages/resourcesforugstudents.html#coding-resources",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper.\nI strongly encourage students to use open-source languages like R, julia and python.\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#best-practices",
+    "href": "morepages/resourcesforugstudents.html#best-practices",
+    "title": "Resources for undergrad students",
+    "section": "Best practices",
+    "text": "Best practices\n\nUseful checklist while working with regression outputs\nCode and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Clark University\n\nUndergraduate: Introductory Econometrics \n\n\n\n\nQueen’s University\n\nPhD: Model based and design based methods\n\nCourse Outline\n\nUndergraduate: Applied Econometrics: Causal Inference.\n\nCourse Outline Course Website\n\n\n\n\n\nUniversity of Wisconsin-Madison\n\nDepartment of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019\n\n\nEcon 705 – Econometric Theory (Master’s). Instructors: Jack Porter & Jeffrey Smith\n\nJuli Plant Grainger Teaching Excellence Award\nDistinguished Teaching Assistant\n\nEcon 706 – Applied Econometrics (Master’s). Instructors: Christopher Taber & Kenneth West\n\nDistinguished Teaching Assistant\n\nEcon 101 [Head TA]. Instructor: Korinna Hansen; Elizabeth Kelly; Gwen Eudey \n\nDistinguished Teaching Assistant\nDistinguished Teaching Assistant\nExcellent TA citation\n\n\n\n\n\n\n\nResources for students\nCoding for undergrads\nPodcasts discussing empircal research in economics"
+  },
+  {
+    "objectID": "morepages/podcasts.html",
+    "href": "morepages/podcasts.html",
+    "title": "Podcasts",
+    "section": "",
+    "text": "Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics.\nI found the following episodes to be particularly interesting. This is a continously evolving list. Suggestions are welcome!\n\nRCT:\n\nAmy Finkelstein on the impact of health insurance (Oregon Medicaid expansion) experiment. “How do we know what really works in healthcare?” – Freakonomics (April 2, 2015)\nNicholas Bloom on the impact of working from home on productivity. “When you start to miss Tony from Accounting” – Hidden Brain (Nov 2020)\nJim Heckman on the impact of early childhood investments on long run outcomes. “Whats not on the test” – Hidden Brain\nJohn List (U-Chicago) on the rise of RCT and worries of scaling up experiments (SUTVA violations). “The Price of Doing Business with John List” – People I (Mostly) Admire\n“A Nobel-Prize for Development RCTs!” by David McKenzie World Bank Blog\n\n\n\nIV (Continuous and discrete treatments):\n\nSairt Weisburd on Police presence and Crime – Probable Causation July 21, 2020\nCarolina Artega on Parental Incarceration and Educational outcomes – Probable Causation July 20, 2021\n\n\n\nD-i-D:\n\nMolly Schnell on how exposure to school shootings affects students’ outcomes Probable Causation March 15, 2022\n(advanced) Adrew Goodman-Bacon on recent advances on D-i-D with staggered timing APPAM - Methodological Advances for Difference-in-Differences with Staggered Timing\n\n\n\nRD:\n\n“If Mayors ruled the worlds” Freakonomics April 10, 2014\n“Why is Uber an Economist’s Dream?” Freakonomics September 7, 2016\nMichael Lovenheim on grade retention and crime. Probable Causation September 17, 2019\nGaurav Khanna on Employment and Crime in Colombia. Probable Causation Aug 17, 2021\n\n\n\nDiff-in-RD (advanced)\n\nKirabo Jackson on single-sex education and academic and criminal outcomes. Probable Causation March 31, 2020"
+  },
+  {
+    "objectID": "papers.html",
+    "href": "papers.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Employee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steve Lehrer and Nuno Souso Pereira  [+Abstract] \nFemale Inheritance Rights and Household Sanitation\n\nwith Monica Agarwal  [+Abstract]"
+  },
+  {
+    "objectID": "papers.html#working-papers",
+    "href": "papers.html#working-papers",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Employee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steve Lehrer and Nuno Souso Pereira  [+Abstract] \nFemale Inheritance Rights and Household Sanitation\n\nwith Monica Agarwal  [+Abstract]"
+  },
+  {
+    "objectID": "papers.html#publicationsaccepted",
+    "href": "papers.html#publicationsaccepted",
+    "title": "Moshi Alam",
+    "section": " Publications/Accepted",
+    "text": "Publications/Accepted\n\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article"
+  },
+  {
+    "objectID": "papers.html#research-in-progress",
+    "href": "papers.html#research-in-progress",
+    "title": "Moshi Alam",
+    "section": " Research in progress",
+    "text": "Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbstract\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "papers.html#abs_divorce-title",
+    "href": "papers.html#abs_divorce-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "papers.html#abs_payequity-title",
+    "href": "papers.html#abs_payequity-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "papers.html#abs_workerdisc-title",
+    "href": "papers.html#abs_workerdisc-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "papers.html#abs_sanitation-title",
+    "href": "papers.html#abs_sanitation-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "E-mail    CV    Scholar\nHi! I am a labor and public economist. I received my PhD in Economics, from the University of Wisconsin-Madison following which I was a Post-Doctoral Research Fellow at the Department of Economics, Queen’s University. I joined Clark University, as an Assistant Professor of Economics in the Fall of 2024."
+  },
+  {
+    "objectID": "index.html#working-papers",
+    "href": "index.html#working-papers",
+    "title": "Moshi Alam",
+    "section": " Working papers",
+    "text": "Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steve Lehrer and Nuno Souso Pereira  [+Abstract] \nFemale Inheritance Rights and Household Sanitation\n\nwith Monica Agarwal  [+Abstract]"
+  },
+  {
+    "objectID": "index.html#publicationsaccepted",
+    "href": "index.html#publicationsaccepted",
+    "title": "Moshi Alam",
+    "section": " Publications/Accepted",
+    "text": "Publications/Accepted\n\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article"
+  },
+  {
+    "objectID": "index.html#research-in-progress",
+    "href": "index.html#research-in-progress",
+    "title": "Moshi Alam",
+    "section": " Research in progress",
+    "text": "Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbstract\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "index.html#abs_divorce-title",
+    "href": "index.html#abs_divorce-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "index.html#abs_payequity-title",
+    "href": "index.html#abs_payequity-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "index.html#abs_workerdisc-title",
+    "href": "index.html#abs_workerdisc-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "index.html#abs_sanitation-title",
+    "href": "index.html#abs_sanitation-title",
+    "title": "Moshi Alam",
+    "section": "Abstract",
+    "text": "Abstract"
+  }
+]

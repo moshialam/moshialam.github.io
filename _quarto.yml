@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Moshi Alam"
+  # favicon: <i class="bi bi-feather"></i> 
+  navbar:
+    pinned: true
+    right:
+      - href: index.qmd
+        text: Research
+      # - research.qmd
+      - teaching.qmd
+      - cv.qmd
+      - icon: github
+        href: https://github.com/moshialam
+      - icon: twitter
+        href: https://twitter.com/MoshiAlam
+  page-footer:
+      background: dark
+      left:
+            - "Copyright 2021, Md Moshi Ul Alam. Website created using Quarto."
+      # right:
+format:
+  html:
+    # theme: 
+        # - styles.scss
+    theme: #flatly # sandstone # cosmo # lux ## morph # minty
+      light: flatly # flatly # minty
+      dark: darkly # solar
+    css: styles.css
+    # mainfont: Palatino
+    toc: true
+    html-math-method: katex
+    smooth-scroll: true
+    link-external-icon: false
+    page-layout: full
+    code-fold: true
+    # code-tools: true
+    code-link: true
+    # code-block-bg: true
+    # code-block-border-left: "#31BAE9"
+
+
+
+

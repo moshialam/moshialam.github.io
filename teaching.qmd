@@ -1,0 +1,46 @@
+---
+title: "Teaching"
+---
+
+### [Clark University](https://www.econ.queensu.ca/) 
+
+- Undergraduate: Introductory Econometrics
+<!-- - Undergraduate: Applied Econometrics -->
+---
+
+### [Queen's University](https://www.econ.queensu.ca/) 
+
+- PhD: Model based and design based  methods
+    - [Course Outline](https://moshialam.github.io/_pages/852_outline/)
+- Undergraduate: Applied Econometrics: Causal Inference.
+    - [Course Outline](https://moshialam.github.io/_pages/452_outline/) [Course Website](https://onq.queensu.ca/d2l/home/764511)
+
+---
+
+### [University of Wisconsin-Madison](https://econ.wisc.edu/) 
+ <p class="text-info">  _Department of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019_ </p>
+ 
+- Econ 705 -- Econometric Theory (Master's). _Instructors: [Jack Porter](https://www.ssc.wisc.edu/~jrporter/) & [Jeffrey Smith](https://sites.google.com/site/econjeffsmith/home)_ 
+  - _Juli Plant Grainger Teaching Excellence Award_ 
+  -  _Distinguished Teaching Assistant_
+
+- Econ 706 -- Applied Econometrics (Master's). _Instructors: [Christopher Taber](https://www.ssc.wisc.edu/~ctaber/) & [Kenneth West](https://www.ssc.wisc.edu/~kwest/)_
+   - _Distinguished Teaching Assistant_
+
+- Econ 101 [Head TA]. _Instructor: [Korinna Hansen](https://www.ssc.wisc.edu/~kohansen/); [Elizabeth Kelly](https://econ.wisc.edu/staff/kelly-elizabeth/); [Gwen Eudey](https://econ.wisc.edu/staff/eudey-gwen/) _
+  - _Distinguished Teaching Assistant_ 
+  - _Distinguished Teaching Assistant_ 
+  - _Excellent TA citation_
+
+<!-- - Econ 101. _Instructor: [Elizabeth Kelly](https://econ.wisc.edu/staff/kelly-elizabeth/)_ -->
+
+<!-- - Econ 101. _Instructor: [Gwen Eudey](https://econ.wisc.edu/staff/eudey-gwen/)_ -->
+
+
+---
+
+### Resources for students
+
+[Coding for undergrads](/morepages/resourcesforugstudents.qmd)
+
+[Podcasts discussing empircal research in economics](/morepages/podcasts.qmd)
