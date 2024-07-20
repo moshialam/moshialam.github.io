@@ -10,7 +10,6 @@ website:
     right:
       - href: index.qmd
         text: Research
-      # - research.qmd
       - teaching.qmd
       - cv.qmd
       - icon: github

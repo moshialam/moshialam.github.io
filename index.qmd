@@ -1,6 +1,6 @@
 ---
 title: "Moshi Alam"
-subtitle: "Assistant Professor of Economics, Clark University"
+# subtitle: "Assistant Professor of Economics, Clark University"
 image: 20221021-LTH-Alam16-3.jpg
 toc: false
 about: 
@@ -36,7 +36,7 @@ output:
 </a>
 
 Hi! I am a labor economist.
-I received my PhD in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/) following which I was a Post-Doctoral Research Fellow at the Department of Economics, [Queen’s University](https://www.econ.queensu.ca/). I joined Clark University, as an Assistant Professor of Economics in the Fall of 2024.
+I received my PhD in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/) following which I was a Post-Doctoral Research Fellow at the Department of Economics, [Queen’s University](https://www.econ.queensu.ca/). Starting Fall 2024, I will join Clark University, as an Assistant Professor of Economics.
 ---
 
 <!-- # Research -->
