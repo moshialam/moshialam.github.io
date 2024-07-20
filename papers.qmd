@@ -1,8 +1,8 @@
 ##  <i class="bi bi-bookmark-check"></i> Working papers
-- [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_Oct21.pdf) (PhD JMP)  <p>with Mehreen Mookerjee and Sanket Roy **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
+- [**Employee-Side Discrimination: Beliefs and Preferences**](papers/Alam_JMP_Oct21.pdf) (PhD JMP)  <p>with Mehreen Mookerjee and Sanket Roy **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
   [+Abstract]
 </a>** <p class="text-info"> _R&R at Quantitative Economics_ </p> </p>
-- [**Labor Market Consequences of Pay-Equity Laws**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) (Post-doc JMP) <p>with Steve Lehrer and Nuno Souso Pereira **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">
+- [**Labor Market Consequences of Pay-Equity Laws**](papers/Alam_JMP_payequity.pdf) (Post-doc JMP) <p>with Steve Lehrer and Nuno Souso Pereira **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">
   [+Abstract]
 </a>** 
 - [**Female Inheritance Rights and Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
