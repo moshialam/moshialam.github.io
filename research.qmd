@@ -10,7 +10,7 @@ title: "Research"
 - [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf)  <p>with Mehreen Mookerjee and Sanket Roy  **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
   [+  Abstract]
 </a>**  <p class="text-info"> _R&R at Quantitative Economics_ </p>
-- [**Female Inheritance Rights and Household Sanitation**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
+- [**Female Inheritance Rights and Household Sanitation**](/old/papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
   [+  Abstract]
 </a>** 
 <!-- - **Labor Market Consequences of Pay-Equity Laws** <p>with Steve Lehrer and Nuno Souso Pereira <a href="https://moshialam.github.io/papers/Alam_JMP_payequity.pdf" target="_blank" class="btn btn-outline-info btn-sm"> <i class="fas fa-file-pdf" style='font-size:15px;color:darkred'></i> PDF  </a></p>  -->
