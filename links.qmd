@@ -1,0 +1,11 @@
+## Software engineering for economists
+
+### Version control: GitHub and Git 
+- [from quantecon](https://julia.quantecon.org/software_engineering/version_control.html#discarding-changes)
+- [from Tilburg Science](https://tilburgsciencehub.com/topics/automation/workflows/starting/principles-of-project-setup-and-workflow-management/versioning/)
+
+### Unit testing
+- [from quantecon](https://julia.quantecon.org/software_engineering/testing.html)
+
+
+### Continuous integration 

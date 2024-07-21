@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Moshi Alam - Md Moshi Ul Alam</title>
+<title>Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -66,6 +32,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -73,8 +40,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -128,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -161,206 +124,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#software-engineering-for-economists" id="toc-software-engineering-for-economists" class="nav-link active" data-scroll-target="#software-engineering-for-economists">Software engineering for economists</a>
+  <ul class="collapse">
+  <li><a href="#version-control-github-and-git" id="toc-version-control-github-and-git" class="nav-link" data-scroll-target="#version-control-github-and-git">Version control: GitHub and Git</a></li>
+  <li><a href="#unit-testing" id="toc-unit-testing" class="nav-link" data-scroll-target="#unit-testing">Unit testing</a></li>
+  <li><a href="#continuous-integration" id="toc-continuous-integration" class="nav-link" data-scroll-target="#continuous-integration">Continuous integration</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content column-page">
-  <div class="about-entity">
-    <img src="20221021-LTH-Alam16-3.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Md Moshi Ul Alam</h1>
-</div>
-<div class="quarto-title-meta column-page">
-  </div>
-</header>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<!-- # Thank you for visiting my website!  -->
-<!--   -->
-<!-- Note that the icons and buttons are from bootstrap -->
-<p><a href="mailto:alam.m@queensu.ca" class="btn btn-outline-info"> <i class="bi bi-envelope"></i> E-mail </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-outline-danger"> <i class="bi bi-filetype-pdf"></i> CV </a> <a href="https://scholar.google.com/citations?view_op=list_works&amp;hl=en&amp;hl=en&amp;user=SWaFdk8AAAAJ" class="btn btn-outline-warning"> <i class="bi bi-google"></i> Scholar </a></p>
-<p>Hi! I am a labor economist. I received my PhD in Economics, from the <a href="https://econ.wisc.edu/">University of Wisconsin-Madison</a> following which I was a Post-Doctoral Research Fellow at the Department of Economics, <a href="https://www.econ.queensu.ca/">Queen’s University</a>. Starting Fall 2024, I will join Clark University, as an Assistant Professor of Economics.</p>
-<hr>
-<!-- # Research -->
-<section id="research-fields-labor-economics-public-economics-applied-econometrics" class="level4">
-<h4 data-anchor-id="research-fields-labor-economics-public-economics-applied-econometrics"><strong>Research fields:</strong> Labor Economics, Public Economics, Applied Econometrics</h4>
-<p><em>My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either design-based, or model-based methods, or both.</em></p>
-</section>
-<section id="working-papers" class="level2">
-<h2 data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working papers</h2>
+<main class="content column-page-left" id="quarto-document-content">
+
+
+
+
+<section id="software-engineering-for-economists" class="level2">
+<h2 class="anchored" data-anchor-id="software-engineering-for-economists">Software engineering for economists</h2>
+<section id="version-control-github-and-git" class="level3">
+<h3 class="anchored" data-anchor-id="version-control-github-and-git">Version control: GitHub and Git</h3>
 <ul>
-<li><a href="papers/Alam_JMP_Oct21.pdf"><strong>Employee-Side Discrimination: Beliefs and Preferences</strong></a> (PhD JMP)
-<p>
-with Mehreen Mookerjee and Sanket Roy <strong><a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info"> [+Abstract] </a></strong>
-</p><p class="text-info">
-<em>R&amp;R at Quantitative Economics</em>
-</p>
-<p></p></li>
-<li><a href="papers/Alam_JMP_payequity.pdf"><strong>Labor Market Consequences of Pay-Equity Laws</strong></a> (Post-doc JMP)
-<p>
-with Steve Lehrer and Nuno Souso Pereira <strong><a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info"> [+Abstract] </a></strong></p></li>
-<li><a href="papers/Agarwal_Alam_sanitation.pdf"><strong>Female Inheritance Rights and Household Sanitation</strong></a>
-<p>
-with Monica Agarwal <strong><a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info"> [+Abstract] </a></strong> <!-- - **Labor Market Consequences of Pay-Equity Laws** <p>with Steve Lehrer and Nuno Souso Pereira <a href="https://moshialam.github.io/papers/Alam_JMP_payequity.pdf" target="_blank" class="btn btn-outline-info btn-sm"> <i class="fas fa-file-pdf" style='font-size:15px;color:darkred'></i> PDF  </a></p>  --></p></li>
+<li><a href="https://julia.quantecon.org/software_engineering/version_control.html#discarding-changes">from quantecon</a></li>
+<li><a href="https://tilburgsciencehub.com/topics/automation/workflows/starting/principles-of-project-setup-and-workflow-management/versioning/">from Tilburg Science</a></li>
 </ul>
 </section>
-<section id="publicationsaccepted" class="level2">
-<h2 data-anchor-id="publicationsaccepted"><i class="bi bi-bookmark-check-fill"></i> Publications/Accepted</h2>
-<!-- - [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) [PhD JMP]  <p>with Mehreen Mookerjee and Sanket Roy  **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
-  [+Abstract]
-</a>**  [[Replication]](https://moshialam.github.io/papers) <p class="text-info"> _Quantitative Economics (2024) 17(1):1307-1346_ </p> -->
+<section id="unit-testing" class="level3">
+<h3 class="anchored" data-anchor-id="unit-testing">Unit testing</h3>
 <ul>
-<li><a href="https://www.demographic-research.org/volumes/vol46/38/default.htm">“<strong>Increases in shared custody after divorce in the United States.</strong>”</a>
-<p>
-with Daniel Meyer and Marcia Carlson. <strong><a href="#" data-micromodal-trigger="abs_divorce" tabindex="0" class="text-info"> [+Abstract] </a></strong> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm"><i class="text-info"> [<i class="fa-solid fa-code" aria-label="code"></i>Replication]</i></a>
-</p><p class="text-info">
-<em>Demographic Research</em> 46 (2022): 1137-1162. <a class="text-info"> <em>“Editor’s Choice”</em> article</a>
-</p></li>
+<li><a href="https://julia.quantecon.org/software_engineering/testing.html">from quantecon</a></li>
 </ul>
 </section>
-<section id="research-in-progress" class="level2">
-<h2 data-anchor-id="research-in-progress"><i class="bi bi-bookmark"></i> Research in progress</h2>
-<ul>
-<li><strong>Optimal Place-Based Redistribution</strong>
-<p>
-with Morris Davis and Jesse Gregory
-</p></li>
-<li><strong>Spatial Inequality and School Choice Mechanisms</strong>
-<p>
-with Monica Agarwal, Chao Fu, YingHua He
-</p></li>
-<li><strong>Labor Market Inequality and Collective Bargaining</strong>
-<p>
-with Steven Lehrer and Nuno Souso Pereira
-</p></li>
-<li><strong>Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions</strong>
-<p>
-</p></li>
-</ul>
-<hr>
-<section id="dormant-papers" class="level3">
-<h3>Dormant papers</h3>
-<ul>
-<li><strong>Identification in Models of Discrimination</strong>
-<p>
-[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]
-</p></li>
-</ul>
-<!-- the rest of this stuff is for the popup! -->
-<div class="cell" data-include="false">
-<details class="code-fold hidden">
-<summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="3" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2;"><span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="expression">
-</div>
-</div>
-</div>
-</div>
-<!-- abs_divorce -->
-<div id="abs_divorce" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="-1" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_divorce-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<header>
-<section id="abs_divorce-title" class="level2">
-<h2 data-anchor-id="abs_divorce-title">Abstract</h2>
-</section></header>
-<div id="modal-1-content">
-<p>This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.</p>
-</div>
-</div></div></div></section>
-</section></main></div>
-</div>
-</div>
+<section id="continuous-integration" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-integration">Continuous integration</h3>
 
 
-<!-- abs_payequity -->
-<div id="abs_payequity" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<header>
-<section id="abs_payequity-title" class="level2">
-<h2 data-anchor-id="abs_payequity-title">Abstract</h2>
-</section></header>
-<div id="modal-1-content">
-<p>Many countries are committed to achieving pay equity, with the aim of reducing wage disparities that typically average around 15% in hourly earnings between men and women performing the same job within the same organization. In 2018, Portugal revised its pay equity legislation to impose pay-equity policy targeting larger firms, imposing fines on those that maintained a gender wage gap exceeding five percent. Using detailed matched employer-employee data and an event study design, we examine the immediate labor market effects of this legislation and reveal significant unintended consequences. In aggregate, we find that the number of women experiencing reductions in wage growth far exceeded those who saw increased wage growth. Specifically, within firms with existing wage gaps exceeding five percent, the gap decreased by an average of 13%, primarily due to reduced male wage growth. Conversely, firms with gaps below five percent witnessed a more than 25% increase in the wage gap, primarily due to larger reductions in female wage growth. Moreover, among a small proportion of workers not covered by collective bargaining agreements, the law reduced wage gaps by one-fifth, driven by increased female wage growth. We discuss the mechanisms behind these findings centered around how the law eliminates ambiguity regarding the consequences of gender disparities by setting a target wage gap for all treated firms.</p>
-</div>
+</section>
+</section>
 
-</div>
-</div>
-</div>
-<!-- abs_workerdisc -->
-<div id="abs_workerdisc" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_workerdisc-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<header>
-<section id="abs_workerdisc-title" class="level2">
-<h2 data-anchor-id="abs_workerdisc-title">Abstract</h2>
-</section></header>
-<div id="modal-1-content">
-<p>Tight labor markets are associated with high costs of worker-turnover. In such settings, firms might put significant weight on whom workers want to work for, while deciding promotions. Should workers prefer not to work for female managers, it could lower the chances of females being promoted. In this paper, we present novel evidence on the distribution of workers’ preferences regarding manager gender and their beliefs of managers’ mentoring capabilities, which influence their job search and choice decisions. Using formal identification arguments in settings with varying information, we design an information experiment to separately identify worker beliefs from their preferences in a structural model. In the absence of information on manager quality, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers—as exhibited by their willingness to forgo 1.3–2.2% of average annual wages. Hence, absent additional information on mentorship skill, workers on average believe that female managers’ mentoring ability is worse than male managers’, with the magnitude of this evaluation corresponding to a wage differential of 1.6% of average annual wages. These averages mask rich heterogeneity. We find that 60% of workers prefer to work for female managers, and in the absence of information on mentorship ability, 62% believe male managers to be better mentors. An ex-post survey directly eliciting worker beliefs corroborates this finding. We find policy-relevant heterogeneity by maternal education level, parental employment status and worker major. Our results imply, the distribution of worker preferences could be used to test for discriminatory practices by the firm.</p>
-</div>
-
-</div>
-</div>
-</div>
-<!-- abs_sanitation -->
-<div id="abs_sanitation" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_sanitation-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<header>
-<section id="abs_sanitation-title" class="level2">
-<h2 data-anchor-id="abs_sanitation-title">Abstract</h2>
-</section></header>
-<div id="modal-1-content">
-<p>Existing research shows that females derive greater benefits from in-house toilets than males. Given this, we estimate the impact of a policy that increased inheritance rights of females on the presence of a toilet in their marital household in India. Daughters being usually married away to the household of the groom, available household level nationally representative data do not have all original (natal) household characteristics – which determines treatment eligibility. Under generic assumptions, we show that when the treatment is partially observed to the researcher, we can derive bounds on the average treatment effect in a difference-in-differences framework. We estimate that the policy increased the probability of the presence of a toilet in the household a woman marries into by at least 7.4-11.2 percentage points on average. Allowing for heterogeneous treatment effects, we show that the average treatment effect is primarily driven by larger effects in states that adopted the policy later compared to early adopters. In addition, allowing for dynamic effects, we find that the policy had its highest impact on the group of women who were the youngest at the time of policy implementation, thus having the longest exposure to the policy. Our results underscore that policies that empower can offer to be a seemingly unrelated, yet effective policy tool for improving sanitation coverage in regions grappling with open-defecation problems.</p>
-</div>
-
-</div>
-</div>
-</div>
-<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
-<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
-
-
-
-
-
-
- <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxubWljcm8gPSByZXF1aXJlKFwibWljcm9tb2RhbEAwLjQuMTBcIik7XG5cbm1pY3JvLmluaXQoe1xuICBhd2FpdE9wZW5BbmltYXRpb246IHRydWUsXG4gIGF3YWl0Q2xvc2VBbmltYXRpb246IHRydWVcbn0pO1xuIn1dfQ==
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -525,6 +331,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -885,7 +698,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
