@@ -39,7 +39,7 @@ Hi! I am a labor economist. I received my PhD in Economics, from the [University
 
 <!-- # Research -->
 
-#### **Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
+**Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
 
 _My research interests are in answering microeconomic questions on economic inequality. Depending on the question, I use either design-based, or model-based methods, or both._
 
