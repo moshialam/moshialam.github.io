@@ -14,8 +14,8 @@ website:
       - cv.qmd
       - icon: github
         href: https://github.com/moshialam
-      - icon: twitter
-        href: https://twitter.com/MoshiAlam
+      # - icon: twitter
+      #   href: https://twitter.com/MoshiAlam
   page-footer:
       background: dark
       left:
