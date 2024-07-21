@@ -1,4 +1,4 @@
-##  <i class="bi bi-bookmark-check"></i> Working papers
+####  <i class="bi bi-bookmark-check"></i> Working papers
 - [**Employee-Side Discrimination: Beliefs and Preferences**](papers/Alam_JMP_Oct21.pdf) (PhD JMP)  <p>with Mehreen Mookerjee and Sanket Roy **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
   [+Abstract]
 </a>** <p class="text-info"> _R&R at Quantitative Economics_ </p> </p>
@@ -10,7 +10,7 @@
 </a>** 
 <!-- - **Labor Market Consequences of Pay-Equity Laws** <p>with Steve Lehrer and Nuno Souso Pereira <a href="https://moshialam.github.io/papers/Alam_JMP_payequity.pdf" target="_blank" class="btn btn-outline-info btn-sm"> <i class="fas fa-file-pdf" style='font-size:15px;color:darkred'></i> PDF  </a></p>  -->
 
-## <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted 
+#### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted 
 <!-- - [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) [PhD JMP]  <p>with Mehreen Mookerjee and Sanket Roy  **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
   [+Abstract]
 </a>**  [[{{< fa code >}}Replication]](https://moshialam.github.io/papers) <p class="text-info"> _Quantitative Economics (2024) 17(1):1307-1346_ </p> -->
@@ -23,7 +23,7 @@
 
 
 
-## <i class="bi bi-bookmark"></i> Research in progress
+#### <i class="bi bi-bookmark"></i> Research in progress
 - **Optimal Place-Based Redistribution**
 <p> with Morris Davis and Jesse Gregory </p>
 - **Spatial Inequality and School Choice Mechanisms**
@@ -34,7 +34,7 @@
 
 ---
 
-### Dormant papers
+#### Dormant papers
 - **Identification in Models of Discrimination** <p>[subsumed in my PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]</p>
 
 
