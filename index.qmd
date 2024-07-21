@@ -4,7 +4,7 @@ title: "Md Moshi Ul Alam"
 image: 20221021-LTH-Alam16-3.jpg
 toc: false
 about: 
-  template: trestles # solana #jolla # solana # trestles
+  template: solana  # trestles #  #jolla # solana # trestles
   image-shape: round
   image-width: 15em
   # links:
@@ -32,8 +32,7 @@ output:
 <!-- {{< fa thumbs-up >}}  -->
 <!-- Note that the icons and buttons are from bootstrap -->
 
- <a href="mailto:alam.m@queensu.ca" class="btn btn-outline-info"> <i class="bi bi-envelope"></i>  E-mail </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-outline-danger"> <i class="bi bi-filetype-pdf"></i>  CV </a> <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-outline-warning"> <i class="bi bi-google"></i> Scholar
-</a> <a href="https://twitter.com/MoshiAlam" class="btn btn-outline-info"> <i class="bi bi-twitter"></i> 
+ <a href="mailto:alam.m@queensu.ca" class="btn btn-outline-info"> <i class="bi bi-envelope"></i>  Email </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-outline-danger"> <i class="bi bi-filetype-pdf"></i>  CV </a> <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-outline-warning"> <i class="bi bi-google"></i> Scholar </a> <a href="https://twitter.com/MoshiAlam" class="btn btn-outline-info"> <i class="bi bi-twitter"></i> </a> <a href="https://github.com/moshialam" class="btn btn-outline-dark"> <i class="bi bi-github"></i> 
 </a>
 
 Hi! I am a labor economist.
