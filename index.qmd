@@ -43,7 +43,7 @@ I received my PhD in Economics, from the [University of Wisconsin-Madison](https
 
 #### **Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
 
-_My research interests are in answering applied microeconomic questions on economic inequality. Depending on the question of interest, I use either design-based, or model-based methods, or both._
+_My research interests are in answering microeconomic questions on economic inequality. Depending on the question, I use either design-based, or model-based methods, or both._
 
 {{< include papers.qmd >}}
 
