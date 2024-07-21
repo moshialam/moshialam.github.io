@@ -35,9 +35,6 @@ output:
  <a href="mailto:alam.m@queensu.ca" class="btn btn-outline-info"> <i class="bi bi-envelope"></i>  Email </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-outline-danger"> <i class="bi bi-filetype-pdf"></i>  CV </a> <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-outline-warning"> <i class="bi bi-google"></i> Scholar </a> <a href="https://twitter.com/MoshiAlam" class="btn btn-outline-info"> <i class="bi bi-twitter"></i> </a>
 
 Hi! I am a labor economist. I received my PhD in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). Starting Fall 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/), as an Assistant Professor of Economics.
----
-
-<!-- # Research -->
 
 **Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
 

@@ -10,6 +10,7 @@
 </a>** 
 <!-- - **Labor Market Consequences of Pay-Equity Laws** <p>with Steve Lehrer and Nuno Souso Pereira <a href="https://moshialam.github.io/papers/Alam_JMP_payequity.pdf" target="_blank" class="btn btn-outline-info btn-sm"> <i class="fas fa-file-pdf" style='font-size:15px;color:darkred'></i> PDF  </a></p>  -->
 ---
+
 #### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted 
 <!-- - [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) [PhD JMP]  <p>with Mehreen Mookerjee and Sanket Roy  **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
   [+Abstract]
@@ -21,6 +22,7 @@
 </a>** 
 [<i class="text-info">  [{{< fa code >}}Replication]</i>](https://www.demographic-research.org/volumes/vol46/38/default.htm)  <p class="text-info"> *Demographic Research* 46 (2022): 1137-1162. <a class="text-info"> *"Editor's Choice"* article</a></p> 
 ---
+
 #### <i class="bi bi-bookmark"></i> Research in progress
 - **Optimal Place-Based Redistribution**
 <p> with Morris Davis and Jesse Gregory </p>
@@ -29,7 +31,9 @@
 - **Labor Market Inequality and Collective Bargaining**
 <p> with Steven Lehrer and Nuno Souso Pereira</p>
 - **Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions**<p></p>
+
 ---
+
 #### Dormant papers
 - **Identification in Models of Discrimination** <p>[subsumed in my PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]</p>
 
