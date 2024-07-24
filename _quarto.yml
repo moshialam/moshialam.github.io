@@ -26,8 +26,8 @@ format:
     # theme: 
         # - styles.scss
     theme: #flatly # sandstone # cosmo # lux ## morph # minty
-      light: flatly # flatly # minty
-      dark: darkly # solar
+      light: cosmo # flatly # minty
+      # dark: darkly # solar
     css: styles.css
     # mainfont: Palatino
     toc: true
