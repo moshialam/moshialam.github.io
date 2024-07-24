@@ -26,7 +26,7 @@ format:
     # theme: 
         # - styles.scss
     theme: #flatly # sandstone # cosmo # lux ## morph # minty
-      light: zephyr # flatly # simplex cosmo united
+      light: cosmo # flatly # simplex cosmo united
       # dark: darkly # solar
     css: styles.css
     # mainfont: Palatino
