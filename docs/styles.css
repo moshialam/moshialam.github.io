@@ -14,9 +14,9 @@
     justify-content: center;
     align-items: center;
 }
-
+/* previous modal background color #3d95f4fd; However medium shades provide better contrasts to both black and white texts. Here is one of medium gray. Right now it is set at soft blue */
 .modal__container {
-    background-color: #3d95f4fd;
+    background-color: #87CEEB;
     padding: 30px;
     max-width: 700px;
     width: 90%;
