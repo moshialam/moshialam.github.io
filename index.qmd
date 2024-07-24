@@ -6,7 +6,7 @@ toc: false
 about: 
   template: trestles #  #jolla # solana # trestles
   image-shape: round
-  image-width: 15em
+  image-width: 12em
   # links:
     # - icon: filetype-pdf
     #   text: CV
