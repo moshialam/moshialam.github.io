@@ -1,12 +1,12 @@
 ---
 title: "Teaching"
 ---
-
-### [Clark University](https://www.econ.queensu.ca/) 
+<!-- 
+### [Clark University](https://www.clarku.edu/departments/economics/) 
 
 - Undergraduate: Introductory Econometrics
-<!-- - Undergraduate: Applied Econometrics -->
----
+- Undergraduate: Applied Econometrics -->
+
 
 ### [Queen's University](https://www.econ.queensu.ca/) 
 
