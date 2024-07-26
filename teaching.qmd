@@ -11,9 +11,9 @@ title: "Teaching"
 ### [Queen's University](https://www.econ.queensu.ca/) 
 
 - PhD: Model based and design based  methods
-    - [Course Outline](https://moshialam.github.io/_pages/852_outline/)
+    - [ [Course Outline] ](https://moshialam.github.io/_pages/852_outline/)
 - Undergraduate: Applied Econometrics: Causal Inference.
-    - [Course Outline](morepages/452_outline.qmd/) [Course Website](https://onq.queensu.ca/d2l/home/764511)
+    - [ [Course Outline] ](morepages/452_outline.qmd/) [ [Course Website] ](https://onq.queensu.ca/d2l/home/764511)
 
 ---
 
