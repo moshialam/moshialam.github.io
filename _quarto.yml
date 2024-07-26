@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Moshi Alam"
-  favicon: <i class="bi bi-feather"></i>
+  favicon: Ⓜ️
   navbar:
     pinned: true
     right:
