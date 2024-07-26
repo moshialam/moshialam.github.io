@@ -1,4 +1,8 @@
-## "Econ 452: Course Outline"
+---
+title: "Econ 452: Course Outline"
+---
+
+### Outline
 
 1. Potential Outcomes Framework (1 lecture)
 2. Randomized Control Trials (1.5 lectures)
