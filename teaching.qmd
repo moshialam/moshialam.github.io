@@ -10,7 +10,7 @@ title: "Teaching"
 
 ### [Queen's University](https://www.econ.queensu.ca/) 
 
-- PhD: Model based and design based  methods
+- PhD: Structural and reduced form methods in labor economics
     - [ [Course Outline] ](/morepages/econ852.qmd)
 - Undergraduate: Applied Econometrics: Causal Inference.
     - [ [Course Outline] ](/morepages/econ452.qmd) [ [Course Website] ](https://onq.queensu.ca/d2l/home/764511)
