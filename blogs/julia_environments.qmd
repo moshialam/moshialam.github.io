@@ -47,8 +47,7 @@ julia> ]
 (v1.9) pkg> activate .
 ```
 
-This reactivates the environment associated with the Project.toml and Manifest.toml files in that directory.
-
+This reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.
 
 To add more packages to your project at any time:
 ```julia
