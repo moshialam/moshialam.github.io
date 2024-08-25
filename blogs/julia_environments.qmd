@@ -69,3 +69,6 @@ julia> ]
 ```
 
 The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.
+
+
+In a separatepost I will cover my basic setup to version control my scriptss using git and hosting them on GitHub. 
