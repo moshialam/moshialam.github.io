@@ -3,3 +3,14 @@
 /.quarto/
 
 /blogs/
+
+/papers/*.aux
+/papers/*.gz
+/papers/*.xdev
+/papers/*.xdv
+/papers/*.tex
+/papers/*.synctex.gz
+/papers/*.synctex.gz(busy)
+/papers/*.synctex(busy)
+/papers/Alam_MdMoshiUl_CV.synctex.gz
+*/*.synctex*

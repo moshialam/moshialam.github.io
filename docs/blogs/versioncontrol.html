@@ -207,6 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Disclaimer: There are many maazing resources all over the internet on how to version control. What I have shared below is the minimal requirement that works for me.</p>
 <section id="version-control-using-git" class="level1">
 <h1>Version control using git</h1>
 <p>Version control is essential for tracking changes in your project and collaborating with others. I am getting used to the command line in the terminal, however still being a newbie I mostly use the git configurations set in my editor, Visual Studio Code (VSCode).</p>
@@ -222,10 +223,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-2-create-a-.gitignore-file-in-code" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</h2>
-<p>To exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension .bak and the folder called temp.</p>
+<p>To exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension <code>.bak</code> and the folder called <code>temp</code>.</p>
 <pre class="plaintext"><code># Ignore temporary files
 *.bak
 /temp/</code></pre>
+<p>Although you can create multiple <code>.gitignore</code> within subfolders. I typically prefer having a single gitignore in the main directory and then use relative paths to ensure which files and folders I want git to ignore.</p>
 </section>
 <section id="step-3-connect-to-a-remote-repository-github" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</h2>
@@ -238,19 +240,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-4-stage-and-commit-your-files" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Confirm working branch
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Ensure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was <code>main</code> while that on VSCode was <code>master</code>. The solution to this is a careful force merge of the two branches:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge master <span class="at">--allow-unrelated-histories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 <p>After setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.</p>

@@ -12,9 +12,6 @@
 ---
 
 #### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted 
-<!-- - [**Employee-Side Discrimination: Beliefs and Preferences**](https://moshialam.github.io/papers/Alam_JMP_payequity.pdf) [PhD JMP]  <p>with Mehreen Mookerjee and Sanket Roy  **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
-  [+Abstract]
-</a>**  [[{{< fa code >}}Replication]](https://moshialam.github.io/papers) <p class="text-info"> _Quantitative Economics (2024) 17(1):1307-1346_ </p> -->
 - ["**Increases in shared custody after divorce in the United States.**"](https://www.demographic-research.org/volumes/vol46/38/default.htm) 
 <p>with Daniel Meyer and Marcia Carlson. 
 **<a href="#" data-micromodal-trigger="abs_divorce" tabindex="0" class="text-info">
