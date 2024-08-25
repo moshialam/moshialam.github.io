@@ -1,0 +1,74 @@
+---
+title: "How to Create and Reuse Julia Environments"
+author: "Moshi Alam"
+date: "2024-08-24"
+categories: [Julia, Programming, Reproducibility]
+---
+
+In this post, we'll explore how to create a reproducible project in Julia, activate it, and later reuse and modify the environment as your project evolves such that your project remains reproducible across machines.  The setup below will ensure that the correct versions of your dependencies are used automatically.
+
+## Setting Up a Julia Project Environment
+
+First, let's set up a new Julia project. This involves creating a directory, initializing the environment, and adding any necessary packages.
+
+```julia
+# Create a new directory for your project
+mkdir MyCoolProject
+cd("MyCoolProject")
+
+# Open Julia and initialize a new project
+julia> ]
+(v1.9) pkg> activate .
+(MyCoolProject) pkg> generate MyCoolProject
+```
+
+These commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.
+
+<!-- ### Adding Packages to Your Project -->
+
+Once you’ve initialized your project, you can add packages to it. This is as simple as using the add command in Pkg mode.
+
+```julia
+# Add a package to your project
+(MyCoolProject) pkg> add DataFrames
+```
+
+This command does two things:
+
+1.	Updates Project.toml: It adds DataFrames to the list of dependencies.
+2.	Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.
+
+## Reusing and Modifying Your Environment
+
+If you’ve closed your Julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:
+
+```julia 
+cd("path/to/MyCoolProject")
+julia> ]
+(v1.9) pkg> activate .
+```
+
+This reactivates the environment associated with the Project.toml and Manifest.toml files in that directory.
+
+
+To add more packages to your project at any time:
+```julia
+(MyCoolProject) pkg> add Plots
+```
+This command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.
+
+To see the current status of your environment:
+```julia
+(MyCoolProject) pkg> update
+```
+## Sharing and Reusing Your Environment
+
+To share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:
+```julia
+julia> ]
+(v1.9) pkg> activate .
+(MyCoolProject) pkg> instantiate
+```
+
+The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.
+
