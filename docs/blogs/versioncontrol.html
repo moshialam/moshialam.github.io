@@ -238,6 +238,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-4-stage-and-commit-your-files" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ensure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was <code>main</code> while that on VSCode was <code>master</code>. The solution to this is a careful force merge of the two branches:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge master <span class="at">--allow-unrelated-histories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <p>After setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.</p>
 <ol type="1">
 <li>Click on the Source Control icon in the left sidebar in VSCode.</li>

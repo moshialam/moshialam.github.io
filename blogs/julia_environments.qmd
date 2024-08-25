@@ -9,29 +9,30 @@ A workflow that starts your project to be reproducible from day one, will reduce
 ## Setting Up a julia Project Environment
 
 First, setting up a new julia project will typically involve creating a directory, **initializing the environment**, and adding any necessary packages.
+```zsh
+mkdir -p path/to/MyCoolProject
+cd path/to/MyCoolProject
+```
+Then I typically create a `setup.jl` file in the `path/to/MyCoolProject/code` folder to activate the environment and adding neccesary packages.
 
 ```julia
-# Create a new directory for your project
-mkdir MyCoolProject
-cd("MyCoolProject")
-
-# Open julia and initialize a new project
-julia> ]
-(v1.9) pkg> activate .
+using Pkg
+cd(@__DIR__)
+Pkg.activate(@__DIR__)
 ```
 
-These commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.
+These commands will create a `Project.toml` and `Manifest.toml` file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.
 
 <!-- ### Adding Packages to Your Project -->
 
 Once you’ve initialized your project, you can add packages to it, as you normally would.
 
 ```julia
-# Add a package to your project
+# Add packages to your project
 (MyCoolProject) pkg> add DataFrames
 ```
 
-This command does two things:
+Adding the very first package does two things:
 
 1.	Updates Project.toml: It adds DataFrames to the list of dependencies.
 2.	Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.
