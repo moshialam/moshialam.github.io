@@ -9,7 +9,7 @@
 <meta name="author" content="Moshi Alam">
 <meta name="dcterms.date" content="2024-08-24">
 
-<title>Moshi Alam - Reproducible julia projects</title>
+<title>Moshi Alam - Version control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -157,8 +157,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-up-a-julia-project-environment" id="toc-setting-up-a-julia-project-environment" class="nav-link active" data-scroll-target="#setting-up-a-julia-project-environment">Setting Up a julia Project Environment</a></li>
-  <li><a href="#reusing-modifying-and-sharing-your-environment" id="toc-reusing-modifying-and-sharing-your-environment" class="nav-link" data-scroll-target="#reusing-modifying-and-sharing-your-environment">Reusing, modifying and sharing your environment</a></li>
+  <li><a href="#version-control-using-git" id="toc-version-control-using-git" class="nav-link active" data-scroll-target="#version-control-using-git">Version control using git</a>
+  <ul class="collapse">
+  <li><a href="#step-1-initialize-git-in-your-project" id="toc-step-1-initialize-git-in-your-project" class="nav-link" data-scroll-target="#step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</a></li>
+  <li><a href="#step-2-create-a-.gitignore-file-in-code" id="toc-step-2-create-a-.gitignore-file-in-code" class="nav-link" data-scroll-target="#step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</a></li>
+  <li><a href="#step-3-connect-to-a-remote-repository-github" id="toc-step-3-connect-to-a-remote-repository-github" class="nav-link" data-scroll-target="#step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</a></li>
+  <li><a href="#step-4-stage-and-commit-your-files" id="toc-step-4-stage-and-commit-your-files" class="nav-link" data-scroll-target="#step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</a></li>
+  <li><a href="#step-5-track-changes-and-collaborate" id="toc-step-5-track-changes-and-collaborate" class="nav-link" data-scroll-target="#step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -167,9 +173,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reproducible julia projects</h1>
+<h1 class="title">Version control</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">julia</div>
+    <div class="quarto-category">git</div>
     <div class="quarto-category">Programming</div>
     <div class="quarto-category">Reproducibility</div>
   </div>
@@ -201,48 +207,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using <a href="https://pkgdocs.julialang.org/v1/environments/">julia environments</a>. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine.</p>
-<section id="setting-up-a-julia-project-environment" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-a-julia-project-environment">Setting Up a julia Project Environment</h2>
-<p>First, setting up a new julia project will typically involve creating a directory, <strong>initializing the environment</strong>, and adding any necessary packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new directory for your project</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mkdir MyCoolProject</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span>(<span class="st">"MyCoolProject"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Open julia and initialize a new project</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> generate MyCoolProject</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.</p>
-<!-- ### Adding Packages to Your Project -->
-<p>Once you’ve initialized your project, you can add packages to it, as you normally would.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a package to your project</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> add DataFrames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command does two things:</p>
+<section id="version-control-using-git" class="level1">
+<h1>Version control using git</h1>
+<p>Version control is essential for tracking changes in your project and collaborating with others. I am getting used to the command line in the terminal, however still being a newbie I mostly use the git configurations set in my editor, Visual Studio Code (VSCode).</p>
+<p>First, ensure you have Git installed on your system. You can check this by:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Second, comes the question of what to version control? I typically only version control my /code subfolder inside the project. So below I show how to configure Git to track just that folder and then host it on GitHub</p>
+<section id="step-1-initialize-git-in-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</h2>
+<p>Navigate to your project directory and initialize a Git repository:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/MyCoolProject/code</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This creates a new Git repository in the MyCoolProject/code directory.</p>
+</section>
+<section id="step-2-create-a-.gitignore-file-in-code" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</h2>
+<p>To exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension .bak and the folder called temp.</p>
+<pre class="plaintext"><code># Ignore temporary files
+*.bak
+/temp/</code></pre>
+</section>
+<section id="step-3-connect-to-a-remote-repository-github" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</h2>
+<p>I host my version controlled files on GitHub.</p>
 <ol type="1">
-<li>Updates Project.toml: It adds DataFrames to the list of dependencies.</li>
-<li>Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.</li>
+<li>Create a new repository on GitHub</li>
+<li>Add the remote URL to your local Git repository:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YourUsername/MyCoolProject-code.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-4-stage-and-commit-your-files" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</h2>
+<p>After setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.</p>
+<ol type="1">
+<li>Click on the Source Control icon in the left sidebar in VSCode.</li>
+<li>You should see all your files listed as untracked. Click on the + icon next to each file to stage them, or click + next to Changes to stage all files.</li>
+<li>Enter a commit message in the text box at the top.</li>
+<li>Click on the checkmark icon to commit your staged changes.</li>
+<li>Push your changes to the remote repository.</li>
 </ol>
 </section>
-<section id="reusing-modifying-and-sharing-your-environment" class="level2">
-<h2 class="anchored" data-anchor-id="reusing-modifying-and-sharing-your-environment">Reusing, modifying and sharing your environment</h2>
-<p>If you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span>(<span class="st">"path/to/MyCoolProject"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This reactivates the environment associated with the Project.toml and Manifest.toml files in that directory.</p>
-<p>To add more packages to your project at any time:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> add Plots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.</p>
-<p>To see the current status of your environment:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> instantiate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.</p>
+<section id="step-5-track-changes-and-collaborate" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</h2>
+<p>Now that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

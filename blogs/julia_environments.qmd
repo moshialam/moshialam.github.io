@@ -1,22 +1,21 @@
 ---
-title: "How to Create and Reuse Julia Environments"
+title: "Reproducible julia projects"
 author: "Moshi Alam"
 date: "2024-08-24"
-categories: [Julia, Programming, Reproducibility]
+categories: [julia, Programming, Reproducibility]
 ---
+A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using [julia environments](https://pkgdocs.julialang.org/v1/environments/). The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine.
 
-In this post, we'll explore how to create a reproducible project in Julia, activate it, and later reuse and modify the environment as your project evolves such that your project remains reproducible across machines.  The setup below will ensure that the correct versions of your dependencies are used automatically.
+## Setting Up a julia Project Environment
 
-## Setting Up a Julia Project Environment
-
-First, let's set up a new Julia project. This involves creating a directory, initializing the environment, and adding any necessary packages.
+First, setting up a new julia project will typically involve creating a directory, **initializing the environment**, and adding any necessary packages.
 
 ```julia
 # Create a new directory for your project
 mkdir MyCoolProject
 cd("MyCoolProject")
 
-# Open Julia and initialize a new project
+# Open julia and initialize a new project
 julia> ]
 (v1.9) pkg> activate .
 (MyCoolProject) pkg> generate MyCoolProject
@@ -26,7 +25,7 @@ These commands will create a Project.toml and Manifest.toml file in your project
 
 <!-- ### Adding Packages to Your Project -->
 
-Once you’ve initialized your project, you can add packages to it. This is as simple as using the add command in Pkg mode.
+Once you’ve initialized your project, you can add packages to it, as you normally would.
 
 ```julia
 # Add a package to your project
@@ -38,9 +37,9 @@ This command does two things:
 1.	Updates Project.toml: It adds DataFrames to the list of dependencies.
 2.	Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.
 
-## Reusing and Modifying Your Environment
+## Reusing, modifying and sharing your environment
 
-If you’ve closed your Julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:
+If you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:
 
 ```julia 
 cd("path/to/MyCoolProject")
@@ -61,7 +60,6 @@ To see the current status of your environment:
 ```julia
 (MyCoolProject) pkg> update
 ```
-## Sharing and Reusing Your Environment
 
 To share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:
 ```julia
@@ -71,4 +69,3 @@ julia> ]
 ```
 
 The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.
-
