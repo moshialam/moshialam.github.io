@@ -1,6 +1,6 @@
 ---
 title: "Md Moshi Ul Alam"
-#subtitle: "Assistant Professor of Economics, Clark University"
+subtitle: "Assistant Professor of Economics \n \n [Clark University](https://www.clarku.edu/departments/economics/)"
 image: 20221021-LTH-Alam16-3.jpg
 toc: false
 about: 
@@ -33,7 +33,9 @@ output:
 
 <!-- Hi! I am a labor economist. I received my PhD in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). Starting Fall 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/), as an Assistant Professor of Economics. -->
 
-Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in **Labor and Public Economics**. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD  in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). Starting Fall 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/), as an Assistant Professor of Economics.
+Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD  in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). 
+
+<!-- Starting Fall 2024, I will join [Clark University](https://www.clarku.edu/departments/economics/), as an Assistant Professor of Economics. -->
 
 <!-- **Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
 

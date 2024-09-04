@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Moshi Alam">
-<meta name="dcterms.date" content="2024-08-24">
+<meta name="dcterms.date" content="2024-08-30">
 
-<title>Moshi Alam - Version control</title>
+<title>Moshi Alam - Naming conventions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -103,6 +69,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -157,14 +166,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#version-control-using-git" id="toc-version-control-using-git" class="nav-link active" data-scroll-target="#version-control-using-git">Version control using git</a>
-  <ul class="collapse">
-  <li><a href="#step-1-initialize-git-in-your-project" id="toc-step-1-initialize-git-in-your-project" class="nav-link" data-scroll-target="#step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</a></li>
-  <li><a href="#step-2-create-a-.gitignore-file-in-code" id="toc-step-2-create-a-.gitignore-file-in-code" class="nav-link" data-scroll-target="#step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</a></li>
-  <li><a href="#step-3-connect-to-a-remote-repository-github" id="toc-step-3-connect-to-a-remote-repository-github" class="nav-link" data-scroll-target="#step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</a></li>
-  <li><a href="#step-4-stage-and-commit-your-files" id="toc-step-4-stage-and-commit-your-files" class="nav-link" data-scroll-target="#step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</a></li>
-  <li><a href="#step-5-track-changes-and-collaborate" id="toc-step-5-track-changes-and-collaborate" class="nav-link" data-scroll-target="#step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</a></li>
-  </ul></li>
+  <li><a href="#guiding-principles" id="toc-guiding-principles" class="nav-link active" data-scroll-target="#guiding-principles">Guiding principles</a></li>
+  <li><a href="#naming-figures-and-tables-files" id="toc-naming-figures-and-tables-files" class="nav-link" data-scroll-target="#naming-figures-and-tables-files">naming figures and tables files</a></li>
+  <li><a href="#naming-script-files" id="toc-naming-script-files" class="nav-link" data-scroll-target="#naming-script-files">naming script files</a></li>
+  <li><a href="#naming-functions" id="toc-naming-functions" class="nav-link" data-scroll-target="#naming-functions">naming functions</a></li>
+  <li><a href="#naming-objects-which-are-not-functions" id="toc-naming-objects-which-are-not-functions" class="nav-link" data-scroll-target="#naming-objects-which-are-not-functions">naming objects which are not functions</a></li>
   </ul>
 </nav>
     </div>
@@ -173,11 +179,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Version control</h1>
+<h1 class="title">Naming conventions</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">git</div>
-    <div class="quarto-category">Programming</div>
-    <div class="quarto-category">Reproducibility</div>
+    <div class="quarto-category">name</div>
+    <div class="quarto-category">workflow</div>
+    <div class="quarto-category">code</div>
   </div>
   </div>
 
@@ -195,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 24, 2024</p>
+      <p class="date">August 30, 2024</p>
     </div>
   </div>
   
@@ -207,75 +213,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Disclaimer: There are many amazing resources all over the internet on how to version control. This by no means is exhaustive, in fact what I have shared below is the minimal setup that works for me.</p>
-<section id="version-control-using-git" class="level1">
-<h1>Version control using git</h1>
-<p>Version control is essential for tracking changes in your project and collaborating with others. I am getting used to the command line in the terminal, however still being a newbie I mostly use the git configurations set in my editor, Visual Studio Code (VSCode).</p>
-<p>First, ensure you have Git installed on your system. You can check this by:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Second, comes the question of what to version control? I typically only version control my /code subfolder inside the project. So below I show how to configure Git to track just that folder and then host it on GitHub</p>
-<section id="step-1-initialize-git-in-your-project" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</h2>
-<p>Navigate to your project directory and initialize a Git repository:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/MyCoolProject/code</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This creates a new Git repository in the MyCoolProject/code directory.</p>
+<blockquote class="blockquote">
+<p>“There are only two hard things in Computer Science: cache invalidation and naming things.”</p>
+<p>— Phil Karlton<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p>Choosing clear, concise, and meaningful names for variables, functions, files, etc., is challenging. Good names improve code readability and maintainability, but finding the right name can be surprisingly difficult, especially when your project folder is overflowing with files and subfolders. Good names can help users of your package or code replication kit.</p>
+<p>I will describe here a file naming convention that works for me. Sometimes this might go against styling guides of the language used although I try as much as possible to avoid this. This may not necessarily fit everyone’s requirement as coding and project management styles vary widely. I will not cover how I name folders as that is more about project management.</p>
+<section id="guiding-principles" class="level3">
+<h3 class="anchored" data-anchor-id="guiding-principles">Guiding principles</h3>
+<ul>
+<li>Name should be as informative as possible.</li>
+<li>I should be able to look at a list of files in a directory and similar files should appear together.</li>
+<li>Try to avoid conflict with styling guide of the language in use.</li>
+</ul>
 </section>
-<section id="step-2-create-a-.gitignore-file-in-code" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</h2>
-<p>To exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension <code>.bak</code> and the folder called <code>temp</code>.</p>
-<pre class="plaintext"><code># Ignore temporary files
-*.bak
-/temp/</code></pre>
-<p>Although you can create multiple <code>.gitignore</code> within subfolders. I typically prefer having a single gitignore in the main directory and then use relative paths to ensure which files and folders I want git to ignore.</p>
+<section id="naming-figures-and-tables-files" class="level3">
+<h3 class="anchored" data-anchor-id="naming-figures-and-tables-files">naming figures and tables files</h3>
+<p>I follow <code>fig__&lt;outcome&gt;__&lt;functionName&gt;__&lt;sample&gt;</code> for figures and <code>tab__&lt;outcome&gt;__&lt;functionName&gt;__&lt;sample&gt;</code> for tables.</p>
+<p>The idea behind this is when I am explaining a slide with a figure on it, I typically start with saying something like “here we have a figure (<em>fig</em>) plotting the effect on <span class="math inline">y</span> (<em>outcome</em>). This is done by using variation in <span class="math inline">x</span> (<em>function</em>) on the sample of (<em>sample</em>)..”. The double underscores helps me quickly figure out different parts of the name and information contained in it.</p>
+<ul>
+<li>For example: <code>fig__wages_plotAllEffects__workers_urban</code> is the figure
+<ul>
+<li>generated by the function <code>plotAllEffects()</code> of</li>
+<li>the effects on wages</li>
+<li>in the sample of urban workers</li>
+</ul></li>
+</ul>
+<p>Note that this may not always be perfectly followed. For example, sometimes a graph or table is produced by a function <code>f()</code> which in turn uses function <code>g()</code> to produce the graph or table. In such cases, <code>f()</code> is used in the file name and not <code>g()</code>. I have chosen to do this because at times there are many helper functions which get used to make a figure or a table, and incorporating all of them can make the name unnecessarily verbose.</p>
 </section>
-<section id="step-3-connect-to-a-remote-repository-github" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</h2>
-<p>I host my version controlled files on GitHub.</p>
-<ol type="1">
-<li>Create a new repository on GitHub</li>
-<li>Add the remote URL to your local Git repository:</li>
+<section id="naming-script-files" class="level3">
+<h3 class="anchored" data-anchor-id="naming-script-files">naming script files</h3>
+<ul>
+<li>If the script is a function I always preppend the name with <code>f_</code>. So the function <code>plotAllEffects()</code> will be in a file named <code>f_plotAllEffects.jl</code></li>
+<li>I type all the helper functions that are ONLY used by a given funtion in that function’s script.
+<ul>
+<li>For example, if for the function <code>plotAllEffects()</code> to run it needs to first use the function <code>formatEffects()</code> for the estimates of the effects to be formatted and ordered appropriately. In this case, <code>f_plotAllEffects.jl</code> will contain <code>formatEffects()</code> followed by <code>plotAllEffects()</code></li>
+</ul></li>
+<li>Helper functions which are used across multiple functions live in their own separate script.
+<ul>
+<li>For example, for the function <code>formatEffects()</code> to run it needs the estimated effects from a function <code>estimate()</code>. but <code>estimate()</code> is also used to produce the input which will be used in another function to make the tables for example <code>tab_effects()</code>. Thus <code>estimate()</code> lives on its own in <code>f_estimate.jl</code></li>
+</ul></li>
+<li>If the script is something that contains code which I am using to understand an estimator or test out a few things with the data, I preppend the name of the file with <code>dev_</code>. For example if I am starting a project and before I write out the function that cleans the data, I will first work with <code>dev_cleaning.jl</code> file.
+<ul>
+<li>Once I am done with cleaning and I have a function <code>f_cleaning.jl</code> the <code>dev_cleaning.jl</code> file goes to an archive subdirectory in my code directory</li>
+</ul></li>
+</ul>
+<p>Thus, over the course of the project I start with all <code>dev_</code> type script files, slowly transition into <code>f_</code> type script files and then finally ending with all <code>f_</code> type files.</p>
+</section>
+<section id="naming-functions" class="level3">
+<h3 class="anchored" data-anchor-id="naming-functions">naming functions</h3>
+<p>julia uses snake case (<code>function_name</code>) in naming functions. This is not quite useful for me as I use the name of the function in the file that it produces by incorporating too many underscores and makes the file name visually cluttered (to me). Hence I use camel case (<code>functionName</code>) in naming functions. Example <code>plotAllEffects()</code>. I do not find distingushing between helper functions and main functions to be helpful, so I avoid it.</p>
+</section>
+<section id="naming-objects-which-are-not-functions" class="level3">
+<h3 class="anchored" data-anchor-id="naming-objects-which-are-not-functions">naming objects which are not functions</h3>
+<p>Naming variaibles and dataframe objects is probably the hardest. A lot of it boils down to how these are used in subsequent code for analysis.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This quote is widely attributed to Phil Karlton, a software engineer known for his work at Netscape.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YourUsername/MyCoolProject-code.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-4-stage-and-commit-your-files" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Confirm working branch
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Ensure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was <code>main</code> while that on VSCode was <code>master</code>. The solution to this is a careful force merge of the two branches:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge master <span class="at">--allow-unrelated-histories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>After setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.</p>
-<ol type="1">
-<li>Click on the Source Control icon in the left sidebar in VSCode.</li>
-<li>You should see all your files listed as untracked. Click on the + icon next to each file to stage them, or click + next to Changes to stage all files.</li>
-<li>Enter a commit message in the text box at the top.</li>
-<li>Click on the checkmark icon to commit your staged changes.</li>
-<li>Push your changes to the remote repository.</li>
-</ol>
-</section>
-<section id="step-5-track-changes-and-collaborate" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</h2>
-<p>Now that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts.</p>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

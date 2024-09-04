@@ -9,7 +9,7 @@
 <meta name="author" content="Moshi Alam">
 <meta name="dcterms.date" content="2024-08-24">
 
-<title>Moshi Alam - Version control</title>
+<title>Moshi Alam - Issues with cloud sync and version control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -152,38 +118,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#version-control-using-git" id="toc-version-control-using-git" class="nav-link active" data-scroll-target="#version-control-using-git">Version control using git</a>
-  <ul class="collapse">
-  <li><a href="#step-1-initialize-git-in-your-project" id="toc-step-1-initialize-git-in-your-project" class="nav-link" data-scroll-target="#step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</a></li>
-  <li><a href="#step-2-create-a-.gitignore-file-in-code" id="toc-step-2-create-a-.gitignore-file-in-code" class="nav-link" data-scroll-target="#step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</a></li>
-  <li><a href="#step-3-connect-to-a-remote-repository-github" id="toc-step-3-connect-to-a-remote-repository-github" class="nav-link" data-scroll-target="#step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</a></li>
-  <li><a href="#step-4-stage-and-commit-your-files" id="toc-step-4-stage-and-commit-your-files" class="nav-link" data-scroll-target="#step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</a></li>
-  <li><a href="#step-5-track-changes-and-collaborate" id="toc-step-5-track-changes-and-collaborate" class="nav-link" data-scroll-target="#step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Version control</h1>
+<h1 class="title">Issues with cloud sync and version control</h1>
   <div class="quarto-categories">
     <div class="quarto-category">git</div>
-    <div class="quarto-category">Programming</div>
+    <div class="quarto-category">cloud</div>
     <div class="quarto-category">Reproducibility</div>
   </div>
   </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -207,73 +160,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Disclaimer: There are many amazing resources all over the internet on how to version control. This by no means is exhaustive, in fact what I have shared below is the minimal setup that works for me.</p>
-<section id="version-control-using-git" class="level1">
-<h1>Version control using git</h1>
-<p>Version control is essential for tracking changes in your project and collaborating with others. I am getting used to the command line in the terminal, however still being a newbie I mostly use the git configurations set in my editor, Visual Studio Code (VSCode).</p>
-<p>First, ensure you have Git installed on your system. You can check this by:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Second, comes the question of what to version control? I typically only version control my /code subfolder inside the project. So below I show how to configure Git to track just that folder and then host it on GitHub</p>
-<section id="step-1-initialize-git-in-your-project" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-initialize-git-in-your-project">Step 1: Initialize Git in Your Project</h2>
-<p>Navigate to your project directory and initialize a Git repository:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/MyCoolProject/code</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This creates a new Git repository in the MyCoolProject/code directory.</p>
-</section>
-<section id="step-2-create-a-.gitignore-file-in-code" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-create-a-.gitignore-file-in-code">Step 2: Create a .gitignore File in /code</h2>
-<p>To exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension <code>.bak</code> and the folder called <code>temp</code>.</p>
-<pre class="plaintext"><code># Ignore temporary files
-*.bak
-/temp/</code></pre>
-<p>Although you can create multiple <code>.gitignore</code> within subfolders. I typically prefer having a single gitignore in the main directory and then use relative paths to ensure which files and folders I want git to ignore.</p>
-</section>
-<section id="step-3-connect-to-a-remote-repository-github" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-connect-to-a-remote-repository-github">Step 3: Connect to a Remote Repository (GitHub)</h2>
-<p>I host my version controlled files on GitHub.</p>
-<ol type="1">
-<li>Create a new repository on GitHub</li>
-<li>Add the remote URL to your local Git repository:</li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YourUsername/MyCoolProject-code.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-4-stage-and-commit-your-files" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-stage-and-commit-your-files">Step 4: Stage and Commit Your Files</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Confirm working branch
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Ensure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was <code>main</code> while that on VSCode was <code>master</code>. The solution to this is a careful force merge of the two branches:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge master <span class="at">--allow-unrelated-histories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>After setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.</p>
-<ol type="1">
-<li>Click on the Source Control icon in the left sidebar in VSCode.</li>
-<li>You should see all your files listed as untracked. Click on the + icon next to each file to stage them, or click + next to Changes to stage all files.</li>
-<li>Enter a commit message in the text box at the top.</li>
-<li>Click on the checkmark icon to commit your staged changes.</li>
-<li>Push your changes to the remote repository.</li>
-</ol>
-</section>
-<section id="step-5-track-changes-and-collaborate" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-track-changes-and-collaborate">Step 5: Track Changes and Collaborate</h2>
-<p>Now that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts.</p>
+<p>Many of us use cloud based services to sync important files. These services are not version controlling systems. If you have been use cloud based services to sync your files like Dropbox, it is recommended not to have a git repo inside a Dropbox folder for reasons described <a href="https://stackoverflow.com/questions/19305033/why-is-putting-git-repositories-inside-of-a-dropbox-folder-not-recommended">here</a>, [here] and here or ensure <a href="https://help.dropbox.com/sync/ignored-files">Dropbox ignores the files</a> that could cause conflicts with git. In short, this is how I do this:</p>
+<ul>
+<li>I only use git to version control my code. All other documentation that do not need version control for example, related papers, data etc. live in a project folder inside Dropbox.</li>
+<li>If I am the only person writing the code, I either tell Dropbox to igone the <code>code</code> directory if it is living in Dropbox, or I keep it outside of Dropbox. The latter works best if you are the sole person working on the code. The former is useful only for project organization—given that data and other documentation is living in the Dropbox folder, it is only convinent to also have the <code>code</code> directory inside the same project folder.</li>
+<li>If I am collaborating with someone on code and they do not want to use git then I do not version control our code in the Dropbox folder. Rather, I keep a separate folder with all my codes in a non-Dropbox folder and version control that. At the end of each day, I then sync them with the Dropbox folder. This is only possible because my scripts are typically different from my collaborators script.</li>
+</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
