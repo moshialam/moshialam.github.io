@@ -8,6 +8,7 @@ title: "Structural and reduced form methods in labor economics: Course Outline"
     - Identification
         - "Non-parametric identification", Matzkin (2007)
         - "Identification of models of the labor market" Taber and French (2010)
+        - "Partial Identification in Econometrics" Tamer (2010)
     - Advantages of reduced form methods and advantages of structural models
     - Feasibility of each approach individually and jointly
     - "Structural Equations, Treatment Effects and Econometric Policy Evaluation" Heckman and Vytlacil (2003)
