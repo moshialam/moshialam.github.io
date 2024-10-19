@@ -4,6 +4,9 @@
 
 /blogs/
 
+/archive/
+
+
 /papers/*.aux
 /papers/*.gz
 /papers/*.xdev

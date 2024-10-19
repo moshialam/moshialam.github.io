@@ -8,3 +8,5 @@
 *.synctex(busy)
 Alam_MdMoshiUl_CV.synctex.gz
 */*.synctex*
+*/archive
+archive/*

@@ -5,9 +5,9 @@
 - [**Labor Market Consequences of Pay-Equity Laws**](papers/Alam_JMP_payequity.pdf) (Post-doc JMP) <p>with Steven Lehrer and Nuno Souso Pereira **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">
   [+Abstract]
 </a>**  <p class="text-info"> _Updated draft coming soon!_ </p> </p> 
-- [**Female Inheritance Rights and Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
+- [**The Unintended Benefits of Women’s Empowerment on Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
   [+Abstract]
-</a>** <p class="text-info"> _Updated draft coming soon!_ </p> </p> 
+</a>** <a class="text-warning"> _Updated October 2024._</a> <small><small> _Previously circulated as "Female Inheritance Rights and Household Sanitation"_ </small></small></p>
  <!-- <span class="badge bg-primary">_Updated Aug '24_</span> -->
 ---
 
@@ -148,10 +148,10 @@ Tight labor markets are associated with high costs of worker-turnover. In such s
 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 
 <header>
-#### Female Inheritance Rights and Household Sanitation {#abs_sanitation-title}
+#### The Unintended Benefits of Women’s Empowerment on Household Sanitation {#abs_sanitation-title}
 </header>
 ::: {#modal-1-content}
-Existing research shows that females derive greater benefits from in-house toilets than males. Given this, we estimate the impact of a policy that increased inheritance rights of females on the presence of a toilet in their marital household in India. Daughters being usually married away to the household of the groom, available household level nationally representative data do not have all original (natal) household characteristics – which determines treatment eligibility. Under generic assumptions, we show that when the treatment is partially observed to the researcher, we can derive bounds on the average treatment effect in a difference-in-differences framework. We estimate that the policy increased the probability of the presence of a toilet in the household a woman marries into by at least 7.4-11.2 percentage points on average. Allowing for heterogeneous treatment effects, we show that the average treatment effect is primarily driven by larger effects in states that adopted the policy later compared to early adopters. In addition, allowing for dynamic effects, we find that the policy had its highest impact on the group of women who were the youngest at the time of policy implementation, thus having the longest exposure to the policy. Our results underscore that policies that empower can offer to be a seemingly unrelated, yet effective policy tool for improving sanitation coverage in regions grappling with open-defecation problems.
+Existing research shows that women benefit more from private toilets, but misperceptions on the net benefits from toilets and lack of women’s decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We find that a policy aimed at improving female property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts. Using a heterogeneity-robust event-study design, we find that this effect is concentrated in states where the policy increased women’s educationplausibly reducing misperceptions about toilet benefits—and enhanced women’s decisionmaking power. Together, these mechanisms led to higher toilet adoption and are consistent with a model of household decision-making. Our findings highlight that policies empowering women can yield unintended benefits, such as improving toilet coverage in regions struggling with open defecation, as women tend to benefit more from private toilets than men.
 :::
 
 ::::
