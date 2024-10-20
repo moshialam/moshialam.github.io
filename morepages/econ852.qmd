@@ -19,7 +19,7 @@ title: "Structural and reduced form methods in labor economics: Course Outline"
     - Variation in treatment timings and heterogenous effects
         - "What's trending in difference-in-differences?" Roth and Santa'Anna (2022)
         - "Two-way fixed effects estimators with heterogeneous treatment effects" de Chaisemartin and d`Haultfoeuille (2020)
-        - "Inheritance rights and household sanitation" Alam and Agarwal (2023) 
+        - "The Unintended Benefits of Women’s Empowerment on Household Sanitation" Alam and Agarwal (2023) 
     - Empirical Bayes
         - "Empirical Bayes deconvolution estimates." Efron (2016)
         - "Systemic discrimination among large US employers", Kline, Rose and Walters (2022)
@@ -29,14 +29,14 @@ title: "Structural and reduced form methods in labor economics: Course Outline"
         - "Inference in Regression Discontinuity Designs with a Discrete Running Variable", Kolesar and Rothe (2018)
 - Structural models 
     - Conditional choice probabilities, discrete choice and dynamic models
+        - "Discrete Choice Methods with Simulation" Train (2009)
         - "Conditional Choice Probabilities and the Estimation of Dynamic Models", Hotz and Miller (1993)
         - "College Attrition and the Dynamics of Information Revelation", Arcidiacono, Aucejo, Maurel, et al. (2018)
-        - "Discrete Choice Methods with Simulation" Train (2009)
         - "The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications," Keane and Wolpin (2011)
     - Stated preference
         - "Preference for the workplace, investment in human capital and gender", Wiswall Zafar (2018)
-        - "Optimal Place-based redistribution" Alam, Davis and Gregory (2023)  
         - "Understanding Migration Aversion Using Elicited Choice Probabilities", Kosar, Ransom, van der Klaauw (2022)
+        - "Optimal Place-based redistribution" Alam, Davis and Gregory (2023)  
     - Models on wage inequality
         - "High wage workers and high wage firms" Abowd, Kramarz and Margolis (1999)
         - "A Distributional Framework for Matched Employer-employee data", Bonhomme, Lamadon, Manresa (2019)
@@ -57,4 +57,10 @@ title: "Structural and reduced form methods in labor economics: Course Outline"
     - Efficient code, version control and large project workflow
     - Automatic testing and reproducibility
     - Introduction to numerical optimization
-
+#### Other readings
+- Control function approach
+    - Control Function Methods in Applied Econometrics, Wooldridge (2015)
+    - "Identification of Treatment Effects Using Control Functions in Models with Continuous, Endogenous
+Treatment and Heterogeneous Effects", Heckman et. al (2008)
+    - "Using Matching, Instrumental Variables, and Control Functions to Estimate Economic Choice Models" Heckman and Navarro (2004)
+    - "Control functions" Navarro (2010)
