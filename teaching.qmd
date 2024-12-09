@@ -8,6 +8,19 @@ title: "Teaching"
 - Undergraduate: Applied Econometrics -->
 
 
+
+### [Clark University](https://www.clarku.edu/departments/economics/) 
+
+- Undergraduate: Statistics
+- Undergraduate: Econometrics
+    <!-- - [ [Course Outline] ](/morepages/econ452.qmd) [ [Course Website] ](https://onq.queensu.ca/d2l/home/764511) -->
+
+_Starting Fall 2025:_
+
+- PhD: Applied Econometrics
+- PhD: Econometric Theory
+---
+
 ### [Queen's University](https://www.econ.queensu.ca/) 
 
 - PhD: Structural and reduced form methods in labor economics
@@ -20,17 +33,15 @@ title: "Teaching"
 ### [University of Wisconsin-Madison](https://econ.wisc.edu/) 
  <p class="text-info">  _Department of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019_ </p>
  
-- Econ 705 -- Econometric Theory (Master's). _Instructors: [Jack Porter](https://www.ssc.wisc.edu/~jrporter/) & [Jeffrey Smith](https://sites.google.com/site/econjeffsmith/home)_ 
+- Econ 705 -- Econometric Theory (Graduate). _Instructors: [Jack Porter](https://www.ssc.wisc.edu/~jrporter/) & [Jeffrey Smith](https://sites.google.com/site/econjeffsmith/home)_ 
   - _Juli Plant Grainger Teaching Excellence Award_ 
   -  _Distinguished Teaching Assistant_
 
-- Econ 706 -- Applied Econometrics (Master's). _Instructors: [Christopher Taber](https://www.ssc.wisc.edu/~ctaber/) & [Kenneth West](https://www.ssc.wisc.edu/~kwest/)_
+- Econ 706 -- Applied Econometrics (Graduate). _Instructors: [Christopher Taber](https://www.ssc.wisc.edu/~ctaber/) & [Kenneth West](https://www.ssc.wisc.edu/~kwest/)_
    - _Distinguished Teaching Assistant_
 
 - Econ 101 [Head TA]. _Instructor: [Korinna Hansen](https://www.ssc.wisc.edu/~kohansen/); [Elizabeth Kelly](https://econ.wisc.edu/staff/kelly-elizabeth/); [Gwen Eudey](https://econ.wisc.edu/staff/eudey-gwen/) _
-  - _Distinguished Teaching Assistant_ 
-  - _Distinguished Teaching Assistant_ 
-  - _Excellent TA citation_
+  - _Distinguished Teaching Assistant (x 2)_ 
 
 <!-- - Econ 101. _Instructor: [Elizabeth Kelly](https://econ.wisc.edu/staff/kelly-elizabeth/)_ -->
 
