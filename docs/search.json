@@ -81,14 +81,28 @@
     "href": "morepages/resourcesforugstudents.html",
     "title": "Resources for undergrad students",
     "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper.\nI strongly encourage students to use open-source languages like R, julia and python.\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
   },
   {
     "objectID": "morepages/resourcesforugstudents.html#coding-resources",
     "href": "morepages/resourcesforugstudents.html#coding-resources",
     "title": "Resources for undergrad students",
     "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper.\nI strongly encourage students to use open-source languages like R, julia and python.\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#r-resources",
+    "href": "morepages/resourcesforugstudents.html#r-resources",
+    "title": "Resources for undergrad students",
+    "section": "R resources",
+    "text": "R resources\n\nStata2R: Students used to working in Stata will find this website incredibly useful if they want to transition to R.\nR manuals from CRAN and the CRAN homepage for R\nMaster repo with various cheatsheets\nRMarkdown: I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file.\n\nR Markdown: The Definitive Guide: far more extensive, covers interactivity and additional features.\nQuarto markdown is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see here) but I prefer the ease of customization of Quarto when it comes to multiple languages.\n\nPackage specific:\n\ndata.table\ndplyr\nggplot2\nfixest\nAER (Applied Econometrics with R)\nstargazer\nbinsreg\nvtable"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#stata-resources",
+    "href": "morepages/resourcesforugstudents.html#stata-resources",
+    "title": "Resources for undergrad students",
+    "section": "Stata Resources",
+    "text": "Stata Resources\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
   },
   {
     "objectID": "morepages/resourcesforugstudents.html#best-practices",

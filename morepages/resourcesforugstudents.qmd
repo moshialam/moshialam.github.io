@@ -1,12 +1,32 @@
 ---
 title: Resources for undergrad students
+date-modified: last-modified
 ---
 
 ## Coding resources
-Students are free to use any language of their preference--Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. 
+Students are free to use any language of their preference--Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my  teaching of Econometrics, specifically implementation of methods---both simulation and estimation---to R. Below you will find old open-source resources as well as new resources that I recommend to  students.
 
 _I strongly encourage students to use open-source languages like R, julia and python._
 
+## R resources
+1. [Stata2R](https://stata2r.github.io/): Students used to working in Stata will find this website incredibly useful if they want to transition to R. 
+2. [R manuals from CRAN](https://cran.r-project.org/manuals.html) and the [CRAN homepage for R](https://www.r-project.org/)
+3. [Master repo with various cheatsheets](https://github.com/rstudio/cheatsheets/tree/main?tab=readme-ov-file)
+4. [RMarkdown](https://rmarkdown.rstudio.com/): I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file. 
+    - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/): far more extensive, covers interactivity and additional features.
+    - [Quarto markdown](https://quarto.org/) is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see [here](https://bookdown.org/yihui/rmarkdown/language-engines.html)) but I prefer the ease of customization of Quarto when it comes to multiple languages.
+5. Package specific:
+    - [`data.table`](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)
+    - [`dplyr`](https://dplyr.tidyverse.org/)
+    - [`ggplot2`](https://ggplot2.tidyverse.org/)
+    - [`fixest`](https://lrberge.github.io/fixest/)
+    - [`AER` (*Applied Econometrics with R*)](https://cran.r-project.org/web/packages/AER/index.html)
+    - [`stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
+    - [`binsreg`](https://cran.r-project.org/web/packages/binsreg/binsreg.pdf)
+    - [`vtable`](https://cloud.r-project.org/web/packages/vtable/index.html)
+
+
+## Stata Resources
 Besides google search being a very good friend while picking up any language, here are some resources on **Stata** from the internet that may be useful for students. 
 
 1. [Social Science Computing Center at UW-Madison](https://www.ssc.wisc.edu/statistics/stata/)
