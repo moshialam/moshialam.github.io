@@ -11,3 +11,13 @@ date-modified: last-modified
 - [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
 - [Simple Linear Regressions](/teachingmaterials/UG_intro_metrics/03_regression.qmd)
 - [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
+- Inference in regression models
+- Bootstrap
+- Heteroskedasticity and serial correlation
+- Mis-specification
+- Potential outcomes
+- Two-stage least squares
+- Regression discontinuity
+- Non-linear models
+- Estimators for repeated cross-section and panel data
+- Difference-in-differences
