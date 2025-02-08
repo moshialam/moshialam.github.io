@@ -1,0 +1,761 @@
+---
+title: "Econ 265: \n Introduction to Econometrics"
+subtitle: "Lecture 2: Getting Started with R"
+author: "Moshi Alam"
+format:
+  revealjs:
+    theme: serif
+    #transition: slide
+    slide-number: true
+    #incremental: true 
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+## Prerequisites {.smaller}
+
+- R and RStudio is installed
+-   Update R packages regularly
+-   Required packages for today:
+    -   Base R (primary focus)
+
+### Today's Agenda
+
+-   Live coding 
+-   Focus on typing commands yourself
+-   Avoid copy-paste to build muscle memory
+
+
+::: callout-note
+  This is not a course in R! 
+:::
+
+
+## RStudio Interface {.smaller}
+
+![RStudio Interface](https://docs.posit.co/ide/user/ide/guide/ui/images/rstudio-panes-labeled.jpeg)
+
+::: notes
+Explain each pane's function: - Source editor (top left) - Console (bottom left) - Environment (top right) - Files/Plots/Help (bottom right)
+:::
+
+# Basic Operations {background-color="#1c5253"}
+
+## Basic Arithmetic {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Addition
+1 + 2
+
+# Subtraction
+6 - 7
+
+# Division
+5 / 2
+
+# Exponentiation
+2^3
+
+# Integer division
+100 %/% 60  # How many whole hours in 100 minutes?
+
+# Modulo (remainder)
+100 %% 60   # How many minutes are left over?
+```
+
+## Logic Operations {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+# Basic comparisons
+1 > 2
+1 > 2 & 1 > 0.5  # AND
+1 > 2 | 1 > 0.5  # OR
+
+# Truth testing
+isTRUE(1 < 2)
+```
+:::
+
+::: {.column width="50%"}
+**Important Operators:**
+
+-   `>`, `<`: Greater/less than
+-   `>=`, `<=`: Greater/less equal
+-   `==`: Equality test
+-   `!=`: Not equal
+-   `&`: AND
+-   `|`: OR
+:::
+:::
+
+## Logic: Important Details {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Order of Precedence:**
+
+1.  Logical operators (`>`, `<`, etc.)
+2.  Boolean operators (`&`, `|`)
+
+```{r}
+#| echo: true
+#| eval: false
+# Be explicit!
+1 > 0.5 & 1 > 2
+
+# Not
+1 > 0.5 & 2  # Can be confusing
+```
+:::
+
+::: {.column width="50%"}
+**Floating Point Numbers:**
+
+```{r}
+#| echo: true
+#| eval: false
+# This returns FALSE!
+0.1 + 0.2 == 0.3
+
+# Use instead:
+all.equal(0.1 + 0.2, 0.3)
+```
+:::
+:::
+
+## Value Matching {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+# Check if value is in a vector
+4 %in% 1:10
+
+# Create a "not in" operator
+`%ni%` = Negate(`%in%`)
+4 %ni% 5:10
+```
+
+::: notes
+The backticks (\`) help specify functions
+:::
+
+# Object-Oriented Programming {background-color="#1c5253"}
+
+## Everything is an Object {.smaller}
+
+Common object types in R:
+
+-   Vectors
+-   Matrices
+-   Data frames
+-   Lists
+-   Functions
+
+```{r}
+#| echo: true
+#| eval: false
+# Create different objects
+vec <- 1:5
+mat <- matrix(1:9, nrow=3)
+df <- data.frame(x=1:3, y=4:6)
+```
+
+## Objects Have Classes {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+# Create data frame
+d <- data.frame(
+  x = 1:2,
+  y = 3:4
+)
+
+# Check properties
+class(d)
+typeof(d)
+str(d)
+```
+:::
+
+::: {.column width="50%"}
+**Understanding Objects:**
+
+-   `class()`: Object's class
+-   `typeof()`: Object's type
+-   `str()`: Object's structure
+-   `View()`: Interactive viewing
+:::
+:::
+
+## Global Environment {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+# Create data frame
+d <- data.frame(
+  x = 1:2,
+  y = 3:4
+)
+
+# This fails:
+lm(y ~ x)
+
+# This works:
+lm(y ~ x, data = d)
+```
+:::
+
+::: {.column width="50%"}
+**Key Points:**
+
+-   Objects live in the global environment
+-   Must specify data source
+-   Different from Stata's single-dataset approach
+-   Multiple objects can exist simultaneously
+:::
+:::
+
+
+# Assignment {background-color="#1c5253"}
+
+## Assignment Operators {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Using Arrow (`<-`):**
+
+
+```{r}
+#| echo: true
+#| eval: false
+# Standard assignment
+a <- 10 + 5
+
+# Right assignment
+10 + 5 -> a
+```
+
+Embodies the idea of *assigned to*
+:::
+
+::: {.column width="50%"}
+**Using Equals (`=`):**
+```{r}
+#| echo: true
+#| eval: false
+# Alternative assignment
+b = 10 + 10
+
+# Must be on left with =
+# This won't work:
+# 10 + 10 = b
+```
+:::
+:::
+
+### Assignment Choice {.smaller}
+
+-   Most R users prefer `<-` for assignment
+-   `=` has specific role in function evaluation
+-   Personal choice, but be consistent
+-   `=` is quicker to type and familiar from other languages
+
+
+# Programming Basics {background-color="#1c5253"}
+
+## Variables and Assignment {.smaller}
+
+```{r}
+# Variable assignment
+x <- 1
+y <- "roses"
+z <- function(x) { sqrt(x) }
+
+# Using variables
+z(9)
+```
+
+## Control Flow: if/else {.smaller}
+
+```{r}
+x <- 5
+y <- 3
+
+if (x > y) {
+  print("x is larger than y")
+} else {
+  print("x is less than or equal to y")
+}
+```
+
+## Loops {.smaller}
+
+```{r}
+# For loop
+for(i in 1:5) {
+  print(paste("Iteration", i))
+}
+
+# Loop with conditions
+for(fruit in c("mangos","bananas","apples")) {
+  print(paste("I love", fruit))
+}
+```
+
+## Functions {.smaller}
+
+```{r}
+# Define function
+greet <- function(name = "Lord Vader") {
+  paste("Hello,", name)
+}
+
+# Use function
+greet()
+greet("Luke")
+```
+
+
+# Working with Variables {background-color="#1c5253"}
+
+## Creating Variables
+
+```{r}
+#| echo: true
+# Price of a good
+price <- 50
+
+# Quantity sold
+quantity <- 10
+
+# Calculate revenue
+revenue <- price * quantity
+revenue
+```
+
+## Multiple Assignments
+
+```{r}
+#| echo: true
+# Assign same value to multiple variables
+x <- y <- 5
+
+# Check values
+x
+y
+```
+
+# Data Types {background-color="#1c5253"}
+
+## Numeric Data
+
+```{r}
+#| echo: true
+# GDP growth rate
+gdp_growth <- 2.5
+class(gdp_growth)
+
+# Population (whole number)
+population <- 1000L  # L makes it integer
+class(population)
+```
+
+## Text and Logical Data
+
+```{r}
+#| echo: true
+# Country name (character/string)
+country <- "United States"
+class(country)
+
+# Logical (TRUE/FALSE)
+is_developed <- TRUE
+class(is_developed)
+```
+
+
+# Namespace Issues {background-color="#1c5253"}
+
+## Reserved Words {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Strictly Reserved:**
+
+-   `if`
+-   `else`
+-   `while`
+-   `function`
+-   `for`
+-   `TRUE/FALSE`
+-   `NULL`
+-   `Inf`
+-   `NA`
+:::
+
+::: {.column width="50%"}
+**Semi-Reserved:**
+
+-   `c()` (concatenate)
+-   `pi`
+-   Many function names
+
+```{r}
+#| echo: true
+#| eval: false
+# Don't do this!
+pi <- 2
+c <- 4
+```
+:::
+:::
+
+## Namespace Conflicts {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+library(dplyr)
+
+# Shows conflicts:
+# filter masked from 'package:stats'
+# lag masked from 'package:stats'
+```
+
+Two solutions:
+
+1.  Use `package::function()`
+
+```{r}
+#| echo: true
+#| eval: false
+stats::filter(1:10, rep(1, 2))
+```
+
+2.  Assign permanently
+
+```{r}
+#| echo: true
+#| eval: false
+filter <- stats::filter
+```
+
+# Indexing {background-color="#1c5253"}
+
+## Using Square Brackets {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Basic Indexing:**
+
+```{r}
+#| echo: true
+#| eval: false
+# Vector indexing
+a <- 1:10
+a[4]        # 4th element
+a[c(4, 6)]  # 4th and 6th
+
+# Matrix/dataframe
+d[1, 1]     # First row & column
+```
+:::
+
+::: {.column width="50%"}
+**List Indexing:**
+
+```{r}
+#| echo: true
+#| eval: false
+my_list <- list(
+  a = "hello",
+  b = 1:3
+)
+
+my_list[[1]]     # First element
+my_list[[2]][3]  # Third item of second element
+```
+:::
+:::
+
+## Using Dollar Sign {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+# List example
+my_list$a           # Access 'a' element
+my_list$b[3]        # Third item of 'b'
+
+# Data frame
+starwars$name[1]    # First name
+```
+
+::: notes
+`$` provides direct access to named elements
+:::
+
+# Cleaning Up {background-color="#1c5253"}
+
+## Removing Objects {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+# Remove specific objects
+rm(a, b)
+
+# Remove all objects (not recommended)
+rm(list = ls())
+
+# Detach package
+detach(package:dplyr)
+
+# Clear plots
+dev.off()
+```
+
+::: callout-tip
+Better to restart R session than use `rm(list = ls())`
+:::
+
+# Data Structures {background-color="#1c5253"}
+
+## Overview of Data Structures
+
+R has several basic data structures:
+
+| Dimension | Homogeneous | Heterogeneous |
+|-----------|-------------|---------------|
+| 1         | Vector      | List          |
+| 2         | Matrix      | Data Frame    |
+| 3+        | Array       | nested Lists  |
+
+## Vectors {.smaller}
+
+Vectors are containers for objects of identical type:
+
+```{r}
+# Create vectors with c()
+x <- c(1, 3, 5, 7, 8, 9)
+print(x)
+
+# Create sequence
+y <- 1:10
+print(y)
+
+# Repeat values
+rep("A", times = 5)
+```
+
+## Vector Operations {.smaller}
+
+```{r}
+# Subsetting vectors
+x <- c(1, 3, 5, 7, 8, 9)
+x[1]      # First element
+x[1:3]    # First three elements
+x[c(1,3,4)] # Selected elements
+```
+
+## Vector Logic {.smaller}
+
+```{r}
+x <- c(1, 3, 5, 7, 8, 9)
+# Logical operations
+x > 3
+x[x > 3]  # Subsetting with logic
+sum(x > 3) # Count values > 3
+```
+
+## Matrices {.smaller}
+
+Two-dimensional arrays with same data type:
+
+```{r}
+# Create matrix
+X <- matrix(1:9, nrow = 3, ncol = 3)
+print(X)
+
+# Matrix by rows
+Y <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+print(Y)
+```
+
+## Matrix Operations {.smaller}
+
+```{r}
+# Matrix arithmetic
+X + Y  # Element-wise addition
+X * Y  # Element-wise multiplication
+X %*% Y  # Matrix multiplication
+
+# Subsetting
+X[1, 2]  # Element at row 1, column 2
+X[1, ]   # First row
+X[, 1]   # First column
+```
+
+# Lists {background-color="#1c5253"}
+
+## Creating Lists {.smaller}
+
+Lists can contain elements of different types:
+
+```{r}
+# Create a list
+ex_list <- list(
+  a = c(1, 2, 3, 4),
+  b = TRUE,
+  c = "Hello!",
+  d = matrix(1:4, 2, 2)
+)
+print(ex_list)
+```
+
+## List Operations {.smaller}
+
+```{r}
+# Access list elements
+ex_list$a  # Using $
+ex_list[[1]]  # Using [[]]
+ex_list["a"]  # Using []
+
+# Add new elements
+ex_list$e <- "New element"
+```
+
+
+# Packages {background-color="#1c5253"}
+
+## Installing Packages
+
+```{r}
+#| eval: false
+# Install a package
+install.packages("tidyverse")
+
+# Load the package
+library(tidyverse)
+```
+
+::: callout-note
+You only need to install a package once, but you need to load it each session
+:::
+
+
+# Help System {background-color="#1c5253"}
+
+## Getting Help {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Basic Help:**
+
+```{r}
+#| echo: true
+#| eval: false
+# Full help
+help(plot)
+
+# Shorthand
+?plot
+
+# Examples
+example(plot)
+```
+:::
+
+::: {.column width="50%"}
+**Package Help:**
+
+```{r}
+#| echo: true
+#| eval: false
+# Package vignettes
+vignette("dplyr")
+
+# List all vignettes
+vignette(all = FALSE)
+
+# Package demos
+demo(package = "graphics")
+```
+:::
+:::
+
+
+# Data Frames {background-color="#1c5253"}
+
+## Introduction to Data Frames {.smaller}
+
+Data frames are table-like structures:
+
+```{r}
+# Create a data frame
+df <- data.frame(
+  id = 1:3,
+  name = c("John", "Jane", "Bob"),
+  score = c(85, 92, 78)
+)
+print(df)
+```
+
+## Data Frame Operations {.smaller}
+
+```{r}
+# Basic operations
+names(df)  # Column names
+nrow(df)   # Number of rows
+ncol(df)   # Number of columns
+
+# Access columns
+df$name
+df[["score"]]
+```
+
+## Subsetting Data Frames {.smaller}
+
+```{r}
+# Subset rows
+df[df$score > 80, ]
+
+# Subset columns
+df[, c("name", "score")]
+
+# Using subset()
+subset(df, score > 80, select = c("name", "score"))
+```
+
+## Additional Resources {.smaller}
+
+-   R Documentation: [r-project.org](https://www.r-project.org/)
+-   RStudio Cheatsheets: [rstudio.com/resources/cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+-   Advanced R by Hadley Wickham: [adv-r.hadley.nz](https://adv-r.hadley.nz/)
+-   Stack Overflow R Tag: [stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
+
+## Practice on your own {.smaller}
+
+1.  Create vectors using different methods (`c()`, `:`, `seq()`, `rep()`)
+2.  Practice logical operations and understand operator precedence
+3.  Create a list with different types of elements and practice indexing
+4.  Load a package and resolve a namespace conflict
+5.  Create and remove objects from your environment
+
+# Questions?

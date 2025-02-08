@@ -1,0 +1,1306 @@
+---
+title: "Econ 265: \n Introduction to Econometrics"
+subtitle: "Topic 3: Simple Linear Regression"
+author: "Moshi Alam"
+format:
+  revealjs:
+    theme: serif
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+# Introduction {.smaller}
+
+-   With regressions we want to make statistical associations between $y$ and $x$'s in the *population* using *sample*
+-   You have learnt the fundamentals in Econ 160
+-   Here in addition, we will be
+    -   more formal
+    -   apply in code
+-   First, we will formalize some fundamental probabilistic concepts:
+    -   Expectations
+    -   Covariances
+-   Readings: Ch-2 of Wooldridge
+
+# Fundamentals: Expectation and Covarainces {background-color="#1c5253"}
+
+## Expectation and Covariances
+
+::: panel-tabset
+## Expectation Primer {.smaller}
+
+-   *Expected Value* of a random variable (r.v.) is the average of the r.v. in the **population** a.k.a **the true mean**
+    -   Population parameter, different from *sample average*
+-   What we "expect" to see most often using averages in [large representative samples]{style="color:red;"}
+-   I love the visualization in [*Seeing Theory*](https://seeing-theory.brown.edu/basic-probability/index.html)
+
+For a discrete random variable $X$ with possible values $x_i$ and probabilities $p_i$:
+
+$$\mathbb{E}[X] = \sum_{i=1}^n x_i p_i$$
+
+For a continuous random variable $X$ defined over $(-\infty, \infty)$ with probability density function $f(x)$:
+
+$$\mathbb{E}[X] = \int_{-\infty}^{\infty} \quad x \quad f(x) \quad dx$$
+
+## Properties
+
+-   *Additive separability:* $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$
+-   *Linearity*: $\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$
+-   If $X$ and $Y$ are independent: $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$
+
+## Covariance Primer
+
+-   Covariance measures how two variables move together: co-vary
+-   Formula: $Cov(x,y) = E[(x - E(x))(y - E(y))]$
+-   Can be rewritten as: $Cov(x,y) = E(xy) - E(x)E(y)$
+-   Properties:
+    -   If x,y independent: $Cov(x,y) = 0$
+    -   If $Cov(x,y) = 0$: x,y are uncorrelated
+-   If we replace y with x, $Cov(x,x) = Var(x) = E[(x - E(x))]^2$
+:::
+
+````{=html}
+<!--
+## Simple Example: {.smaller}
+
+```{r}
+# Rolling a fair six-sided die
+die_outcomes <- 1:6
+# Probability of each outcome
+prob <- rep(1/6, 6)
+
+# Expected value
+E_die <- sum(die_outcomes * prob)
+cat("Expected value of rolling a die:", E_die)
+
+# Simulate 1000 die rolls
+set.seed(123)
+rolls <- sample(die_outcomes, size=1000, replace=TRUE)
+mean(rolls)
+
+# Visualize
+hist(rolls, breaks=seq(0.5, 6.5, 1), 
+     main="Distribution of 1000 Die Rolls",
+     xlab="Outcome",
+     col="lightblue")
+abline(v=E_die, col="red", lwd=2)
+```
+-->
+````
+
+## Notation {.smaller}
+
+Note that in this course for the most part we will be using a *single cross-sectional data*
+
+1.  Observations and Indices:
+    -   i: Index for a unit of observation (i = 1, ..., n)
+        -   Could be individual, city, firm
+    -   n: Sample size
+    -   $\sum_{i=1}^n$: Sum over all observations
+2.  Variables:
+    -   y: Outcome/dependent variable (what we want to explain)
+    -   x: Independent/explanatory variable(s) (what helps explain y)
+    -   yᵢ: The i-th observation of y
+    -   xᵢ: The i-th observation of x
+
+```{=html}
+<!--
+##  {.smaller}
+
+| Population Parameters (Greek Letters)   | Sample (Roman Letters)              |
+|:------------------------------------|:----------------------------------|
+| β₀,β₁: Population intercept & slope     | b₀, b₁: Estimated intercept & slope |
+| ε (epsilon) or u: Error term            | ȳ, x̄: Sample mean of y & x          |
+| σ² (sigma squared): Population variance | s²: Sample variance                 |
+| μ (mu): Population mean                 |                                     |
+
+::: callout-tip
+Remember: Greek letters (β, σ, μ) typically represent unknown population parameters, while Roman letters (b, s, m) represent sample statistics we can calculate.
+:::
+-->
+```
+
+# Foundations of Regression Analysis {background-color="#1c5253"}
+
+## Population vs. Sample {.smaller}
+
+Simple linear regression model (SLRM): studies how $y$ changes with changes in $x$
+
+::::: columns
+::: {.column width="50%"}
+Population Model: $$y_i = β₀ + β₁x_i + u_i$$
+
+-   β₀: Population intercept
+-   β₁: Population slope
+-   $u_i$: Error term (unobserved factors)
+:::
+
+::: {.column width="50%"}
+Estimation from a sample gives: $$\hat{y_i} = \widehat{\beta_0} + \widehat{\beta_1} x_i$$
+
+-   $\widehat{\beta_0}$: estimated intercept
+-   $\widehat{\beta_1}$: estimated slope
+-   $\hat{u_i}$: Residuals = $\hat{y_i} - y_i$
+:::
+:::::
+
+::: callout-note
+-   "hats" refer to estimates
+-   If I write $y$ instead of $y_i$ that means I am referring to the entire vector of all $y_i$'s
+:::
+
+## Interpret parameters {.smaller}
+
+Population Model: $$y_i = β₀ + β₁x_i + u_i$$
+
+Example: $$wages_i = β₀ + β₁education_i + u_i$$
+
+-   What do β₀,β₁ represent?
+
+##  {.smaller}
+
+Population Model: $$y_i = β₀ + β₁x_i + u_i$$
+
+-   If the other unobserved factors in u are held fixed,
+    -   so that the changes in u is zero,
+-   then x has a linear effect on y
+-   simply: $\Delta y_i = \beta_1 \Delta x_i$ iff $\Delta u_i = 0$
+
+Formally,
+
+$$\frac{\partial y_i}{\partial x_i} = \beta_1 $$ iff $\frac{\partial u_i}{\partial x_i} = 0$
+
+::: callout-note
+-   We are imposing an assumption on the relation between $x$ and $u$ to be able to interpret $\beta_1$. We will formalize this soon.
+:::
+
+# Assumptions {background-color="#1c5253"}
+
+## Key Assumptions About $u$ {.smaller}
+
+::::::::: panel-tabset
+### Assumptions
+
+::::: columns
+::: {.column width="50%"}
+**Zero Mean**
+
+-   $E(u) = 0$
+-   Simple normalization of unobservables
+-   Can always redefine intercept to make this true
+
+**Why This Works**
+
+-   Requires intercept in the regression
+-   Redefining intercept absorbs any non-zero mean
+:::
+
+::: {.column width="50%"}
+**Mean Independence**
+
+-   $E(u|x) = E(u)$
+-   Average error same across all x-values
+-   Stronger than zero correlation
+-   Very strong assumption
+
+**Key Implications**
+
+-   Combines with first assumption to give:
+-   $E(u|x) = 0$ (Zero Conditional Mean)
+-   Essential for interpreting $\beta_1$ as causal effect
+:::
+:::::
+
+### Why $E(u)=0$ works?
+
+::::: columns
+::: {.column width="50%"}
+**Original Model**
+
+$wage_i = \beta_0 + \beta_1educ_i + u_i$
+
+Where $u$ includes ability:
+
+-   Average ability = 100 (IQ points)
+-   So $E(u) = 100 \neq 0$
+
+This means: $wage = \beta_0 + \beta_1educ + 100 + \tilde{u}$
+:::
+
+::: {.column width="50%"}
+**Rewritten Model**
+
+$wage_i = (\beta_0 + 100) + \beta_1educ_i + \tilde{u_i}$
+
+Where:
+
+-   $\tilde{u} = u - 100$ is deviation from mean
+-   Now $E(\tilde{u}) = 0$
+-   New intercept = $\beta_0 + 100$
+-   Same model, different parameterization
+:::
+:::::
+
+**Key Insight**
+
+-   Original error ($u$): Ability with mean 100
+-   New error ($\tilde{u}$): Deviation from average ability
+-   Slopes ($\beta_1$) identical in both models
+-   Only intercept changes to absorb the mean
+:::::::::
+
+## What about $E(u \mid x) = 0$?
+
+-   Let us go back to the wage and education example
+
+$$ wage_i = \beta_0 + \beta_1 education_i + u_i $$
+
+-   what does mean independence /zero conditional mean, mean here?
+-   is it too strong an assumption?
+
+## Population Regression Function {.smaller}
+
+::::::::: panel-tabset
+### Population Regression Function
+
+::::: columns
+::: {.column width="50%"}
+Zero conditional mean implies:
+
+$E(y_i|x_i) = \beta_0 + \beta_1x_i$
+
+**Interpretation**
+
+-   Linear function of x
+-   1 unit $\uparrow$ in x changes $E(y)$ by $\beta_1$
+-   Given x, distribution of y centered around $E(y|x)$
+:::
+
+::: {.column width="50%"}
+**`gpa1` data**
+
+$E(colGPA|hsGPA) = 1.5 + 0.5 \, hsGPA$
+
+For $hsGPA = 3.6$:
+
+-   Average $colGPA = 1.5 + 0.5(3.6) = 3.3$
+-   Not every student gets 3.3
+-   Some higher, some lower
+-   Depends on unobserved factors (u)
+:::
+:::::
+
+### Visualization
+
+```{r}
+#| echo: true
+#| fig.height: 5
+#| message: false
+#| warning: false
+library(wooldridge)
+
+# gpa_model <- lm(gpa1$colGPA ~ gpa1$hsGPA)
+# summary(gpa_model)
+
+
+plot(gpa1$hsGPA, gpa1$colGPA,
+     xlab = "High school  GPA",
+     ylab = "College GPA",
+     col = "red")
+abline(lm(gpa1$colGPA ~ gpa1$hsGPA), col = "blue")
+
+```
+
+### Components of y
+
+::::: columns
+::: {.column width="50%"}
+**Systematic Part**
+
+-   $\beta_0 + \beta_1x = E(y|x)$
+-   Explained by x
+-   Population regression line
+-   Blue line shows $E(y|x)$
+:::
+
+::: {.column width="50%"}
+**Unsystematic Part**
+
+-   u = Deviation from $E(y|x)$
+-   Not explained by x
+-   Zero mean at each x $E(u \mid x) = 0$
+:::
+:::::
+:::::::::
+
+# Deriving the OLS estimator {background-color="#1c5253"}
+
+##  {.smaller}
+
+::: panel-tabset
+### Starting assumption to deriving OLS estimators
+
+We start with two key assumptions:
+
+1.  $E(u) = 0$
+2.  $E(u \mid x) = 0$ (zero conditional mean)
+
+This implies:
+
+-   $Cov(x,u) = E(xu) - E(x)E(u)$
+-   Since $E(u) = 0$:
+    -   $Cov(x,u) = E(xu) - E(x) \cdot 0 = E(xu)$
+-   Therefore: $Cov(x,u) = 0 \iff E(xu) = 0$
+:::
+
+## Derivation {.smaller}
+
+Population Model: $$y_i = β₀ + β₁x_i + u_i$$
+
+::::: columns
+::: {.column width="50%"}
+-   **Assumptions on the population**:
+    -   $E(u) = 0$
+    -   Covariance between $x$ and $u$ is zero: $\text{Cov}(x,u) = 0$
+        -   These imply: $E(xu) = 0$
+-   **Implications**:
+    -   In terms of observable variables $x$ and $y$:
+        -   $E(y - \beta_0 - \beta_1x) = 0$
+        -   $E[x(y - \beta_0 - \beta_1x)] = 0$
+    -   Assumptions give us these *moment conditions*
+:::
+
+::: {.column width="50%"}
+**Sample counterparts**
+
+-   Given a sample of data
+-   estimates $\hat{\beta_0}$ and $\hat{\beta_1}$ solve the sample counterparts of the moment conditions,
+    -   leading to equations:
+
+$$n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
+
+$$n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
+
+-   These equations can be solved for $\hat{\beta_0}$ and $\hat{\beta_1}$.
+:::
+:::::
+
+##  {.smaller}
+
+Now, $n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$, simplifies to
+
+$$\bar{y_i} = \hat{\beta_0} + \hat{\beta_1}\bar{x_i}$$
+
+Where $\bar{y_i} = n^{-1} \sum_{i=1}^{n}y_i$ is the sample average of the $y_i$.
+
+Thus,
+
+$$\hat{\beta_0} = \bar{y_i}  - \hat{\beta_1}\bar{x_i}$$
+
+Plug in $\hat{\beta_0}$ into: $n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$ and simplifying gives us the slope coefficient $\hat{\beta_1}$:
+
+$$\hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+
+provided, $\sum_{i=1}^{n}(x_i - \bar{x})^2 > 0$. What's this?
+
+##  {.smaller}
+
+Note that $\hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$ is nothing but
+
+the *sample covariance* divided by the *sample variance*,
+
+which can be written as,
+
+$$\hat{\beta}_1=\hat{\rho}_{x y} \cdot\left(\frac{\hat{\sigma_y}}{\hat{\sigma_x}}\right)$$
+
+since,
+
+-   sample covariance $= \hat{\rho}_{x y} \cdot \hat{\sigma_y}\hat{\sigma_x}$
+-   correlation coeff: $\hat{\rho}_{x y}$
+-   sample variance $= \hat{\sigma_x}^2$
+
+## Fitted values and residual {.smaller}
+
+-   The estimates of $\beta_0$ and $\beta_1$ thus obtained are called OLS
+-   Can obtain "fitted values" of $y_i$: $$\hat{y_i} = \beta_0 + \beta_1 x_i$$
+-   Obtain residuals: $\hat{u_i} = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i$
+
+```{r}
+#| echo: false
+# Example visualization of errors
+plot(dist ~ speed, data = cars,
+     xlab = "Speed (MPH)",
+     ylab = "Stopping Distance (ft)",
+     main = "Errors/Residuals Visualization",
+     pch = 20,
+     cex = 1.5,
+     col = "red")
+abline(lm(dist ~ speed, data = cars), col = "blue", lwd = 2)
+# Add arrows for residuals
+model <- lm(dist ~ speed, data = cars)
+arrows(cars$speed, cars$dist, 
+       cars$speed, fitted(model), 
+       col = "darkgray", length = 0.1)
+```
+
+## Interestingly {.smaller}
+
+-   the line (characterized by an intercept and a slope) that minimizes: $$\sum_{i=1}^n \hat{u}_i^2= \underbrace{\sum_{i=1}^n\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_i\right)^2}_{\text{SSR: Squared Sum of Residuals}}$$
+
+-   lead to FOC's that are same as what we obtained as the sample counterparts of the moment conditions
+
+    -   $n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
+    -   $n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
+
+-   that we used to derive the OLS estimates
+
+-   OLS chooses $\hat{\beta_0}$ and $\hat{\beta_1}$ to minimize SSR
+
+-   Let us implement in R and test with the lm package
+
+````{=html}
+<!--
+##
+
+```{r}
+#| echo: false
+# Create sample data from the figure
+set.seed(123)
+x <- c(0, 1.25, 2.50, 3.75, 5.00, 6.25, 7.50, 8.75, 10.00)
+y <- c(2.09, 2.79, 6.49, 1.71, 9.89, 7.62, 4.86, 7.38, 10.63)
+
+# Fit linear model
+model <- lm(y ~ x)
+predictions <- predict(model)
+
+# Create plot
+plot(x, y,
+    pch = 19,           # solid circle points
+    cex = 1.2,          # point size
+    col = "black",
+    xlim = c(0, 10),
+    ylim = c(0, 12),
+    xlab = "x",
+    ylab = "y",
+    main = "Fitted values and residuals")
+
+# Add regression line
+abline(model, col = "black", lwd = 2)
+
+# Add arrows for residuals
+arrows(x, y,                    # from actual points
+    x, predictions,          # to predicted points
+    col = "red",
+    length = 0.1,           # arrow head size
+    angle = 90,             # arrow head angle
+    code = 2)               # arrow at end only
+
+# Optional: add grid
+grid(nx = NULL, ny = NULL, col = "lightgray", lty = "dotted")
+```
+-->
+````
+
+# Statistical properties of OLS {background-color="#1c5253"}
+
+## Properties {.smaller}
+
+-   Mean of residuals is zero
+-   Sample mean of x and y, i.e., the point $(\bar{x}, \bar{y})$ lies on the regression line
+-   The sample covariance between the regressors and the OLS residuals is zero
+-   Predictions and residuals are uncorrelated
+
+Try testing these out with this generated data:
+
+```{r}
+set.seed(123)
+x <- seq(1, 100, length.out = 50)
+y <- 2 + 3*x + rnorm(50, 0, 20) #DGP
+plot(x, y, main="Linear Relationship Example")
+abline(lm(y ~ x), col="red", lwd=2)
+
+```
+
+## Decomposition {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+-   **Total Sum of Squares (SST)**: $$
+    \text{SST} \equiv \sum_{i=1}^{n}(y_i - \bar{y})^2
+    $$
+
+-   **Explained Sum of Squares (SSE)**: $$
+    \text{SSE} \equiv \sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2
+    $$
+
+-   **Residual Sum of Squares (SSR)**: $$
+    \text{SSR} \equiv \sum_{i=1}^{n}\hat{u}_i^2
+    $$
+:::
+
+::: {.column width="50%"}
+**Relationship Between Sums of Squares**
+
+Total variation in $y$ can be expressed as:
+
+$$
+\text{SST} = \text{SSE} + \text{SSR}
+$$
+
+**Proof Outline** To prove this relationship, we can write:
+
+$$
+\sum_{i=1}^{n}(y_i - \bar{y})^2 = \sum_{i=1}^{n}[(\hat{y}_i - \bar{y}) + (y_i - \hat{y}_i)]^2
+$$ $$
+= \sum_{i=1}^{n}(\hat{u}_i + (y_i - \bar{y}))^2
+$$ $$
+= \text{SSR} + 2\sum_{i=1}^{n}\hat{u}_i(y_i - \bar{y}) + \text{SSE}
+$$
+:::
+:::::
+
+## R-squared {.smaller}
+
+-   Measures goodness of fit $$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$
+-   Ranges from 0 to 1
+-   Interpretation: Proportion of variance explained by model
+
+```{r}
+# Calculate R-squared
+summary(model)$r.squared
+
+# Decomposition of variance
+anova(model)
+```
+
+# Scaling and Transformations {background-color="#1c5253"}
+
+## The Four Types {.smaller}
+
+1.  Level-level: $y = b_0 + b_1x$
+2.  Level-log: $y = b_0 + b_1\log(x)$
+3.  Log-level: $\log(y) = b_0 + b_1x$
+4.  Log-log: $\log(y) = b_0 + b_1\log(x)$
+
+## Interpreting Log Specifications {.smaller}
+
+| Specification | Change in x | Effect on y               |
+|---------------|-------------|---------------------------|
+| Level-level   | +1 unit     | \+$b_1$ units             |
+| Level-log     | +1%         | \+$\frac{b_1}{100}$ units |
+| Log-level     | +1 unit     | \+$(100 \times b_1)\%$    |
+| Log-log       | +1%         | \+$b_1\%$                 |
+
+## Why Use Logs? {.smaller}
+
+1.  Normalize skewed distributions
+2.  Reduce impact of outliers
+3.  Interpret coefficients as elasticities
+4.  Transform multiplicative relationships to additive
+
+## Example: CEO Salaries {.smaller}
+
+```{r}
+#| echo: true
+data("ceosal1", package = "wooldridge")
+par(mfrow=c(1,2))
+plot(salary ~ sales, data = ceosal1, 
+     main = "Raw Values")
+plot(log(salary) ~ log(sales), data = ceosal1, 
+     main = "Log Transformed")
+```
+
+## Non-Linear Relationships {.smaller}
+
+-   Not all relationships are linear
+-   Can add polynomial terms: $y_i = \beta_0 + \beta_1x_i^2 + u_i$
+-   Visual inspection is crucial
+-   Always plot your data first!
+
+::: callout-note
+Linear in linear regression means linear in parameters not variables
+:::
+
+# Expected Values and Variances of the OLS Estimator {background-color="#1c5253"}
+
+## Overview
+
+-   For any estimator we want to know two important things
+    -   Whether we are getting unbiased estimates
+    -   If yes, how precisely can we obtain those estimates
+-   Will require assumptions
+-   For OLS, we have 5 of them, which will constitute the Gauss-Markov assumptions
+
+# Expected Value of the OLS Estimator
+
+## Unbiasedness of an estimator {.smaller}
+
+An estimator is **unbiased** if, on average, it produces estimates that are equal to the true value of the parameter being estimated.
+
+::: {.callout-note icon="false"}
+## Definition
+
+An estimator producing an estimate $\hat{\theta}$ for a parameter $\theta$ is considered unbiased if: $$
+\mathbb{E}(\widehat{\theta}) = \theta
+$$
+:::
+
+Basically means that the sampling distribution of $\hat{\theta}$ is centered around the true  $\theta$ **on average**
+
+We will now show that the OLS estimator for a SLR model's parameters $(\beta_0, \beta_1)$ is unbiased
+
+## Assumptions to prove unbiasedness of OLS {.smaller}
+
+::: panel-tabset
+### SLR 1 - 4 {.smaller}
+
+1.  Linear in parameters
+2.  Random sampling
+3.  Sample Variation in X
+4.  Zero Conditional mean
+
+### SLR1 {.smaller}
+
+1.  *Linear in parameters:*
+
+    In the population model, the dependent variable, $y$, is related to the independent variable, $x$, and the error (or disturbance), $u$, as: $$
+     y=\beta_0+\beta_1 x+u
+     $$ where $\beta_0$ and $\beta_1$ are the population intercept and slope parameters, respectively.
+
+### SLR2 {.smaller}
+
+2.  *Random Sampling*
+
+    We have a random sample of size n,$\left\{\left(x_i, y_i\right): i=1,2, \ldots, n\right\}$ in the population model
+
+### SLR3 {.smaller}
+
+3.  *Sample variation in X*
+
+    The sample explanatory x variable, namely, $x_i$ , $i \in \{1, \cdots, n\}$ , are not all the same value $$\widehat{Var}(x_i) > 0$$
+
+### SLR4 {.smaller}
+
+4.  *Zero conditional mean*
+
+The error $u$ has an expected value of zero given any value of the explanatory variable. In other words, $$E(u \mid x)=0$$ .
+:::
+
+## Theorem
+
+::: {.callout-important icon="false"}
+### Theorem: Unbiasedness of the OLS estimator
+
+Using Assumptions SLR. 1 through SLR.4,
+
+$$
+\mathrm{E}\left(\hat{\beta}_0\right)=\beta_0 \text { and } \mathrm{E}\left(\hat{\beta}_1\right)=\beta_1
+$$
+:::
+
+-   In other words, $\hat{\beta}_0$ is unbiased for $\beta_0$, and $\hat{\beta}_1$ is unbiased for $\beta_1$.
+-   Let us prove it using our assumptions!
+-   In doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof.
+
+
+
+
+
+## Please make sure you go through all of Math Refresher A and B {.smaller}
+
+### B-4f Properties of Conditional Expectation
+
+-   $\text {CE.1: } \mathrm{E}[c(X) \mid X]=c(X) \text {, for any function } c(X)$
+-   $\text {CE.2: For functions } a(X) \text { and } b(X) \text {, } \mathrm{E}[a(X) Y+b(X) \mid X]=a(X) \mathrm{E}(Y \mid X)+b(X)$
+-   $\text {CE. 3: If } X \text { and } Y \text { are independent, then } \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$
+-   $\text {CE. 4:} \mathrm{E}[\mathrm{E}(Y \mid X)]=\mathrm{E}(Y)$ *[Law of Iterated Expectations]*
+-   $\text {CE. } 4^{\prime}: \mathrm{E}(Y \mid X)=\mathrm{E}[\mathrm{E}(Y \mid X, Z) \mid X]$ *[Generalized Law of Iterated Expectations]*
+-   $\text {CE. } 5: \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$ then $cov(X, Y)=0$
+
+
+
+
+
+
+
+## Key patterns in the proof {.smaller}
+
+-   Start with the OLS estimate $\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$ and $\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}$
+-   Write the OLS estimator in terms of the population parameters
+    -   To do this we have to bring in $y_i$ (population model) and not $\hat{y_i}$
+        -   This is what brings in the population parameters $\beta_0$ and $\beta_1$ on the RHS
+    -   Tricks to bring in $y_i$ in the OLS estimator:
+        -   **Without any assumptions** we showed and used:
+        -   $\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}) = \sum_{i=1}^n(x_i - \bar{x})y_i$
+            -   Could have written this as $\sum_{i=1}^n(y_i - \bar{y})x_i$ but did not **to bring in** $y_i$
+    -   Other tricks: **Without any assumptions**
+        -   $\sum_{i=1}^n(x_i - \bar{x}) = 0$
+        -   $\sum_{i=1}^n(x_i - \bar{x})x_i = \sum_{i=1}^n(x_i - \bar{x})^2$
+-   Take the expectation conditional on $x_i$
+    -   impose the SLR assumptions on zero mean and zero conditional mean
+    -   use LIE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Variance of the OLS Estimators {background-color="#1c5253"}
+
+## SLR 5: Homoskedasticity  assumption {.smaller}
+
+The population error $u_i$ has the same variance given any value of $x_i$, i.e.,
+
+$$
+Var(u \mid x) = \sigma^2
+$$
+
+SLR 5 further implies that $\sigma^2$ is also the unconditional variance of $u$.
+
+$$\operatorname{Var}(u \mid x)=\mathrm{E}\left(u^2 \mid x\right)-[\mathrm{E}(u \mid x)]^2$$
+
+$$ \text { and since } \mathrm{E}(u \mid x)=0, \sigma^2=\mathrm{E}\left(u^2 \mid x\right)$$
+
+
+
+
+
+
+## Now we have $Var( y \mid x)$
+
+::::: columns
+::: {.column width="50%"}
+using Assumptions SLR. 4 and SLR. 5 we can derive the conditional variance of $y$ :
+
+$$
+\begin{gathered}
+\mathrm{E}(y \mid x)=\beta_0+\beta_1 x \\
+\operatorname{Var}(y \mid x)=\sigma^2
+\end{gathered}
+$$
+
+From here we can get $Var(u \mid x)$
+:::
+
+::: {.column width="50%"}
+![Homoskedasticity](homoskedasticity.png)
+:::
+:::::
+
+
+
+
+
+
+
+## Theorem {.smaller}
+
+::: {.callout-important icon = "false"}
+
+### Sampling variance of OLS estimators
+
+Under Assumptions SLR. 1 through SLR.5,
+
+$$
+\operatorname{Var}\left(\hat{\beta}_1\right)=\frac{\sigma^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2}{\mathrm{SST}_x},
+$$
+
+and
+
+$$
+\operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}
+$$
+
+where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$. 
+:::
+
+-   Let us prove this!
+
+
+
+
+## Proof of $\operatorname{Var}\left(\hat{\beta}_1\right)$ {.smaller}
+
+-   Let us work with  $\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$ $\implies$ $\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n}(x_i - \bar{x})u_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$
+-   Denote $(x_i - \bar{x})$ as $d_i$. So $\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n} d_iu_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$
+-   Now take the variance of $\hat{\beta}_1$ conditional on the sample values $x_i$
+
+\begin{align*}
+    \operatorname{Var}\left(\hat{\beta}_1\right) & = \operatorname{Var}\left(\beta_1 + \frac{\sum_{i=1}^{n} d_iu_i}{SST_x}\right) \\
+    & = \operatorname{Var}\left(\frac{\sum_{i=1}^{n} d_iu_i}{SST_x}\right) \quad \text{skipping 2 steps} \\
+    & = \frac{1}{\left(SST_x\right)^2} \sum_{i=1}^{n} d_i^2 \operatorname{Var}(u_i) \quad \text{skipping 3 steps} \\
+    & = \frac{\sigma^2}{SST_x}
+\end{align*}
+
+## Measure of precision of $\hat{\beta_1}$ {.smaller}
+
+::: {.incremental}
+- $sd(\hat{\beta}_1) = \sqrt{\operatorname{Var}\left(\hat{\beta}_1\right)}$ gives a measure of the precision of $\hat{\beta}_1$
+- But we do not know $\sigma^2$ so we do not know $sd(\hat{\beta}_1)$
+- So we have to estimate $\sigma^2$ to get an estimate of $sd(\hat{\beta}_1)$
+- The estimate of the $sd(\hat{\beta}_1)$ is called the standard error of $\hat{\beta}_1$
+:::
+
+<!--
+## What do we have so far {.smaller}
+-   We have shown under SLR 1-5 that the OLS estimators are unbiased
+-   We have also shown that the variance of the OLS estimators can be written as:
+    -   $\operatorname{Var}\left(\hat{\beta}_1\right)=\frac{\sigma^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2}{\mathrm{SST}_x}$
+    -   $\operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}$
+-   To wrap up SLR we need to know how precise are the estimates
+-   If we knew $\sigma^2$ we would be done, because then
+    -   $\sqrt{\operatorname{Var}\left(\hat{\beta}_1\right)}$ and $\sqrt{\operatorname{Var}\left(\hat{\beta}_0\right)}$ would be the standard errors of the OLS estimators
+-   We will estimate $\sigma^2$ using the residuals to get $\hat{\sigma}^2$ and then use that to get the standard errors of the OLS estimators
+-   This estimate $\hat{\sigma}^2$ also has to be s.t. it is **unbiased**
+-->
+
+
+
+
+
+
+## Theorem {.smaller}
+
+::: {.callout-important icon = "false"}
+
+### Unbiased estimation of $\sigma^2$
+
+Under Assumptions SLR. through SLR.5,
+
+$$\mathrm{E}\left(\hat{\sigma}^2\right)=\sigma^2$$
+
+where $\hat{\sigma}^2=\frac{1}{n-2} \sum_{i=1}^n \hat{u}_i^2$, where $\hat{u}_i=y_i-\hat{\beta}_0-\hat{\beta}_1 x_i$
+
+:::
+
+-   Study the proof from 2-5c
+-   Try to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates
+
+
+
+
+
+
+## In essence we have shown {.smaller}
+
+::: {.incremental}
+Assuming SLR 1-5, and conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$, we have shown that:
+
+-   The OLS estimators are unbiased
+    -   $\mathrm{E}\left(\hat{\beta}_0\right)=\beta_0$ and $\mathrm{E}\left(\hat{\beta}_1\right)=\beta_1$
+-   We can obtain the variance of the OLS estimators
+    -   $\operatorname{Var}\left(\hat{\beta}_1\right)=\frac{\sigma^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2}{\mathrm{SST}_x}$
+    -   $\operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}$
+-   But we do not know $\sigma^2$
+    -   The residual variance $\hat{\sigma}^2$ is unbiased for the variance of the population errror $\sigma^2$
+    -   $\mathrm{E}\left(\hat{\sigma}^2\right)=\sigma^2$
+-   And we learnt a lot of tricks and pattern recognition in the process
+-   And some stuff about how to work with data
+:::
+
+
+
+
+
+
+## Remaining things for you to sudy {.smaller}
+
+-   Read up on the properties of the conditional expectation in Math Refresher B
+-   Read up:
+    -   2-6: Regression through the Origin and Regression on a Constant
+    -   2-7: Regression on a Binary Explanatory Variable
+-   Again: Make sure you go through all of Math Refresher A and B
+
+next class we will start chapter 3
+
+
+
+
+
+
+````{=html}
+<!--
+
+## The Simple Linear Regression Model {.smaller}
+
+::: columns
+::: {.column width="50%"}
+Key Assumptions (SLR.1 - SLR.5):
+
+1.  Linear in Parameters
+2.  Random Sampling
+3.  Sample Variation in X
+4.  Zero Conditional Mean: E(u\|x) = 0
+5.  Homoskedasticity: Var(u\|x) = σ²
+:::
+
+::: {.column width="50%"}
+```{r}
+# Demonstrate linear relationship
+set.seed(123)
+x <- seq(1, 100, length.out = 50)
+y <- 2 + 3*x + rnorm(50, 0, 20)
+plot(x, y, main="Linear Relationship Example")
+abline(lm(y ~ x), col="red", lwd=2)
+```
+:::
+
+:::
+
+
+
+## Zero Conditional Mean {.smaller}
+
+Important implications:
+
+1.  X and u are uncorrelated
+2.  Regression line passes through (x̄, ȳ)
+3.  Mean of residuals is zero
+
+```{r}
+model <- lm(y ~ x)
+# Show mean of residuals
+mean(residuals(model))
+
+# Plot residuals against X
+plot(x, residuals(model), 
+     main="Residuals vs. X",
+     ylab="Residuals")
+abline(h=0, col="red", lty=2)
+```
+
+# OLS Estimation {background-color="#1c5253"}
+
+## The OLS Objective Function {.smaller}
+
+Minimizing Sum of Squared Residuals (SSR):
+
+$$ SSR = \sum_{i=1}^n (y_i - b_0 - b_1x_i)^2 $$
+
+```{r}
+# Demonstrate OLS fitting
+model_summary <- summary(model)
+# Show SSR
+sum(residuals(model)^2)
+```
+
+## OLS Estimators {.smaller}
+
+Sample statistics:
+
+$$ b_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} $$
+
+$$ b_0 = \bar{y} - b_1\bar{x} $$
+
+```{r}
+# Manual calculation of slope
+x_centered <- x - mean(x)
+y_centered <- y - mean(y)
+b1_manual <- sum(x_centered * y_centered) / sum(x_centered^2)
+b0_manual <- mean(y) - b1_manual * mean(x)
+
+# Compare with lm()
+coef(model)
+```
+
+# Statistical Properties {background-color="#1c5253"}
+
+## Sampling Distribution {.smaller}
+
+Under classical assumptions:
+
+1.  Unbiasedness: E(b₁) = β₁
+2.  Variance: Var(b₁) = σ²/SST_x
+3.  Normal distribution (if u is normal)
+
+```{r}
+# Standard error of slope
+coef(summary(model))["x", "Std. Error"]
+
+# Confidence interval
+confint(model)
+```
+
+## The Gauss-Markov Theorem {.smaller}
+
+OLS estimators are BLUE: - Best - Linear - Unbiased - Estimator
+
+Implications: - Smallest variance among linear unbiased estimators - Efficient estimation
+
+# Inference and Testing {background-color="#1c5253"}
+
+## t-Statistics and Confidence Intervals {.smaller}
+
+Testing H₀: β₁ = 0
+
+$$ t = \frac{b_1 - 0}{se(b_1)} $$
+
+```{r}
+# t-test for slope
+coef(summary(model))["x", "t value"]
+coef(summary(model))["x", "Pr(>|t|)"]
+
+# 95% CI
+confint(model, level = 0.95)
+```
+
+## R² and Goodness of Fit {.smaller}
+
+$$ R^2 = 1 - \frac{SSR}{SST} = \frac{SSE}{SST} $$
+
+
+```{r}
+# Calculate R-squared
+summary(model)$r.squared
+
+# Decomposition of variance
+anova(model)
+```
+
+# Regression Analysis in Practice {background-color="#1c5253"}
+
+## Economic Example: Wage Determination {.smaller}
+
+```{r}
+# Create wage-education data
+set.seed(456)
+education <- rnorm(100, mean=16, sd=2)
+wage <- 10000 + 5000*education + rnorm(100, 0, 10000)
+
+# Estimate wage equation
+wage_model <- lm(wage ~ education)
+summary(wage_model)
+
+# Plot
+plot(education, wage,
+     main="Education vs. Wage",
+     xlab="Years of Education",
+     ylab="Annual Wage ($)")
+abline(wage_model, col="blue", lwd=2)
+```
+
+## Interpreting Economic Results {.smaller}
+
+Key interpretations: 1. Marginal effect 2. Statistical significance 3. Economic significance 4. Prediction intervals
+
+```{r}
+# Marginal effect of education
+coef(wage_model)["education"]
+
+# Prediction for new values
+new_edu <- data.frame(education = c(12, 16, 20))
+predict(wage_model, new_edu, interval="prediction")
+```
+
+# Advanced Topics {background-color="#1c5253"}
+
+## Functional Forms {.smaller}
+
+Common specifications: 1. Level-Level 2. Log-Level 3. Level-Log 4. Log-Log (elasticity)
+
+```{r}
+# Log-log example
+log_wage_model <- lm(log(wage) ~ log(education))
+summary(log_wage_model)
+```
+
+## Regression Diagnostics {.smaller}
+
+Key diagnostic plots:
+
+```{r}
+par(mfrow=c(2,2))
+plot(wage_model)
+```
+
+# Practice Problems {background-color="#1c5253"}
+
+## Exercise 1: Wage Analysis
+
+Using provided data: 1. Test for education premium 2. Calculate confidence intervals 3. Interpret R² 4. Check assumptions
+
+## Exercise 2: Model Specification
+
+1.  Compare different functional forms
+2.  Test for nonlinearity
+3.  Analyze residuals
+4.  Make predictions
+
+## Exercise 3: Hypothesis Testing
+
+1.  Conduct t-tests
+2.  Calculate F-statistics
+3.  Test economic hypotheses
+4.  Interpret p-values
+
+# Additional Resources {background-color="#1c5253"}
+
+## Key References
+
+-   Wooldridge, "Introductory Econometrics"
+-   Stock & Watson, "Introduction to Econometrics"
+-   Greene, "Econometric Analysis"
+
+## Statistical Software
+
+-   R packages:
+    -   lmtest
+    -   sandwich
+    -   car
+    -   stargazer
+
+## Expected Value and Sample Size {.smaller}
+
+```{r}
+# Create population of college graduates' wages
+set.seed(456)
+population_size <- 100000
+population_wages <- rnorm(population_size, mean=55000, sd=8000)
+
+E_population <- mean(population_wages)
+cat("True population mean (expected value):", round(E_population, 2))
+```
+
+```{r}
+# Sample sizes to try
+sample_sizes <- c(10, 100, 1000, 10000)
+
+# Function to draw samples and calculate means
+par(mfrow=c(2,2))
+for(n in sample_sizes) {
+    # Draw random sample
+    sample_wages <- sample(population_wages, size=n)
+    sample_mean <- mean(sample_wages)
+    
+    # Plot histogram
+    hist(sample_wages, 
+        main=paste("Sample Size:", n),
+        xlab="Annual Wage ($)",
+        col="lightblue",
+        breaks=30)
+    abline(v=E_population, col="red", lwd=2, lty=2)  # Population mean
+    abline(v=sample_mean, col="blue", lwd=2)  # Sample mean
+    legend("topright", 
+        legend=c("Population Mean", "Sample Mean"),
+        col=c("red", "blue"),
+        lty=c(2, 1),
+        lwd=2,
+        cex=0.7)
+}
+
+# Print results
+cat("\nPopulation mean (Expected Value):", round(E_population, 2))
+cat("\n\nSample means by sample size:")
+for(n in sample_sizes) {
+    sample_mean <- mean(sample(population_wages, size=n))
+    cat(sprintf("\nn = %5d: %8.2f (diff: %6.2f)", 
+                n, sample_mean, sample_mean - E_population))
+}
+```
+
+## Dice Simulation {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.height: 10
+#| message: false
+#| warning: false
+
+library(ggplot2)
+library(tidyverse)
+
+# Define dice outcomes
+dice_outcomes <- 1:6
+
+# Function that simulates dice rolls
+sim_rolls <- function(num_rolls){
+  set.seed(123)
+  rolls <- sample(dice_outcomes, size=num_rolls, replace=TRUE)
+  mean(rolls)
+}
+
+# Initialize and calculate averages
+avg_outcome <- rep(0.0, 1000)
+for (rolls in 1:1000){
+  avg_outcome[rolls] <- sim_rolls(rolls)
+}
+
+# Create data frame for ggplot
+plot_data <- data.frame(
+  rolls = 1:1000,
+  average = avg_outcome
+)
+
+# Create convergence plot
+ggplot(plot_data, aes(x = rolls, y = average)) +
+  geom_line(color = "#2ecc71", linewidth = 0.8) +
+  geom_hline(yintercept = 3.5, 
+             color = "#3498db", 
+             linetype = "dashed",
+             linewidth = 0.8) +
+  labs(title = "Convergence to Expected Value",
+       x = "Number of Rolls",
+       y = "Average Outcome") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(limits = c(1, 6)) +
+  annotate("text", x = 750, y = 3.7, 
+           label = "Expected Value = 3.5",
+           color = "#3498db") 
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.height: 10
+#| message: false
+#| warning: false
+
+# Simulate many samples of size 100
+samples <- replicate(10000, mean(sample(dice_outcomes, 100, replace=TRUE)))
+
+# Create data frame for histogram
+hist_data <- data.frame(sample_means = samples)
+
+# Create histogram
+ggplot(hist_data, aes(x = sample_means)) +
+  geom_histogram(fill = "#3498db", 
+                color = "white",
+                bins = 30,
+                alpha = 0.7) +
+  geom_vline(xintercept = 3.5,
+             color = "#e74c3c",
+             linewidth = 1) +
+  labs(title = "Distribution of Sample Means (n=100) across 10000 simulations",
+       x = "Sample Mean",
+       y = "Count") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  annotate("text", x = 3.7, y = 80, 
+           label = "Expected Value = 3.5",
+           color = "#e74c3c")
+```
+:::
+:::
+
+-->
+````

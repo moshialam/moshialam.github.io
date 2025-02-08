@@ -1,136 +1,535 @@
 [
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
-    "section": "",
-    "text": "Download my CV \nLast updated: April 15, 2024"
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#expectation-and-covariances",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#expectation-and-covariances",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Expectation and Covariances",
+    "text": "Expectation and Covariances\n\nExpectation PrimerPropertiesCovariance Primer\n\n\n\nExpected Value of a random variable (r.v.) is the average of the r.v. in the population a.k.a the true mean\n\nPopulation parameter, different from sample average\n\nWhat we “expect” to see most often using averages in large representative samples\nI love the visualization in Seeing Theory\n\nFor a discrete random variable \\(X\\) with possible values \\(x_i\\) and probabilities \\(p_i\\):\n\\[\\mathbb{E}[X] = \\sum_{i=1}^n x_i p_i\\]\nFor a continuous random variable \\(X\\) defined over \\((-\\infty, \\infty)\\) with probability density function \\(f(x)\\):\n\\[\\mathbb{E}[X] = \\int_{-\\infty}^{\\infty} \\quad x \\quad f(x) \\quad dx\\]\n\n\n\nAdditive separability: \\(\\mathbb{E}[X + Y] = \\mathbb{E}[X] + \\mathbb{E}[Y]\\)\nLinearity: \\(\\mathbb{E}[aX + b] = a\\mathbb{E}[X] + b\\)\nIf \\(X\\) and \\(Y\\) are independent: \\(\\mathbb{E}[XY] = \\mathbb{E}[X]\\mathbb{E}[Y]\\)\n\n\n\n\nCovariance measures how two variables move together: co-vary\nFormula: \\(Cov(x,y) = E[(x - E(x))(y - E(y))]\\)\nCan be rewritten as: \\(Cov(x,y) = E(xy) - E(x)E(y)\\)\nProperties:\n\nIf x,y independent: \\(Cov(x,y) = 0\\)\nIf \\(Cov(x,y) = 0\\): x,y are uncorrelated\n\nIf we replace y with x, \\(Cov(x,x) = Var(x) = E[(x - E(x))]^2\\)"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Md Moshi Ul Alam",
-    "section": "",
-    "text": "Email    CV    Scholar      BlueSky \n\nHi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD in Economics, from the University of Wisconsin-Madison.\n\n\n\n Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#notation",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#notation",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Notation",
+    "text": "Notation\nNote that in this course for the most part we will be using a single cross-sectional data\n\nObservations and Indices:\n\ni: Index for a unit of observation (i = 1, …, n)\n\nCould be individual, city, firm\n\nn: Sample size\n\\(\\sum_{i=1}^n\\): Sum over all observations\n\nVariables:\n\ny: Outcome/dependent variable (what we want to explain)\nx: Independent/explanatory variable(s) (what helps explain y)\nyᵢ: The i-th observation of y\nxᵢ: The i-th observation of x"
   },
   {
-    "objectID": "papers.html",
-    "href": "papers.html",
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#population-vs.-sample",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#population-vs.-sample",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Population vs. Sample",
+    "text": "Population vs. Sample\nSimple linear regression model (SLRM): studies how \\(y\\) changes with changes in \\(x\\)\n\n\nPopulation Model: \\[y_i = β₀ + β₁x_i + u_i\\]\n\nβ₀: Population intercept\nβ₁: Population slope\n\\(u_i\\): Error term (unobserved factors)\n\n\nEstimation from a sample gives: \\[\\hat{y_i} = \\widehat{\\beta_0} + \\widehat{\\beta_1} x_i\\]\n\n\\(\\widehat{\\beta_0}\\): estimated intercept\n\\(\\widehat{\\beta_1}\\): estimated slope\n\\(\\hat{u_i}\\): Residuals = \\(\\hat{y_i} - y_i\\)\n\n\n\n\n\n\n\n\nNote\n\n\n\n“hats” refer to estimates\nIf I write \\(y\\) instead of \\(y_i\\) that means I am referring to the entire vector of all \\(y_i\\)’s"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#interpret-parameters",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#interpret-parameters",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Interpret parameters",
+    "text": "Interpret parameters\nPopulation Model: \\[y_i = β₀ + β₁x_i + u_i\\]\nExample: \\[wages_i = β₀ + β₁education_i + u_i\\]\n\nWhat do β₀,β₁ represent?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "Population Model: \\[y_i = β₀ + β₁x_i + u_i\\]\n\nIf the other unobserved factors in u are held fixed,\n\nso that the changes in u is zero,\n\nthen x has a linear effect on y\nsimply: \\(\\Delta y_i = \\beta_1 \\Delta x_i\\) iff \\(\\Delta u_i = 0\\)\n\nFormally,\n\\[\\frac{\\partial y_i}{\\partial x_i} = \\beta_1 \\] iff \\(\\frac{\\partial u_i}{\\partial x_i} = 0\\)\n\n\n\n\n\n\nNote\n\n\n\nWe are imposing an assumption on the relation between \\(x\\) and \\(u\\) to be able to interpret \\(\\beta_1\\). We will formalize this soon."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#key-assumptions-about-u",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#key-assumptions-about-u",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Key Assumptions About \\(u\\)",
+    "text": "Key Assumptions About \\(u\\)\n\nAssumptionsWhy \\(E(u)=0\\) works?\n\n\n\n\nZero Mean\n\n\\(E(u) = 0\\)\nSimple normalization of unobservables\nCan always redefine intercept to make this true\n\nWhy This Works\n\nRequires intercept in the regression\nRedefining intercept absorbs any non-zero mean\n\n\nMean Independence\n\n\\(E(u|x) = E(u)\\)\nAverage error same across all x-values\nStronger than zero correlation\nVery strong assumption\n\nKey Implications\n\nCombines with first assumption to give:\n\\(E(u|x) = 0\\) (Zero Conditional Mean)\nEssential for interpreting \\(\\beta_1\\) as causal effect\n\n\n\n\n\n\nOriginal Model\n\\(wage_i = \\beta_0 + \\beta_1educ_i + u_i\\)\nWhere \\(u\\) includes ability:\n\nAverage ability = 100 (IQ points)\nSo \\(E(u) = 100 \\neq 0\\)\n\nThis means: \\(wage = \\beta_0 + \\beta_1educ + 100 + \\tilde{u}\\)\n\nRewritten Model\n\\(wage_i = (\\beta_0 + 100) + \\beta_1educ_i + \\tilde{u_i}\\)\nWhere:\n\n\\(\\tilde{u} = u - 100\\) is deviation from mean\nNow \\(E(\\tilde{u}) = 0\\)\nNew intercept = \\(\\beta_0 + 100\\)\nSame model, different parameterization\n\n\nKey Insight\n\nOriginal error (\\(u\\)): Ability with mean 100\nNew error (\\(\\tilde{u}\\)): Deviation from average ability\nSlopes (\\(\\beta_1\\)) identical in both models\nOnly intercept changes to absorb the mean"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#what-about-eu-mid-x-0",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#what-about-eu-mid-x-0",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "What about \\(E(u \\mid x) = 0\\)?",
+    "text": "What about \\(E(u \\mid x) = 0\\)?\n\nLet us go back to the wage and education example\n\n\\[ wage_i = \\beta_0 + \\beta_1 education_i + u_i \\]\n\nwhat does mean independence /zero conditional mean, mean here?\nis it too strong an assumption?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#population-regression-function",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#population-regression-function",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Population Regression Function",
+    "text": "Population Regression Function\n\nPopulation Regression FunctionVisualizationComponents of y\n\n\n\n\nZero conditional mean implies:\n\\(E(y_i|x_i) = \\beta_0 + \\beta_1x_i\\)\nInterpretation\n\nLinear function of x\n1 unit \\(\\uparrow\\) in x changes \\(E(y)\\) by \\(\\beta_1\\)\nGiven x, distribution of y centered around \\(E(y|x)\\)\n\n\ngpa1 data\n\\(E(colGPA|hsGPA) = 1.5 + 0.5 \\, hsGPA\\)\nFor \\(hsGPA = 3.6\\):\n\nAverage \\(colGPA = 1.5 + 0.5(3.6) = 3.3\\)\nNot every student gets 3.3\nSome higher, some lower\nDepends on unobserved factors (u)\n\n\n\n\n\nlibrary(wooldridge)\n\n# gpa_model &lt;- lm(gpa1$colGPA ~ gpa1$hsGPA)\n# summary(gpa_model)\n\n\nplot(gpa1$hsGPA, gpa1$colGPA,\n     xlab = \"High school  GPA\",\n     ylab = \"College GPA\",\n     col = \"red\")\nabline(lm(gpa1$colGPA ~ gpa1$hsGPA), col = \"blue\")\n\n\n\n\n\n\n\n\n\n\n\n\nSystematic Part\n\n\\(\\beta_0 + \\beta_1x = E(y|x)\\)\nExplained by x\nPopulation regression line\nBlue line shows \\(E(y|x)\\)\n\n\nUnsystematic Part\n\nu = Deviation from \\(E(y|x)\\)\nNot explained by x\nZero mean at each x \\(E(u \\mid x) = 0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "Starting assumption to deriving OLS estimators\n\n\nWe start with two key assumptions:\n\n\\(E(u) = 0\\)\n\\(E(u \\mid x) = 0\\) (zero conditional mean)\n\nThis implies:\n\n\\(Cov(x,u) = E(xu) - E(x)E(u)\\)\nSince \\(E(u) = 0\\):\n\n\\(Cov(x,u) = E(xu) - E(x) \\cdot 0 = E(xu)\\)\n\nTherefore: \\(Cov(x,u) = 0 \\iff E(xu) = 0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#derivation",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#derivation",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Derivation",
+    "text": "Derivation\nPopulation Model: \\[y_i = β₀ + β₁x_i + u_i\\]\n\n\n\nAssumptions on the population:\n\n\\(E(u) = 0\\)\nCovariance between \\(x\\) and \\(u\\) is zero: \\(\\text{Cov}(x,u) = 0\\)\n\nThese imply: \\(E(xu) = 0\\)\n\n\nImplications:\n\nIn terms of observable variables \\(x\\) and \\(y\\):\n\n\\(E(y - \\beta_0 - \\beta_1x) = 0\\)\n\\(E[x(y - \\beta_0 - \\beta_1x)] = 0\\)\n\nAssumptions give us these moment conditions\n\n\n\nSample counterparts\n\nGiven a sample of data\nestimates \\(\\hat{\\beta_0}\\) and \\(\\hat{\\beta_1}\\) solve the sample counterparts of the moment conditions,\n\nleading to equations:\n\n\n\\[n^{-1} \\sum_{i=1}^{n}(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\]\n\\[n^{-1} \\sum_{i=1}^{n}x_i(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\]\n\nThese equations can be solved for \\(\\hat{\\beta_0}\\) and \\(\\hat{\\beta_1}\\)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-2",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "Now, \\(n^{-1} \\sum_{i=1}^{n}(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\), simplifies to\n\\[\\bar{y_i} = \\hat{\\beta_0} + \\hat{\\beta_1}\\bar{x_i}\\]\nWhere \\(\\bar{y_i} = n^{-1} \\sum_{i=1}^{n}y_i\\) is the sample average of the \\(y_i\\).\nThus,\n\\[\\hat{\\beta_0} = \\bar{y_i}  - \\hat{\\beta_1}\\bar{x_i}\\]\nPlug in \\(\\hat{\\beta_0}\\) into: \\(n^{-1} \\sum_{i=1}^{n}x_i(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\) and simplifying gives us the slope coefficient \\(\\hat{\\beta_1}\\):\n\\[\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\]\nprovided, \\(\\sum_{i=1}^{n}(x_i - \\bar{x})^2 &gt; 0\\). What’s this?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-3",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-3",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "Note that \\(\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) is nothing but\nthe sample covariance divided by the sample variance,\nwhich can be written as,\n\\[\\hat{\\beta}_1=\\hat{\\rho}_{x y} \\cdot\\left(\\frac{\\hat{\\sigma_y}}{\\hat{\\sigma_x}}\\right)\\]\nsince,\n\nsample covariance \\(= \\hat{\\rho}_{x y} \\cdot \\hat{\\sigma_y}\\hat{\\sigma_x}\\)\ncorrelation coeff: \\(\\hat{\\rho}_{x y}\\)\nsample variance \\(= \\hat{\\sigma_x}^2\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#fitted-values-and-residual",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#fitted-values-and-residual",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Fitted values and residual",
+    "text": "Fitted values and residual\n\nThe estimates of \\(\\beta_0\\) and \\(\\beta_1\\) thus obtained are called OLS\nCan obtain “fitted values” of \\(y_i\\): \\[\\hat{y_i} = \\beta_0 + \\beta_1 x_i\\]\nObtain residuals: \\(\\hat{u_i} = y_i - \\hat{y_i} = y_i - \\hat{\\beta_0} - \\hat{\\beta_1} x_i\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#interestingly",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#interestingly",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Interestingly",
+    "text": "Interestingly\n\nthe line (characterized by an intercept and a slope) that minimizes: \\[\\sum_{i=1}^n \\hat{u}_i^2= \\underbrace{\\sum_{i=1}^n\\left(y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_i\\right)^2}_{\\text{SSR: Squared Sum of Residuals}}\\]\nlead to FOC’s that are same as what we obtained as the sample counterparts of the moment conditions\n\n\\(n^{-1} \\sum_{i=1}^{n}(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\)\n\\(n^{-1} \\sum_{i=1}^{n}x_i(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\)\n\nthat we used to derive the OLS estimates\nOLS chooses \\(\\hat{\\beta_0}\\) and \\(\\hat{\\beta_1}\\) to minimize SSR\nLet us implement in R and test with the lm package"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#properties-1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#properties-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Properties",
+    "text": "Properties\n\nMean of residuals is zero\nSample mean of x and y, i.e., the point \\((\\bar{x}, \\bar{y})\\) lies on the regression line\nThe sample covariance between the regressors and the OLS residuals is zero\nPredictions and residuals are uncorrelated\n\nTry testing these out with this generated data:\n\nset.seed(123)\nx &lt;- seq(1, 100, length.out = 50)\ny &lt;- 2 + 3*x + rnorm(50, 0, 20) #DGP\nplot(x, y, main=\"Linear Relationship Example\")\nabline(lm(y ~ x), col=\"red\", lwd=2)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#decomposition",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#decomposition",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Decomposition",
+    "text": "Decomposition\n\n\n\nTotal Sum of Squares (SST): \\[\n\\text{SST} \\equiv \\sum_{i=1}^{n}(y_i - \\bar{y})^2\n\\]\nExplained Sum of Squares (SSE): \\[\n\\text{SSE} \\equiv \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2\n\\]\nResidual Sum of Squares (SSR): \\[\n\\text{SSR} \\equiv \\sum_{i=1}^{n}\\hat{u}_i^2\n\\]\n\n\nRelationship Between Sums of Squares\nTotal variation in \\(y\\) can be expressed as:\n\\[\n\\text{SST} = \\text{SSE} + \\text{SSR}\n\\]\nProof Outline To prove this relationship, we can write:\n\\[\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 = \\sum_{i=1}^{n}[(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\n\\] \\[\n= \\sum_{i=1}^{n}(\\hat{u}_i + (y_i - \\bar{y}))^2\n\\] \\[\n= \\text{SSR} + 2\\sum_{i=1}^{n}\\hat{u}_i(y_i - \\bar{y}) + \\text{SSE}\n\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#r-squared",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#r-squared",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "R-squared",
+    "text": "R-squared\n\nMeasures goodness of fit \\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\]\nRanges from 0 to 1\nInterpretation: Proportion of variance explained by model\n\n\n# Calculate R-squared\nsummary(model)$r.squared\n\n[1] 0.4923586\n\n# Decomposition of variance\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: y\n          Df Sum Sq Mean Sq F value  Pr(&gt;F)  \nx          1 42.639  42.639  6.7893 0.03514 *\nResiduals  7 43.962   6.280                  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#the-four-types",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#the-four-types",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "The Four Types",
+    "text": "The Four Types\n\nLevel-level: \\(y = b_0 + b_1x\\)\nLevel-log: \\(y = b_0 + b_1\\log(x)\\)\nLog-level: \\(\\log(y) = b_0 + b_1x\\)\nLog-log: \\(\\log(y) = b_0 + b_1\\log(x)\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#interpreting-log-specifications",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#interpreting-log-specifications",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Interpreting Log Specifications",
+    "text": "Interpreting Log Specifications\n\n\n\nSpecification\nChange in x\nEffect on y\n\n\n\n\nLevel-level\n+1 unit\n+\\(b_1\\) units\n\n\nLevel-log\n+1%\n+\\(\\frac{b_1}{100}\\) units\n\n\nLog-level\n+1 unit\n+\\((100 \\times b_1)\\%\\)\n\n\nLog-log\n+1%\n+\\(b_1\\%\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#why-use-logs",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#why-use-logs",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Why Use Logs?",
+    "text": "Why Use Logs?\n\nNormalize skewed distributions\nReduce impact of outliers\nInterpret coefficients as elasticities\nTransform multiplicative relationships to additive"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#example-ceo-salaries",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#example-ceo-salaries",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Example: CEO Salaries",
+    "text": "Example: CEO Salaries\n\ndata(\"ceosal1\", package = \"wooldridge\")\npar(mfrow=c(1,2))\nplot(salary ~ sales, data = ceosal1, \n     main = \"Raw Values\")\nplot(log(salary) ~ log(sales), data = ceosal1, \n     main = \"Log Transformed\")"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#non-linear-relationships",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#non-linear-relationships",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Non-Linear Relationships",
+    "text": "Non-Linear Relationships\n\nNot all relationships are linear\nCan add polynomial terms: \\(y_i = \\beta_0 + \\beta_1x_i^2 + u_i\\)\nVisual inspection is crucial\nAlways plot your data first!\n\n\n\n\n\n\n\nNote\n\n\nLinear in linear regression means linear in parameters not variables"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Overview",
+    "text": "Overview\n\nFor any estimator we want to know two important things\n\nWhether we are getting unbiased estimates\nIf yes, how precisely can we obtain those estimates\n\nWill require assumptions\nFor OLS, we have 5 of them, which will constitute the Gauss-Markov assumptions"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Unbiasedness of an estimator",
+    "text": "Unbiasedness of an estimator\nAn estimator is unbiased if, on average, it produces estimates that are equal to the true value of the parameter being estimated.\n\n\n\nDefinition\n\n\nAn estimator producing an estimate \\(\\hat{\\theta}\\) for a parameter \\(\\theta\\) is considered unbiased if: \\[\n\\mathbb{E}(\\widehat{\\theta}) = \\theta\n\\]\n\n\n\nBasically means that the sampling distribution of \\(\\hat{\\theta}\\) is centered around the true \\(\\theta\\) on average\nWe will now show that the OLS estimator for a SLR model’s parameters \\((\\beta_0, \\beta_1)\\) is unbiased"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Assumptions to prove unbiasedness of OLS",
+    "text": "Assumptions to prove unbiasedness of OLS\n\nSLR 1 - 4SLR1SLR2SLR3SLR4\n\n\n\nLinear in parameters\nRandom sampling\nSample Variation in X\nZero Conditional mean\n\n\n\n\nLinear in parameters:\nIn the population model, the dependent variable, \\(y\\), is related to the independent variable, \\(x\\), and the error (or disturbance), \\(u\\), as: \\[\ny=\\beta_0+\\beta_1 x+u\n\\] where \\(\\beta_0\\) and \\(\\beta_1\\) are the population intercept and slope parameters, respectively.\n\n\n\n\nRandom Sampling\nWe have a random sample of size n,\\(\\left\\{\\left(x_i, y_i\\right): i=1,2, \\ldots, n\\right\\}\\) in the population model\n\n\n\n\nSample variation in X\nThe sample explanatory x variable, namely, \\(x_i\\) , \\(i \\in \\{1, \\cdots, n\\}\\) , are not all the same value \\[\\widehat{Var}(x_i) &gt; 0\\]\n\n\n\n\nZero conditional mean\n\nThe error \\(u\\) has an expected value of zero given any value of the explanatory variable. In other words, \\[E(u \\mid x)=0\\] ."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nTheorem: Unbiasedness of the OLS estimator\n\n\nUsing Assumptions SLR. 1 through SLR.4,\n\\[\n\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0 \\text { and } \\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\n\\]\n\n\n\n\nIn other words, \\(\\hat{\\beta}_0\\) is unbiased for \\(\\beta_0\\), and \\(\\hat{\\beta}_1\\) is unbiased for \\(\\beta_1\\).\nLet us prove it using our assumptions!\nIn doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#please-make-sure-you-go-through-all-of-math-refresher-a-and-b",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#please-make-sure-you-go-through-all-of-math-refresher-a-and-b",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Please make sure you go through all of Math Refresher A and B",
+    "text": "Please make sure you go through all of Math Refresher A and B\nB-4f Properties of Conditional Expectation\n\n\\(\\text {CE.1: } \\mathrm{E}[c(X) \\mid X]=c(X) \\text {, for any function } c(X)\\)\n\\(\\text {CE.2: For functions } a(X) \\text { and } b(X) \\text {, } \\mathrm{E}[a(X) Y+b(X) \\mid X]=a(X) \\mathrm{E}(Y \\mid X)+b(X)\\)\n\\(\\text {CE. 3: If } X \\text { and } Y \\text { are independent, then } \\mathrm{E}(Y \\mid X)=\\mathrm{E}(Y)\\)\n\\(\\text {CE. 4:} \\mathrm{E}[\\mathrm{E}(Y \\mid X)]=\\mathrm{E}(Y)\\) [Law of Iterated Expectations]\n\\(\\text {CE. } 4^{\\prime}: \\mathrm{E}(Y \\mid X)=\\mathrm{E}[\\mathrm{E}(Y \\mid X, Z) \\mid X]\\) [Generalized Law of Iterated Expectations]\n\\(\\text {CE. } 5: \\mathrm{E}(Y \\mid X)=\\mathrm{E}(Y)\\) then \\(cov(X, Y)=0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Key patterns in the proof",
+    "text": "Key patterns in the proof\n\nStart with the OLS estimate \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) and \\(\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1\\bar{x}\\)\nWrite the OLS estimator in terms of the population parameters\n\nTo do this we have to bring in \\(y_i\\) (population model) and not \\(\\hat{y_i}\\)\n\nThis is what brings in the population parameters \\(\\beta_0\\) and \\(\\beta_1\\) on the RHS\n\nTricks to bring in \\(y_i\\) in the OLS estimator:\n\nWithout any assumptions we showed and used:\n\\(\\sum_{i=1}^n(x_i - \\bar{x})(y_i - \\bar{y}) = \\sum_{i=1}^n(x_i - \\bar{x})y_i\\)\n\nCould have written this as \\(\\sum_{i=1}^n(y_i - \\bar{y})x_i\\) but did not to bring in \\(y_i\\)\n\n\nOther tricks: Without any assumptions\n\n\\(\\sum_{i=1}^n(x_i - \\bar{x}) = 0\\)\n\\(\\sum_{i=1}^n(x_i - \\bar{x})x_i = \\sum_{i=1}^n(x_i - \\bar{x})^2\\)\n\n\nTake the expectation conditional on \\(x_i\\)\n\nimpose the SLR assumptions on zero mean and zero conditional mean\nuse LIE"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "SLR 5: Homoskedasticity assumption",
+    "text": "SLR 5: Homoskedasticity assumption\nThe population error \\(u_i\\) has the same variance given any value of \\(x_i\\), i.e.,\n\\[\nVar(u \\mid x) = \\sigma^2\n\\]\nSLR 5 further implies that \\(\\sigma^2\\) is also the unconditional variance of \\(u\\).\n\\[\\operatorname{Var}(u \\mid x)=\\mathrm{E}\\left(u^2 \\mid x\\right)-[\\mathrm{E}(u \\mid x)]^2\\]\n\\[ \\text { and since } \\mathrm{E}(u \\mid x)=0, \\sigma^2=\\mathrm{E}\\left(u^2 \\mid x\\right)\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Now we have \\(Var( y \\mid x)\\)",
+    "text": "Now we have \\(Var( y \\mid x)\\)\n\n\nusing Assumptions SLR. 4 and SLR. 5 we can derive the conditional variance of \\(y\\) :\n\\[\n\\begin{gathered}\n\\mathrm{E}(y \\mid x)=\\beta_0+\\beta_1 x \\\\\n\\operatorname{Var}(y \\mid x)=\\sigma^2\n\\end{gathered}\n\\]\nFrom here we can get \\(Var(u \\mid x)\\)\n\n\n\n\nHomoskedasticity"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nSampling variance of OLS estimators\n\n\nUnder Assumptions SLR. 1 through SLR.5,\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x},\n\\]\nand\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\n\\]\nwhere these are conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\).\n\n\n\n\nLet us prove this!"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)",
+    "text": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\nLet us work with \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) \\(\\implies\\) \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})u_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nDenote \\((x_i - \\bar{x})\\) as \\(d_i\\). So \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nNow take the variance of \\(\\hat{\\beta}_1\\) conditional on the sample values \\(x_i\\)\n\n\\[\\begin{align*}\n    \\operatorname{Var}\\left(\\hat{\\beta}_1\\right) & = \\operatorname{Var}\\left(\\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\\\\n    & = \\operatorname{Var}\\left(\\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\quad \\text{skipping 2 steps} \\\\\n    & = \\frac{1}{\\left(SST_x\\right)^2} \\sum_{i=1}^{n} d_i^2 \\operatorname{Var}(u_i) \\quad \\text{skipping 3 steps} \\\\\n    & = \\frac{\\sigma^2}{SST_x}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Measure of precision of \\(\\hat{\\beta_1}\\)",
+    "text": "Measure of precision of \\(\\hat{\\beta_1}\\)\n\n\n\\(sd(\\hat{\\beta}_1) = \\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)}\\) gives a measure of the precision of \\(\\hat{\\beta}_1\\)\nBut we do not know \\(\\sigma^2\\) so we do not know \\(sd(\\hat{\\beta}_1)\\)\nSo we have to estimate \\(\\sigma^2\\) to get an estimate of \\(sd(\\hat{\\beta}_1)\\)\nThe estimate of the \\(sd(\\hat{\\beta}_1)\\) is called the standard error of \\(\\hat{\\beta}_1\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nUnbiased estimation of \\(\\sigma^2\\)\n\n\nUnder Assumptions SLR. through SLR.5,\n\\[\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\]\nwhere \\(\\hat{\\sigma}^2=\\frac{1}{n-2} \\sum_{i=1}^n \\hat{u}_i^2\\), where \\(\\hat{u}_i=y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_i\\)\n\n\n\n\nStudy the proof from 2-5c\nTry to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "In essence we have shown",
+    "text": "In essence we have shown\n\nAssuming SLR 1-5, and conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\), we have shown that:\n\nThe OLS estimators are unbiased\n\n\\(\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0\\) and \\(\\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\\)\n\nWe can obtain the variance of the OLS estimators\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x}\\)\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\\)\n\nBut we do not know \\(\\sigma^2\\)\n\nThe residual variance \\(\\hat{\\sigma}^2\\) is unbiased for the variance of the population errror \\(\\sigma^2\\)\n\\(\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\)\n\nAnd we learnt a lot of tricks and pattern recognition in the process\nAnd some stuff about how to work with data"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#remaining-things-for-you-to-sudy",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#remaining-things-for-you-to-sudy",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Remaining things for you to sudy",
+    "text": "Remaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\nAgain: Make sure you go through all of Math Refresher A and B\n\nnext class we will start chapter 3"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#prerequisites",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#prerequisites",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nR and RStudio is installed\nUpdate R packages regularly\nRequired packages for today:\n\nBase R (primary focus)\n\n\nToday’s Agenda\n\nLive coding\nFocus on typing commands yourself\nAvoid copy-paste to build muscle memory\n\n\n\n\n\n\n\nNote\n\n\nThis is not a course in R!"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#rstudio-interface",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#rstudio-interface",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "RStudio Interface",
+    "text": "RStudio Interface\n\nRStudio Interface\nExplain each pane’s function: - Source editor (top left) - Console (bottom left) - Environment (top right) - Files/Plots/Help (bottom right)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#basic-arithmetic",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#basic-arithmetic",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Basic Arithmetic",
+    "text": "Basic Arithmetic\n\n# Addition\n1 + 2\n\n# Subtraction\n6 - 7\n\n# Division\n5 / 2\n\n# Exponentiation\n2^3\n\n# Integer division\n100 %/% 60  # How many whole hours in 100 minutes?\n\n# Modulo (remainder)\n100 %% 60   # How many minutes are left over?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#logic-operations",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#logic-operations",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Logic Operations",
+    "text": "Logic Operations\n\n\n\n# Basic comparisons\n1 &gt; 2\n1 &gt; 2 & 1 &gt; 0.5  # AND\n1 &gt; 2 | 1 &gt; 0.5  # OR\n\n# Truth testing\nisTRUE(1 &lt; 2)\n\n\nImportant Operators:\n\n&gt;, &lt;: Greater/less than\n&gt;=, &lt;=: Greater/less equal\n==: Equality test\n!=: Not equal\n&: AND\n|: OR"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#logic-important-details",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#logic-important-details",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Logic: Important Details",
+    "text": "Logic: Important Details\n\n\nOrder of Precedence:\n\nLogical operators (&gt;, &lt;, etc.)\nBoolean operators (&, |)\n\n\n# Be explicit!\n1 &gt; 0.5 & 1 &gt; 2\n\n# Not\n1 &gt; 0.5 & 2  # Can be confusing\n\n\nFloating Point Numbers:\n\n# This returns FALSE!\n0.1 + 0.2 == 0.3\n\n# Use instead:\nall.equal(0.1 + 0.2, 0.3)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#value-matching",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#value-matching",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Value Matching",
+    "text": "Value Matching\n\n# Check if value is in a vector\n4 %in% 1:10\n\n# Create a \"not in\" operator\n`%ni%` = Negate(`%in%`)\n4 %ni% 5:10\n\n\nThe backticks (`) help specify functions"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#everything-is-an-object",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#everything-is-an-object",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Everything is an Object",
+    "text": "Everything is an Object\nCommon object types in R:\n\nVectors\nMatrices\nData frames\nLists\nFunctions\n\n\n# Create different objects\nvec &lt;- 1:5\nmat &lt;- matrix(1:9, nrow=3)\ndf &lt;- data.frame(x=1:3, y=4:6)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#objects-have-classes",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#objects-have-classes",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Objects Have Classes",
+    "text": "Objects Have Classes\n\n\n\n# Create data frame\nd &lt;- data.frame(\n  x = 1:2,\n  y = 3:4\n)\n\n# Check properties\nclass(d)\ntypeof(d)\nstr(d)\n\n\nUnderstanding Objects:\n\nclass(): Object’s class\ntypeof(): Object’s type\nstr(): Object’s structure\nView(): Interactive viewing"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#global-environment",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#global-environment",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Global Environment",
+    "text": "Global Environment\n\n\n\n# Create data frame\nd &lt;- data.frame(\n  x = 1:2,\n  y = 3:4\n)\n\n# This fails:\nlm(y ~ x)\n\n# This works:\nlm(y ~ x, data = d)\n\n\nKey Points:\n\nObjects live in the global environment\nMust specify data source\nDifferent from Stata’s single-dataset approach\nMultiple objects can exist simultaneously"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#assignment-operators",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#assignment-operators",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Assignment Operators",
+    "text": "Assignment Operators\n\n\nUsing Arrow (&lt;-):\n\n# Standard assignment\na &lt;- 10 + 5\n\n# Right assignment\n10 + 5 -&gt; a\n\nEmbodies the idea of assigned to\n\nUsing Equals (=):\n\n# Alternative assignment\nb = 10 + 10\n\n# Must be on left with =\n# This won't work:\n# 10 + 10 = b\n\n\nAssignment Choice\n\nMost R users prefer &lt;- for assignment\n= has specific role in function evaluation\nPersonal choice, but be consistent\n= is quicker to type and familiar from other languages"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#variables-and-assignment",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#variables-and-assignment",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Variables and Assignment",
+    "text": "Variables and Assignment\n\n# Variable assignment\nx &lt;- 1\ny &lt;- \"roses\"\nz &lt;- function(x) { sqrt(x) }\n\n# Using variables\nz(9)\n\n[1] 3"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#control-flow-ifelse",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#control-flow-ifelse",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Control Flow: if/else",
+    "text": "Control Flow: if/else\n\nx &lt;- 5\ny &lt;- 3\n\nif (x &gt; y) {\n  print(\"x is larger than y\")\n} else {\n  print(\"x is less than or equal to y\")\n}\n\n[1] \"x is larger than y\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#loops",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#loops",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Loops",
+    "text": "Loops\n\n# For loop\nfor(i in 1:5) {\n  print(paste(\"Iteration\", i))\n}\n\n[1] \"Iteration 1\"\n[1] \"Iteration 2\"\n[1] \"Iteration 3\"\n[1] \"Iteration 4\"\n[1] \"Iteration 5\"\n\n# Loop with conditions\nfor(fruit in c(\"mangos\",\"bananas\",\"apples\")) {\n  print(paste(\"I love\", fruit))\n}\n\n[1] \"I love mangos\"\n[1] \"I love bananas\"\n[1] \"I love apples\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#functions",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#functions",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Functions",
+    "text": "Functions\n\n# Define function\ngreet &lt;- function(name = \"Lord Vader\") {\n  paste(\"Hello,\", name)\n}\n\n# Use function\ngreet()\n\n[1] \"Hello, Lord Vader\"\n\ngreet(\"Luke\")\n\n[1] \"Hello, Luke\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#creating-variables",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#creating-variables",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Creating Variables",
+    "text": "Creating Variables\n\n# Price of a good\nprice &lt;- 50\n\n# Quantity sold\nquantity &lt;- 10\n\n# Calculate revenue\nrevenue &lt;- price * quantity\nrevenue\n\n[1] 500"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#multiple-assignments",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#multiple-assignments",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Multiple Assignments",
+    "text": "Multiple Assignments\n\n# Assign same value to multiple variables\nx &lt;- y &lt;- 5\n\n# Check values\nx\n\n[1] 5\n\ny\n\n[1] 5"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#numeric-data",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#numeric-data",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Numeric Data",
+    "text": "Numeric Data\n\n# GDP growth rate\ngdp_growth &lt;- 2.5\nclass(gdp_growth)\n\n[1] \"numeric\"\n\n# Population (whole number)\npopulation &lt;- 1000L  # L makes it integer\nclass(population)\n\n[1] \"integer\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#text-and-logical-data",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#text-and-logical-data",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Text and Logical Data",
+    "text": "Text and Logical Data\n\n# Country name (character/string)\ncountry &lt;- \"United States\"\nclass(country)\n\n[1] \"character\"\n\n# Logical (TRUE/FALSE)\nis_developed &lt;- TRUE\nclass(is_developed)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#reserved-words",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#reserved-words",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Reserved Words",
+    "text": "Reserved Words\n\n\nStrictly Reserved:\n\nif\nelse\nwhile\nfunction\nfor\nTRUE/FALSE\nNULL\nInf\nNA\n\n\nSemi-Reserved:\n\nc() (concatenate)\npi\nMany function names\n\n\n# Don't do this!\npi &lt;- 2\nc &lt;- 4"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#namespace-conflicts",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#namespace-conflicts",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Namespace Conflicts",
+    "text": "Namespace Conflicts\n\nlibrary(dplyr)\n\n# Shows conflicts:\n# filter masked from 'package:stats'\n# lag masked from 'package:stats'\n\nTwo solutions:\n\nUse package::function()\n\n\nstats::filter(1:10, rep(1, 2))\n\n\nAssign permanently\n\n\nfilter &lt;- stats::filter"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#using-square-brackets",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#using-square-brackets",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Using Square Brackets",
+    "text": "Using Square Brackets\n\n\nBasic Indexing:\n\n# Vector indexing\na &lt;- 1:10\na[4]        # 4th element\na[c(4, 6)]  # 4th and 6th\n\n# Matrix/dataframe\nd[1, 1]     # First row & column\n\n\nList Indexing:\n\nmy_list &lt;- list(\n  a = \"hello\",\n  b = 1:3\n)\n\nmy_list[[1]]     # First element\nmy_list[[2]][3]  # Third item of second element"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#using-dollar-sign",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#using-dollar-sign",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Using Dollar Sign",
+    "text": "Using Dollar Sign\n\n# List example\nmy_list$a           # Access 'a' element\nmy_list$b[3]        # Third item of 'b'\n\n# Data frame\nstarwars$name[1]    # First name\n\n\n$ provides direct access to named elements"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#removing-objects",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#removing-objects",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Removing Objects",
+    "text": "Removing Objects\n\n# Remove specific objects\nrm(a, b)\n\n# Remove all objects (not recommended)\nrm(list = ls())\n\n# Detach package\ndetach(package:dplyr)\n\n# Clear plots\ndev.off()\n\n\n\n\n\n\n\nTip\n\n\nBetter to restart R session than use rm(list = ls())"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#overview-of-data-structures",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#overview-of-data-structures",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Overview of Data Structures",
+    "text": "Overview of Data Structures\nR has several basic data structures:\n\n\n\nDimension\nHomogeneous\nHeterogeneous\n\n\n\n\n1\nVector\nList\n\n\n2\nMatrix\nData Frame\n\n\n3+\nArray\nnested Lists"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vectors",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vectors",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Vectors",
+    "text": "Vectors\nVectors are containers for objects of identical type:\n\n# Create vectors with c()\nx &lt;- c(1, 3, 5, 7, 8, 9)\nprint(x)\n\n[1] 1 3 5 7 8 9\n\n# Create sequence\ny &lt;- 1:10\nprint(y)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# Repeat values\nrep(\"A\", times = 5)\n\n[1] \"A\" \"A\" \"A\" \"A\" \"A\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vector-operations",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vector-operations",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Vector Operations",
+    "text": "Vector Operations\n\n# Subsetting vectors\nx &lt;- c(1, 3, 5, 7, 8, 9)\nx[1]      # First element\n\n[1] 1\n\nx[1:3]    # First three elements\n\n[1] 1 3 5\n\nx[c(1,3,4)] # Selected elements\n\n[1] 1 5 7"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vector-logic",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#vector-logic",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Vector Logic",
+    "text": "Vector Logic\n\nx &lt;- c(1, 3, 5, 7, 8, 9)\n# Logical operations\nx &gt; 3\n\n[1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE\n\nx[x &gt; 3]  # Subsetting with logic\n\n[1] 5 7 8 9\n\nsum(x &gt; 3) # Count values &gt; 3\n\n[1] 4"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#matrices",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#matrices",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Matrices",
+    "text": "Matrices\nTwo-dimensional arrays with same data type:\n\n# Create matrix\nX &lt;- matrix(1:9, nrow = 3, ncol = 3)\nprint(X)\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n# Matrix by rows\nY &lt;- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)\nprint(Y)\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[3,]    7    8    9"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#matrix-operations",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#matrix-operations",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Matrix Operations",
+    "text": "Matrix Operations\n\n# Matrix arithmetic\nX + Y  # Element-wise addition\n\n     [,1] [,2] [,3]\n[1,]    2    6   10\n[2,]    6   10   14\n[3,]   10   14   18\n\nX * Y  # Element-wise multiplication\n\n     [,1] [,2] [,3]\n[1,]    1    8   21\n[2,]    8   25   48\n[3,]   21   48   81\n\nX %*% Y  # Matrix multiplication\n\n     [,1] [,2] [,3]\n[1,]   66   78   90\n[2,]   78   93  108\n[3,]   90  108  126\n\n# Subsetting\nX[1, 2]  # Element at row 1, column 2\n\n[1] 4\n\nX[1, ]   # First row\n\n[1] 1 4 7\n\nX[, 1]   # First column\n\n[1] 1 2 3"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#creating-lists",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#creating-lists",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Creating Lists",
+    "text": "Creating Lists\nLists can contain elements of different types:\n\n# Create a list\nex_list &lt;- list(\n  a = c(1, 2, 3, 4),\n  b = TRUE,\n  c = \"Hello!\",\n  d = matrix(1:4, 2, 2)\n)\nprint(ex_list)\n\n$a\n[1] 1 2 3 4\n\n$b\n[1] TRUE\n\n$c\n[1] \"Hello!\"\n\n$d\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#list-operations",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#list-operations",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "List Operations",
+    "text": "List Operations\n\n# Access list elements\nex_list$a  # Using $\n\n[1] 1 2 3 4\n\nex_list[[1]]  # Using [[]]\n\n[1] 1 2 3 4\n\nex_list[\"a\"]  # Using []\n\n$a\n[1] 1 2 3 4\n\n# Add new elements\nex_list$e &lt;- \"New element\""
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#installing-packages",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#installing-packages",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Installing Packages",
+    "text": "Installing Packages\n\n# Install a package\ninstall.packages(\"tidyverse\")\n\n# Load the package\nlibrary(tidyverse)\n\n\n\n\n\n\n\nNote\n\n\nYou only need to install a package once, but you need to load it each session"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#getting-help",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#getting-help",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Getting Help",
+    "text": "Getting Help\n\n\nBasic Help:\n\n# Full help\nhelp(plot)\n\n# Shorthand\n?plot\n\n# Examples\nexample(plot)\n\n\nPackage Help:\n\n# Package vignettes\nvignette(\"dplyr\")\n\n# List all vignettes\nvignette(all = FALSE)\n\n# Package demos\ndemo(package = \"graphics\")"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#introduction-to-data-frames",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#introduction-to-data-frames",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Introduction to Data Frames",
+    "text": "Introduction to Data Frames\nData frames are table-like structures:\n\n# Create a data frame\ndf &lt;- data.frame(\n  id = 1:3,\n  name = c(\"John\", \"Jane\", \"Bob\"),\n  score = c(85, 92, 78)\n)\nprint(df)\n\n  id name score\n1  1 John    85\n2  2 Jane    92\n3  3  Bob    78"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#data-frame-operations",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#data-frame-operations",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Data Frame Operations",
+    "text": "Data Frame Operations\n\n# Basic operations\nnames(df)  # Column names\n\n[1] \"id\"    \"name\"  \"score\"\n\nnrow(df)   # Number of rows\n\n[1] 3\n\nncol(df)   # Number of columns\n\n[1] 3\n\n# Access columns\ndf$name\n\n[1] \"John\" \"Jane\" \"Bob\" \n\ndf[[\"score\"]]\n\n[1] 85 92 78"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#subsetting-data-frames",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#subsetting-data-frames",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Subsetting Data Frames",
+    "text": "Subsetting Data Frames\n\n# Subset rows\ndf[df$score &gt; 80, ]\n\n  id name score\n1  1 John    85\n2  2 Jane    92\n\n# Subset columns\ndf[, c(\"name\", \"score\")]\n\n  name score\n1 John    85\n2 Jane    92\n3  Bob    78\n\n# Using subset()\nsubset(df, score &gt; 80, select = c(\"name\", \"score\"))\n\n  name score\n1 John    85\n2 Jane    92"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#additional-resources",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#additional-resources",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nR Documentation: r-project.org\nRStudio Cheatsheets: rstudio.com/resources/cheatsheets\nAdvanced R by Hadley Wickham: adv-r.hadley.nz\nStack Overflow R Tag: stackoverflow.com/questions/tagged/r"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#practice-on-your-own",
+    "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#practice-on-your-own",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Practice on your own",
+    "text": "Practice on your own\n\nCreate vectors using different methods (c(), :, seq(), rep())\nPractice logical operations and understand operator precedence\nCreate a list with different types of elements and practice indexing\nLoad a package and resolve a namespace conflict\nCreate and remove objects from your environment"
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
     "title": "Moshi Alam",
     "section": "",
-    "text": "Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
   },
   {
-    "objectID": "blogs/dropbox_git_issues.html",
-    "href": "blogs/dropbox_git_issues.html",
-    "title": "Issues with cloud sync and version control",
+    "objectID": "links.html#software-engineering-for-economists",
+    "href": "links.html#software-engineering-for-economists",
+    "title": "Moshi Alam",
     "section": "",
-    "text": "Many of us use cloud based services to sync important files. These services are not version controlling systems. If you have been use cloud based services to sync your files like Dropbox, it is recommended not to have a git repo inside a Dropbox folder for reasons described here, [here] and here or ensure Dropbox ignores the files that could cause conflicts with git. In short, this is how I do this:\n\nI only use git to version control my code. All other documentation that do not need version control for example, related papers, data etc. live in a project folder inside Dropbox.\nIf I am the only person writing the code, I either tell Dropbox to igone the code directory if it is living in Dropbox, or I keep it outside of Dropbox. The latter works best if you are the sole person working on the code. The former is useful only for project organization—given that data and other documentation is living in the Dropbox folder, it is only convinent to also have the code directory inside the same project folder.\nIf I am collaborating with someone on code and they do not want to use git then I do not version control our code in the Dropbox folder. Rather, I keep a separate folder with all my codes in a non-Dropbox folder and version control that. At the end of each day, I then sync them with the Dropbox folder. This is only possible because my scripts are typically different from my collaborators script."
-  },
-  {
-    "objectID": "blogs/julia_environments.html",
-    "href": "blogs/julia_environments.html",
-    "title": "Reproducible julia projects",
-    "section": "",
-    "text": "A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using julia environments. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine."
-  },
-  {
-    "objectID": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
-    "href": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
-    "title": "Reproducible julia projects",
-    "section": "Setting up a julia project environment",
-    "text": "Setting up a julia project environment\nFirst, setting up a new julia project typically involves creating the working directory, initializing the environment within that directory, and then modifying the environment, e.g. adding any necessary packages.\nmkdir -p path/to/MyCoolProject\ncd path/to/MyCoolProject\nThen I typically create a setup.jl file in the path/to/MyCoolProject/code folder to activate the environment and adding neccesary packages.\nusing Pkg\ncd(@__DIR__)\nPkg.activate(@__DIR__)\nThese commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.\n\nOnce you’ve initialized your project, you can add packages to it, as you normally would.\n# Add packages to your project\n(MyCoolProject) pkg&gt; add DataFrames\nAdding the very first package does two things: 1. Updates Project.toml: It adds DataFrames to the list of dependencies. 2. Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility."
-  },
-  {
-    "objectID": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
-    "href": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
-    "title": "Reproducible julia projects",
-    "section": "Reusing and modifying your environment",
-    "text": "Reusing and modifying your environment\nIf you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:\ncd(\"path/to/MyCoolProject\")\njulia&gt; ]\n(v1.9) pkg&gt; activate .\nThis reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.\nTo add more packages to your project at any time:\n(MyCoolProject) pkg&gt; add Plots\nThis command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.\nTo see the current status of your environment:\n(MyCoolProject) pkg&gt; update"
-  },
-  {
-    "objectID": "blogs/julia_environments.html#sharing-your-environment",
-    "href": "blogs/julia_environments.html#sharing-your-environment",
-    "title": "Reproducible julia projects",
-    "section": "Sharing your environment",
-    "text": "Sharing your environment\nTo share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:\njulia&gt; ]\n(v1.9) pkg&gt; activate .\n(MyCoolProject) pkg&gt; instantiate\nThe instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.\nSetting Up the Project on a Different Machine: - When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed. - Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.\njulia&gt; ]\n(v1.9) pkg&gt; instantiate\nThe instantiate command has two more useful features:\n\nRestoring an Environment:\n\nIf you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.\nThis is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.\n\nEnsuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.\n\nIn a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub."
-  },
-  {
-    "objectID": "morepages/podcasts.html",
-    "href": "morepages/podcasts.html",
-    "title": "Podcasts",
-    "section": "",
-    "text": "Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics.\nI found the following episodes to be particularly interesting. This is a continously evolving list. Suggestions are welcome!\n\nRCT:\n\nAmy Finkelstein on the impact of health insurance (Oregon Medicaid expansion) experiment. “How do we know what really works in healthcare?” – Freakonomics (April 2, 2015)\nNicholas Bloom on the impact of working from home on productivity. “When you start to miss Tony from Accounting” – Hidden Brain (Nov 2020)\nJim Heckman on the impact of early childhood investments on long run outcomes. “Whats not on the test” – Hidden Brain\nJohn List (U-Chicago) on the rise of RCT and worries of scaling up experiments (SUTVA violations). “The Price of Doing Business with John List” – People I (Mostly) Admire\n“A Nobel-Prize for Development RCTs!” by David McKenzie World Bank Blog\n\n\n\nIV (Continuous and discrete treatments):\n\nSairt Weisburd on Police presence and Crime – Probable Causation July 21, 2020\nCarolina Artega on Parental Incarceration and Educational outcomes – Probable Causation July 20, 2021\n\n\n\nD-i-D:\n\nMolly Schnell on how exposure to school shootings affects students’ outcomes Probable Causation March 15, 2022\n(advanced) Adrew Goodman-Bacon on recent advances on D-i-D with staggered timing APPAM - Methodological Advances for Difference-in-Differences with Staggered Timing\n\n\n\nRD:\n\n“If Mayors ruled the worlds” Freakonomics April 10, 2014\n“Why is Uber an Economist’s Dream?” Freakonomics September 7, 2016\nMichael Lovenheim on grade retention and crime. Probable Causation September 17, 2019\nGaurav Khanna on Employment and Crime in Colombia. Probable Causation Aug 17, 2021\n\n\n\nDiff-in-RD (advanced)\n\nKirabo Jackson on single-sex education and academic and criminal outcomes. Probable Causation March 31, 2020"
-  },
-  {
-    "objectID": "morepages/econ852.html",
-    "href": "morepages/econ852.html",
-    "title": "Structural and reduced form methods in labor economics: Course Outline",
-    "section": "",
-    "text": "Outline\n\nPrinciples of empirical research\n\nIdentification\n\n“Non-parametric identification”, Matzkin (2007)\n“Identification of models of the labor market” Taber and French (2010)\n“Partial Identification in Econometrics” Tamer (2010)\n\nAdvantages of reduced form methods and advantages of structural models\nFeasibility of each approach individually and jointly\n“Structural Equations, Treatment Effects and Econometric Policy Evaluation” Heckman and Vytlacil (2003)\n\nReduced form methods\n\nShift-share exclusion restrictions\n\n“Bartik Instruments: What, When, Why and How” Goldsmith-Pinkham, Sorkin and Swift (2020)\n“Quasi-experimental shift-share research designs” Borusyak, Hull and Jaravel (2020)\n\nVariation in treatment timings and heterogenous effects\n\n“What’s trending in difference-in-differences?” Roth and Santa’Anna (2022)\n“Two-way fixed effects estimators with heterogeneous treatment effects” de Chaisemartin and d`Haultfoeuille (2020)\n“The Unintended Benefits of Women’s Empowerment on Household Sanitation” Alam and Agarwal (2023)\n\nEmpirical Bayes\n\n“Empirical Bayes deconvolution estimates.” Efron (2016)\n“Systemic discrimination among large US employers”, Kline, Rose and Walters (2022)\n“Robust empirical bayes confidence intervals” Armstrong, Kolesár and Plagborg-Møller (2022)\n\nDiscontinuity based designs\n\n“Inference on causal effects in a generalized regression kink design” Card et al. (2015)\n“Inference in Regression Discontinuity Designs with a Discrete Running Variable”, Kolesar and Rothe (2018)\n\n\nStructural models\n\nConditional choice probabilities, discrete choice and dynamic models\n\n“Discrete Choice Methods with Simulation” Train (2009)\n“Conditional Choice Probabilities and the Estimation of Dynamic Models”, Hotz and Miller (1993)\n“College Attrition and the Dynamics of Information Revelation”, Arcidiacono, Aucejo, Maurel, et al. (2018)\n“The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications,” Keane and Wolpin (2011)\n\nStated preference\n\n“Preference for the workplace, investment in human capital and gender”, Wiswall Zafar (2018)\n“Understanding Migration Aversion Using Elicited Choice Probabilities”, Kosar, Ransom, van der Klaauw (2022)\n“Optimal Place-based redistribution” Alam, Davis and Gregory (2023)\n\n\nModels on wage inequality\n\n“High wage workers and high wage firms” Abowd, Kramarz and Margolis (1999)\n“A Distributional Framework for Matched Employer-employee data”, Bonhomme, Lamadon, Manresa (2019)\n“Racial Gaps in Wage Growth: Discrimination and Search Frictions” Alam (2020)\n“Discretizing Unobserved heterogeneity” Bonhomme, Lamadon, Manresa (2019)\n“Monopsony in Movers: The Elasticity of Labor Supply to Firm Wage Policies”, Bassier, Dube, Naidu (2021)\n\n\nUsing both reduced form and structural models\n\n“Worker-side discrimination–Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers”, Alam, Mookerjee, Roy (2022)\n“Estimating Equilibrium Effects of Job Search Assistance,” Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)\n“The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models” Angelucci and Attanasio (2013)\n“Evaluating Search and Matching Models Using Experimental Data” Lise, Seitz and Smith (2015)\n“Evaluating a Structural Model of Labor Supply and Welfare Participation: Evidence from State Welfare Reform Experiments,” Choi (2018)\n“Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model” Hansen and Liu (2015)\n“The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women,” Keane and Wolpin (2010)\n“Approximating the Equilibrium Effects of Informed School Choice,” Allende, Gallego and Nielson (2019)\n\nCoding in Julia (if time permits)\n\nWhy Julia?\nEfficient code, version control and large project workflow\nAutomatic testing and reproducibility\nIntroduction to numerical optimization #### Other readings\n\nControl function approach\n\nControl Function Methods in Applied Econometrics, Wooldridge (2015)\n“Identification of Treatment Effects Using Control Functions in Models with Continuous, Endogenous Treatment and Heterogeneous Effects”, Heckman et. al (2008)\n“Using Matching, Instrumental Variables, and Control Functions to Estimate Economic Choice Models” Heckman and Navarro (2004)\n“Control functions” Navarro (2010)"
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Clark University\n\nUndergraduate: Statistics\nUndergraduate: Econometrics \n\nStarting Fall 2025:\n\nPhD: Applied Econometrics\nPhD: Econometric Theory\n\n\n\n\nQueen’s University\n\nPhD: Structural and reduced form methods in labor economics\n\n[Course Outline]\n\nUndergraduate: Applied Econometrics: Causal Inference.\n\n[Course Outline] [Course Website]\n\n\n\n\n\nUniversity of Wisconsin-Madison\n\nDepartment of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019\n\n\nEcon 705 – Econometric Theory (Graduate). Instructors: Jack Porter & Jeffrey Smith\n\nJuli Plant Grainger Teaching Excellence Award\nDistinguished Teaching Assistant\n\nEcon 706 – Applied Econometrics (Graduate). Instructors: Christopher Taber & Kenneth West\n\nDistinguished Teaching Assistant\n\nEcon 101 [Head TA]. Instructor: Korinna Hansen; Elizabeth Kelly; Gwen Eudey \n\nDistinguished Teaching Assistant (x 2)\n\n\n\n\n\n\n\nResources for students\nCoding for undergrads\nPodcasts discussing empircal research in economics"
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html",
-    "href": "morepages/resourcesforugstudents.html",
-    "title": "Resources for undergrad students",
-    "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#coding-resources",
-    "href": "morepages/resourcesforugstudents.html#coding-resources",
-    "title": "Resources for undergrad students",
-    "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#r-resources",
-    "href": "morepages/resourcesforugstudents.html#r-resources",
-    "title": "Resources for undergrad students",
-    "section": "R resources",
-    "text": "R resources\n\nStata2R: Students used to working in Stata will find this website incredibly useful if they want to transition to R.\nR manuals from CRAN and the CRAN homepage for R\nMaster repo with various cheatsheets\nRMarkdown: I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file.\n\nR Markdown: The Definitive Guide: far more extensive, covers interactivity and additional features.\nQuarto markdown is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see here) but I prefer the ease of customization of Quarto when it comes to multiple languages.\n\nPackage specific:\n\ndata.table\ndplyr\nggplot2\nfixest\nAER (Applied Econometrics with R)\nstargazer\nbinsreg\nvtable"
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#stata-resources",
-    "href": "morepages/resourcesforugstudents.html#stata-resources",
-    "title": "Resources for undergrad students",
-    "section": "Stata Resources",
-    "text": "Stata Resources\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#best-practices",
-    "href": "morepages/resourcesforugstudents.html#best-practices",
-    "title": "Resources for undergrad students",
-    "section": "Best practices",
-    "text": "Best practices\n\nUseful checklist while working with regression outputs\nCode and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro"
-  },
-  {
-    "objectID": "morepages/econ452.html",
-    "href": "morepages/econ452.html",
-    "title": "Econ 452: Course Outline",
-    "section": "",
-    "text": "Outline\n\nPotential Outcomes Framework (1 lecture)\nRandomized Control Trials (1.5 lectures)\nRegressions (1.5 lectures)\nNon-linear regressions (2 lectures)\nInstrumental Variables (5 lectures)\nHeterogeneous Treatment Effects (1 lecture)\nPanel data and Fixed Effects (3 lectures)\nDifference-in-Differences (5 lectures)\nRegression Discontinuity (2 lectures)\nInference (1 lecture)\nTake away from the course (1 lecture)\n\n\n\nAssessment\n\n10% Discussion and class participation\n30% 5 Problem sets\n60% Group project"
-  },
-  {
-    "objectID": "blogs/namingconventions.html",
-    "href": "blogs/namingconventions.html",
-    "title": "Naming conventions",
-    "section": "",
-    "text": "“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton1\nChoosing clear, concise, and meaningful names for variables, functions, files, etc., is challenging. Good names improve code readability and maintainability, but finding the right name can be surprisingly difficult, especially when your project folder is overflowing with files and subfolders. Good names can help users of your package or code replication kit.\nI will describe here a file naming convention that works for me. Sometimes this might go against styling guides of the language used although I try as much as possible to avoid this. This may not necessarily fit everyone’s requirement as coding and project management styles vary widely. I will not cover how I name folders as that is more about project management."
-  },
-  {
-    "objectID": "blogs/namingconventions.html#footnotes",
-    "href": "blogs/namingconventions.html#footnotes",
-    "title": "Naming conventions",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis quote is widely attributed to Phil Karlton, a software engineer known for his work at Netscape.↩︎"
+    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
   },
   {
     "objectID": "blogs/versioncontrol.html",
@@ -175,17 +574,297 @@
     "text": "Step 5: Track Changes and Collaborate\nNow that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts."
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Moshi Alam",
+    "objectID": "blogs/namingconventions.html",
+    "href": "blogs/namingconventions.html",
+    "title": "Naming conventions",
     "section": "",
-    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
+    "text": "“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton1\nChoosing clear, concise, and meaningful names for variables, functions, files, etc., is challenging. Good names improve code readability and maintainability, but finding the right name can be surprisingly difficult, especially when your project folder is overflowing with files and subfolders. Good names can help users of your package or code replication kit.\nI will describe here a file naming convention that works for me. Sometimes this might go against styling guides of the language used although I try as much as possible to avoid this. This may not necessarily fit everyone’s requirement as coding and project management styles vary widely. I will not cover how I name folders as that is more about project management."
   },
   {
-    "objectID": "links.html#software-engineering-for-economists",
-    "href": "links.html#software-engineering-for-economists",
+    "objectID": "blogs/namingconventions.html#footnotes",
+    "href": "blogs/namingconventions.html#footnotes",
+    "title": "Naming conventions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis quote is widely attributed to Phil Karlton, a software engineer known for his work at Netscape.↩︎"
+  },
+  {
+    "objectID": "morepages/econ452.html",
+    "href": "morepages/econ452.html",
+    "title": "Econ 452: Course Outline",
+    "section": "",
+    "text": "Outline\n\nPotential Outcomes Framework (1 lecture)\nRandomized Control Trials (1.5 lectures)\nRegressions (1.5 lectures)\nNon-linear regressions (2 lectures)\nInstrumental Variables (5 lectures)\nHeterogeneous Treatment Effects (1 lecture)\nPanel data and Fixed Effects (3 lectures)\nDifference-in-Differences (5 lectures)\nRegression Discontinuity (2 lectures)\nInference (1 lecture)\nTake away from the course (1 lecture)\n\n\n\nAssessment\n\n10% Discussion and class participation\n30% 5 Problem sets\n60% Group project"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html",
+    "href": "morepages/resourcesforugstudents.html",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#coding-resources",
+    "href": "morepages/resourcesforugstudents.html#coding-resources",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#r-resources",
+    "href": "morepages/resourcesforugstudents.html#r-resources",
+    "title": "Resources for undergrad students",
+    "section": "R resources",
+    "text": "R resources\n\nStata2R: Students used to working in Stata will find this website incredibly useful if they want to transition to R.\nR manuals from CRAN and the CRAN homepage for R\nMaster repo with various cheatsheets\nRMarkdown: I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file.\n\nR Markdown: The Definitive Guide: far more extensive, covers interactivity and additional features.\nQuarto markdown is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see here) but I prefer the ease of customization of Quarto when it comes to multiple languages.\n\nPackage specific:\n\ndata.table\ndplyr\nggplot2\nfixest\nAER (Applied Econometrics with R)\nstargazer\nbinsreg\nvtable"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#stata-resources",
+    "href": "morepages/resourcesforugstudents.html#stata-resources",
+    "title": "Resources for undergrad students",
+    "section": "Stata Resources",
+    "text": "Stata Resources\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#best-practices",
+    "href": "morepages/resourcesforugstudents.html#best-practices",
+    "title": "Resources for undergrad students",
+    "section": "Best practices",
+    "text": "Best practices\n\nUseful checklist while working with regression outputs\nCode and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro"
+  },
+  {
+    "objectID": "morepages/UG_intro_metrics.html",
+    "href": "morepages/UG_intro_metrics.html",
+    "title": "Introduction to Econometrics",
+    "section": "",
+    "text": "Syllabus\nSyllabus\n\n\nLecture slides:\n\nIntroduction to R\nSimple Linear Regressions\nMultiple Linear Regressions"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Clark University\n\nUndergraduate: Statistics\nUndergraduate: Econometrics \n\nStarting Fall 2025:\n\nPhD: Applied Econometrics-I\nPhD: Applied Econometrics-II\nPhD: Econometric Theory\n\n\n\n\nQueen’s University\n\nPhD: Structural and reduced form methods in labor economics\n\n[Course Outline]\n\nUndergraduate: Applied Econometrics: Causal Inference.\n\n[Course Outline] [Course Website]\n\n\n\n\n\nUniversity of Wisconsin-Madison\n\nDepartment of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019\n\n\nEcon 705 – Econometric Theory (Graduate). Instructors: Jack Porter & Jeffrey Smith\n\nJuli Plant Grainger Teaching Excellence Award\nDistinguished Teaching Assistant\n\nEcon 706 – Applied Econometrics (Graduate). Instructors: Christopher Taber & Kenneth West\n\nDistinguished Teaching Assistant\n\nEcon 101 [Head TA]. Instructor: Korinna Hansen; Elizabeth Kelly; Gwen Eudey \n\nDistinguished Teaching Assistant (x 2)\n\n\n\n\n\n\n\nResources for students\nCoding for undergrads\nPodcasts discussing empircal research in economics"
+  },
+  {
+    "objectID": "morepages/econ852.html",
+    "href": "morepages/econ852.html",
+    "title": "Structural and reduced form methods in labor economics: Course Outline",
+    "section": "",
+    "text": "Outline\n\nPrinciples of empirical research\n\nIdentification\n\n“Non-parametric identification”, Matzkin (2007)\n“Identification of models of the labor market” Taber and French (2010)\n“Partial Identification in Econometrics” Tamer (2010)\n\nAdvantages of reduced form methods and advantages of structural models\nFeasibility of each approach individually and jointly\n“Structural Equations, Treatment Effects and Econometric Policy Evaluation” Heckman and Vytlacil (2003)\n\nReduced form methods\n\nShift-share exclusion restrictions\n\n“Bartik Instruments: What, When, Why and How” Goldsmith-Pinkham, Sorkin and Swift (2020)\n“Quasi-experimental shift-share research designs” Borusyak, Hull and Jaravel (2020)\n\nVariation in treatment timings and heterogenous effects\n\n“What’s trending in difference-in-differences?” Roth and Santa’Anna (2022)\n“Two-way fixed effects estimators with heterogeneous treatment effects” de Chaisemartin and d`Haultfoeuille (2020)\n“The Unintended Benefits of Women’s Empowerment on Household Sanitation” Alam and Agarwal (2023)\n\nEmpirical Bayes\n\n“Empirical Bayes deconvolution estimates.” Efron (2016)\n“Systemic discrimination among large US employers”, Kline, Rose and Walters (2022)\n“Robust empirical bayes confidence intervals” Armstrong, Kolesár and Plagborg-Møller (2022)\n\nDiscontinuity based designs\n\n“Inference on causal effects in a generalized regression kink design” Card et al. (2015)\n“Inference in Regression Discontinuity Designs with a Discrete Running Variable”, Kolesar and Rothe (2018)\n\n\nStructural models\n\nConditional choice probabilities, discrete choice and dynamic models\n\n“Discrete Choice Methods with Simulation” Train (2009)\n“Conditional Choice Probabilities and the Estimation of Dynamic Models”, Hotz and Miller (1993)\n“College Attrition and the Dynamics of Information Revelation”, Arcidiacono, Aucejo, Maurel, et al. (2018)\n“The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications,” Keane and Wolpin (2011)\n\nStated preference\n\n“Preference for the workplace, investment in human capital and gender”, Wiswall Zafar (2018)\n“Understanding Migration Aversion Using Elicited Choice Probabilities”, Kosar, Ransom, van der Klaauw (2022)\n“Optimal Place-based redistribution” Alam, Davis and Gregory (2023)\n\n\nModels on wage inequality\n\n“High wage workers and high wage firms” Abowd, Kramarz and Margolis (1999)\n“A Distributional Framework for Matched Employer-employee data”, Bonhomme, Lamadon, Manresa (2019)\n“Racial Gaps in Wage Growth: Discrimination and Search Frictions” Alam (2020)\n“Discretizing Unobserved heterogeneity” Bonhomme, Lamadon, Manresa (2019)\n“Monopsony in Movers: The Elasticity of Labor Supply to Firm Wage Policies”, Bassier, Dube, Naidu (2021)\n\n\nUsing both reduced form and structural models\n\n“Worker-side discrimination–Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers”, Alam, Mookerjee, Roy (2022)\n“Estimating Equilibrium Effects of Job Search Assistance,” Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)\n“The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models” Angelucci and Attanasio (2013)\n“Evaluating Search and Matching Models Using Experimental Data” Lise, Seitz and Smith (2015)\n“Evaluating a Structural Model of Labor Supply and Welfare Participation: Evidence from State Welfare Reform Experiments,” Choi (2018)\n“Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model” Hansen and Liu (2015)\n“The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women,” Keane and Wolpin (2010)\n“Approximating the Equilibrium Effects of Informed School Choice,” Allende, Gallego and Nielson (2019)\n\nCoding in Julia (if time permits)\n\nWhy Julia?\nEfficient code, version control and large project workflow\nAutomatic testing and reproducibility\nIntroduction to numerical optimization #### Other readings\n\nControl function approach\n\nControl Function Methods in Applied Econometrics, Wooldridge (2015)\n“Identification of Treatment Effects Using Control Functions in Models with Continuous, Endogenous Treatment and Heterogeneous Effects”, Heckman et. al (2008)\n“Using Matching, Instrumental Variables, and Control Functions to Estimate Economic Choice Models” Heckman and Navarro (2004)\n“Control functions” Navarro (2010)"
+  },
+  {
+    "objectID": "morepages/podcasts.html",
+    "href": "morepages/podcasts.html",
+    "title": "Podcasts",
+    "section": "",
+    "text": "Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics.\nI found the following episodes to be particularly interesting. This is a continously evolving list. Suggestions are welcome!\n\nRCT:\n\nAmy Finkelstein on the impact of health insurance (Oregon Medicaid expansion) experiment. “How do we know what really works in healthcare?” – Freakonomics (April 2, 2015)\nNicholas Bloom on the impact of working from home on productivity. “When you start to miss Tony from Accounting” – Hidden Brain (Nov 2020)\nJim Heckman on the impact of early childhood investments on long run outcomes. “Whats not on the test” – Hidden Brain\nJohn List (U-Chicago) on the rise of RCT and worries of scaling up experiments (SUTVA violations). “The Price of Doing Business with John List” – People I (Mostly) Admire\n“A Nobel-Prize for Development RCTs!” by David McKenzie World Bank Blog\n\n\n\nIV (Continuous and discrete treatments):\n\nSairt Weisburd on Police presence and Crime – Probable Causation July 21, 2020\nCarolina Artega on Parental Incarceration and Educational outcomes – Probable Causation July 20, 2021\n\n\n\nD-i-D:\n\nMolly Schnell on how exposure to school shootings affects students’ outcomes Probable Causation March 15, 2022\n(advanced) Adrew Goodman-Bacon on recent advances on D-i-D with staggered timing APPAM - Methodological Advances for Difference-in-Differences with Staggered Timing\n\n\n\nRD:\n\n“If Mayors ruled the worlds” Freakonomics April 10, 2014\n“Why is Uber an Economist’s Dream?” Freakonomics September 7, 2016\nMichael Lovenheim on grade retention and crime. Probable Causation September 17, 2019\nGaurav Khanna on Employment and Crime in Colombia. Probable Causation Aug 17, 2021\n\n\n\nDiff-in-RD (advanced)\n\nKirabo Jackson on single-sex education and academic and criminal outcomes. Probable Causation March 31, 2020"
+  },
+  {
+    "objectID": "blogs/julia_environments.html",
+    "href": "blogs/julia_environments.html",
+    "title": "Reproducible julia projects",
+    "section": "",
+    "text": "A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using julia environments. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine."
+  },
+  {
+    "objectID": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
+    "href": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
+    "title": "Reproducible julia projects",
+    "section": "Setting up a julia project environment",
+    "text": "Setting up a julia project environment\nFirst, setting up a new julia project typically involves creating the working directory, initializing the environment within that directory, and then modifying the environment, e.g. adding any necessary packages.\nmkdir -p path/to/MyCoolProject\ncd path/to/MyCoolProject\nThen I typically create a setup.jl file in the path/to/MyCoolProject/code folder to activate the environment and adding neccesary packages.\nusing Pkg\ncd(@__DIR__)\nPkg.activate(@__DIR__)\nThese commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.\n\nOnce you’ve initialized your project, you can add packages to it, as you normally would.\n# Add packages to your project\n(MyCoolProject) pkg&gt; add DataFrames\nAdding the very first package does two things: 1. Updates Project.toml: It adds DataFrames to the list of dependencies. 2. Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility."
+  },
+  {
+    "objectID": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
+    "href": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
+    "title": "Reproducible julia projects",
+    "section": "Reusing and modifying your environment",
+    "text": "Reusing and modifying your environment\nIf you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:\ncd(\"path/to/MyCoolProject\")\njulia&gt; ]\n(v1.9) pkg&gt; activate .\nThis reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.\nTo add more packages to your project at any time:\n(MyCoolProject) pkg&gt; add Plots\nThis command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.\nTo see the current status of your environment:\n(MyCoolProject) pkg&gt; update"
+  },
+  {
+    "objectID": "blogs/julia_environments.html#sharing-your-environment",
+    "href": "blogs/julia_environments.html#sharing-your-environment",
+    "title": "Reproducible julia projects",
+    "section": "Sharing your environment",
+    "text": "Sharing your environment\nTo share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:\njulia&gt; ]\n(v1.9) pkg&gt; activate .\n(MyCoolProject) pkg&gt; instantiate\nThe instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.\nSetting Up the Project on a Different Machine: - When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed. - Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.\njulia&gt; ]\n(v1.9) pkg&gt; instantiate\nThe instantiate command has two more useful features:\n\nRestoring an Environment:\n\nIf you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.\nThis is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.\n\nEnsuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.\n\nIn a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub."
+  },
+  {
+    "objectID": "blogs/dropbox_git_issues.html",
+    "href": "blogs/dropbox_git_issues.html",
+    "title": "Issues with cloud sync and version control",
+    "section": "",
+    "text": "Many of us use cloud based services to sync important files. These services are not version controlling systems. If you have been use cloud based services to sync your files like Dropbox, it is recommended not to have a git repo inside a Dropbox folder for reasons described here, [here] and here or ensure Dropbox ignores the files that could cause conflicts with git. In short, this is how I do this:\n\nI only use git to version control my code. All other documentation that do not need version control for example, related papers, data etc. live in a project folder inside Dropbox.\nIf I am the only person writing the code, I either tell Dropbox to igone the code directory if it is living in Dropbox, or I keep it outside of Dropbox. The latter works best if you are the sole person working on the code. The former is useful only for project organization—given that data and other documentation is living in the Dropbox folder, it is only convinent to also have the code directory inside the same project folder.\nIf I am collaborating with someone on code and they do not want to use git then I do not version control our code in the Dropbox folder. Rather, I keep a separate folder with all my codes in a non-Dropbox folder and version control that. At the end of each day, I then sync them with the Dropbox folder. This is only possible because my scripts are typically different from my collaborators script."
+  },
+  {
+    "objectID": "papers.html",
+    "href": "papers.html",
     "title": "Moshi Alam",
     "section": "",
-    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
+    "text": "Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Md Moshi Ul Alam",
+    "section": "",
+    "text": "Email    CV    Scholar      BlueSky \n\nHi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD in Economics, from the University of Wisconsin-Madison.\n\n\n\n Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Download my CV \nLast updated: April 15, 2024"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#introduction",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#introduction",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Introduction",
+    "text": "Introduction\n\nThe idea here would be extend the concepts discussed simple linear regression\nAgain, it is crucial that you make yourself comfortable with the concepts of simple linear regression before moving on here\nConsequently, we will be much faster than the previous topic\nOnce again the big picture will be to extend the assumptions revolving around \\(u_i\\) and \\(x_i\\) to multiple variables\n\nto understand how does the OLS estimator plays out"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#multiple-linear-regression",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#multiple-linear-regression",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Multiple Linear Regression",
+    "text": "Multiple Linear Regression\n\n\nThe multiple linear regression model is given by: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\ldots + \\beta_k x_{ki} + u_i\\]\n\n\\(i = 1, 2, \\ldots, n\\) indexes the observations\n\\(y_i\\) is the dependent variable,\n\\(x_{1i}, x_{2i}, \\ldots, x_{ki}\\) are the independent variables,\n\\(\\beta_0, \\beta_1, \\ldots, \\beta_k\\) are the parameters\n\\(u_i\\) is the error term\n\nThe key assumption will be a generalized versions in SLR \\[E(u_i|x_{1i}, x_{2i}, \\ldots, x_{ki}) = 0\\] \\[E(u_i) = 0\\]\nThese imply: \\(E(x_{1i}u_i) = E(x_{2i}u_i) = \\ldots = E(x_{ki}u_i) = 0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#obtaining-the-ols-estimates",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#obtaining-the-ols-estimates",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Obtaining the OLS estimates",
+    "text": "Obtaining the OLS estimates\n\nOnce again we will minimize the sum of squared residuals to estimate the parameters as \\(\\hat{\\beta}_0, \\hat{\\beta}_1, \\ldots, \\hat{\\beta}_k\\)\nSpecifically, we will choose \\(\\hat{\\beta}_0, \\hat{\\beta}_1, \\ldots, \\hat{\\beta}_k\\) to minimize the following: \\[\\sum_{i=1}^n (y_i - \\hat{y}_i)^2 = \\sum_{i=1}^n (y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 x_{1i} - \\hat{\\beta}_2 x_{2i} - \\ldots - \\hat{\\beta}_k x_{ki})^2\\]\n\nThis minimization problem leads to \\(k+1\\) linear equations (F.O.C.s) in \\(k+1\\) unknowns \\(\\hat{\\boldsymbol{\\beta}}_0, \\hat{\\boldsymbol{\\beta}}_1, \\ldots, \\hat{\\boldsymbol{\\beta}}_k\\) :\n\\[\n\\begin{aligned}\n& \\sum_{i=1}^n\\left(y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{i 1}-\\cdots-\\hat{\\beta}_k x_{i k}\\right)=0 \\\\\n& \\sum_{i=1}^n x_{i 1}\\left(y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{i 1}-\\cdots-\\hat{\\beta}_k x_{i k}\\right)=0 \\\\\n& \\sum_{i=1}^n x_{i 2}\\left(y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{i 1}-\\cdots-\\hat{\\beta}_k x_{i k}\\right)=0 \\\\\n& \\vdots \\\\\n& \\sum_{i=1}^n x_{i k}\\left(y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{i 1}-\\cdots-\\hat{\\beta}_k x_{i k}\\right)=0\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#the-focs",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#the-focs",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "The FOCs",
+    "text": "The FOCs\n\n\nThe FOCs give us \\(k+1\\) equations in \\(k+1\\) unknowns\nNote that we arrive at this because we assume that any change in \\(x_{1i}\\), \\(x_{2i}\\), \\(\\ldots\\), \\(x_{ki}\\) will not affect the error term \\(u_i\\)\nGives us the sample counterparts of \\(k+1\\) moment conditions\n\nRecall we did something similar in SLR\n\nThe moment conditions are given by: \\[\\begin{aligned}\nE(u_i) &= 0 \\\\\nE(x_{1i}u_i) &= 0 \\\\\nE(x_{2i}u_i) &= 0 \\\\\n\\vdots \\\\\nE(x_{ki}u_i) &= 0\n\\end{aligned}\\]\nNote that we arrive at this because we assume that any change in \\(x_{1i}\\), \\(x_{2i}\\), \\(\\ldots\\), \\(x_{ki}\\) will not affect the error term \\(u_i\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#section",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#section",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "library(wooldridge)\nwage_data &lt;- wage1\n# run a regression of log(wage) on educ, exper, and tenure\nreg1 &lt;- lm(log(wage) ~ educ + exper + tenure, data = wage_data)\nsummary(reg1)\n\n\nCall:\nlm(formula = log(wage) ~ educ + exper + tenure, data = wage_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.05802 -0.29645 -0.03265  0.28788  1.42809 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 0.284360   0.104190   2.729  0.00656 ** \neduc        0.092029   0.007330  12.555  &lt; 2e-16 ***\nexper       0.004121   0.001723   2.391  0.01714 *  \ntenure      0.022067   0.003094   7.133 3.29e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4409 on 522 degrees of freedom\nMultiple R-squared:  0.316, Adjusted R-squared:  0.3121 \nF-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16\n\n\n\nkeeping educ fixed, what is the effect of changing exper and tenure by one year simultaneously?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-1",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "# keeping educ fixed, what is the effect of changing exper and tenure by one year simultaneously?\n\nreg1$coefficients[3] + reg1$coefficients[4]\n\n     exper \n0.02618833 \n\n\n\nIt returns an object of type Named num\nAlso not easy to read code\nLet us be complete and verbose\n\n\nbeta_exper &lt;- reg1$coefficients[3] \nbeta_tenure &lt;-  reg1$coefficients[4] \ntotal_effect &lt;- as.numeric(beta_exper + beta_tenure)\ntotal_effect\n\n[1] 0.02618833"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#residual-and-fitted-values",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#residual-and-fitted-values",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Residual and fitted values",
+    "text": "Residual and fitted values\n\n\n\n\nThe fitted/predicted values are given by: \\[\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i} + \\ldots + \\hat{\\beta}_k x_{ki}\\]\nThe residuals are given by: \\[\\hat{u}_i = y_i - \\hat{y}_i\\] \\[= y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 x_{1i} - \\hat{\\beta}_2 x_{2i} - \\ldots - \\hat{\\beta}_k x_{ki}\\]\n\n\n\n# Fitted values\nfitted_values &lt;- reg1$fitted.values\nhead(fitted_values)\n\n       1        2        3        4        5        6 \n1.304921 1.523506 1.304921 1.819802 1.461690 1.970451 \n\n# Residuals\nresiduals &lt;- reg1$residuals\nhead(residuals)\n\n          1           2           3           4           5           6 \n-0.17351855 -0.34793290 -0.20630834 -0.02804287  0.20601726  0.19860264 \n\n\n\n# manual residuals\nobserved_wage &lt;- log(wage_data$wage)\nmanual_residuals &lt;- observed_wage - fitted_values\n# test if manual residuals are approximately the same as residuals\nall.equal(residuals, manual_residuals)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#properties-of-fitted-values-and-residuals",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#properties-of-fitted-values-and-residuals",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Properties of fitted values and residuals",
+    "text": "Properties of fitted values and residuals\n\nImmediate extension of SLR and implications from the moment conditions:\n\nSample average of residuals is zero: \\(\\sum_{i=1}^n \\hat{u}_i = 0\\)\nSample covariance between residuals and each of the independent variables is zero: \\(\\sum_{i=1}^n x_{1i} \\hat{u}_i = 0\\) \\(\\sum_{i=1}^n x_{2i} \\hat{u}_i = 0\\) \\(\\vdots\\) \\(\\sum_{i=1}^n x_{ki} \\hat{u}_i = 0\\)\nThe point \\((\\bar{x}_1, \\bar{x}_2, \\ldots, \\bar{x}_k, \\bar{y})\\) lies on the regression plane \\[\\bar{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\bar{x}_1 + \\hat{\\beta}_2 \\bar{x}_2 + \\ldots + \\hat{\\beta}_k \\bar{x}_k\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#partialing-out-interpretation",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#partialing-out-interpretation",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Partialing out interpretation",
+    "text": "Partialing out interpretation\nConsider a case with k=2, i.e., two independent variables.\nThe population model is given by: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\]\nLet us focus on \\(\\beta_1\\)\n\n# run a regression of log(wage) on educ, exper\nreg_wage_on_educ_exp &lt;- lm(log(wage) ~ educ + exper, data = wage_data)\nsummary(reg_wage_on_educ_exp)\n\n\nCall:\nlm(formula = log(wage) ~ educ + exper, data = wage_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.05800 -0.30136 -0.04539  0.30601  1.44425 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 0.216854   0.108595   1.997   0.0464 *  \neduc        0.097936   0.007622  12.848  &lt; 2e-16 ***\nexper       0.010347   0.001555   6.653 7.24e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4614 on 523 degrees of freedom\nMultiple R-squared:  0.2493,    Adjusted R-squared:  0.2465 \nF-statistic: 86.86 on 2 and 523 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-2",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "# step 1: run a regression of log(wage) on exper\nreg_logwage_on_exp &lt;- lm(log(wage) ~ exper, data = wage_data)\nresiduals_logwage_on_exp &lt;- reg_logwage_on_exp$residuals\n# step 2: run a regression of educ on exper\nreg_educ_on_exp &lt;- lm(educ ~ exper, data = wage_data)\nresiduals_educ_on_exp &lt;- reg_educ_on_exp$residuals\n# step 3: run a regression of residuals from step 1 on residuals from step 2\npartial_out_reg &lt;- lm(residuals_logwage_on_exp ~ residuals_educ_on_exp)\nsummary(partial_out_reg)\n\n\nCall:\nlm(formula = residuals_logwage_on_exp ~ residuals_educ_on_exp)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.05800 -0.30136 -0.04539  0.30601  1.44425 \n\nCoefficients:\n                        Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)           -2.192e-18  2.010e-02    0.00        1    \nresiduals_educ_on_exp  9.794e-02  7.615e-03   12.86   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.461 on 524 degrees of freedom\nMultiple R-squared:  0.2399,    Adjusted R-squared:  0.2385 \nF-statistic: 165.4 on 1 and 524 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#whats-going-on",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#whats-going-on",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "What’s going on?",
+    "text": "What’s going on?\n\n\nThe population model is given by: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\]\nTo get the effect of \\(x_{1i}\\) on \\(y_i\\), the MLR is equivalent to the following two-step procedure:\n\nStep 1: Regress \\(y_i\\) on \\(x_{2i}\\) and obtain the residuals \\(\\hat{e}_i\\)\n\n\\(\\hat{e}_i\\) has the variation left in \\(y_i\\) after partialling out variation from \\(x_{2i}\\)\n\nStep 2: Regress \\(x_{1i}\\) on \\(x_{2i}\\) and obtain the residuals \\(\\hat{v}_i\\)\n\n\\(\\hat{v}_i\\) has the variation left in \\(x_{1i}\\) after partialling out variation from \\(x_{2i}\\)\n\nStep 3: Regress \\(\\hat{e}_i\\) on \\(\\hat{v}_i\\)\n\nThe idea is to partial out the effect of \\(x_{2i}\\) from \\(x_{1i}\\) and \\(y_i\\)\n\nThis is the same as regressing \\(y_i\\) on \\(x_{1i}\\) and \\(x_{2i}\\)\n\nHence comes the interpretation of \\(\\beta_1\\) as the effect of \\(x_{1i}\\) on \\(y_i\\) keeping \\(x_{2i}\\) fixed\nThere is another way to approach this. See textbook 3-2f and implement it in R"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#comparison-of-simple-and-multiple-regression-estimates",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#comparison-of-simple-and-multiple-regression-estimates",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Comparison of Simple and Multiple Regression Estimates",
+    "text": "Comparison of Simple and Multiple Regression Estimates\n\n\nThe estimated multiple regression can be written as: \\[\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\]\nSuppose we only ran the simple regression of \\(y\\) on \\(x_{1i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\]\nSimple regression coefficient \\(\\tilde{\\beta}_1\\) relates to the multiple regression coefficient \\(\\hat{\\beta}_1\\) via: \\[\\tilde{\\beta}_1 = \\hat{\\beta}_1 + \\hat{\\beta}_2 \\delta_1\\] where \\(\\delta_1\\) is the slope from the regression of \\(x_{2i}\\) on \\(x_{1i}\\) from estimating: \\[x_{2i} = \\delta_0 + \\delta_1 x_{1i} + \\epsilon\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#key-insight",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#key-insight",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Key Insight",
+    "text": "Key Insight\n\nConfounding term:\n\n\\(\\hat{\\beta}_2 \\delta_1\\): The partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) scaled by the relationship between \\(x_{2i}\\) and \\(x_{1i}\\).\n\nTwo distinct cases where \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\):\n\nThe partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) is zero: \\(\\hat{\\beta}_2 = 0\\).\n\\(x_{1i}\\) and \\(x_{2i}\\) are uncorrelated: \\(\\delta_1 = 0\\).\n\nThus generically in a MLR of \\(y_i\\) on \\(x_{1i}, \\cdots, x_{ki}\\),\n\nthe OLS estimate on the coefficient on \\(x_{1i}\\)\nwill be identical to one obtained from a simple regression of \\(y_i\\) on \\(x_{1i}\\)\niff \\(x_{1i}\\) and \\(x_{2i}, \\cdots, x_{ki}\\) are uncorrelated."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#goodness-of-fit",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#goodness-of-fit",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Goodness of Fit",
+    "text": "Goodness of Fit\n\nThe idea of the \\(R^2\\) statistic in MLR is the same as in SLR\n\nThe proportion of the total variation in \\(y_i\\) that is explained by the independent variables in the model \\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\], where:\n\n\\(SSE = \\sum_{i=1}^n (\\hat{y}_i - \\bar{y})^2\\) is the explained sum of squares\n\\(SSR = \\sum_{i=1}^n \\hat{u}_i^2\\) is the sum of squared residuals\n\\(SST = \\sum_{i=1}^n (y_i - \\bar{y})^2\\) is the total sum of squares\n\n\nAlways between 0 and 1"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#assumptions-of-mlr",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#assumptions-of-mlr",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Assumptions of MLR",
+    "text": "Assumptions of MLR\n\nMLR.1: Linearity: The population model \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\ldots + \\beta_k x_{ki} + u_i\\) is linear in the parameters \\(\\beta_0, \\beta_1, \\ldots, \\beta_k\\)\nMLR.2: Random Sampling: The data \\((y_i, x_{1i}, x_{2i}, \\ldots, x_{ki})\\) for \\(i = 1, 2, \\ldots, n\\) are a random sample from the population\nMLR.3: No Perfect Collinearity: The X’s are not perfectly collinear\n\n\nThey are not a linear combination of one another\n\n\nMLR.4: Zero Conditional Mean: \\(E(u_i|x_{1i}, x_{2i}, \\ldots, x_{ki}) = 0\\) \n\nThis implies that \\(E(u_i) = 0\\) and \\(E(x_{ji}u_i) = 0\\) for all \\(j = 1, 2, \\ldots, k\\)\nIf this holds then the \\(x_{ji}\\) are called strictly exogeneous\n\n\n\n\n\nTheorem: Unbiasedness of the OLS estimator in MLR\n\n\nUnder Assumptions MLR.1-MLR.4, the OLS estimator is unbiased. That is, \\(E(\\hat{\\beta}_j) = \\beta_j\\) for \\(j = 0, 1, \\ldots, k\\)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#homoskedasticity-assumption",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#homoskedasticity-assumption",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Homoskedasticity assumption",
+    "text": "Homoskedasticity assumption\n\n\nHaving an estimate is of no use without a measureof its precision.\nSimilar to SLR, we will make an assumption on the Variance of the error term \\(u_i\\) conditional on the independent variables \\(x_{1i}, x_{2i}, \\ldots, x_{ki}\\):\nMLR.5: Homoskedasticity: \\(Var(u_i|x_{1i}, x_{2i}, \\ldots, x_{ki}) = \\sigma^2\\)\n\nThis implies that \\(Var(u_i) = \\sigma^2\\)\n\nUsing the popoulation model \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\ldots + \\beta_k x_{ki} + u_i\\), we can take conditional variance of both sides to get: \\[Var(y_i|x_{1i}, x_{2i}, \\ldots, x_{ki}) = Var(u_i|x_{1i}, x_{2i}, \\ldots, x_{ki}) = \\sigma^2\\]\nWhy do we get this? Recall the formula of a variance of sums of objects.\nAgain as before we do not know \\(\\sigma^2\\) but we can estimate it using the residuals similar to SLR.\nBut first lets look at the sampling variance of the OLS estimates"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#sampling-variance-of-ols-estimator",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#sampling-variance-of-ols-estimator",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Sampling variance of OLS estimator",
+    "text": "Sampling variance of OLS estimator\n\n\n\nTheorem: Sampling variance of OLS estimator in MLR\n\n\nUnder assumptions MLR.1-MLR.5, the sampling variance of the OLS estimate on the \\(j^{th}\\) coefficient \\(\\hat{\\beta}_j\\) is given by: \\[Var(\\hat{\\beta}_j) = \\frac{\\sigma^2}{(1 - R_j^2)\\sum_{i=1}^n (x_{ji} - \\bar{x}_j)^2}\\] for \\(j = 0, 1, \\ldots, k\\). where:\n\n\n\\(\\sigma^2\\) is the variance of the error term \\(u_i\\) conditional on the independent variables\n\\(\\bar{x}_j\\) is the sample mean of \\(x_{ji}\\)\n\\(\\sum_{i=1}^n (x_{ji} - \\bar{x}_j)^2\\) is the total sample variance of \\(x_{ji}\\)\n\\(R_j^2\\) is the \\(R^2\\) from regressing \\(x_{ji}\\) on all other independent variables and an intercept.\n\n\n\n\n\n\nObserve how each component matters in the formula and why each of them important.\nLook for connections with MLR.3"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#the-role-of-r_j2",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#the-role-of-r_j2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "The role of \\(R_j^2\\)",
+    "text": "The role of \\(R_j^2\\)\n\n\n\\(R_j^2\\) is the \\(R^2\\) from regressing \\(x_{ji}\\) on all other independent variables and an intercept.\nWhat happens to \\(Var(\\hat{\\beta}_j)\\) as \\(R_j^2\\) approaches 1?\nWhat does it mean when \\(R_j^2\\) is very close to 1 versus equal to 1?\n\nMulticollinearity VS Perfect Collinearity\n\nDefinition: Multicollinearity arises when independent variables in a regression model are highly correlated, making it difficult to estimate the effect of each variable accurately.\n\n\nExample: Estimating the effect of different school expenditure categories (e.g., teacher salaries, materials, athletics) on student performance.\nChallenge:\n\nWealthier schools spend more across all categories, leading to high correlations among variables.\nDifficult to estimate the partial effect of one category due to lack of variation.\n\nSolution: Consider combining correlated variables into a single index."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#more-on-multicollinearity",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#more-on-multicollinearity",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "More on multicollinearity",
+    "text": "More on multicollinearity\n\nConsider a 3 variable population model: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\beta_3 x_{3i} + u_i\\]\n\n\\(x_{2i}\\) and \\(x_{3i}\\) are highly correlated\n\\(x_{1i}\\) is uncorrelated with \\(x_{2i}\\) and \\(x_{3i}\\)\n\n\n\n\nThe OLS estimator will still be unbiased because MLR1-MLR4 are satisfied\nHowever, the variance of the OLS estimates of \\(\\beta_2\\) and \\(\\beta_3\\) will be very high\nThis is because the \\(R^2\\) from\n\nregressing \\(x_{2i}\\) on \\(x_{3i}\\) will be very high\nregressing \\(x_{3i}\\) on \\(x_{2i}\\) will be very high\n\nBut the var of \\(\\hat{\\beta}_1\\) will be unaffected. Why?\nObserve that \\(Var(\\hat{\\beta}_1) = \\frac{\\sigma^2}{(1 - R_1^2)\\sum_{i=1}^n (x_{1i} - \\bar{x}_1)^2}\\)\n\nwhat is \\(R_1^2\\) based on the information you have?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-final-exam-scores",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-final-exam-scores",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Example: Final Exam Scores",
+    "text": "Example: Final Exam Scores\n\nScenario: Predicting final exam scores using:\n\nKey Variable: Number of classes attended.\nOther control Variables: Cumulative GPA, SAT score, and high school performance.\n\nConcern: Other control variables are highly correlated (multicollinear).\nA useful exercise is to look at the standard errors of the OLS estimates.\nResponse:\n\nIf the key variable of interest (attendance) is uncorrelated with the controls, multicollinearity among controls does not affect its estimate."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-housing-discrimination",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-housing-discrimination",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Example: Housing Discrimination",
+    "text": "Example: Housing Discrimination\nDoes the percentage of minorities in a neighborhood affect loan approval rates?\n\nIndependent Variables:\n\nKey Variable: Percentage of minorities in the neighborhood.\nOther Control Variables: Average income, Average housing prices, Measures of creditworthiness.\nChallenge: Income, housing prices, and creditworthiness are often highly correlated.\n\nImplication:\n\nMulticollinearity among the control variables leads to imprecise estimates of their coefficients.\nFocus: Accurate estimation of the key variable (minority percentage) is still possible, provided it is not highly correlated with the controls."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#completing-the-model",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#completing-the-model",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Completing the model",
+    "text": "Completing the model\n\nWe are left to estimate the variance of the error term \\(\\sigma^2\\)\nSimialr to SLR, we can estimate \\(\\sigma^2\\) using the residuals: \\[\\hat{\\sigma}^2 = \\frac{1}{n - k - 1} \\sum_{i=1}^n \\hat{u}_i^2\\]"
   }
 ]

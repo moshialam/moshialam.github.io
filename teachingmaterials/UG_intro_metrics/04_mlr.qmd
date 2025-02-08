@@ -1,0 +1,387 @@
+---
+title: "Econ 265: \n Introduction to Econometrics"
+subtitle: "Topic 4: Multiple Linear Regression"
+author: "Moshi Alam"
+format:
+  revealjs:
+    theme: serif
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+## Introduction {.smaller}
+
+-   The idea here would be extend the concepts discussed simple linear regression
+-   Again, it is crucial that you make yourself comfortable with the concepts of simple linear regression before moving on here
+-   Consequently, we will be much faster than the previous topic
+-   Once again the big picture will be to extend the assumptions revolving around $u_i$ and $x_i$ to multiple variables
+    -   to understand how does the OLS estimator plays out
+
+
+
+
+## Multiple Linear Regression {.smaller}
+
+::: {.incremental}
+-   The multiple linear regression model is given by:   $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$$
+
+    -   $i = 1, 2, \ldots, n$ indexes the observations
+    -   $y_i$ is the dependent variable, 
+    -   $x_{1i}, x_{2i}, \ldots, x_{ki}$ are the independent variables, 
+    -   $\beta_0, \beta_1, \ldots, \beta_k$ are the parameters 
+    -   $u_i$ is the error term
+- The key assumption will be a generalized versions in SLR $$E(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = 0$$  $$E(u_i) = 0$$
+- These imply: $E(x_{1i}u_i) = E(x_{2i}u_i) = \ldots = E(x_{ki}u_i) = 0$
+:::
+
+
+
+
+## Obtaining the OLS estimates {.smaller}
+- Once again we will minimize the sum of squared residuals to estimate the parameters as $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$
+- Specifically, we will choose $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$ to minimize the following: $$\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki})^2$$
+
+This minimization problem leads to $k+1$ linear equations (F.O.C.s) in $k+1$ unknowns $\hat{\boldsymbol{\beta}}_0, \hat{\boldsymbol{\beta}}_1, \ldots, \hat{\boldsymbol{\beta}}_k$ :
+
+$$
+\begin{aligned}
+& \sum_{i=1}^n\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
+& \sum_{i=1}^n x_{i 1}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
+& \sum_{i=1}^n x_{i 2}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
+& \vdots \\
+& \sum_{i=1}^n x_{i k}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0
+\end{aligned}
+$$
+
+## The FOCs {.smaller}
+
+::: {.incremental}
+- The FOCs give us $k+1$ equations in $k+1$ unknowns
+- Note that we arrive at this because we assume that any change in $x_{1i}$, $x_{2i}$, $\ldots$, $x_{ki}$ will not affect the error term $u_i$
+- Gives us the sample counterparts of $k+1$ moment conditions
+  - Recall we did something similar in SLR
+- The moment conditions are given by: 
+$$\begin{aligned}
+E(u_i) &= 0 \\
+E(x_{1i}u_i) &= 0 \\
+E(x_{2i}u_i) &= 0 \\
+\vdots \\
+E(x_{ki}u_i) &= 0
+ \end{aligned}$$
+- Note that we arrive at this because we assume that any change in $x_{1i}$, $x_{2i}$, $\ldots$, $x_{ki}$ will not affect the error term $u_i$
+:::
+
+
+## {.smaller}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+wage_data <- wage1
+# run a regression of log(wage) on educ, exper, and tenure
+reg1 <- lm(log(wage) ~ educ + exper + tenure, data = wage_data)
+summary(reg1)
+```
+
+- keeping educ fixed, what is the effect of changing exper and tenure by one year simultaneously?
+
+## {.smaller}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# keeping educ fixed, what is the effect of changing exper and tenure by one year simultaneously?
+
+reg1$coefficients[3] + reg1$coefficients[4]
+```
+
+- It returns an object of type `Named num` 
+- Also not easy to read code
+- Let us be complete and verbose
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+beta_exper <- reg1$coefficients[3] 
+beta_tenure <-  reg1$coefficients[4] 
+total_effect <- as.numeric(beta_exper + beta_tenure)
+total_effect
+```
+
+## Residual and fitted values {.smaller}
+
+:::{.incremental}
+:::{.columns}
+::::{.column width="52%"}
+- The fitted/predicted values are given by: $$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i} + \ldots + \hat{\beta}_k x_{ki}$$
+- The residuals are given by: $$\hat{u}_i = y_i - \hat{y}_i$$ $$= y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki}$$
+::::
+::::{.column width="45%"}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# Fitted values
+fitted_values <- reg1$fitted.values
+head(fitted_values)
+# Residuals
+residuals <- reg1$residuals
+head(residuals)
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# manual residuals
+observed_wage <- log(wage_data$wage)
+manual_residuals <- observed_wage - fitted_values
+# test if manual residuals are approximately the same as residuals
+all.equal(residuals, manual_residuals)
+```
+::::
+:::
+:::
+
+## Properties of fitted values and residuals {.smaller}
+
+:::{.incremental}
+Immediate extension of SLR and implications from the moment conditions:
+
+- Sample average of residuals is zero: $\sum_{i=1}^n \hat{u}_i = 0$
+- Sample covariance between residuals and each of the independent variables is zero: $\sum_{i=1}^n x_{1i} \hat{u}_i = 0$ $\sum_{i=1}^n x_{2i} \hat{u}_i = 0$ $\vdots$ $\sum_{i=1}^n x_{ki} \hat{u}_i = 0$ 
+- The point $(\bar{x}_1, \bar{x}_2, \ldots, \bar{x}_k, \bar{y})$ lies on the regression plane $$\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}_1 + \hat{\beta}_2 \bar{x}_2 + \ldots + \hat{\beta}_k \bar{x}_k$$
+:::
+
+## Partialing out interpretation {.smaller}
+
+Consider a case with k=2, i.e., two independent variables. 
+
+The population model is given by: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$
+
+Let us focus on $\beta_1$ 
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# run a regression of log(wage) on educ, exper
+reg_wage_on_educ_exp <- lm(log(wage) ~ educ + exper, data = wage_data)
+summary(reg_wage_on_educ_exp)
+```
+
+## {.smaller}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# step 1: run a regression of log(wage) on exper
+reg_logwage_on_exp <- lm(log(wage) ~ exper, data = wage_data)
+residuals_logwage_on_exp <- reg_logwage_on_exp$residuals
+# step 2: run a regression of educ on exper
+reg_educ_on_exp <- lm(educ ~ exper, data = wage_data)
+residuals_educ_on_exp <- reg_educ_on_exp$residuals
+# step 3: run a regression of residuals from step 1 on residuals from step 2
+partial_out_reg <- lm(residuals_logwage_on_exp ~ residuals_educ_on_exp)
+summary(partial_out_reg)
+```
+
+## What's going on? {.smaller}
+
+:::{.incremental}
+- The population model is given by: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$
+- To get the effect of $x_{1i}$ on $y_i$, the MLR is equivalent to the following two-step procedure:
+  - Step 1: Regress $y_i$ on $x_{2i}$ and obtain the residuals $\hat{e}_i$
+    - $\hat{e}_i$ has the variation left in $y_i$ after partialling out variation from $x_{2i}$
+  - Step 2: Regress $x_{1i}$ on $x_{2i}$ and obtain the residuals $\hat{v}_i$
+    - $\hat{v}_i$ has the variation left in $x_{1i}$ after partialling out variation from $x_{2i}$
+  - Step 3: Regress $\hat{e}_i$ on $\hat{v}_i$ 
+- The idea is to partial out the effect of $x_{2i}$ from $x_{1i}$ and $y_i$
+    - This is the same as regressing $y_i$ on $x_{1i}$ and $x_{2i}$
+- **Hence comes the interpretation of $\beta_1$ as the effect of $x_{1i}$ on $y_i$ keeping $x_{2i}$ fixed**
+- There is another way to approach this. See textbook 3-2f and implement it in R
+:::
+
+<!-- 
+## {.smaller}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# original MLR
+reg_logwage_educ_exper <- lm(log(wage) ~ educ + exper, data = wage1)
+summary(reg_logwage_educ_exper)
+
+# partialling out exper
+reg_educ_exper <- lm(educ ~ exper, data = wage1)
+residuals_educ_exper <- residuals(reg_educ_exper)
+
+# regeressing log(wage) on education partialled out of exper
+reg_resid_logwage <- lm(log(wage) ~ residuals_educ_exper, data = wage1)
+summary(reg_resid_logwage)  
+``` -->
+
+## Comparison of Simple and Multiple Regression Estimates {.smaller}
+
+<!-- - In two special cases, the simple regression of $y$ on $x_1$ will produce the **same OLS estimate** as the regression of $y$ on $x_1$ and $x_2$. -->
+
+- The estimated  multiple regression can be written as:
+  $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}$$
+
+- Suppose we only ran the simple regression of $y$ on $x_{1i}$:
+  $$\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}$$
+
+- Simple regression coefficient $\tilde{\beta}_1$ relates to the multiple regression coefficient $\hat{\beta}_1$ via:
+  $$\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1$$
+  where $\delta_1$ is the slope from the regression of $x_{2i}$ on $x_{1i}$ from estimating:
+  $$x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon$$
+
+---
+
+## Key Insight {.smaller}
+
+1. **Confounding term**:
+   - $\hat{\beta}_2 \delta_1$: The partial effect of $x_{2i}$ on $\hat{y}$ scaled by the relationship between $x_{2i}$ and $x_{1i}$.
+
+2. Two distinct cases where $\tilde{\beta}_1 = \hat{\beta}_1$:
+   - The partial effect of $x_{2i}$ on $\hat{y}$ is zero: $\hat{\beta}_2 = 0$.
+   - $x_{1i}$ and $x_{2i}$ are uncorrelated: $\delta_1 = 0$.
+
+3. Thus generically in a MLR of $y_i$ on $x_{1i}, \cdots, x_{ki}$, 
+    - the OLS estimate on the coefficient on $x_{1i}$ 
+    - will be identical to one obtained from a simple regression of $y_i$ on $x_{1i}$ 
+    - iff $x_{1i}$ and $x_{2i}, \cdots, x_{ki}$ are uncorrelated.
+
+---
+
+## Goodness of Fit {.smaller}
+
+- The idea of the $R^2$ statistic in MLR is the same as in SLR
+  - The proportion of the total variation in $y_i$ that is explained by the independent variables in the model
+   $$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$, where:
+    - $SSE = \sum_{i=1}^n (\hat{y}_i - \bar{y})^2$ is the explained sum of squares
+    - $SSR = \sum_{i=1}^n \hat{u}_i^2$ is the sum of squared residuals
+    - $SST = \sum_{i=1}^n (y_i - \bar{y})^2$ is the total sum of squares
+- Always between 0 and 1
+
+
+---
+
+## Assumptions of MLR {.smaller}
+
+1. **MLR.1: Linearity**: The population model $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$ is linear in the parameters $\beta_0, \beta_1, \ldots, \beta_k$
+2. **MLR.2: Random Sampling**: The data $(y_i, x_{1i}, x_{2i}, \ldots, x_{ki})$ for $i = 1, 2, \ldots, n$ are a random sample from the population
+3. **MLR.3: No Perfect Collinearity**: The X's are **not perfectly collinear**
+  - They are not a linear combination of one another 
+4. **MLR.4: Zero Conditional Mean**: $E(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = 0$
+   <!-- - Under MLR.4 we call the model **strictly exogeneous**.  -->
+   - This implies that $E(u_i) = 0$ and $E(x_{ji}u_i) = 0$ for all $j = 1, 2, \ldots, k$
+   - If this holds then the $x_{ji}$ are called **strictly exogeneous**
+
+::: {.callout-important icon="false"}
+### Theorem: Unbiasedness of the OLS estimator in MLR
+
+Under Assumptions MLR.1-MLR.4, the OLS estimator is unbiased. That is, $E(\hat{\beta}_j) = \beta_j$ for $j = 0, 1, \ldots, k$.
+:::
+
+---
+
+# Variance of the OLS estimator {background-color="#1c5253"}
+
+---
+
+## Homoskedasticity assumption {.smaller}
+:::{.incremental}
+- Having an estimate is of no use without a measureof its precision.
+- Similar to SLR, we will make an assumption on the Variance of the error term $u_i$ conditional on the independent variables $x_{1i}, x_{2i}, \ldots, x_{ki}$:
+- **MLR.5: Homoskedasticity**: $Var(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = \sigma^2$
+  - This implies that $Var(u_i) = \sigma^2$
+- Using the popoulation model $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$, we can take *conditional variance of both sides* to get: $$Var(y_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = Var(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = \sigma^2$$
+- Why do we get this? Recall the formula of a variance of sums of objects.
+- Again as before we do not know $\sigma^2$ but we can estimate it using the residuals similar to SLR.
+- But first lets look at the sampling variance of the OLS estimates
+:::
+
+---
+
+## Sampling variance of OLS estimator {.smaller}
+
+::: {.callout-important icon="false"}
+### Theorem: Sampling variance of OLS estimator in MLR
+
+Under assumptions MLR.1-MLR.5, the sampling variance of the OLS estimate on the $j^{th}$ coefficient $\hat{\beta}_j$ is given by: $$Var(\hat{\beta}_j) = \frac{\sigma^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}$$ for $j = 0, 1, \ldots, k$. where:
+
+:::{.incremental}
+
+- $\sigma^2$ is the variance of the error term $u_i$ conditional on the independent variables
+- $\bar{x}_j$ is the sample mean of $x_{ji}$
+- $\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2$ is the total sample variance of $x_{ji}$
+- $R_j^2$ is the $R^2$ from regressing $x_{ji}$ on all other independent variables and an intercept.
+:::
+
+:::                 
+
+- Observe how each component matters in the formula and why each of them important.
+- Look for connections with MLR.3
+
+---
+
+## The role of $R_j^2$ {.smaller}
+
+:::{.incremental}
+- $R_j^2$ is the $R^2$ from regressing $x_{ji}$ on all other independent variables and an intercept.
+- What happens to $Var(\hat{\beta}_j)$ as $R_j^2$ approaches 1?
+- What does it mean when $R_j^2$ is very close to 1 versus equal to 1?
+  - *Multicollinearity* VS *Perfect Collinearity*
+  - - **Definition**: Multicollinearity arises when independent variables in a regression model are highly correlated, making it difficult to estimate the effect of each variable accurately.
+- **Example**: Estimating the effect of different school expenditure categories (e.g., teacher salaries, materials, athletics) on student performance.
+- **Challenge**:
+  - Wealthier schools spend more across all categories, leading to high correlations among variables.
+  - Difficult to estimate the partial effect of one category due to lack of variation.
+- **Solution**:  Consider combining correlated variables into a single index.
+:::
+
+---
+
+## More on multicollinearity {.smaller}
+
+- Consider a 3 variable population model: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i$$
+  -  $x_{2i}$ and $x_{3i}$ are *highly correlated* 
+  -  $x_{1i}$ is *uncorrelated* with $x_{2i}$ and $x_{3i}$
+
+:::{.incremental}
+- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied
+- However, the variance of the OLS estimates of $\beta_2$ and $\beta_3$ will be very high
+- This is because the $R^2$ from 
+  - regressing $x_{2i}$ on $x_{3i}$  will be very high
+  - regressing $x_{3i}$ on $x_{2i}$  will be very high
+- But the var of $\hat{\beta}_1$ will be unaffected. Why?
+- Observe that $Var(\hat{\beta}_1) = \frac{\sigma^2}{(1 - R_1^2)\sum_{i=1}^n (x_{1i} - \bar{x}_1)^2}$ 
+  - what is $R_1^2$ based on the information you have?
+:::
+
+## Example: Final Exam Scores
+
+- **Scenario**: Predicting final exam scores using:
+  - **Key Variable**: Number of classes attended.
+  - **Other control Variables**: Cumulative GPA, SAT score, and high school performance.
+- **Concern**: Other control variables are highly correlated (multicollinear).
+- A useful exercise is to look at the standard errors of the OLS estimates.
+- **Response**:
+  - If the key variable of interest (attendance) is uncorrelated with the controls, multicollinearity among controls does not affect its estimate.
+
+---
+
+## Example: Housing Discrimination
+
+ Does the percentage of minorities in a neighborhood affect loan approval rates?
+
+- **Independent Variables**:
+  - **Key Variable**: Percentage of minorities in the neighborhood.
+  - **Other Control Variables**: Average income,  Average housing prices, Measures of creditworthiness.
+  - **Challenge**: Income, housing prices, and creditworthiness are often highly correlated.
+
+- **Implication**:
+  - Multicollinearity among the control variables leads to imprecise estimates of their coefficients.
+  - **Focus**: Accurate estimation of the key variable (minority percentage) is still possible, provided it is not highly correlated with the controls.
+
+---
+
+## Completing the model {.smaller}
+
+- We are left to estimate the variance of the error term $\sigma^2$
+- Simialr to SLR, we can estimate $\sigma^2$ using the residuals: $$\hat{\sigma}^2 = \frac{1}{n - k - 1} \sum_{i=1}^n \hat{u}_i^2$$
+<!-- # Ommitted variable bias {background-color="#1c5253"} -->
+
+<!-- 
+## Including irrelevant variables {.smaller}
+- Suppose the true population model has 3 independent variables: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i$$
+- Supose in reality $\beta_3 = 0$, but we do not know this
+- We estimate the following model: $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i} + \hat{\beta}_3 x_{3i} $$
+- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied -->
