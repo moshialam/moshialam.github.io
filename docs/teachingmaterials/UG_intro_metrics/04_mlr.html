@@ -519,6 +519,7 @@ summary(reg_resid_logwage)
 <li>will be identical to one obtained from a simple regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span></li>
 <li>iff <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}, \cdots, x_{ki}\)</span> are uncorrelated.</li>
 </ul></li>
+<li>Example of ability bias in wage regressions</li>
 </ol>
 </section>
 <section id="goodness-of-fit" class="slide level2 smaller">
@@ -563,9 +564,6 @@ summary(reg_resid_logwage)
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 </section>
 <section>
 <section id="variance-of-the-ols-estimator" class="title-slide slide level1 center" data-background-color="#1c5253">
@@ -663,7 +661,7 @@ summary(reg_resid_logwage)
 </ul>
 </div>
 </section>
-<section id="example-final-exam-scores" class="slide level2">
+<section id="example-final-exam-scores" class="slide level2 smaller">
 <h2>Example: Final Exam Scores</h2>
 <ul>
 <li><strong>Scenario</strong>: Predicting final exam scores using:
@@ -672,42 +670,142 @@ summary(reg_resid_logwage)
 <li><strong>Other control Variables</strong>: Cumulative GPA, SAT score, and high school performance.</li>
 </ul></li>
 <li><strong>Concern</strong>: Other control variables are highly correlated (multicollinear).</li>
-<li>A useful exercise is to look at the standard errors of the OLS estimates.</li>
-<li><strong>Response</strong>:
-<ul>
-<li>If the key variable of interest (attendance) is uncorrelated with the controls, multicollinearity among controls does not affect its estimate.</li>
-</ul></li>
-</ul>
-</section>
-<section id="example-housing-discrimination" class="slide level2">
-<h2>Example: Housing Discrimination</h2>
-<p>Does the percentage of minorities in a neighborhood affect loan approval rates?</p>
-<ul>
-<li><strong>Independent Variables</strong>:
-<ul>
-<li><strong>Key Variable</strong>: Percentage of minorities in the neighborhood.</li>
-<li><strong>Other Control Variables</strong>: Average income, Average housing prices, Measures of creditworthiness.</li>
-<li><strong>Challenge</strong>: Income, housing prices, and creditworthiness are often highly correlated.</li>
-</ul></li>
-<li><strong>Implication</strong>:
-<ul>
-<li>Multicollinearity among the control variables leads to imprecise estimates of their coefficients.</li>
-<li><strong>Focus</strong>: Accurate estimation of the key variable (minority percentage) is still possible, provided it is not highly correlated with the controls.</li>
-</ul></li>
+<li>A useful exercise is to look at the standard errors of the OLS estimates. <!-- - If the key variable of interest (attendance) is uncorrelated with the controls, *multicollinearity among controls* does not affect its estimate. --></li>
 </ul>
 </section>
 <section id="completing-the-model" class="slide level2 smaller">
 <h2>Completing the model</h2>
 <ul>
-<li>We are left to estimate the variance of the error term <span class="math inline">\(\sigma^2\)</span></li>
-<li>Simialr to SLR, we can estimate <span class="math inline">\(\sigma^2\)</span> using the residuals: <span class="math display">\[\hat{\sigma}^2 = \frac{1}{n - k - 1} \sum_{i=1}^n \hat{u}_i^2\]</span> <!-- # Ommitted variable bias {background-color="#1c5253"} --></li>
+<li>Now thatw e have laid out the assumptions for unbiasedness, and homoskedasticity for precision
+<ul>
+<li>We are left to estimate the variance of the error term <span class="math inline">\(\sigma^2\)</span> to complete the model</li>
+</ul></li>
+<li>Simialr to SLR, we can estimate <span class="math inline">\(\sigma^2\)</span> using the residuals: <span class="math display">\[\hat{\sigma}^2 = \frac{1}{n - k - 1} \sum_{i=1}^n \hat{u}_i^2\]</span></li>
+<li>The degrees of freedom is <span class="math inline">\(n - k - 1\)</span> because we have <span class="math inline">\(n\)</span> observations and <span class="math inline">\(k+1\)</span> parameters to estimate</li>
 </ul>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem:</strong></p>
+</div>
+<div class="callout-content">
+<p>Under assumptions MLR.1-MLR.5, <span class="math inline">\(E(\hat{\sigma}^2) = \sigma^2\)</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\hat{\sigma}\)</span> is the standard error of the regression (SER)</li>
+</ul>
+</section>
+<section id="gauss-markov-theorem" class="slide level2 smaller">
+<h2>Gauss-Markov Theorem</h2>
+<div>
+<ul>
+<li class="fragment">The Gauss-Markov Theorem is a key result in econometrics that states that under the assumptions MLR.1-MLR.5, the OLS estimator is the best linear unbiased estimator (BLUE) of the population parameters.</li>
+<li class="fragment"><strong>Best</strong>: The OLS estimator has the smallest variance among all linear unbiased estimators.</li>
+<li class="fragment"><strong>Linear</strong>: The OLS estimator is a linear function of the dependent variable.</li>
+<li class="fragment"><strong>Unbiased</strong>: The OLS estimator is unbiased.</li>
+<li class="fragment">The OLS estimator is the most efficient estimator among all unbiased estimators.</li>
+</ul>
+</div>
+</section>
+<section id="standard-errors-of-hatbeta_j" class="slide level2 smaller">
+<h2>Standard errors of <span class="math inline">\(\hat{\beta}_j\)</span></h2>
+<div>
+<ul>
+<li class="fragment">Under homoskedasticity, the standard error of the OLS estimate <span class="math inline">\(\hat{\beta}_j\)</span> is given by: <span class="math display">\[SE(\hat{\beta}_j) = \sqrt{Var(\hat{\beta}_j)}\]</span></li>
+<li class="fragment">an estimate of the standard deviation of the sampling distribution of <span class="math inline">\(\hat{\beta}_j\)</span>.</li>
+<li class="fragment">a measure of the precision of the OLS estimate <span class="math inline">\(\hat{\beta}_j\)</span>.</li>
+<li class="fragment">used to construct confidence intervals and conduct hypothesis tests.</li>
+<li class="fragment">estimated using the formula: <span class="math display">\[SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} sd(x_j)}}\]</span></li>
+<li class="fragment">Notice the role of <span class="math inline">\(R_j^2\)</span> and <span class="math inline">\(n\)</span> in the formula.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ommitted-variable-bias" class="title-slide slide level1 center" data-background-color="#1c5253">
+<h1>Ommitted variable bias</h1>
+
+</section>
+<section id="recall" class="slide level2 smaller">
+<h2>Recall</h2>
+<ul>
+<li>Recall the example we did in class with the wage data on educ and exper</li>
+<li>For the true population model satisfying MLR1-MLR4: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i\]</span> <!-- - The estimated  multiple regression can be written as:
+  $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}$$ --></li>
+<li>Suppose we omitted <span class="math inline">\(x_{2i}\)</span> and only ran the simple regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span>: <span class="math display">\[\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}\]</span></li>
+<li><span class="math inline">\(\tilde{\beta}_1\)</span> relates to <span class="math inline">\(\hat{\beta}_1\)</span> via: <span class="math display">\[\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1\]</span> where <span class="math inline">\(\delta_1\)</span> is the slope from the regression of <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(x_{1i}\)</span> from estimating: <span class="math display">\[x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon\]</span></li>
+<li>So <span class="math inline">\(E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1\)</span>. Bias = <span class="math inline">\(E(\tilde{\beta}_1) - \beta_1 = \beta_2 \delta_1\)</span></li>
+<li>Let us generalize this to a three variable case</li>
+</ul>
+</section>
+<section id="omitted-variable-bias" class="slide level2 smaller">
+<h2>Omitted variable bias</h2>
+<p>For the true population modelsatisfying MLR1-MLR4: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i\]</span> - Suppose <span class="math inline">\(x_{3i}\)</span> and <span class="math inline">\(x_{2i}\)</span> are <em>uncorrelated</em> but <span class="math inline">\(x_{3i}\)</span> and <span class="math inline">\(x_{1i}\)</span> are <em>correlated</em> - Suppose we omitted <span class="math inline">\(x_{3i}\)</span> and only ran the regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span>: <span class="math display">\[\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i} + \tilde{\beta}_2 x_{2i}\]</span></p>
+<div>
+<ul>
+<li class="fragment">Might be tempting to think that <span class="math inline">\(\tilde{\beta}_1\)</span> is unbiased and only <span class="math inline">\(\tilde{\beta}_2\)</span> is biased</li>
+<li class="fragment">In fact we can show that: <span class="math display">\[\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) x_{i 3}}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}\]</span></li>
+<li class="fragment">Note that we never said that the variables are pairwise uncorrelated</li>
+<li class="fragment">The bias in <span class="math inline">\(\tilde{\beta}_1\)</span> is due to the induced correlation between <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> when <span class="math inline">\(x_{3i}\)</span> is omitted</li>
+</ul>
+</div>
+</section>
+<section id="ability-bias-example" class="slide level2 smaller">
+<h2>Ability bias example</h2>
+<ul>
+<li>The true population model is given by: <span class="math display">\[log(wage_i) = \beta_0 + \beta_1 educ_i + \beta_2 exper_i + \beta_3 ability_i + u_i\]</span></li>
+<li>Suppose <span class="math inline">\(exper_i\)</span> and <span class="math inline">\(ability_i\)</span> are uncorrelated (probably not true)</li>
+</ul>
+<div>
+<ul>
+<li class="fragment">Suppose we omitted the variable <span class="math inline">\(ability_i\)</span> and only ran the regression of <span class="math inline">\(log(wage_i)\)</span> on <span class="math inline">\(educ_i\)</span> and <span class="math inline">\(exper_i\)</span>: <span class="math display">\[\tilde{log(wage_i)} = \tilde{\beta}_0 + \tilde{\beta}_1 educ_i + \tilde{\beta}_2 exper_i\]</span></li>
+<li class="fragment">Both <span class="math inline">\(\tilde{\beta}_1\)</span> and <span class="math inline">\(\tilde{\beta}_2\)</span> will be biased
+<ul>
+<li class="fragment">Even if we assume suppose <span class="math inline">\(exper_i\)</span> and <span class="math inline">\(ability_i\)</span> are uncorrelated</li>
+</ul></li>
+<li class="fragment">The bias in <span class="math inline">\(\tilde{\beta}_2\)</span> is due to the induced correlation between <span class="math inline">\(educ_i\)</span> and <span class="math inline">\(exper_i\)</span> when <span class="math inline">\(ability_i\)</span> is omitted because <span class="math inline">\(educ_i\)</span> and <span class="math inline">\(ability_i\)</span> are correlated</li>
+<li class="fragment"><strong>Confounding the effect of ability</strong>. Direction of the bias?</li>
+<li class="fragment">So imagine the further complexity if we assumed all variables were <strong>pairwise correlated</strong>.</li>
+</ul>
+</div>
 <!-- 
 ## Including irrelevant variables {.smaller}
 - Suppose the true population model has 3 independent variables: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i$$
 - Supose in reality $\beta_3 = 0$, but we do not know this
 - We estimate the following model: $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i} + \hat{\beta}_3 x_{3i} $$
-- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied -->
+- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied  -->
+</section>
+<section id="variances-in-misspecified-models" class="slide level2 smaller">
+<h2>Variances in misspecified models</h2>
+<ul>
+<li>We saw what happens to bias. What happens to precision?</li>
+<li>True model: <span class="math inline">\(y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i\)</span> and <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> are <strong>correlated</strong></li>
+<li>Estimate two models:
+<ul>
+<li>Model 1: <span class="math inline">\(\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}\)</span></li>
+<li>Model 2: <span class="math inline">\(\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}\)</span></li>
+</ul></li>
+</ul>
+<div>
+<ul>
+<li class="fragment">WHen do we have bias in <span class="math inline">\(\tilde{\beta}_1\)</span>?</li>
+</ul>
+<ol type="1">
+<li class="fragment">When <span class="math inline">\(\beta_2 \neq 0, \widetilde{\beta}_1\)</span> is biased, <span class="math inline">\(\hat{\beta}_1\)</span> is unbiased, and <span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)&lt;\operatorname{Var}\left(\hat{\beta}_1\right)\)</span></li>
+<li class="fragment">When <span class="math inline">\(\beta_2=0, \widetilde{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are both unbiased, and <span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)&lt;\operatorname{Var}\left(\hat{\beta}_1\right)\)</span></li>
+</ol>
+<ul>
+<li class="fragment">This is because (recall the formula for the variance of the OLS estimator):
+<ul>
+<li class="fragment"><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\left(1-R_1^2\right)\right]\)</span></li>
+<li class="fragment"><span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\right]\)</span></li>
+</ul></li>
+</ul>
+</div>
 
 
 </section></section>

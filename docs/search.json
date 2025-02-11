@@ -802,7 +802,7 @@
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#key-insight",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Key Insight",
-    "text": "Key Insight\n\nConfounding term:\n\n\\(\\hat{\\beta}_2 \\delta_1\\): The partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) scaled by the relationship between \\(x_{2i}\\) and \\(x_{1i}\\).\n\nTwo distinct cases where \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\):\n\nThe partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) is zero: \\(\\hat{\\beta}_2 = 0\\).\n\\(x_{1i}\\) and \\(x_{2i}\\) are uncorrelated: \\(\\delta_1 = 0\\).\n\nThus generically in a MLR of \\(y_i\\) on \\(x_{1i}, \\cdots, x_{ki}\\),\n\nthe OLS estimate on the coefficient on \\(x_{1i}\\)\nwill be identical to one obtained from a simple regression of \\(y_i\\) on \\(x_{1i}\\)\niff \\(x_{1i}\\) and \\(x_{2i}, \\cdots, x_{ki}\\) are uncorrelated."
+    "text": "Key Insight\n\nConfounding term:\n\n\\(\\hat{\\beta}_2 \\delta_1\\): The partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) scaled by the relationship between \\(x_{2i}\\) and \\(x_{1i}\\).\n\nTwo distinct cases where \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\):\n\nThe partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) is zero: \\(\\hat{\\beta}_2 = 0\\).\n\\(x_{1i}\\) and \\(x_{2i}\\) are uncorrelated: \\(\\delta_1 = 0\\).\n\nThus generically in a MLR of \\(y_i\\) on \\(x_{1i}, \\cdots, x_{ki}\\),\n\nthe OLS estimate on the coefficient on \\(x_{1i}\\)\nwill be identical to one obtained from a simple regression of \\(y_i\\) on \\(x_{1i}\\)\niff \\(x_{1i}\\) and \\(x_{2i}, \\cdots, x_{ki}\\) are uncorrelated.\n\nExample of ability bias in wage regressions"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#goodness-of-fit",
@@ -851,20 +851,55 @@
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-final-exam-scores",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Example: Final Exam Scores",
-    "text": "Example: Final Exam Scores\n\nScenario: Predicting final exam scores using:\n\nKey Variable: Number of classes attended.\nOther control Variables: Cumulative GPA, SAT score, and high school performance.\n\nConcern: Other control variables are highly correlated (multicollinear).\nA useful exercise is to look at the standard errors of the OLS estimates.\nResponse:\n\nIf the key variable of interest (attendance) is uncorrelated with the controls, multicollinearity among controls does not affect its estimate."
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-housing-discrimination",
-    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#example-housing-discrimination",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Example: Housing Discrimination",
-    "text": "Example: Housing Discrimination\nDoes the percentage of minorities in a neighborhood affect loan approval rates?\n\nIndependent Variables:\n\nKey Variable: Percentage of minorities in the neighborhood.\nOther Control Variables: Average income, Average housing prices, Measures of creditworthiness.\nChallenge: Income, housing prices, and creditworthiness are often highly correlated.\n\nImplication:\n\nMulticollinearity among the control variables leads to imprecise estimates of their coefficients.\nFocus: Accurate estimation of the key variable (minority percentage) is still possible, provided it is not highly correlated with the controls."
+    "text": "Example: Final Exam Scores\n\nScenario: Predicting final exam scores using:\n\nKey Variable: Number of classes attended.\nOther control Variables: Cumulative GPA, SAT score, and high school performance.\n\nConcern: Other control variables are highly correlated (multicollinear).\nA useful exercise is to look at the standard errors of the OLS estimates."
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#completing-the-model",
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#completing-the-model",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Completing the model",
-    "text": "Completing the model\n\nWe are left to estimate the variance of the error term \\(\\sigma^2\\)\nSimialr to SLR, we can estimate \\(\\sigma^2\\) using the residuals: \\[\\hat{\\sigma}^2 = \\frac{1}{n - k - 1} \\sum_{i=1}^n \\hat{u}_i^2\\]"
+    "text": "Completing the model\n\nNow thatw e have laid out the assumptions for unbiasedness, and homoskedasticity for precision\n\nWe are left to estimate the variance of the error term \\(\\sigma^2\\) to complete the model\n\nSimialr to SLR, we can estimate \\(\\sigma^2\\) using the residuals: \\[\\hat{\\sigma}^2 = \\frac{1}{n - k - 1} \\sum_{i=1}^n \\hat{u}_i^2\\]\nThe degrees of freedom is \\(n - k - 1\\) because we have \\(n\\) observations and \\(k+1\\) parameters to estimate\n\n\n\n\nTheorem:\n\n\nUnder assumptions MLR.1-MLR.5, \\(E(\\hat{\\sigma}^2) = \\sigma^2\\)\n\n\n\n\n\\(\\hat{\\sigma}\\) is the standard error of the regression (SER)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#gauss-markov-theorem",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#gauss-markov-theorem",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Gauss-Markov Theorem",
+    "text": "Gauss-Markov Theorem\n\n\nThe Gauss-Markov Theorem is a key result in econometrics that states that under the assumptions MLR.1-MLR.5, the OLS estimator is the best linear unbiased estimator (BLUE) of the population parameters.\nBest: The OLS estimator has the smallest variance among all linear unbiased estimators.\nLinear: The OLS estimator is a linear function of the dependent variable.\nUnbiased: The OLS estimator is unbiased.\nThe OLS estimator is the most efficient estimator among all unbiased estimators."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#standard-errors-of-hatbeta_j",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#standard-errors-of-hatbeta_j",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Standard errors of \\(\\hat{\\beta}_j\\)",
+    "text": "Standard errors of \\(\\hat{\\beta}_j\\)\n\n\nUnder homoskedasticity, the standard error of the OLS estimate \\(\\hat{\\beta}_j\\) is given by: \\[SE(\\hat{\\beta}_j) = \\sqrt{Var(\\hat{\\beta}_j)}\\]\nan estimate of the standard deviation of the sampling distribution of \\(\\hat{\\beta}_j\\).\na measure of the precision of the OLS estimate \\(\\hat{\\beta}_j\\).\nused to construct confidence intervals and conduct hypothesis tests.\nestimated using the formula: \\[SE(\\hat{\\beta}_j) = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sum_{i=1}^n (x_{ji} - \\bar{x}_j)^2}} = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sqrt{n} sd(x_j)}}\\]\nNotice the role of \\(R_j^2\\) and \\(n\\) in the formula."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#recall",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#recall",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Recall",
+    "text": "Recall\n\nRecall the example we did in class with the wage data on educ and exper\nFor the true population model satisfying MLR1-MLR4: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\] \nSuppose we omitted \\(x_{2i}\\) and only ran the simple regression of \\(y_i\\) on \\(x_{1i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\]\n\\(\\tilde{\\beta}_1\\) relates to \\(\\hat{\\beta}_1\\) via: \\[\\tilde{\\beta}_1 = \\hat{\\beta}_1 + \\hat{\\beta}_2 \\delta_1\\] where \\(\\delta_1\\) is the slope from the regression of \\(x_{2i}\\) on \\(x_{1i}\\) from estimating: \\[x_{2i} = \\delta_0 + \\delta_1 x_{1i} + \\epsilon\\]\nSo \\(E(\\tilde{\\beta}_1) = \\beta_1 + \\beta_2 \\delta_1\\). Bias = \\(E(\\tilde{\\beta}_1) - \\beta_1 = \\beta_2 \\delta_1\\)\nLet us generalize this to a three variable case"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#omitted-variable-bias",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#omitted-variable-bias",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Omitted variable bias",
+    "text": "Omitted variable bias\nFor the true population modelsatisfying MLR1-MLR4: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\beta_3 x_{3i} + u_i\\] - Suppose \\(x_{3i}\\) and \\(x_{2i}\\) are uncorrelated but \\(x_{3i}\\) and \\(x_{1i}\\) are correlated - Suppose we omitted \\(x_{3i}\\) and only ran the regression of \\(y_i\\) on \\(x_{1i}\\) and \\(x_{2i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i} + \\tilde{\\beta}_2 x_{2i}\\]\n\n\nMight be tempting to think that \\(\\tilde{\\beta}_1\\) is unbiased and only \\(\\tilde{\\beta}_2\\) is biased\nIn fact we can show that: \\[\\mathrm{E}\\left(\\widetilde{\\beta}_1\\right)=\\beta_1+\\beta_3 \\frac{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right) x_{i 3}}{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right)^2}\\]\nNote that we never said that the variables are pairwise uncorrelated\nThe bias in \\(\\tilde{\\beta}_1\\) is due to the induced correlation between \\(x_{1i}\\) and \\(x_{2i}\\) when \\(x_{3i}\\) is omitted"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#ability-bias-example",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#ability-bias-example",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Ability bias example",
+    "text": "Ability bias example\n\nThe true population model is given by: \\[log(wage_i) = \\beta_0 + \\beta_1 educ_i + \\beta_2 exper_i + \\beta_3 ability_i + u_i\\]\nSuppose \\(exper_i\\) and \\(ability_i\\) are uncorrelated (probably not true)\n\n\n\nSuppose we omitted the variable \\(ability_i\\) and only ran the regression of \\(log(wage_i)\\) on \\(educ_i\\) and \\(exper_i\\): \\[\\tilde{log(wage_i)} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 educ_i + \\tilde{\\beta}_2 exper_i\\]\nBoth \\(\\tilde{\\beta}_1\\) and \\(\\tilde{\\beta}_2\\) will be biased\n\nEven if we assume suppose \\(exper_i\\) and \\(ability_i\\) are uncorrelated\n\nThe bias in \\(\\tilde{\\beta}_2\\) is due to the induced correlation between \\(educ_i\\) and \\(exper_i\\) when \\(ability_i\\) is omitted because \\(educ_i\\) and \\(ability_i\\) are correlated\nConfounding the effect of ability. Direction of the bias?\nSo imagine the further complexity if we assumed all variables were pairwise correlated."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#variances-in-misspecified-models",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#variances-in-misspecified-models",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Variances in misspecified models",
+    "text": "Variances in misspecified models\n\nWe saw what happens to bias. What happens to precision?\nTrue model: \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\) and \\(x_{1i}\\) and \\(x_{2i}\\) are correlated\nEstimate two models:\n\nModel 1: \\(\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\)\nModel 2: \\(\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\)\n\n\n\n\nWHen do we have bias in \\(\\tilde{\\beta}_1\\)?\n\n\nWhen \\(\\beta_2 \\neq 0, \\widetilde{\\beta}_1\\) is biased, \\(\\hat{\\beta}_1\\) is unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\nWhen \\(\\beta_2=0, \\widetilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) are both unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\n\nThis is because (recall the formula for the variance of the OLS estimator):\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\left(1-R_1^2\\right)\\right]\\)\n\\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\right]\\)"
   }
 ]

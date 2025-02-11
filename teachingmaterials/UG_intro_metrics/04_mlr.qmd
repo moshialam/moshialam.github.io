@@ -238,6 +238,8 @@ summary(reg_resid_logwage)
     - will be identical to one obtained from a simple regression of $y_i$ on $x_{1i}$ 
     - iff $x_{1i}$ and $x_{2i}, \cdots, x_{ki}$ are uncorrelated.
 
+4. Example of ability bias in wage regressions
+
 ---
 
 ## Goodness of Fit {.smaller}
@@ -270,11 +272,11 @@ summary(reg_resid_logwage)
 Under Assumptions MLR.1-MLR.4, the OLS estimator is unbiased. That is, $E(\hat{\beta}_j) = \beta_j$ for $j = 0, 1, \ldots, k$.
 :::
 
----
+
 
 # Variance of the OLS estimator {background-color="#1c5253"}
 
----
+
 
 ## Homoskedasticity assumption {.smaller}
 :::{.incremental}
@@ -346,42 +348,127 @@ Under assumptions MLR.1-MLR.5, the sampling variance of the OLS estimate on the 
   - what is $R_1^2$ based on the information you have?
 :::
 
-## Example: Final Exam Scores
+## Example: Final Exam Scores {.smaller}
 
 - **Scenario**: Predicting final exam scores using:
   - **Key Variable**: Number of classes attended.
   - **Other control Variables**: Cumulative GPA, SAT score, and high school performance.
 - **Concern**: Other control variables are highly correlated (multicollinear).
 - A useful exercise is to look at the standard errors of the OLS estimates.
-- **Response**:
-  - If the key variable of interest (attendance) is uncorrelated with the controls, multicollinearity among controls does not affect its estimate.
+<!-- - If the key variable of interest (attendance) is uncorrelated with the controls, *multicollinearity among controls* does not affect its estimate. -->
 
 ---
 
-## Example: Housing Discrimination
-
- Does the percentage of minorities in a neighborhood affect loan approval rates?
-
-- **Independent Variables**:
-  - **Key Variable**: Percentage of minorities in the neighborhood.
-  - **Other Control Variables**: Average income,  Average housing prices, Measures of creditworthiness.
-  - **Challenge**: Income, housing prices, and creditworthiness are often highly correlated.
-
-- **Implication**:
-  - Multicollinearity among the control variables leads to imprecise estimates of their coefficients.
-  - **Focus**: Accurate estimation of the key variable (minority percentage) is still possible, provided it is not highly correlated with the controls.
-
----
 
 ## Completing the model {.smaller}
 
-- We are left to estimate the variance of the error term $\sigma^2$
+- Now thatw e have laid out the assumptions for unbiasedness, and homoskedasticity for precision
+  - We are left to estimate the variance of the error term $\sigma^2$ to complete the model
 - Simialr to SLR, we can estimate $\sigma^2$ using the residuals: $$\hat{\sigma}^2 = \frac{1}{n - k - 1} \sum_{i=1}^n \hat{u}_i^2$$
-<!-- # Ommitted variable bias {background-color="#1c5253"} -->
+- The degrees of freedom is $n - k - 1$ because we have $n$ observations and $k+1$ parameters to estimate
+
+::: {.callout-important icon = "false"}
+### Theorem: 
+Under assumptions MLR.1-MLR.5, $E(\hat{\sigma}^2) = \sigma^2$
+:::
+
+- $\hat{\sigma}$ is the standard error of the regression (SER) 
+
+
+---
+
+## Gauss-Markov Theorem {.smaller}
+
+:::{.incremental}
+- The Gauss-Markov Theorem is a key result in econometrics that states that under the assumptions MLR.1-MLR.5, the OLS estimator is the best linear unbiased estimator (BLUE) of the population parameters.
+- **Best**: The OLS estimator has the smallest variance among all linear unbiased estimators.
+- **Linear**: The OLS estimator is a linear function of the dependent variable.
+- **Unbiased**: The OLS estimator is unbiased.
+- The OLS estimator is the most efficient estimator among all unbiased estimators.
+:::
+
+---
+
+## Standard errors of $\hat{\beta}_j$ {.smaller}
+
+:::{.incremental}
+- Under homoskedasticity, the standard error of the OLS estimate $\hat{\beta}_j$ is given by: $$SE(\hat{\beta}_j) = \sqrt{Var(\hat{\beta}_j)}$$
+- an estimate of the standard deviation of the sampling distribution of $\hat{\beta}_j$.
+- a measure of the precision of the OLS estimate $\hat{\beta}_j$.
+- used to construct confidence intervals and conduct hypothesis tests.
+- estimated using the formula: $$SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} sd(x_j)}}$$
+- Notice the role of $R_j^2$ and $n$ in the formula.
+:::
+
+---
+
+
+# Ommitted variable bias {background-color="#1c5253"}
+
+## Recall {.smaller}
+
+- Recall the example we did in class with the wage data on educ and exper
+- For the true population model satisfying MLR1-MLR4: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$ 
+<!-- - The estimated  multiple regression can be written as:
+  $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}$$ -->
+- Suppose we omitted $x_{2i}$ and only ran the simple regression of $y_i$ on $x_{1i}$:
+  $$\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}$$
+-  $\tilde{\beta}_1$ relates to  $\hat{\beta}_1$ via:
+  $$\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1$$
+  where $\delta_1$ is the slope from the regression of $x_{2i}$ on $x_{1i}$ from estimating:
+  $$x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon$$
+- So $E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1$. Bias = $E(\tilde{\beta}_1) - \beta_1 = \beta_2 \delta_1$
+- Let us generalize this to a three variable case
+
+## Omitted variable bias {.smaller}
+For the true population modelsatisfying MLR1-MLR4: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i$$
+- Suppose $x_{3i}$ and $x_{2i}$ are *uncorrelated* but $x_{3i}$ and $x_{1i}$ are *correlated*
+- Suppose we omitted $x_{3i}$ and only ran the regression of $y_i$ on $x_{1i}$ and $x_{2i}$:  $$\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i} + \tilde{\beta}_2 x_{2i}$$
+
+:::{.incremental}
+- Might be tempting to think that $\tilde{\beta}_1$ is unbiased and only $\tilde{\beta}_2$ is biased
+- In fact we can show that:
+$$\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) x_{i 3}}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$
+- Note that we never said that the variables are pairwise uncorrelated
+- The bias in $\tilde{\beta}_1$ is due to the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted
+:::
+
+## Ability bias example {.smaller}
+
+- The true population model is given by: $$log(wage_i) = \beta_0 + \beta_1 educ_i + \beta_2 exper_i + \beta_3 ability_i + u_i$$
+- Suppose $exper_i$ and $ability_i$ are uncorrelated (probably not true)
+
+:::{.incremental}
+- Suppose we omitted the variable $ability_i$ and only ran the regression of $log(wage_i)$ on $educ_i$ and $exper_i$:
+  $$\tilde{log(wage_i)} = \tilde{\beta}_0 + \tilde{\beta}_1 educ_i + \tilde{\beta}_2 exper_i$$
+- Both $\tilde{\beta}_1$ and $\tilde{\beta}_2$ will be biased
+  - Even if we assume suppose $exper_i$ and $ability_i$ are uncorrelated
+- The bias in $\tilde{\beta}_2$ is due to the induced correlation between $educ_i$ and $exper_i$ when $ability_i$ is omitted because $educ_i$ and $ability_i$ are correlated
+- **Confounding the effect of ability**. Direction of the bias? 
+- So imagine the further complexity if we assumed all variables were **pairwise correlated**.
+:::
 
 <!-- 
 ## Including irrelevant variables {.smaller}
 - Suppose the true population model has 3 independent variables: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i$$
 - Supose in reality $\beta_3 = 0$, but we do not know this
 - We estimate the following model: $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i} + \hat{\beta}_3 x_{3i} $$
-- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied -->
+- The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied  -->
+
+
+## Variances in misspecified models {.smaller}
+- We saw what happens to bias. What happens to precision?
+- True model: $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$ and $x_{1i}$ and $x_{2i}$ are **correlated**
+- Estimate two models: 
+  - Model 1: $\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}$
+  - Model 2: $\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}$
+
+:::{.incremental}
+- WHen do we have bias in $\tilde{\beta}_1$?
+1. When $\beta_2 \neq 0, \widetilde{\beta}_1$ is biased, $\hat{\beta}_1$ is unbiased, and $\operatorname{Var}\left(\widetilde{\beta}_1\right)<\operatorname{Var}\left(\hat{\beta}_1\right)$
+2. When $\beta_2=0, \widetilde{\beta}_1$ and $\hat{\beta}_1$ are both unbiased, and $\operatorname{Var}\left(\widetilde{\beta}_1\right)<\operatorname{Var}\left(\hat{\beta}_1\right)$
+- This is because (recall the formula for the variance of the OLS estimator): 
+  - $\operatorname{Var}\left(\hat{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\left(1-R_1^2\right)\right]$
+  - $\operatorname{Var}\left(\widetilde{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\right]$
+
+:::
