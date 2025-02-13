@@ -396,11 +396,9 @@ Under assumptions MLR.1-MLR.5, $E(\hat{\sigma}^2) = \sigma^2$
 - an estimate of the standard deviation of the sampling distribution of $\hat{\beta}_j$.
 - a measure of the precision of the OLS estimate $\hat{\beta}_j$.
 - used to construct confidence intervals and conduct hypothesis tests.
-- estimated using the formula: $$SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} sd(x_j)}}$$
+- estimated using the formula: $$SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} \quad sd(x_j)}}$$
 - Notice the role of $R_j^2$ and $n$ in the formula.
 :::
-
----
 
 
 # Ommitted variable bias {background-color="#1c5253"}
@@ -426,9 +424,10 @@ For the true population modelsatisfying MLR1-MLR4: $$y_i = \beta_0 + \beta_1 x_{
 - Suppose we omitted $x_{3i}$ and only ran the regression of $y_i$ on $x_{1i}$ and $x_{2i}$:  $$\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i} + \tilde{\beta}_2 x_{2i}$$
 
 :::{.incremental}
-- Might be tempting to think that $\tilde{\beta}_1$ is unbiased and only $\tilde{\beta}_2$ is biased
+- Might be tempting to think that $\tilde{\beta}_2$ is unbiased and only $\tilde{\beta}_1$ is biased
 - In fact we can show that:
-$$\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) x_{i 3}}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$
+$$\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) (x_{i 3} - \bar{x_3})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$  
+<!-- $$\mathrm{E}\left(\widetilde{\beta}_2\right)=\beta_2 + \beta_3 \frac{\sum_{i=1}^n\left(x_{i 2}-\bar{x}_2\right) (x_{i 1} - \bar{x_1})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$ -->
 - Note that we never said that the variables are pairwise uncorrelated
 - The bias in $\tilde{\beta}_1$ is due to the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted
 :::
@@ -464,11 +463,10 @@ $$\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\
   - Model 2: $\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}$
 
 :::{.incremental}
-- WHen do we have bias in $\tilde{\beta}_1$?
 1. When $\beta_2 \neq 0, \widetilde{\beta}_1$ is biased, $\hat{\beta}_1$ is unbiased, and $\operatorname{Var}\left(\widetilde{\beta}_1\right)<\operatorname{Var}\left(\hat{\beta}_1\right)$
 2. When $\beta_2=0, \widetilde{\beta}_1$ and $\hat{\beta}_1$ are both unbiased, and $\operatorname{Var}\left(\widetilde{\beta}_1\right)<\operatorname{Var}\left(\hat{\beta}_1\right)$
 - This is because (recall the formula for the variance of the OLS estimator): 
   - $\operatorname{Var}\left(\hat{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\left(1-R_1^2\right)\right]$
   - $\operatorname{Var}\left(\widetilde{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\right]$
-
+- Take away: Including irrelevant variables in the model "may" not affect the unbiasedness of the OLS estimator, but it will affect the precision of the estimates. 
 :::

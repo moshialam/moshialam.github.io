@@ -717,13 +717,10 @@ summary(reg_resid_logwage)
 <li class="fragment">an estimate of the standard deviation of the sampling distribution of <span class="math inline">\(\hat{\beta}_j\)</span>.</li>
 <li class="fragment">a measure of the precision of the OLS estimate <span class="math inline">\(\hat{\beta}_j\)</span>.</li>
 <li class="fragment">used to construct confidence intervals and conduct hypothesis tests.</li>
-<li class="fragment">estimated using the formula: <span class="math display">\[SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} sd(x_j)}}\]</span></li>
+<li class="fragment">estimated using the formula: <span class="math display">\[SE(\hat{\beta}_j) = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sum_{i=1}^n (x_{ji} - \bar{x}_j)^2}} = \sqrt{\frac{\hat{\sigma}^2}{(1 - R_j^2)\sqrt{n} \quad sd(x_j)}}\]</span></li>
 <li class="fragment">Notice the role of <span class="math inline">\(R_j^2\)</span> and <span class="math inline">\(n\)</span> in the formula.</li>
 </ul>
 </div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="ommitted-variable-bias" class="title-slide slide level1 center" data-background-color="#1c5253">
@@ -747,8 +744,9 @@ summary(reg_resid_logwage)
 <p>For the true population modelsatisfying MLR1-MLR4: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i} + u_i\]</span> - Suppose <span class="math inline">\(x_{3i}\)</span> and <span class="math inline">\(x_{2i}\)</span> are <em>uncorrelated</em> but <span class="math inline">\(x_{3i}\)</span> and <span class="math inline">\(x_{1i}\)</span> are <em>correlated</em> - Suppose we omitted <span class="math inline">\(x_{3i}\)</span> and only ran the regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span>: <span class="math display">\[\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i} + \tilde{\beta}_2 x_{2i}\]</span></p>
 <div>
 <ul>
-<li class="fragment">Might be tempting to think that <span class="math inline">\(\tilde{\beta}_1\)</span> is unbiased and only <span class="math inline">\(\tilde{\beta}_2\)</span> is biased</li>
-<li class="fragment">In fact we can show that: <span class="math display">\[\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) x_{i 3}}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}\]</span></li>
+<li class="fragment">Might be tempting to think that <span class="math inline">\(\tilde{\beta}_2\)</span> is unbiased and only <span class="math inline">\(\tilde{\beta}_1\)</span> is biased</li>
+<li class="fragment">In fact we can show that: <span class="math display">\[\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) (x_{i 3} - \bar{x_3})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}\]</span><br>
+<!-- $$\mathrm{E}\left(\widetilde{\beta}_2\right)=\beta_2 + \beta_3 \frac{\sum_{i=1}^n\left(x_{i 2}-\bar{x}_2\right) (x_{i 1} - \bar{x_1})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$ --></li>
 <li class="fragment">Note that we never said that the variables are pairwise uncorrelated</li>
 <li class="fragment">The bias in <span class="math inline">\(\tilde{\beta}_1\)</span> is due to the induced correlation between <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> when <span class="math inline">\(x_{3i}\)</span> is omitted</li>
 </ul>
@@ -791,9 +789,6 @@ summary(reg_resid_logwage)
 </ul></li>
 </ul>
 <div>
-<ul>
-<li class="fragment">WHen do we have bias in <span class="math inline">\(\tilde{\beta}_1\)</span>?</li>
-</ul>
 <ol type="1">
 <li class="fragment">When <span class="math inline">\(\beta_2 \neq 0, \widetilde{\beta}_1\)</span> is biased, <span class="math inline">\(\hat{\beta}_1\)</span> is unbiased, and <span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)&lt;\operatorname{Var}\left(\hat{\beta}_1\right)\)</span></li>
 <li class="fragment">When <span class="math inline">\(\beta_2=0, \widetilde{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are both unbiased, and <span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)&lt;\operatorname{Var}\left(\hat{\beta}_1\right)\)</span></li>
@@ -804,6 +799,7 @@ summary(reg_resid_logwage)
 <li class="fragment"><span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\left(1-R_1^2\right)\right]\)</span></li>
 <li class="fragment"><span class="math inline">\(\operatorname{Var}\left(\widetilde{\beta}_1\right)=\sigma^2 /\left[\operatorname{SST}_1\right]\)</span></li>
 </ul></li>
+<li class="fragment">Take away: Including irrelevant variables in the model “may” not affect the unbiasedness of the OLS estimator, but it will affect the precision of the estimates.</li>
 </ul>
 </div>
 

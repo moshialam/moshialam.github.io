@@ -252,6 +252,328 @@
     "text": "Remaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\nAgain: Make sure you go through all of Math Refresher A and B\n\nnext class we will start chapter 3"
   },
   {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#introduction",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#introduction",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Introduction",
+    "text": "Introduction\nPopulation model: \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\ldots + \\beta_k x_{ki} + u_i\\).\n\n\n\nestimate the parameters using OLS\nobtain the standard errors of the OLS estimates\nAnd imlement them in R\n\n\nNow, based on sample estimates and standard errors. we will answer questions like:\n\nWhether the estimated coefficient is statistically significant at any confidence level?\n\nMeans: Whether the true population parameter is different from zero at any confidence level?\n\n\n\n\nlibrary(wooldridge)\nwage_data &lt;- wage1\nreg1 &lt;- lm(log(wage) ~ educ + exper + tenure, data = wage_data)\nsummary(reg1)\n\n\nCall:\nlm(formula = log(wage) ~ educ + exper + tenure, data = wage_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.05802 -0.29645 -0.03265  0.28788  1.42809 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 0.284360   0.104190   2.729  0.00656 ** \neduc        0.092029   0.007330  12.555  &lt; 2e-16 ***\nexper       0.004121   0.001723   2.391  0.01714 *  \ntenure      0.022067   0.003094   7.133 3.29e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4409 on 522 degrees of freedom\nMultiple R-squared:  0.316, Adjusted R-squared:  0.3121 \nF-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#normal-distributions",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#normal-distributions",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Normal Distributions",
+    "text": "Normal Distributions\nRandom variable: \\(X \\sim N(\\mu, \\sigma^2)\\)\nPDF: \\(f(X = x) = \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-\\frac{1}{2}(\\frac{x-\\mu}{\\sigma})^2}\\), where\n\n\\(E(X) = \\mu\\) is the mean and \\(Var(X) = \\sigma^2\\) is the variance\nThe distirbution is symmetric around \\(\\mu\\)\n\nProperties:\n\n\\(Z = \\frac{X - \\mu}{\\sigma}\\) is the standard normal random variable with mean 0 and variance 1\nTransformation of X such as \\(aX + b \\sim N(a\\mu + b, a^2\\sigma^2)\\)\nIf X & Y are independent normal random variables, then \\(X + Y \\sim N(\\mu_X + \\mu_Y, \\sigma_X^2 + \\sigma_Y^2)\\)\nAny linear combination of normal random variables is normal"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#chi2_n-and-t_n",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#chi2_n-and-t_n",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "\\(\\chi^2_n\\) and \\(t_n\\)",
+    "text": "\\(\\chi^2_n\\) and \\(t_n\\)\n\\(Z_i \\sim N(0,1)\\) for \\(i = 1, 2, \\ldots, n\\) independent standard normal random variables\n\nThe sum of squared independent standard normal random variables follows a chi-square distribution with \\(n\\) d.o.f.. Let \\(Q = \\sum_{i=1}^n Z_i^2\\) \\[Q \\sim \\chi^2_n\\]\n\n\\(E(Q) = n\\) and \\(Var(Q) = 2n\\) \n\nThe ratio of a standard normal random variable and a chi-square random variable follows a t-distribution. Let \\(T = \\frac{Z}{\\sqrt{Q/n}}\\) \\[T \\sim t_n\\] \n\n\\(E(T) = 0\\) and \\(Var(T) = n/(n-2)\\) for \\(n &gt; 2\\)\nShape of the t-distribution is similar to the normal distribution but more spread out (heavier tails). Check out Figure B-9 in Math Refresher B\n\nAs sample size increases, the t-distribution approaches the standard normal distribution"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#sampling-distributions",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#sampling-distributions",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "sampling distributions",
+    "text": "sampling distributions\n\nThe distribution of the sample statistic (e.g., sample mean, sample variance, regression coefficients) over repeated independent sampling\n\nSampling variability: The variability of the sample statistic across different samples\nStandard error: The estimate of the standard deviation of the sampling distribution of a sample statistic\nCentral Limit Theorem (CLT): Let \\(\\{X_1, X_2, \\ldots, X_n\\}\\) be a random sample of size \\(n\\) from a population with mean \\(\\mu\\) and variance \\(\\sigma^2\\). Then, as \\(n\\) approaches infinity, the sampling distribution of the sample mean \\(\\bar{X}\\) approaches a normal distribution with mean \\(\\mu\\) and variance \\(\\sigma^2/n\\).\n\ni.e. as sample size goes to infinity, \\(\\bar{X} \\sim N(\\mu, \\sigma^2/n)\\) so that \\(\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)\\)\nThe average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.\n\nRecall from Econ 160:\n\nThe sampling distribution of the sample proportion \\(\\hat{p}\\) approaches a normal distribution with mean \\(p\\) and variance \\(p(1-p)/n\\).\nThe sampling distribution of sample means follows a \\(t\\)-distribution with \\(n-1\\) degrees of freedom"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#hypothesis-testing",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#hypothesis-testing",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Hypothesis testing",
+    "text": "Hypothesis testing\n\nNull hypothesis \\(H_0\\): A statement about the population parameter that is assumed to be true and test against an alternative hypothesis \\(H_1\\)\nType I error: Rejecting the \\(H_0\\) when it is true\nType II error: Failing to reject the \\(H_0\\) when it is false\nSignificance level: The probability of committing a Type I error, denoted by \\(\\alpha\\)\nConfidence interval: A range of values where we are \\(1-\\alpha\\) confident that the true population parameter lies within\n\nestimate \\(\\pm\\) critical value \\(\\times\\) standard error\nWhat happens if the CI contains the hypothesized value?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#section",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#section",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "p-value: The probability of observing the sample statistic or more extreme values under the \\(H_0\\)\n\nWhat does it mean when p-value is less than \\(\\alpha\\)?\n\nCritical value: The value that separates the rejection region from the non-rejection region in hypothesis testing\n\nWhat is critical value for a two-tailed test with \\(\\alpha = 0.05\\)?\n\nCritical region: The range of values that leads to the rejection of the \\(H_0\\)\nOne-tailed test: A hypothesis test that tests the \\(H_0\\) in one direction\nTwo-tailed test: A hypothesis test that tests the \\(H_0\\) in both directions"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#assumption-mlr.6",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#assumption-mlr.6",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Assumption MLR.6:",
+    "text": "Assumption MLR.6:\nNormality and independence of Errors\nThe population error \\(u_i\\) is normally distributed with mean 0 and constant variance \\(\\sigma^2\\) for all \\(i = 1, 2, \\ldots, n\\) and independent of the regressors. \\[u_i \\sim N(0, \\sigma^2)\\]\n\nMuch stronger assumption than others\nThis directly implies MLR.4 and MLR.5\nThe full set of assumptions MLR.1-MLR.6 are called the classical linear model (CLM) assumptions. They imply: \\[y \\mid x_1, \\ldots x_k \\sim N(\\beta_0 + \\beta_1 x_{1i} + \\ldots + \\beta_k x_{ki}, \\sigma^2)\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#arguements-for-and-against-the-normality-assumption",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#arguements-for-and-against-the-normality-assumption",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Arguements for and against the normality assumption",
+    "text": "Arguements for and against the normality assumption"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.1",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem 4.1:",
+    "text": "Theorem 4.1:\nNormality of OLS Estimators\nUnder MLR.1-MLR.6, the OLS estimators \\(\\hat{\\beta}_0, \\hat{\\beta}_1, \\ldots, \\hat{\\beta}_k\\) are normally distributed.\nUnder the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,\n\\[\n\\hat{\\beta}_j \\sim \\operatorname{Normal}\\left(\\beta_j , \\operatorname{Var}\\left(\\hat{\\beta}_j\\right)\\right),\n\\]\nwhere \\(\\operatorname{Var}\\left(\\hat{\\beta}_{j}\\right)\\)was given in Chapter 3 [equation (3.51)]. Therefore,\n\\[\n\\frac{\\hat{\\beta}_j-\\beta_j}{\\operatorname{sd}\\left(\\hat{\\beta}_j\\right)} \\sim \\operatorname{Normal}(0,1)\n\\]\nProof: See Math Refresher B. Note that each \\(\\hat{\\beta_j}\\) can be written as a linear combination of the \\(u_i\\)’s and the \\(x_{ji}\\)’s. Specifically, \\(\\hat{\\beta}_j = \\beta_j + \\sum_{i=1}^n w_{ij} u_i\\), where the \\(w_{ij} = \\hat{r_{ij}}/SSR_j\\) where \\(\\hat{r_{ij}}\\) is the \\(i\\)th residual from regressing \\(x_j\\) on all other independent variables and \\(SSR_j\\) is the sum of squared residuals from that regression."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.2",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem 4.2:",
+    "text": "Theorem 4.2:\nUnder the CLM assumptions MLR. 1 through MLR.6,\n\\[\n\\frac{\\left(\\hat{\\boldsymbol{\\beta}}_j-\\beta_j\\right)}{\\operatorname{se}\\left(\\hat{\\boldsymbol{\\beta}}_j\\right)} \\sim t_{n-k-1} \\quad \\text { for } j=0,1, \\ldots, k\n\\]\nwhere \\(k+1\\) is the number of unknown parameters in the population model and \\(n-k-1\\) is the degrees of freedom (df).\nThe standard error of \\(\\hat{\\beta}_j\\) is \\(\\operatorname{se}\\left(\\hat{\\beta}_j\\right)=\\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_j\\right)}\\) that we derived in the last class.\nNow that we know the sampling distribution of \\(\\hat{\\beta}_j\\), we can make inferences about the population parameter \\(\\beta_j\\) under any given null hypothesis"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#single-hypothesis-testing",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#single-hypothesis-testing",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Single hypothesis testing",
+    "text": "Single hypothesis testing\n\nNull hypothesis: \\(H_0: \\beta_j = b\\), where \\(b\\) is a hypothesized value typically 0\nNote that this is a test on the \\(j\\)th population parameter while holding all other parameters constant\nOne-sided alternative: \\(H_1: \\beta_j &gt; b\\) or \\(H_1: \\beta_j &lt; b\\)\nTwo-sided alternative: \\(H_1: \\beta_j \\neq b\\)\nset b= 0. Test statistic: \\(t = \\frac{\\hat{\\beta}_j - b}{\\operatorname{se}(\\hat{\\beta}_j)} = \\frac{\\hat{\\beta}_j}{\\operatorname{se}(\\hat{\\beta}_j)}\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-alternative",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-alternative",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "One-sided alternative",
+    "text": "One-sided alternative\n\nOne-sided alternative: \\(H_1: \\beta_j &gt; 0\\) or \\(H_1: \\beta_j &lt; 0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-alternative",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-alternative",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Two-sided alternative",
+    "text": "Two-sided alternative\n\nTwo-sided alternative: \\(H_1: \\beta_j \\neq 0\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#computing-p-values",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#computing-p-values",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Computing p-values",
+    "text": "Computing p-values"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#confidence-intervals",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#confidence-intervals",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-single-linear-combination-of-parameters",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-single-linear-combination-of-parameters",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Testing Single Linear combination of parameters",
+    "text": "Testing Single Linear combination of parameters"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-multiple-linear-restrictions",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-multiple-linear-restrictions",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Testing Multiple Linear Restrictions",
+    "text": "Testing Multiple Linear Restrictions\nF-test"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#economic-vs-statistical-significance",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#economic-vs-statistical-significance",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Economic vs Statistical Significance",
+    "text": "Economic vs Statistical Significance"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Download my CV \nLast updated: April 15, 2024"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Md Moshi Ul Alam",
+    "section": "",
+    "text": "Email    CV    Scholar      BlueSky \n\nHi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD in Economics, from the University of Wisconsin-Madison.\n\n\n\n Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "papers.html",
+    "href": "papers.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
+  },
+  {
+    "objectID": "blogs/dropbox_git_issues.html",
+    "href": "blogs/dropbox_git_issues.html",
+    "title": "Issues with cloud sync and version control",
+    "section": "",
+    "text": "Many of us use cloud based services to sync important files. These services are not version controlling systems. If you have been use cloud based services to sync your files like Dropbox, it is recommended not to have a git repo inside a Dropbox folder for reasons described here, [here] and here or ensure Dropbox ignores the files that could cause conflicts with git. In short, this is how I do this:\n\nI only use git to version control my code. All other documentation that do not need version control for example, related papers, data etc. live in a project folder inside Dropbox.\nIf I am the only person writing the code, I either tell Dropbox to igone the code directory if it is living in Dropbox, or I keep it outside of Dropbox. The latter works best if you are the sole person working on the code. The former is useful only for project organization—given that data and other documentation is living in the Dropbox folder, it is only convinent to also have the code directory inside the same project folder.\nIf I am collaborating with someone on code and they do not want to use git then I do not version control our code in the Dropbox folder. Rather, I keep a separate folder with all my codes in a non-Dropbox folder and version control that. At the end of each day, I then sync them with the Dropbox folder. This is only possible because my scripts are typically different from my collaborators script."
+  },
+  {
+    "objectID": "blogs/julia_environments.html",
+    "href": "blogs/julia_environments.html",
+    "title": "Reproducible julia projects",
+    "section": "",
+    "text": "A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using julia environments. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine."
+  },
+  {
+    "objectID": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
+    "href": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
+    "title": "Reproducible julia projects",
+    "section": "Setting up a julia project environment",
+    "text": "Setting up a julia project environment\nFirst, setting up a new julia project typically involves creating the working directory, initializing the environment within that directory, and then modifying the environment, e.g. adding any necessary packages.\nmkdir -p path/to/MyCoolProject\ncd path/to/MyCoolProject\nThen I typically create a setup.jl file in the path/to/MyCoolProject/code folder to activate the environment and adding neccesary packages.\nusing Pkg\ncd(@__DIR__)\nPkg.activate(@__DIR__)\nThese commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.\n\nOnce you’ve initialized your project, you can add packages to it, as you normally would.\n# Add packages to your project\n(MyCoolProject) pkg&gt; add DataFrames\nAdding the very first package does two things: 1. Updates Project.toml: It adds DataFrames to the list of dependencies. 2. Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility."
+  },
+  {
+    "objectID": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
+    "href": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
+    "title": "Reproducible julia projects",
+    "section": "Reusing and modifying your environment",
+    "text": "Reusing and modifying your environment\nIf you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:\ncd(\"path/to/MyCoolProject\")\njulia&gt; ]\n(v1.9) pkg&gt; activate .\nThis reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.\nTo add more packages to your project at any time:\n(MyCoolProject) pkg&gt; add Plots\nThis command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.\nTo see the current status of your environment:\n(MyCoolProject) pkg&gt; update"
+  },
+  {
+    "objectID": "blogs/julia_environments.html#sharing-your-environment",
+    "href": "blogs/julia_environments.html#sharing-your-environment",
+    "title": "Reproducible julia projects",
+    "section": "Sharing your environment",
+    "text": "Sharing your environment\nTo share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:\njulia&gt; ]\n(v1.9) pkg&gt; activate .\n(MyCoolProject) pkg&gt; instantiate\nThe instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.\nSetting Up the Project on a Different Machine: - When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed. - Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.\njulia&gt; ]\n(v1.9) pkg&gt; instantiate\nThe instantiate command has two more useful features:\n\nRestoring an Environment:\n\nIf you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.\nThis is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.\n\nEnsuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.\n\nIn a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub."
+  },
+  {
+    "objectID": "morepages/podcasts.html",
+    "href": "morepages/podcasts.html",
+    "title": "Podcasts",
+    "section": "",
+    "text": "Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics.\nI found the following episodes to be particularly interesting. This is a continously evolving list. Suggestions are welcome!\n\nRCT:\n\nAmy Finkelstein on the impact of health insurance (Oregon Medicaid expansion) experiment. “How do we know what really works in healthcare?” – Freakonomics (April 2, 2015)\nNicholas Bloom on the impact of working from home on productivity. “When you start to miss Tony from Accounting” – Hidden Brain (Nov 2020)\nJim Heckman on the impact of early childhood investments on long run outcomes. “Whats not on the test” – Hidden Brain\nJohn List (U-Chicago) on the rise of RCT and worries of scaling up experiments (SUTVA violations). “The Price of Doing Business with John List” – People I (Mostly) Admire\n“A Nobel-Prize for Development RCTs!” by David McKenzie World Bank Blog\n\n\n\nIV (Continuous and discrete treatments):\n\nSairt Weisburd on Police presence and Crime – Probable Causation July 21, 2020\nCarolina Artega on Parental Incarceration and Educational outcomes – Probable Causation July 20, 2021\n\n\n\nD-i-D:\n\nMolly Schnell on how exposure to school shootings affects students’ outcomes Probable Causation March 15, 2022\n(advanced) Adrew Goodman-Bacon on recent advances on D-i-D with staggered timing APPAM - Methodological Advances for Difference-in-Differences with Staggered Timing\n\n\n\nRD:\n\n“If Mayors ruled the worlds” Freakonomics April 10, 2014\n“Why is Uber an Economist’s Dream?” Freakonomics September 7, 2016\nMichael Lovenheim on grade retention and crime. Probable Causation September 17, 2019\nGaurav Khanna on Employment and Crime in Colombia. Probable Causation Aug 17, 2021\n\n\n\nDiff-in-RD (advanced)\n\nKirabo Jackson on single-sex education and academic and criminal outcomes. Probable Causation March 31, 2020"
+  },
+  {
+    "objectID": "morepages/econ852.html",
+    "href": "morepages/econ852.html",
+    "title": "Structural and reduced form methods in labor economics: Course Outline",
+    "section": "",
+    "text": "Outline\n\nPrinciples of empirical research\n\nIdentification\n\n“Non-parametric identification”, Matzkin (2007)\n“Identification of models of the labor market” Taber and French (2010)\n“Partial Identification in Econometrics” Tamer (2010)\n\nAdvantages of reduced form methods and advantages of structural models\nFeasibility of each approach individually and jointly\n“Structural Equations, Treatment Effects and Econometric Policy Evaluation” Heckman and Vytlacil (2003)\n\nReduced form methods\n\nShift-share exclusion restrictions\n\n“Bartik Instruments: What, When, Why and How” Goldsmith-Pinkham, Sorkin and Swift (2020)\n“Quasi-experimental shift-share research designs” Borusyak, Hull and Jaravel (2020)\n\nVariation in treatment timings and heterogenous effects\n\n“What’s trending in difference-in-differences?” Roth and Santa’Anna (2022)\n“Two-way fixed effects estimators with heterogeneous treatment effects” de Chaisemartin and d`Haultfoeuille (2020)\n“The Unintended Benefits of Women’s Empowerment on Household Sanitation” Alam and Agarwal (2023)\n\nEmpirical Bayes\n\n“Empirical Bayes deconvolution estimates.” Efron (2016)\n“Systemic discrimination among large US employers”, Kline, Rose and Walters (2022)\n“Robust empirical bayes confidence intervals” Armstrong, Kolesár and Plagborg-Møller (2022)\n\nDiscontinuity based designs\n\n“Inference on causal effects in a generalized regression kink design” Card et al. (2015)\n“Inference in Regression Discontinuity Designs with a Discrete Running Variable”, Kolesar and Rothe (2018)\n\n\nStructural models\n\nConditional choice probabilities, discrete choice and dynamic models\n\n“Discrete Choice Methods with Simulation” Train (2009)\n“Conditional Choice Probabilities and the Estimation of Dynamic Models”, Hotz and Miller (1993)\n“College Attrition and the Dynamics of Information Revelation”, Arcidiacono, Aucejo, Maurel, et al. (2018)\n“The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications,” Keane and Wolpin (2011)\n\nStated preference\n\n“Preference for the workplace, investment in human capital and gender”, Wiswall Zafar (2018)\n“Understanding Migration Aversion Using Elicited Choice Probabilities”, Kosar, Ransom, van der Klaauw (2022)\n“Optimal Place-based redistribution” Alam, Davis and Gregory (2023)\n\n\nModels on wage inequality\n\n“High wage workers and high wage firms” Abowd, Kramarz and Margolis (1999)\n“A Distributional Framework for Matched Employer-employee data”, Bonhomme, Lamadon, Manresa (2019)\n“Racial Gaps in Wage Growth: Discrimination and Search Frictions” Alam (2020)\n“Discretizing Unobserved heterogeneity” Bonhomme, Lamadon, Manresa (2019)\n“Monopsony in Movers: The Elasticity of Labor Supply to Firm Wage Policies”, Bassier, Dube, Naidu (2021)\n\n\nUsing both reduced form and structural models\n\n“Worker-side discrimination–Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers”, Alam, Mookerjee, Roy (2022)\n“Estimating Equilibrium Effects of Job Search Assistance,” Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)\n“The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models” Angelucci and Attanasio (2013)\n“Evaluating Search and Matching Models Using Experimental Data” Lise, Seitz and Smith (2015)\n“Evaluating a Structural Model of Labor Supply and Welfare Participation: Evidence from State Welfare Reform Experiments,” Choi (2018)\n“Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model” Hansen and Liu (2015)\n“The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women,” Keane and Wolpin (2010)\n“Approximating the Equilibrium Effects of Informed School Choice,” Allende, Gallego and Nielson (2019)\n\nCoding in Julia (if time permits)\n\nWhy Julia?\nEfficient code, version control and large project workflow\nAutomatic testing and reproducibility\nIntroduction to numerical optimization #### Other readings\n\nControl function approach\n\nControl Function Methods in Applied Econometrics, Wooldridge (2015)\n“Identification of Treatment Effects Using Control Functions in Models with Continuous, Endogenous Treatment and Heterogeneous Effects”, Heckman et. al (2008)\n“Using Matching, Instrumental Variables, and Control Functions to Estimate Economic Choice Models” Heckman and Navarro (2004)\n“Control functions” Navarro (2010)"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Clark University\n\nUndergraduate: Statistics\nUndergraduate: Econometrics \n\nStarting Fall 2025:\n\nPhD: Applied Econometrics-I\nPhD: Applied Econometrics-II\nPhD: Econometric Theory\n\n\n\n\nQueen’s University\n\nPhD: Structural and reduced form methods in labor economics\n\n[Course Outline]\n\nUndergraduate: Applied Econometrics: Causal Inference.\n\n[Course Outline] [Course Website]\n\n\n\n\n\nUniversity of Wisconsin-Madison\n\nDepartment of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019\n\n\nEcon 705 – Econometric Theory (Graduate). Instructors: Jack Porter & Jeffrey Smith\n\nJuli Plant Grainger Teaching Excellence Award\nDistinguished Teaching Assistant\n\nEcon 706 – Applied Econometrics (Graduate). Instructors: Christopher Taber & Kenneth West\n\nDistinguished Teaching Assistant\n\nEcon 101 [Head TA]. Instructor: Korinna Hansen; Elizabeth Kelly; Gwen Eudey \n\nDistinguished Teaching Assistant (x 2)\n\n\n\n\n\n\n\nResources for students\nCoding for undergrads\nPodcasts discussing empircal research in economics"
+  },
+  {
+    "objectID": "morepages/UG_intro_metrics.html",
+    "href": "morepages/UG_intro_metrics.html",
+    "title": "Introduction to Econometrics",
+    "section": "",
+    "text": "Syllabus\nSyllabus\nAlso see resources page for students\n\n\nLecture slides:\n\nIntroduction to R\nSimple Linear Regressions\nMultiple Linear Regressions\nInference in regression models\nBootstrap\nHeteroskedasticity and serial correlation\nMis-specification\nPotential outcomes\nTwo-stage least squares\nRegression discontinuity\nNon-linear models\nEstimators for repeated cross-section and panel data\nDifference-in-differences"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html",
+    "href": "morepages/resourcesforugstudents.html",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#coding-resources",
+    "href": "morepages/resourcesforugstudents.html#coding-resources",
+    "title": "Resources for undergrad students",
+    "section": "",
+    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#r-resources",
+    "href": "morepages/resourcesforugstudents.html#r-resources",
+    "title": "Resources for undergrad students",
+    "section": "R resources",
+    "text": "R resources\n\nStata2R: Students used to working in Stata will find this website incredibly useful if they want to transition to R.\nR manuals from CRAN and the CRAN homepage for R\nMaster repo with various cheatsheets\nRMarkdown: I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file.\n\nR Markdown: The Definitive Guide: far more extensive, covers interactivity and additional features.\nQuarto markdown is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see here) but I prefer the ease of customization of Quarto when it comes to multiple languages.\n\nPackage specific:\n\ndata.table\ndplyr\nggplot2\nfixest\nAER (Applied Econometrics with R)\nstargazer\nbinsreg\nvtable"
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#stata-resources",
+    "href": "morepages/resourcesforugstudents.html#stata-resources",
+    "title": "Resources for undergrad students",
+    "section": "Stata Resources",
+    "text": "Stata Resources\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
+  },
+  {
+    "objectID": "morepages/resourcesforugstudents.html#best-practices",
+    "href": "morepages/resourcesforugstudents.html#best-practices",
+    "title": "Resources for undergrad students",
+    "section": "Best practices",
+    "text": "Best practices\n\nUseful checklist while working with regression outputs\nCode and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro"
+  },
+  {
+    "objectID": "morepages/econ452.html",
+    "href": "morepages/econ452.html",
+    "title": "Econ 452: Course Outline",
+    "section": "",
+    "text": "Outline\n\nPotential Outcomes Framework (1 lecture)\nRandomized Control Trials (1.5 lectures)\nRegressions (1.5 lectures)\nNon-linear regressions (2 lectures)\nInstrumental Variables (5 lectures)\nHeterogeneous Treatment Effects (1 lecture)\nPanel data and Fixed Effects (3 lectures)\nDifference-in-Differences (5 lectures)\nRegression Discontinuity (2 lectures)\nInference (1 lecture)\nTake away from the course (1 lecture)\n\n\n\nAssessment\n\n10% Discussion and class participation\n30% 5 Problem sets\n60% Group project"
+  },
+  {
+    "objectID": "blogs/namingconventions.html",
+    "href": "blogs/namingconventions.html",
+    "title": "Naming conventions",
+    "section": "",
+    "text": "“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton1\nChoosing clear, concise, and meaningful names for variables, functions, files, etc., is challenging. Good names improve code readability and maintainability, but finding the right name can be surprisingly difficult, especially when your project folder is overflowing with files and subfolders. Good names can help users of your package or code replication kit.\nI will describe here a file naming convention that works for me. Sometimes this might go against styling guides of the language used although I try as much as possible to avoid this. This may not necessarily fit everyone’s requirement as coding and project management styles vary widely. I will not cover how I name folders as that is more about project management."
+  },
+  {
+    "objectID": "blogs/namingconventions.html#footnotes",
+    "href": "blogs/namingconventions.html#footnotes",
+    "title": "Naming conventions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis quote is widely attributed to Phil Karlton, a software engineer known for his work at Netscape.↩︎"
+  },
+  {
+    "objectID": "blogs/versioncontrol.html",
+    "href": "blogs/versioncontrol.html",
+    "title": "Version control",
+    "section": "",
+    "text": "Disclaimer: There are many amazing resources all over the internet on how to version control. This by no means is exhaustive, in fact what I have shared below is the minimal setup that works for me."
+  },
+  {
+    "objectID": "blogs/versioncontrol.html#step-1-initialize-git-in-your-project",
+    "href": "blogs/versioncontrol.html#step-1-initialize-git-in-your-project",
+    "title": "Version control",
+    "section": "Step 1: Initialize Git in Your Project",
+    "text": "Step 1: Initialize Git in Your Project\nNavigate to your project directory and initialize a Git repository:\ncd path/to/MyCoolProject/code\ngit init\nThis creates a new Git repository in the MyCoolProject/code directory."
+  },
+  {
+    "objectID": "blogs/versioncontrol.html#step-2-create-a-.gitignore-file-in-code",
+    "href": "blogs/versioncontrol.html#step-2-create-a-.gitignore-file-in-code",
+    "title": "Version control",
+    "section": "Step 2: Create a .gitignore File in /code",
+    "text": "Step 2: Create a .gitignore File in /code\nTo exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension .bak and the folder called temp.\n# Ignore temporary files\n*.bak\n/temp/\nAlthough you can create multiple .gitignore within subfolders. I typically prefer having a single gitignore in the main directory and then use relative paths to ensure which files and folders I want git to ignore."
+  },
+  {
+    "objectID": "blogs/versioncontrol.html#step-3-connect-to-a-remote-repository-github",
+    "href": "blogs/versioncontrol.html#step-3-connect-to-a-remote-repository-github",
+    "title": "Version control",
+    "section": "Step 3: Connect to a Remote Repository (GitHub)",
+    "text": "Step 3: Connect to a Remote Repository (GitHub)\nI host my version controlled files on GitHub.\n\nCreate a new repository on GitHub\nAdd the remote URL to your local Git repository:\n\ngit remote add origin https://github.com/YourUsername/MyCoolProject-code.git"
+  },
+  {
+    "objectID": "blogs/versioncontrol.html#step-4-stage-and-commit-your-files",
+    "href": "blogs/versioncontrol.html#step-4-stage-and-commit-your-files",
+    "title": "Version control",
+    "section": "Step 4: Stage and Commit Your Files",
+    "text": "Step 4: Stage and Commit Your Files\n\n\n\n\n\n\nConfirm working branch\n\n\n\n\n\nEnsure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was main while that on VSCode was master. The solution to this is a careful force merge of the two branches:\ngit checkout main\ngit merge master --allow-unrelated-histories\n\n\n\nAfter setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.\n\nClick on the Source Control icon in the left sidebar in VSCode.\nYou should see all your files listed as untracked. Click on the + icon next to each file to stage them, or click + next to Changes to stage all files.\nEnter a commit message in the text box at the top.\nClick on the checkmark icon to commit your staged changes.\nPush your changes to the remote repository."
+  },
+  {
+    "objectID": "blogs/versioncontrol.html#step-5-track-changes-and-collaborate",
+    "href": "blogs/versioncontrol.html#step-5-track-changes-and-collaborate",
+    "title": "Version control",
+    "section": "Step 5: Track Changes and Collaborate",
+    "text": "Step 5: Track Changes and Collaborate\nNow that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts."
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
+  },
+  {
+    "objectID": "links.html#software-engineering-for-economists",
+    "href": "links.html#software-engineering-for-economists",
+    "title": "Moshi Alam",
+    "section": "",
+    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
+  },
+  {
     "objectID": "teachingmaterials/UG_intro_metrics/01_introRv2.html#prerequisites",
     "href": "teachingmaterials/UG_intro_metrics/01_introRv2.html#prerequisites",
     "title": "Econ 265: Introduction to Econometrics",
@@ -518,202 +840,6 @@
     "text": "Practice on your own\n\nCreate vectors using different methods (c(), :, seq(), rep())\nPractice logical operations and understand operator precedence\nCreate a list with different types of elements and practice indexing\nLoad a package and resolve a namespace conflict\nCreate and remove objects from your environment"
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Moshi Alam",
-    "section": "",
-    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
-  },
-  {
-    "objectID": "links.html#software-engineering-for-economists",
-    "href": "links.html#software-engineering-for-economists",
-    "title": "Moshi Alam",
-    "section": "",
-    "text": "from quantecon\nfrom Tilburg Science\n\n\n\n\n\nfrom quantecon"
-  },
-  {
-    "objectID": "blogs/versioncontrol.html",
-    "href": "blogs/versioncontrol.html",
-    "title": "Version control",
-    "section": "",
-    "text": "Disclaimer: There are many amazing resources all over the internet on how to version control. This by no means is exhaustive, in fact what I have shared below is the minimal setup that works for me."
-  },
-  {
-    "objectID": "blogs/versioncontrol.html#step-1-initialize-git-in-your-project",
-    "href": "blogs/versioncontrol.html#step-1-initialize-git-in-your-project",
-    "title": "Version control",
-    "section": "Step 1: Initialize Git in Your Project",
-    "text": "Step 1: Initialize Git in Your Project\nNavigate to your project directory and initialize a Git repository:\ncd path/to/MyCoolProject/code\ngit init\nThis creates a new Git repository in the MyCoolProject/code directory."
-  },
-  {
-    "objectID": "blogs/versioncontrol.html#step-2-create-a-.gitignore-file-in-code",
-    "href": "blogs/versioncontrol.html#step-2-create-a-.gitignore-file-in-code",
-    "title": "Version control",
-    "section": "Step 2: Create a .gitignore File in /code",
-    "text": "Step 2: Create a .gitignore File in /code\nTo exclude certain files from being tracked by Git, create a .gitignore file in the /code directory. Suppose you want to ignore all files with extension .bak and the folder called temp.\n# Ignore temporary files\n*.bak\n/temp/\nAlthough you can create multiple .gitignore within subfolders. I typically prefer having a single gitignore in the main directory and then use relative paths to ensure which files and folders I want git to ignore."
-  },
-  {
-    "objectID": "blogs/versioncontrol.html#step-3-connect-to-a-remote-repository-github",
-    "href": "blogs/versioncontrol.html#step-3-connect-to-a-remote-repository-github",
-    "title": "Version control",
-    "section": "Step 3: Connect to a Remote Repository (GitHub)",
-    "text": "Step 3: Connect to a Remote Repository (GitHub)\nI host my version controlled files on GitHub.\n\nCreate a new repository on GitHub\nAdd the remote URL to your local Git repository:\n\ngit remote add origin https://github.com/YourUsername/MyCoolProject-code.git"
-  },
-  {
-    "objectID": "blogs/versioncontrol.html#step-4-stage-and-commit-your-files",
-    "href": "blogs/versioncontrol.html#step-4-stage-and-commit-your-files",
-    "title": "Version control",
-    "section": "Step 4: Stage and Commit Your Files",
-    "text": "Step 4: Stage and Commit Your Files\n\n\n\n\n\n\nConfirm working branch\n\n\n\n\n\nEnsure you are on the same branch as your primary branch in your repo. In my first attempt my primary branch in the repo was main while that on VSCode was master. The solution to this is a careful force merge of the two branches:\ngit checkout main\ngit merge master --allow-unrelated-histories\n\n\n\nAfter setting up the remote repository, you can stage and commit your files. Itypically do this on the fly using VSCode default GUI.\n\nClick on the Source Control icon in the left sidebar in VSCode.\nYou should see all your files listed as untracked. Click on the + icon next to each file to stage them, or click + next to Changes to stage all files.\nEnter a commit message in the text box at the top.\nClick on the checkmark icon to commit your staged changes.\nPush your changes to the remote repository."
-  },
-  {
-    "objectID": "blogs/versioncontrol.html#step-5-track-changes-and-collaborate",
-    "href": "blogs/versioncontrol.html#step-5-track-changes-and-collaborate",
-    "title": "Version control",
-    "section": "Step 5: Track Changes and Collaborate",
-    "text": "Step 5: Track Changes and Collaborate\nNow that your /code folder is under version control and hosted on GitHub, you can track changes, create branches, merge changes, and collaborate with others. VSCode provides a powerful interface for managing Git repositories, making it easier to review changes and resolve conflicts."
-  },
-  {
-    "objectID": "blogs/namingconventions.html",
-    "href": "blogs/namingconventions.html",
-    "title": "Naming conventions",
-    "section": "",
-    "text": "“There are only two hard things in Computer Science: cache invalidation and naming things.”\n— Phil Karlton1\nChoosing clear, concise, and meaningful names for variables, functions, files, etc., is challenging. Good names improve code readability and maintainability, but finding the right name can be surprisingly difficult, especially when your project folder is overflowing with files and subfolders. Good names can help users of your package or code replication kit.\nI will describe here a file naming convention that works for me. Sometimes this might go against styling guides of the language used although I try as much as possible to avoid this. This may not necessarily fit everyone’s requirement as coding and project management styles vary widely. I will not cover how I name folders as that is more about project management."
-  },
-  {
-    "objectID": "blogs/namingconventions.html#footnotes",
-    "href": "blogs/namingconventions.html#footnotes",
-    "title": "Naming conventions",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis quote is widely attributed to Phil Karlton, a software engineer known for his work at Netscape.↩︎"
-  },
-  {
-    "objectID": "morepages/econ452.html",
-    "href": "morepages/econ452.html",
-    "title": "Econ 452: Course Outline",
-    "section": "",
-    "text": "Outline\n\nPotential Outcomes Framework (1 lecture)\nRandomized Control Trials (1.5 lectures)\nRegressions (1.5 lectures)\nNon-linear regressions (2 lectures)\nInstrumental Variables (5 lectures)\nHeterogeneous Treatment Effects (1 lecture)\nPanel data and Fixed Effects (3 lectures)\nDifference-in-Differences (5 lectures)\nRegression Discontinuity (2 lectures)\nInference (1 lecture)\nTake away from the course (1 lecture)\n\n\n\nAssessment\n\n10% Discussion and class participation\n30% 5 Problem sets\n60% Group project"
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html",
-    "href": "morepages/resourcesforugstudents.html",
-    "title": "Resources for undergrad students",
-    "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#coding-resources",
-    "href": "morepages/resourcesforugstudents.html#coding-resources",
-    "title": "Resources for undergrad students",
-    "section": "",
-    "text": "Students are free to use any language of their preference–Stata, R, julia, python, Matlab etc. Historically, most students have used Stata for the analysis they conduct in their term paper. However, starting 2025, I have shifted my teaching of Econometrics, specifically implementation of methods—both simulation and estimation—to R. Below you will find old open-source resources as well as new resources that I recommend to students.\nI strongly encourage students to use open-source languages like R, julia and python."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#r-resources",
-    "href": "morepages/resourcesforugstudents.html#r-resources",
-    "title": "Resources for undergrad students",
-    "section": "R resources",
-    "text": "R resources\n\nStata2R: Students used to working in Stata will find this website incredibly useful if they want to transition to R.\nR manuals from CRAN and the CRAN homepage for R\nMaster repo with various cheatsheets\nRMarkdown: I ask students to complete their problem sets in RMarkdown to have both code compilation as well as theoretical proofs written and executed in the same file.\n\nR Markdown: The Definitive Guide: far more extensive, covers interactivity and additional features.\nQuarto markdown is another alternative that I really like for its versatility in languages. RMarkdown can also handle multiple languages (see here) but I prefer the ease of customization of Quarto when it comes to multiple languages.\n\nPackage specific:\n\ndata.table\ndplyr\nggplot2\nfixest\nAER (Applied Econometrics with R)\nstargazer\nbinsreg\nvtable"
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#stata-resources",
-    "href": "morepages/resourcesforugstudents.html#stata-resources",
-    "title": "Resources for undergrad students",
-    "section": "Stata Resources",
-    "text": "Stata Resources\nBesides google search being a very good friend while picking up any language, here are some resources on Stata from the internet that may be useful for students.\n\nSocial Science Computing Center at UW-Madison\nData and Statistical services at Princeton\nAdvanced Research computing at UCLA\nProject management in Stata\nTransitioning between Stata and R\n\nMost of them, have corresponding pages for R as well."
-  },
-  {
-    "objectID": "morepages/resourcesforugstudents.html#best-practices",
-    "href": "morepages/resourcesforugstudents.html#best-practices",
-    "title": "Resources for undergrad students",
-    "section": "Best practices",
-    "text": "Best practices\n\nUseful checklist while working with regression outputs\nCode and Data for the Social Sciences: A Practitioner’s Guide, by Gentzkow and Shapiro"
-  },
-  {
-    "objectID": "morepages/UG_intro_metrics.html",
-    "href": "morepages/UG_intro_metrics.html",
-    "title": "Introduction to Econometrics",
-    "section": "",
-    "text": "Syllabus\nSyllabus\nAlso see resources page for students\n\n\nLecture slides:\n\nIntroduction to R\nSimple Linear Regressions\nMultiple Linear Regressions\nInference in regression models\nBootstrap\nHeteroskedasticity and serial correlation\nMis-specification\nPotential outcomes\nTwo-stage least squares\nRegression discontinuity\nNon-linear models\nEstimators for repeated cross-section and panel data\nDifference-in-differences"
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Clark University\n\nUndergraduate: Statistics\nUndergraduate: Econometrics \n\nStarting Fall 2025:\n\nPhD: Applied Econometrics-I\nPhD: Applied Econometrics-II\nPhD: Econometric Theory\n\n\n\n\nQueen’s University\n\nPhD: Structural and reduced form methods in labor economics\n\n[Course Outline]\n\nUndergraduate: Applied Econometrics: Causal Inference.\n\n[Course Outline] [Course Website]\n\n\n\n\n\nUniversity of Wisconsin-Madison\n\nDepartment of Economics Nominee for UW-Madison Letters & Sciences Teaching Fellows Award 2019\n\n\nEcon 705 – Econometric Theory (Graduate). Instructors: Jack Porter & Jeffrey Smith\n\nJuli Plant Grainger Teaching Excellence Award\nDistinguished Teaching Assistant\n\nEcon 706 – Applied Econometrics (Graduate). Instructors: Christopher Taber & Kenneth West\n\nDistinguished Teaching Assistant\n\nEcon 101 [Head TA]. Instructor: Korinna Hansen; Elizabeth Kelly; Gwen Eudey \n\nDistinguished Teaching Assistant (x 2)\n\n\n\n\n\n\n\nResources for students\nCoding for undergrads\nPodcasts discussing empircal research in economics"
-  },
-  {
-    "objectID": "morepages/econ852.html",
-    "href": "morepages/econ852.html",
-    "title": "Structural and reduced form methods in labor economics: Course Outline",
-    "section": "",
-    "text": "Outline\n\nPrinciples of empirical research\n\nIdentification\n\n“Non-parametric identification”, Matzkin (2007)\n“Identification of models of the labor market” Taber and French (2010)\n“Partial Identification in Econometrics” Tamer (2010)\n\nAdvantages of reduced form methods and advantages of structural models\nFeasibility of each approach individually and jointly\n“Structural Equations, Treatment Effects and Econometric Policy Evaluation” Heckman and Vytlacil (2003)\n\nReduced form methods\n\nShift-share exclusion restrictions\n\n“Bartik Instruments: What, When, Why and How” Goldsmith-Pinkham, Sorkin and Swift (2020)\n“Quasi-experimental shift-share research designs” Borusyak, Hull and Jaravel (2020)\n\nVariation in treatment timings and heterogenous effects\n\n“What’s trending in difference-in-differences?” Roth and Santa’Anna (2022)\n“Two-way fixed effects estimators with heterogeneous treatment effects” de Chaisemartin and d`Haultfoeuille (2020)\n“The Unintended Benefits of Women’s Empowerment on Household Sanitation” Alam and Agarwal (2023)\n\nEmpirical Bayes\n\n“Empirical Bayes deconvolution estimates.” Efron (2016)\n“Systemic discrimination among large US employers”, Kline, Rose and Walters (2022)\n“Robust empirical bayes confidence intervals” Armstrong, Kolesár and Plagborg-Møller (2022)\n\nDiscontinuity based designs\n\n“Inference on causal effects in a generalized regression kink design” Card et al. (2015)\n“Inference in Regression Discontinuity Designs with a Discrete Running Variable”, Kolesar and Rothe (2018)\n\n\nStructural models\n\nConditional choice probabilities, discrete choice and dynamic models\n\n“Discrete Choice Methods with Simulation” Train (2009)\n“Conditional Choice Probabilities and the Estimation of Dynamic Models”, Hotz and Miller (1993)\n“College Attrition and the Dynamics of Information Revelation”, Arcidiacono, Aucejo, Maurel, et al. (2018)\n“The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications,” Keane and Wolpin (2011)\n\nStated preference\n\n“Preference for the workplace, investment in human capital and gender”, Wiswall Zafar (2018)\n“Understanding Migration Aversion Using Elicited Choice Probabilities”, Kosar, Ransom, van der Klaauw (2022)\n“Optimal Place-based redistribution” Alam, Davis and Gregory (2023)\n\n\nModels on wage inequality\n\n“High wage workers and high wage firms” Abowd, Kramarz and Margolis (1999)\n“A Distributional Framework for Matched Employer-employee data”, Bonhomme, Lamadon, Manresa (2019)\n“Racial Gaps in Wage Growth: Discrimination and Search Frictions” Alam (2020)\n“Discretizing Unobserved heterogeneity” Bonhomme, Lamadon, Manresa (2019)\n“Monopsony in Movers: The Elasticity of Labor Supply to Firm Wage Policies”, Bassier, Dube, Naidu (2021)\n\n\nUsing both reduced form and structural models\n\n“Worker-side discrimination–Beliefs and Preferences - Evidence from an Information Experiment on Jobseekers”, Alam, Mookerjee, Roy (2022)\n“Estimating Equilibrium Effects of Job Search Assistance,” Gautier, Muller, van der Klaauw, Rosholm and Svarer (2018)\n“The Demand for Food of Poor Urban Mexican Households: Understanding Policy Impacts Using Structural Models” Angelucci and Attanasio (2013)\n“Evaluating Search and Matching Models Using Experimental Data” Lise, Seitz and Smith (2015)\n“Evaluating a Structural Model of Labor Supply and Welfare Participation: Evidence from State Welfare Reform Experiments,” Choi (2018)\n“Estimating labour supply responses and welfare participation: Using a natural experiment to validate a structural labour supply model” Hansen and Liu (2015)\n“The Role of Labor and Marriage Markets, Preference Heterogeneity and the Welfare System on the Life Cycle Decisions of Black, Hispanic and White Women,” Keane and Wolpin (2010)\n“Approximating the Equilibrium Effects of Informed School Choice,” Allende, Gallego and Nielson (2019)\n\nCoding in Julia (if time permits)\n\nWhy Julia?\nEfficient code, version control and large project workflow\nAutomatic testing and reproducibility\nIntroduction to numerical optimization #### Other readings\n\nControl function approach\n\nControl Function Methods in Applied Econometrics, Wooldridge (2015)\n“Identification of Treatment Effects Using Control Functions in Models with Continuous, Endogenous Treatment and Heterogeneous Effects”, Heckman et. al (2008)\n“Using Matching, Instrumental Variables, and Control Functions to Estimate Economic Choice Models” Heckman and Navarro (2004)\n“Control functions” Navarro (2010)"
-  },
-  {
-    "objectID": "morepages/podcasts.html",
-    "href": "morepages/podcasts.html",
-    "title": "Podcasts",
-    "section": "",
-    "text": "Podcasts can at times offer an engaging and accessible way to grasp the underlying intuition of various econometric methods. They aid in building a deeper understanding of these methods and in exploring a wide range of problems through the lens of economics.\nI found the following episodes to be particularly interesting. This is a continously evolving list. Suggestions are welcome!\n\nRCT:\n\nAmy Finkelstein on the impact of health insurance (Oregon Medicaid expansion) experiment. “How do we know what really works in healthcare?” – Freakonomics (April 2, 2015)\nNicholas Bloom on the impact of working from home on productivity. “When you start to miss Tony from Accounting” – Hidden Brain (Nov 2020)\nJim Heckman on the impact of early childhood investments on long run outcomes. “Whats not on the test” – Hidden Brain\nJohn List (U-Chicago) on the rise of RCT and worries of scaling up experiments (SUTVA violations). “The Price of Doing Business with John List” – People I (Mostly) Admire\n“A Nobel-Prize for Development RCTs!” by David McKenzie World Bank Blog\n\n\n\nIV (Continuous and discrete treatments):\n\nSairt Weisburd on Police presence and Crime – Probable Causation July 21, 2020\nCarolina Artega on Parental Incarceration and Educational outcomes – Probable Causation July 20, 2021\n\n\n\nD-i-D:\n\nMolly Schnell on how exposure to school shootings affects students’ outcomes Probable Causation March 15, 2022\n(advanced) Adrew Goodman-Bacon on recent advances on D-i-D with staggered timing APPAM - Methodological Advances for Difference-in-Differences with Staggered Timing\n\n\n\nRD:\n\n“If Mayors ruled the worlds” Freakonomics April 10, 2014\n“Why is Uber an Economist’s Dream?” Freakonomics September 7, 2016\nMichael Lovenheim on grade retention and crime. Probable Causation September 17, 2019\nGaurav Khanna on Employment and Crime in Colombia. Probable Causation Aug 17, 2021\n\n\n\nDiff-in-RD (advanced)\n\nKirabo Jackson on single-sex education and academic and criminal outcomes. Probable Causation March 31, 2020"
-  },
-  {
-    "objectID": "blogs/julia_environments.html",
-    "href": "blogs/julia_environments.html",
-    "title": "Reproducible julia projects",
-    "section": "",
-    "text": "A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using julia environments. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine."
-  },
-  {
-    "objectID": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
-    "href": "blogs/julia_environments.html#setting-up-a-julia-project-environment",
-    "title": "Reproducible julia projects",
-    "section": "Setting up a julia project environment",
-    "text": "Setting up a julia project environment\nFirst, setting up a new julia project typically involves creating the working directory, initializing the environment within that directory, and then modifying the environment, e.g. adding any necessary packages.\nmkdir -p path/to/MyCoolProject\ncd path/to/MyCoolProject\nThen I typically create a setup.jl file in the path/to/MyCoolProject/code folder to activate the environment and adding neccesary packages.\nusing Pkg\ncd(@__DIR__)\nPkg.activate(@__DIR__)\nThese commands will create a Project.toml and Manifest.toml file in your project directory. These files will track your project dependencies and their exact versions, ensuring reproducibility.\n\nOnce you’ve initialized your project, you can add packages to it, as you normally would.\n# Add packages to your project\n(MyCoolProject) pkg&gt; add DataFrames\nAdding the very first package does two things: 1. Updates Project.toml: It adds DataFrames to the list of dependencies. 2. Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility."
-  },
-  {
-    "objectID": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
-    "href": "blogs/julia_environments.html#reusing-and-modifying-your-environment",
-    "title": "Reproducible julia projects",
-    "section": "Reusing and modifying your environment",
-    "text": "Reusing and modifying your environment\nIf you’ve closed your julia session and want to continue working on your project later, navigate back to your project directory and reactivate the environment:\ncd(\"path/to/MyCoolProject\")\njulia&gt; ]\n(v1.9) pkg&gt; activate .\nThis reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.\nTo add more packages to your project at any time:\n(MyCoolProject) pkg&gt; add Plots\nThis command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.\nTo see the current status of your environment:\n(MyCoolProject) pkg&gt; update"
-  },
-  {
-    "objectID": "blogs/julia_environments.html#sharing-your-environment",
-    "href": "blogs/julia_environments.html#sharing-your-environment",
-    "title": "Reproducible julia projects",
-    "section": "Sharing your environment",
-    "text": "Sharing your environment\nTo share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:\njulia&gt; ]\n(v1.9) pkg&gt; activate .\n(MyCoolProject) pkg&gt; instantiate\nThe instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.\nSetting Up the Project on a Different Machine: - When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed. - Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.\njulia&gt; ]\n(v1.9) pkg&gt; instantiate\nThe instantiate command has two more useful features:\n\nRestoring an Environment:\n\nIf you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.\nThis is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.\n\nEnsuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.\n\nIn a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub."
-  },
-  {
-    "objectID": "blogs/dropbox_git_issues.html",
-    "href": "blogs/dropbox_git_issues.html",
-    "title": "Issues with cloud sync and version control",
-    "section": "",
-    "text": "Many of us use cloud based services to sync important files. These services are not version controlling systems. If you have been use cloud based services to sync your files like Dropbox, it is recommended not to have a git repo inside a Dropbox folder for reasons described here, [here] and here or ensure Dropbox ignores the files that could cause conflicts with git. In short, this is how I do this:\n\nI only use git to version control my code. All other documentation that do not need version control for example, related papers, data etc. live in a project folder inside Dropbox.\nIf I am the only person writing the code, I either tell Dropbox to igone the code directory if it is living in Dropbox, or I keep it outside of Dropbox. The latter works best if you are the sole person working on the code. The former is useful only for project organization—given that data and other documentation is living in the Dropbox folder, it is only convinent to also have the code directory inside the same project folder.\nIf I am collaborating with someone on code and they do not want to use git then I do not version control our code in the Dropbox folder. Rather, I keep a separate folder with all my codes in a non-Dropbox folder and version control that. At the end of each day, I then sync them with the Dropbox folder. This is only possible because my scripts are typically different from my collaborators script."
-  },
-  {
-    "objectID": "papers.html",
-    "href": "papers.html",
-    "title": "Moshi Alam",
-    "section": "",
-    "text": "Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Md Moshi Ul Alam",
-    "section": "",
-    "text": "Email    CV    Scholar      BlueSky \n\nHi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD in Economics, from the University of Wisconsin-Madison.\n\n\n\n Working papers\n\nEmployee-Side Discrimination: Beliefs and Preferences (PhD JMP)\n\nwith Mehreen Mookerjee and Sanket Roy  [+Abstract] \n\nR&R at Quantitative Economics\n\n\nLabor Market Consequences of Pay-Equity Laws (Post-doc JMP)\n\nwith Steven Lehrer and Nuno Souso Pereira  [+Abstract] \n\nUpdated Dec ’24  [Under review] \n\nThe Unintended Benefits of Women’s Empowerment on Household Sanitation\n\nwith Monica Agarwal  [+Abstract]   [ SSRN]\n\nUpdated Dec ’24  [Under review] \n\n\n\n\n\n Publications/Accepted\n\n“Increases in shared custody after divorce in the United States.”\n\nwith Daniel Meyer and Marcia Carlson.  [+Abstract]   [ Replication]\n\nDemographic Research 46 (2022): 1137-1162.  “Editor’s Choice” article\n\n\n\n\n\n Research in progress\n\nOptimal Place-Based Redistribution\n\nwith Morris Davis and Jesse Gregory\n\nSpatial Inequality and School Choice Mechanisms\n\nwith Monica Agarwal, Chao Fu, YingHua He\n\nLabor Market Inequality and Collective Bargaining\n\nwith Steven Lehrer and Nuno Souso Pereira\n\nRacial Gaps in Wage Growth: Discrimination, Selection and Search Frictions\n\n\n\n\n\n\nDormant papers\n\nIdentification in Models of Discrimination\n\n[subsumed in my PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]\n\n\n\n\n\nCode\nmicro = require(\"micromodal@0.4.10\");\n\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncreases in shared custody after divorce in the United States\n\n\nThis paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce."
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
-    "section": "",
-    "text": "Download my CV \nLast updated: April 15, 2024"
-  },
-  {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#introduction",
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#introduction",
     "title": "Econ 265: Introduction to Econometrics",
@@ -872,7 +998,7 @@
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#standard-errors-of-hatbeta_j",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Standard errors of \\(\\hat{\\beta}_j\\)",
-    "text": "Standard errors of \\(\\hat{\\beta}_j\\)\n\n\nUnder homoskedasticity, the standard error of the OLS estimate \\(\\hat{\\beta}_j\\) is given by: \\[SE(\\hat{\\beta}_j) = \\sqrt{Var(\\hat{\\beta}_j)}\\]\nan estimate of the standard deviation of the sampling distribution of \\(\\hat{\\beta}_j\\).\na measure of the precision of the OLS estimate \\(\\hat{\\beta}_j\\).\nused to construct confidence intervals and conduct hypothesis tests.\nestimated using the formula: \\[SE(\\hat{\\beta}_j) = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sum_{i=1}^n (x_{ji} - \\bar{x}_j)^2}} = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sqrt{n} sd(x_j)}}\\]\nNotice the role of \\(R_j^2\\) and \\(n\\) in the formula."
+    "text": "Standard errors of \\(\\hat{\\beta}_j\\)\n\n\nUnder homoskedasticity, the standard error of the OLS estimate \\(\\hat{\\beta}_j\\) is given by: \\[SE(\\hat{\\beta}_j) = \\sqrt{Var(\\hat{\\beta}_j)}\\]\nan estimate of the standard deviation of the sampling distribution of \\(\\hat{\\beta}_j\\).\na measure of the precision of the OLS estimate \\(\\hat{\\beta}_j\\).\nused to construct confidence intervals and conduct hypothesis tests.\nestimated using the formula: \\[SE(\\hat{\\beta}_j) = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sum_{i=1}^n (x_{ji} - \\bar{x}_j)^2}} = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)\\sqrt{n} \\quad sd(x_j)}}\\]\nNotice the role of \\(R_j^2\\) and \\(n\\) in the formula."
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#recall",
@@ -886,7 +1012,7 @@
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#omitted-variable-bias",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Omitted variable bias",
-    "text": "Omitted variable bias\nFor the true population modelsatisfying MLR1-MLR4: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\beta_3 x_{3i} + u_i\\] - Suppose \\(x_{3i}\\) and \\(x_{2i}\\) are uncorrelated but \\(x_{3i}\\) and \\(x_{1i}\\) are correlated - Suppose we omitted \\(x_{3i}\\) and only ran the regression of \\(y_i\\) on \\(x_{1i}\\) and \\(x_{2i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i} + \\tilde{\\beta}_2 x_{2i}\\]\n\n\nMight be tempting to think that \\(\\tilde{\\beta}_1\\) is unbiased and only \\(\\tilde{\\beta}_2\\) is biased\nIn fact we can show that: \\[\\mathrm{E}\\left(\\widetilde{\\beta}_1\\right)=\\beta_1+\\beta_3 \\frac{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right) x_{i 3}}{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right)^2}\\]\nNote that we never said that the variables are pairwise uncorrelated\nThe bias in \\(\\tilde{\\beta}_1\\) is due to the induced correlation between \\(x_{1i}\\) and \\(x_{2i}\\) when \\(x_{3i}\\) is omitted"
+    "text": "Omitted variable bias\nFor the true population modelsatisfying MLR1-MLR4: \\[y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\beta_3 x_{3i} + u_i\\] - Suppose \\(x_{3i}\\) and \\(x_{2i}\\) are uncorrelated but \\(x_{3i}\\) and \\(x_{1i}\\) are correlated - Suppose we omitted \\(x_{3i}\\) and only ran the regression of \\(y_i\\) on \\(x_{1i}\\) and \\(x_{2i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i} + \\tilde{\\beta}_2 x_{2i}\\]\n\n\nMight be tempting to think that \\(\\tilde{\\beta}_2\\) is unbiased and only \\(\\tilde{\\beta}_1\\) is biased\nIn fact we can show that: \\[\\mathrm{E}\\left(\\widetilde{\\beta}_1\\right)=\\beta_1+\\beta_3 \\frac{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right) (x_{i 3} - \\bar{x_3})}{\\sum_{i=1}^n\\left(x_{i 1}-\\bar{x}_1\\right)^2}\\]\n\nNote that we never said that the variables are pairwise uncorrelated\nThe bias in \\(\\tilde{\\beta}_1\\) is due to the induced correlation between \\(x_{1i}\\) and \\(x_{2i}\\) when \\(x_{3i}\\) is omitted"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#ability-bias-example",
@@ -900,6 +1026,6 @@
     "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#variances-in-misspecified-models",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Variances in misspecified models",
-    "text": "Variances in misspecified models\n\nWe saw what happens to bias. What happens to precision?\nTrue model: \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\) and \\(x_{1i}\\) and \\(x_{2i}\\) are correlated\nEstimate two models:\n\nModel 1: \\(\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\)\nModel 2: \\(\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\)\n\n\n\n\nWHen do we have bias in \\(\\tilde{\\beta}_1\\)?\n\n\nWhen \\(\\beta_2 \\neq 0, \\widetilde{\\beta}_1\\) is biased, \\(\\hat{\\beta}_1\\) is unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\nWhen \\(\\beta_2=0, \\widetilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) are both unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\n\nThis is because (recall the formula for the variance of the OLS estimator):\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\left(1-R_1^2\\right)\\right]\\)\n\\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\right]\\)"
+    "text": "Variances in misspecified models\n\nWe saw what happens to bias. What happens to precision?\nTrue model: \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\) and \\(x_{1i}\\) and \\(x_{2i}\\) are correlated\nEstimate two models:\n\nModel 1: \\(\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\)\nModel 2: \\(\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\)\n\n\n\n\nWhen \\(\\beta_2 \\neq 0, \\widetilde{\\beta}_1\\) is biased, \\(\\hat{\\beta}_1\\) is unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\nWhen \\(\\beta_2=0, \\widetilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) are both unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\n\nThis is because (recall the formula for the variance of the OLS estimator):\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\left(1-R_1^2\\right)\\right]\\)\n\\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\right]\\)\n\nTake away: Including irrelevant variables in the model “may” not affect the unbiasedness of the OLS estimator, but it will affect the precision of the estimates."
   }
 ]
