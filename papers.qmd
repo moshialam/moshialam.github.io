@@ -24,7 +24,7 @@
 ---
 
 #### <i class="bi bi-bookmark"></i> Research in progress
-- **Optimal Place-Based Redistribution**
+- **Location Choice and the Marginal Utility of Consumption**
 <p> with Morris Davis and Jesse Gregory </p>
 - **Spatial Inequality and School Choice Mechanisms**
 <p> with Monica Agarwal, Chao Fu, YingHua He </p>

@@ -13,7 +13,7 @@ Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 - [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
 - [Simple Linear Regressions](/teachingmaterials/UG_intro_metrics/03_regression.qmd)
 - [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
-- Inference in regression models
+- [Inference in regression models](/teachingmaterials/UG_intro_metrics/05_inference.qmd)
 - Bootstrap
 - Heteroskedasticity and serial correlation
 - Mis-specification
