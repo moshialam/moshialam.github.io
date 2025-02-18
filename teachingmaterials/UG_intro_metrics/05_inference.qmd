@@ -82,9 +82,8 @@ The distribution of the sample statistic (e.g., sample mean, sample variance, re
 
 - **Sampling variability:** The variability of the sample statistic across different samples
 - **Standard error:** The estimate of the standard deviation of the sampling distribution of a sample statistic
-- **Central Limit Theorem (CLT):** Let $\{X_1, X_2, \ldots, X_n\}$ be a random sample of size $n$ from a population with mean $\mu$ and variance $\sigma^2$. Then, as $n$ approaches infinity, the sampling distribution of the sample mean $\bar{X}$ approaches a normal distribution with mean $\mu$ and variance $\sigma^2/n$. 
-  - i.e. as sample size goes to infinity, $\bar{X} \sim N(\mu, \sigma^2/n)$ so that $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$
-  - The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity. 
+- **Central Limit Theorem (CLT):** Let $\{X_1, X_2, \ldots, X_n\}$ be a random sample of size $n$ from a population with mean $\mu$ and variance $\sigma^2$. Then, as $n$ approaches infinity,  $\bar{X} \sim N(\mu, \sigma^2/n)$ so that $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$
+  <!-- - The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.  -->
 - Recall from Econ 160:
   - The sampling distribution of the *sample proportion* $\hat{p}$ approaches a normal distribution with mean $p$ and variance $p(1-p)/n$.
   - The sampling distribution of *sample means* follows a $t$-distribution with $n-1$ degrees of freedom 
@@ -99,9 +98,10 @@ The distribution of the sample statistic (e.g., sample mean, sample variance, re
 - **Confidence interval:** A range of values where we are $1-\alpha$ confident that the true population parameter lies within
   - estimate $\pm$ critical value $\times$ standard error
   - What happens if the CI contains the hypothesized value?
+- Tests can only allow us to reject the $H_0$ or fail to reject the $H_0$ but never accept the $H_0$. Why? 
 
 ## {.smaller}
-- **p-value:** The probability of observing the sample statistic or more extreme values under the $H_0$
+- **p-value:** The probability of observing the sample (statistic) if $H_0$ were true
   - What does it mean when p-value is less than $\alpha$?
 - **Critical value:** The value that separates the rejection region from the non-rejection region in hypothesis testing
   - What is critical value for a two-tailed test with $\alpha = 0.05$?
@@ -128,19 +128,41 @@ The distribution of the sample statistic (e.g., sample mean, sample variance, re
 
 # Hypothesis testing in MLR
 
+## Big picture {.smaller}
+- To test hypotheses about regression coeffcients $\hat{\beta}_j$, we need to know:
+  - the *sampling distribution* of the $\hat{\beta}_j$'s
+  <!-- - the *standard errors* of the $\hat{\beta}_j$'s -->
+    <!-- - Recall that the standard errors are the estimates of the standard deviation of the sampling distribution of the $\hat{\beta}_j$'s -->
+- Once we have the sampling distribution of the $\hat{\beta}_j$
+  - We can get the standard errors of the $\hat{\beta}_j$'s 
+    - Estimates of the standard deviation of the sampling distribution of the $\hat{\beta}_j$'s
+- We can make inferences about the population parameters $\beta_j$'s' based on 
+  - the *estimates*, *standard errors* and the *sampling distribution* of the $\hat{\beta}_j$'s
+- Turns out that under some assumptions, the $\hat{\beta}_j$'s follow a $t$ distribution (**in practice**)
+  <!-- - when the s.d. of the population error is unknown  (which is the case in practice) -->
+  - It requires an assumption on the distribution of the errors $u_i$'s **MLR.6**
+
+
+
+
+
+
+
 ## Assumption MLR.6: {.smaller}
 
-### Normality and independence of Errors 
+::: {.callout-note icon="false"}
+### Assumption MLR.6: Normality of Errors
 
-The population error $u_i$ is normally distributed with mean 0 and constant variance $\sigma^2$ for all $i = 1, 2, \ldots, n$ and independent of the regressors.
+The population error $u_i$ is normally distributed with mean 0 and constant variance $\sigma^2$  and independent of the regressors for all $i = 1, 2, \ldots, n$
 $$u_i \sim N(0, \sigma^2)$$
+:::
 
-- Much stronger assumption than others
 - This directly implies MLR.4 and MLR.5
-- The full set of assumptions MLR.1-MLR.6 are called the classical linear model (CLM) assumptions. They imply: 
+- The full set of assumptions MLR.1-MLR.6 are called the *classical linear model (CLM) assumptions*. Together they imply: 
 $$y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{ki}, \sigma^2)$$
 
-## Arguements for and against the normality assumption {.smaller}
+- *Hard to defend this very strong assumption*
+  - Thankfully not required for large samples (Ch-5)
 
 
 
@@ -150,17 +172,10 @@ $$y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{k
 
 
 
+## {.smaller}
 
-
-
-
-
-
-## Theorem 4.1: {.smaller}
-
-### Normality of OLS Estimators 
-
-Under MLR.1-MLR.6, the OLS estimators $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$ are normally distributed.
+::: {.callout-important icon="false"}
+### Theorem 4.1: Normality of OLS Estimators
 
 Under the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,
 
@@ -171,26 +186,27 @@ $$
 where $\operatorname{Var}\left(\hat{\beta}_{j}\right)$was given in Chapter 3 [equation (3.51)]. Therefore,
 
 $$
-\frac{\hat{\beta}_j-\beta_j}{\operatorname{sd}\left(\hat{\beta}_j\right)} \sim \operatorname{Normal}(0,1)
+\frac{\hat{\beta}_j-\beta_j}{\operatorname{sd}\left(\hat{\beta}_j\right)} \sim \operatorname{Normal}(0,1) \quad \text { for } j=0,1, \ldots, k
+$$
+:::
+
+::: {.callout-important icon="false"}
+### Theorem 4.2: t-distribution of OLS Estimates
+
+Under the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,
+
+$$
+\frac{\hat{\beta}_j-\beta_j}{\operatorname{se}\left(\hat{\beta}_j\right)} \sim t_{n-k-1} \quad \text { for } j=0,1, \ldots, k
 $$
 
-Proof: See Math Refresher B. Note that each $\hat{\beta_j}$ can be written as a linear combination of the $u_i$'s and the $x_{ji}$'s. Specifically, $\hat{\beta}_j = \beta_j + \sum_{i=1}^n w_{ij} u_i$, where the $w_{ij} = \hat{r_{ij}}/SSR_j$  where $\hat{r_{ij}}$ is the $i$th residual from regressing $x_j$ on all other independent variables and $SSR_j$ is the sum of squared residuals from that regression.
+where $k+1$ is the number of unknown parameters in the population model and $n-k-1$ is the d.o.f.
+:::
+
+Observe the differences!
 
 
-## Theorem 4.2: {.smaller}
-
-Under the CLM assumptions MLR. 1 through MLR.6,
-
-$$
-\frac{\left(\hat{\boldsymbol{\beta}}_j-\beta_j\right)}{\operatorname{se}\left(\hat{\boldsymbol{\beta}}_j\right)} \sim t_{n-k-1} \quad \text { for } j=0,1, \ldots, k
-$$
-
-where $k+1$ is the number of unknown parameters in the population model and $n-k-1$ is the degrees of freedom (df). 
 
 
- The standard error of $\hat{\beta}_j$ is $\operatorname{se}\left(\hat{\beta}_j\right)=\sqrt{\operatorname{Var}\left(\hat{\beta}_j\right)}$ that we derived in the last class. 
-
- Now that we know the sampling distribution of $\hat{\beta}_j$, we can make inferences about the population parameter $\beta_j$ under any given  null hypothesis 
 
 ## Single hypothesis testing {.smaller}
 
@@ -198,20 +214,171 @@ where $k+1$ is the number of unknown parameters in the population model and $n-k
 - Note that this is a test on the $j$th population parameter while holding all other parameters constant
 - One-sided alternative: $H_1: \beta_j > b$ or $H_1: \beta_j < b$
 - Two-sided alternative: $H_1: \beta_j \neq b$
-- set b= 0. Test statistic: $t = \frac{\hat{\beta}_j - b}{\operatorname{se}(\hat{\beta}_j)} = \frac{\hat{\beta}_j}{\operatorname{se}(\hat{\beta}_j)}$
+- set b= 0. Test statistic: $t_{\hat{\beta}_j} = \frac{\hat{\beta}_j - b}{\operatorname{se}(\hat{\beta}_j)} = \frac{\hat{\beta}_j}{\operatorname{se}(\hat{\beta}_j)}$
+- We know that the sampling distribution of $t_{\hat{\beta}_j}$  follows... 
 
 
-## One-sided alternative {.smaller}
-- **One-sided alternative:** $H_1: \beta_j > 0$ or $H_1: \beta_j < 0$
 
-## Two-sided alternative {.smaller}
-- **Two-sided alternative:** $H_1: \beta_j \neq 0$
+
+
+
+
+
+
+## One-sided test {.smaller}
+
+Fix a level of significance $\alpha$ (e.g., 0.05)
+
+
+:::{.columns}
+:::{.column width="50%"}
+- **alternative:** $H_1: \beta_j > 0$ (or $H_1: \beta_j < 0)$
+  - Reject $H_0$ if $t_{\hat{\beta}_j} > t_{\alpha, n-k-1}^*$
+  - p-value = $P(T > t_{\hat{\beta}_j})$ where $T \sim t_{n-k-1}$
+  - Confidence interval: $\hat{\beta}_j \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\beta}_j)$
+- For large samples, t-distribution $\rightarrow$ standard normal
+  - the critical value $\approx  \pm 1.65$ for $\alpha = 0.05$
+:::
+:::{.column width="50%"}
+![One-sided test (right)](onesided.png){height=200}
+
+![One-sided test (left)](onesided_left.png){height=200}
+:::
+:::
+
+
+
+
+
+## Examples {.smaller}
+:::{.columns}
+:::{.column width="50%"}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+nrow(meap93) - 4 - 1 # DOF
+summary(lm(math10 ~ totcomp + staff + enroll, data=meap93))
+```
+:::
+:::{.column width="50%"}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+nrow(meap93) - 4 - 1 # DOF
+summary(lm(math10 ~ log(totcomp) + log(staff) + log(enroll), data=meap93))
+```
+:::
+:::
+
+
+
+
+
+## Two-sided test {.smaller}
+
+Fix a level of significance $\alpha$ (e.g., 0.05)
+
+:::{.columns}
+:::{.column width="50%"}
+- **alternative:** $H_1: \beta_j \neq 0$
+  - Reject $H_0$ if $|t_{\hat{\beta}_j}| > t_{\alpha/2, n-k-1}^*$
+  - p-value = $P(|T| > |t_{\hat{\beta}_j}|)$
+  - Confidence interval: $\hat{\beta}_j \pm t_{\alpha/2, n-k-1}^* \times \operatorname{se}(\hat{\beta}_j)$
+- For large samples, t-distribution $\rightarrow$ standard normal
+  - the critical value $\approx \pm 1.96$ for $\alpha = 0.05$
+:::
+:::{.column width="50%"}
+
+![Two-sided test](twosided.png)
+
+:::
+:::
+
+## Examples {.smaller}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+nrow(meap93) - 4 - 1 # DOF
+summary(lm(math10 ~ log(totcomp) + log(staff) + log(enroll), data=meap93))
+```
+
+
+
+
 
 ## Computing p-values {.smaller}
 
-## Confidence Intervals {.smaller}
+- p-value is the probability of observing the sample (statistic) if $H_0$ is true
+- Indeed you can do this using a table.
+- But R can do this for you
 
-## Testing Single Linear combination of parameters {.smaller}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+t_value <- 2.5    #  t-value
+df <- 100         #  degrees of freedom
+
+# Two-tailed p-value
+p_value <- 2 * (1 - pt(abs(t_value), df))
+print(p_value)
+
+# One-tailed p-value (right tail)
+p_right <- 1 - pt(t_value, df)
+print(p_right)
+
+# One-tailed p-value (left tail)
+p_left <- pt(t_value, df)
+print(p_left)
+```
+
+<!-- ## Computing Confidence Intervals {.smaller}
+
+- Confidence interval is a range of values where we are $1-\alpha$ confident that the true population parameter lies within
+- Example: -->
+
+## Testing Linear combinations {.smaller}
+
+$$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ $H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+summary(lm(lwage ~ jc + univ + exper, data = twoyear))
+```
+
+
+## What can we do? {.smaller}
+$$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ $H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$
+
+
+
+<!-- - $H_0: \beta_1 - \beta_2 = 0$ and $H_1: \beta_1 - \beta_2 < 0$ -->
+- Call $\beta_1 - \beta_2 = \theta$ and so $H_0: \theta = 0$ and $H_1: \theta < 0$
+- Test statistic: $t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}$
+- Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$ and compare with $t_{\hat{\theta}}$
+  - Reject $H_0$ if $t_{\hat{\theta}} < t_{\alpha, n-k-1}^*$
+  - p-value = $P(T < t_{\hat{\theta}})$ where $T \sim t_{n-k-1}$
+  - Confidence interval: $\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})$
+- Easy to calculate if $\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}$ is known 
+
+
+## Implementation {.smaller}
+$$log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$
+
+$$log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i$$
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+data <- twoyear
+data$total_years <- data$univ + data$jc
+summary(lm(lwage ~ jc + total_years + exper, data = data))
+```
+
+
+
+
+
+
+
+
+
+
+
 
 ## Testing Multiple Linear Restrictions {.smaller}
 ### F-test {.smaller}

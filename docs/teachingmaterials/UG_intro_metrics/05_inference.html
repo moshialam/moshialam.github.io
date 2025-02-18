@@ -299,11 +299,7 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li><strong>Sampling variability:</strong> The variability of the sample statistic across different samples</li>
 <li><strong>Standard error:</strong> The estimate of the standard deviation of the sampling distribution of a sample statistic</li>
-<li><strong>Central Limit Theorem (CLT):</strong> Let <span class="math inline">\(\{X_1, X_2, \ldots, X_n\}\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then, as <span class="math inline">\(n\)</span> approaches infinity, the sampling distribution of the sample mean <span class="math inline">\(\bar{X}\)</span> approaches a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2/n\)</span>.
-<ul>
-<li>i.e.&nbsp;as sample size goes to infinity, <span class="math inline">\(\bar{X} \sim N(\mu, \sigma^2/n)\)</span> so that <span class="math inline">\(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)\)</span></li>
-<li>The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.</li>
-</ul></li>
+<li><strong>Central Limit Theorem (CLT):</strong> Let <span class="math inline">\(\{X_1, X_2, \ldots, X_n\}\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then, as <span class="math inline">\(n\)</span> approaches infinity, <span class="math inline">\(\bar{X} \sim N(\mu, \sigma^2/n)\)</span> so that <span class="math inline">\(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)\)</span> <!-- - The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.  --></li>
 <li>Recall from Econ 160:
 <ul>
 <li>The sampling distribution of the <em>sample proportion</em> <span class="math inline">\(\hat{p}\)</span> approaches a normal distribution with mean <span class="math inline">\(p\)</span> and variance <span class="math inline">\(p(1-p)/n\)</span>.</li>
@@ -323,12 +319,13 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>estimate <span class="math inline">\(\pm\)</span> critical value <span class="math inline">\(\times\)</span> standard error</li>
 <li>What happens if the CI contains the hypothesized value?</li>
 </ul></li>
+<li>Tests can only allow us to reject the <span class="math inline">\(H_0\)</span> or fail to reject the <span class="math inline">\(H_0\)</span> but never accept the <span class="math inline">\(H_0\)</span>. Why?</li>
 </ul>
 </section>
 <section id="section" class="slide level2 smaller">
 <h2></h2>
 <ul>
-<li><strong>p-value:</strong> The probability of observing the sample statistic or more extreme values under the <span class="math inline">\(H_0\)</span>
+<li><strong>p-value:</strong> The probability of observing the sample (statistic) if <span class="math inline">\(H_0\)</span> were true
 <ul>
 <li>What does it mean when p-value is less than <span class="math inline">\(\alpha\)</span>?</li>
 </ul></li>
@@ -346,42 +343,85 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h1>Hypothesis testing in MLR</h1>
 
 </section>
-<section id="assumption-mlr.6" class="slide level2 smaller">
-<h2>Assumption MLR.6:</h2>
-<h3 id="normality-and-independence-of-errors">Normality and independence of Errors</h3>
-<p>The population error <span class="math inline">\(u_i\)</span> is normally distributed with mean 0 and constant variance <span class="math inline">\(\sigma^2\)</span> for all <span class="math inline">\(i = 1, 2, \ldots, n\)</span> and independent of the regressors. <span class="math display">\[u_i \sim N(0, \sigma^2)\]</span></p>
+<section id="big-picture" class="slide level2 smaller">
+<h2>Big picture</h2>
 <ul>
-<li>Much stronger assumption than others</li>
-<li>This directly implies MLR.4 and MLR.5</li>
-<li>The full set of assumptions MLR.1-MLR.6 are called the classical linear model (CLM) assumptions. They imply: <span class="math display">\[y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{ki}, \sigma^2)\]</span></li>
+<li>To test hypotheses about regression coeffcients <span class="math inline">\(\hat{\beta}_j\)</span>, we need to know:
+<ul>
+<li>the <em>sampling distribution</em> of the <span class="math inline">\(\hat{\beta}_j\)</span>’s <!-- - the *standard errors* of the $\hat{\beta}_j$'s --> <!-- - Recall that the standard errors are the estimates of the standard deviation of the sampling distribution of the $\hat{\beta}_j$'s --></li>
+</ul></li>
+<li>Once we have the sampling distribution of the <span class="math inline">\(\hat{\beta}_j\)</span>
+<ul>
+<li>We can get the standard errors of the <span class="math inline">\(\hat{\beta}_j\)</span>’s
+<ul>
+<li>Estimates of the standard deviation of the sampling distribution of the <span class="math inline">\(\hat{\beta}_j\)</span>’s</li>
+</ul></li>
+</ul></li>
+<li>We can make inferences about the population parameters <span class="math inline">\(\beta_j\)</span>’s’ based on
+<ul>
+<li>the <em>estimates</em>, <em>standard errors</em> and the <em>sampling distribution</em> of the <span class="math inline">\(\hat{\beta}_j\)</span>’s</li>
+</ul></li>
+<li>Turns out that under some assumptions, the <span class="math inline">\(\hat{\beta}_j\)</span>’s follow a <span class="math inline">\(t\)</span> distribution (<strong>in practice</strong>) <!-- - when the s.d. of the population error is unknown  (which is the case in practice) -->
+<ul>
+<li>It requires an assumption on the distribution of the errors <span class="math inline">\(u_i\)</span>’s <strong>MLR.6</strong></li>
+</ul></li>
 </ul>
 </section>
-<section id="arguements-for-and-against-the-normality-assumption" class="slide level2 smaller">
-<h2>Arguements for and against the normality assumption</h2>
+<section id="assumption-mlr.6" class="slide level2 smaller">
+<h2>Assumption MLR.6:</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Assumption MLR.6: Normality of Errors</strong></p>
+</div>
+<div class="callout-content">
+<p>The population error <span class="math inline">\(u_i\)</span> is normally distributed with mean 0 and constant variance <span class="math inline">\(\sigma^2\)</span> and independent of the regressors for all <span class="math inline">\(i = 1, 2, \ldots, n\)</span> <span class="math display">\[u_i \sim N(0, \sigma^2)\]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This directly implies MLR.4 and MLR.5</p></li>
+<li><p>The full set of assumptions MLR.1-MLR.6 are called the <em>classical linear model (CLM) assumptions</em>. Together they imply: <span class="math display">\[y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{ki}, \sigma^2)\]</span></p></li>
+<li><p><em>Hard to defend this very strong assumption</em></p>
+<ul>
+<li>Thankfully not required for large samples (Ch-5)</li>
+</ul></li>
+</ul>
 </section>
-<section id="theorem-4.1" class="slide level2 smaller">
-<h2>Theorem 4.1:</h2>
-<h3 id="normality-of-ols-estimators">Normality of OLS Estimators</h3>
-<p>Under MLR.1-MLR.6, the OLS estimators <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k\)</span> are normally distributed.</p>
+<section id="section-1" class="slide level2 smaller">
+<h2></h2>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem 4.1: Normality of OLS Estimators</strong></p>
+</div>
+<div class="callout-content">
 <p>Under the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,</p>
 <p><span class="math display">\[
 \hat{\beta}_j \sim \operatorname{Normal}\left(\beta_j , \operatorname{Var}\left(\hat{\beta}_j\right)\right),
 \]</span></p>
 <p>where <span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_{j}\right)\)</span>was given in Chapter 3 [equation (3.51)]. Therefore,</p>
 <p><span class="math display">\[
-\frac{\hat{\beta}_j-\beta_j}{\operatorname{sd}\left(\hat{\beta}_j\right)} \sim \operatorname{Normal}(0,1)
+\frac{\hat{\beta}_j-\beta_j}{\operatorname{sd}\left(\hat{\beta}_j\right)} \sim \operatorname{Normal}(0,1) \quad \text { for } j=0,1, \ldots, k
 \]</span></p>
-<p>Proof: See Math Refresher B. Note that each <span class="math inline">\(\hat{\beta_j}\)</span> can be written as a linear combination of the <span class="math inline">\(u_i\)</span>’s and the <span class="math inline">\(x_{ji}\)</span>’s. Specifically, <span class="math inline">\(\hat{\beta}_j = \beta_j + \sum_{i=1}^n w_{ij} u_i\)</span>, where the <span class="math inline">\(w_{ij} = \hat{r_{ij}}/SSR_j\)</span> where <span class="math inline">\(\hat{r_{ij}}\)</span> is the <span class="math inline">\(i\)</span>th residual from regressing <span class="math inline">\(x_j\)</span> on all other independent variables and <span class="math inline">\(SSR_j\)</span> is the sum of squared residuals from that regression.</p>
-</section>
-<section id="theorem-4.2" class="slide level2 smaller">
-<h2>Theorem 4.2:</h2>
-<p>Under the CLM assumptions MLR. 1 through MLR.6,</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem 4.2: t-distribution of OLS Estimates</strong></p>
+</div>
+<div class="callout-content">
+<p>Under the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,</p>
 <p><span class="math display">\[
-\frac{\left(\hat{\boldsymbol{\beta}}_j-\beta_j\right)}{\operatorname{se}\left(\hat{\boldsymbol{\beta}}_j\right)} \sim t_{n-k-1} \quad \text { for } j=0,1, \ldots, k
+\frac{\hat{\beta}_j-\beta_j}{\operatorname{se}\left(\hat{\beta}_j\right)} \sim t_{n-k-1} \quad \text { for } j=0,1, \ldots, k
 \]</span></p>
-<p>where <span class="math inline">\(k+1\)</span> is the number of unknown parameters in the population model and <span class="math inline">\(n-k-1\)</span> is the degrees of freedom (df).</p>
-<p>The standard error of <span class="math inline">\(\hat{\beta}_j\)</span> is <span class="math inline">\(\operatorname{se}\left(\hat{\beta}_j\right)=\sqrt{\operatorname{Var}\left(\hat{\beta}_j\right)}\)</span> that we derived in the last class.</p>
-<p>Now that we know the sampling distribution of <span class="math inline">\(\hat{\beta}_j\)</span>, we can make inferences about the population parameter <span class="math inline">\(\beta_j\)</span> under any given null hypothesis</p>
+<p>where <span class="math inline">\(k+1\)</span> is the number of unknown parameters in the population model and <span class="math inline">\(n-k-1\)</span> is the d.o.f.</p>
+</div>
+</div>
+</div>
+<p>Observe the differences!</p>
 </section>
 <section id="single-hypothesis-testing" class="slide level2 smaller">
 <h2>Single hypothesis testing</h2>
@@ -390,29 +430,283 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>Note that this is a test on the <span class="math inline">\(j\)</span>th population parameter while holding all other parameters constant</li>
 <li>One-sided alternative: <span class="math inline">\(H_1: \beta_j &gt; b\)</span> or <span class="math inline">\(H_1: \beta_j &lt; b\)</span></li>
 <li>Two-sided alternative: <span class="math inline">\(H_1: \beta_j \neq b\)</span></li>
-<li>set b= 0. Test statistic: <span class="math inline">\(t = \frac{\hat{\beta}_j - b}{\operatorname{se}(\hat{\beta}_j)} = \frac{\hat{\beta}_j}{\operatorname{se}(\hat{\beta}_j)}\)</span></li>
+<li>set b= 0. Test statistic: <span class="math inline">\(t_{\hat{\beta}_j} = \frac{\hat{\beta}_j - b}{\operatorname{se}(\hat{\beta}_j)} = \frac{\hat{\beta}_j}{\operatorname{se}(\hat{\beta}_j)}\)</span></li>
+<li>We know that the sampling distribution of <span class="math inline">\(t_{\hat{\beta}_j}\)</span> follows…</li>
 </ul>
 </section>
-<section id="one-sided-alternative" class="slide level2 smaller">
-<h2>One-sided alternative</h2>
+<section id="one-sided-test" class="slide level2 smaller">
+<h2>One-sided test</h2>
+<p>Fix a level of significance <span class="math inline">\(\alpha\)</span> (e.g., 0.05)</p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li><strong>One-sided alternative:</strong> <span class="math inline">\(H_1: \beta_j &gt; 0\)</span> or <span class="math inline">\(H_1: \beta_j &lt; 0\)</span></li>
+<li><strong>alternative:</strong> <span class="math inline">\(H_1: \beta_j &gt; 0\)</span> (or <span class="math inline">\(H_1: \beta_j &lt; 0)\)</span>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\hat{\beta}_j} &gt; t_{\alpha, n-k-1}^*\)</span></li>
+<li>p-value = <span class="math inline">\(P(T &gt; t_{\hat{\beta}_j})\)</span> where <span class="math inline">\(T \sim t_{n-k-1}\)</span></li>
+<li>Confidence interval: <span class="math inline">\(\hat{\beta}_j \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\beta}_j)\)</span></li>
+</ul></li>
+<li>For large samples, t-distribution <span class="math inline">\(\rightarrow\)</span> standard normal
+<ul>
+<li>the critical value <span class="math inline">\(\approx  \pm 1.65\)</span> for <span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="onesided.png" height="200"></p>
+<figcaption>One-sided test (right)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="onesided_left.png" height="200"></p>
+<figcaption>One-sided test (left)</figcaption>
+</figure>
+</div>
+</div></div>
 </section>
-<section id="two-sided-alternative" class="slide level2 smaller">
-<h2>Two-sided alternative</h2>
+<section id="examples" class="slide level2 smaller">
+<h2>Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb3-2"><a></a><span class="fu">nrow</span>(meap93) <span class="sc">-</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># DOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 403</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(math10 <span class="sc">~</span> totcomp <span class="sc">+</span> staff <span class="sc">+</span> enroll, <span class="at">data=</span>meap93))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = math10 ~ totcomp + staff + enroll, data = meap93)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-22.235  -7.008  -0.807   6.097  40.689 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.2740209  6.1137938   0.372    0.710    
+totcomp      0.0004586  0.0001004   4.570 6.49e-06 ***
+staff        0.0479199  0.0398140   1.204    0.229    
+enroll      -0.0001976  0.0002152  -0.918    0.359    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.24 on 404 degrees of freedom
+Multiple R-squared:  0.05406,   Adjusted R-squared:  0.04704 
+F-statistic: 7.697 on 3 and 404 DF,  p-value: 5.179e-05</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb7-2"><a></a><span class="fu">nrow</span>(meap93) <span class="sc">-</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># DOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 403</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(math10 <span class="sc">~</span> <span class="fu">log</span>(totcomp) <span class="sc">+</span> <span class="fu">log</span>(staff) <span class="sc">+</span> <span class="fu">log</span>(enroll), <span class="at">data=</span>meap93))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = math10 ~ log(totcomp) + log(staff) + log(enroll), 
+    data = meap93)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-22.735  -6.838  -0.835   6.139  39.718 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -207.6649    48.7031  -4.264 2.50e-05 ***
+log(totcomp)   21.1550     4.0555   5.216 2.92e-07 ***
+log(staff)      3.9800     4.1897   0.950   0.3427    
+log(enroll)    -1.2680     0.6932  -1.829   0.0681 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.18 on 404 degrees of freedom
+Multiple R-squared:  0.06538,   Adjusted R-squared:  0.05844 
+F-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="two-sided-test" class="slide level2 smaller">
+<h2>Two-sided test</h2>
+<p>Fix a level of significance <span class="math inline">\(\alpha\)</span> (e.g., 0.05)</p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li><strong>Two-sided alternative:</strong> <span class="math inline">\(H_1: \beta_j \neq 0\)</span></li>
+<li><strong>alternative:</strong> <span class="math inline">\(H_1: \beta_j \neq 0\)</span>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t_{\hat{\beta}_j}| &gt; t_{\alpha/2, n-k-1}^*\)</span></li>
+<li>p-value = <span class="math inline">\(P(|T| &gt; |t_{\hat{\beta}_j}|)\)</span></li>
+<li>Confidence interval: <span class="math inline">\(\hat{\beta}_j \pm t_{\alpha/2, n-k-1}^* \times \operatorname{se}(\hat{\beta}_j)\)</span></li>
+</ul></li>
+<li>For large samples, t-distribution <span class="math inline">\(\rightarrow\)</span> standard normal
+<ul>
+<li>the critical value <span class="math inline">\(\approx \pm 1.96\)</span> for <span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="twosided.png"></p>
+<figcaption>Two-sided test</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="examples-1" class="slide level2 smaller">
+<h2>Examples</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb11-2"><a></a><span class="fu">nrow</span>(meap93) <span class="sc">-</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># DOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 403</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(math10 <span class="sc">~</span> <span class="fu">log</span>(totcomp) <span class="sc">+</span> <span class="fu">log</span>(staff) <span class="sc">+</span> <span class="fu">log</span>(enroll), <span class="at">data=</span>meap93))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = math10 ~ log(totcomp) + log(staff) + log(enroll), 
+    data = meap93)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-22.735  -6.838  -0.835   6.139  39.718 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -207.6649    48.7031  -4.264 2.50e-05 ***
+log(totcomp)   21.1550     4.0555   5.216 2.92e-07 ***
+log(staff)      3.9800     4.1897   0.950   0.3427    
+log(enroll)    -1.2680     0.6932  -1.829   0.0681 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.18 on 404 degrees of freedom
+Multiple R-squared:  0.06538,   Adjusted R-squared:  0.05844 
+F-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06</code></pre>
+</div>
+</div>
 </section>
 <section id="computing-p-values" class="slide level2 smaller">
 <h2>Computing p-values</h2>
+<ul>
+<li>p-value is the probability of observing the sample (statistic) if <span class="math inline">\(H_0\)</span> is true</li>
+<li>Indeed you can do this using a table.</li>
+<li>But R can do this for you</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>t_value <span class="ot">&lt;-</span> <span class="fl">2.5</span>    <span class="co">#  t-value</span></span>
+<span id="cb15-2"><a></a>df <span class="ot">&lt;-</span> <span class="dv">100</span>         <span class="co">#  degrees of freedom</span></span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a><span class="co"># Two-tailed p-value</span></span>
+<span id="cb15-5"><a></a>p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(t_value), df))</span>
+<span id="cb15-6"><a></a><span class="fu">print</span>(p_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01404579</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># One-tailed p-value (right tail)</span></span>
+<span id="cb17-2"><a></a>p_right <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t_value, df)</span>
+<span id="cb17-3"><a></a><span class="fu">print</span>(p_right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.007022895</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># One-tailed p-value (left tail)</span></span>
+<span id="cb19-2"><a></a>p_left <span class="ot">&lt;-</span> <span class="fu">pt</span>(t_value, df)</span>
+<span id="cb19-3"><a></a><span class="fu">print</span>(p_left)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9929771</code></pre>
+</div>
+</div>
+<!-- ## Computing Confidence Intervals {.smaller}
+
+- Confidence interval is a range of values where we are $1-\alpha$ confident that the true population parameter lies within
+- Example: -->
 </section>
-<section id="confidence-intervals" class="slide level2 smaller">
-<h2>Confidence Intervals</h2>
+<section id="testing-linear-combinations" class="slide level2 smaller">
+<h2>Testing Linear combinations</h2>
+<p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> and <span class="math inline">\(H_1: \beta_1 &lt; \beta_2\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb21-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> univ <span class="sc">+</span> exper, <span class="at">data =</span> twoyear))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = lwage ~ jc + univ + exper, data = twoyear)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.10362 -0.28132  0.00551  0.28518  1.78167 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 1.4723256  0.0210602  69.910   &lt;2e-16 ***
+jc          0.0666967  0.0068288   9.767   &lt;2e-16 ***
+univ        0.0768762  0.0023087  33.298   &lt;2e-16 ***
+exper       0.0049442  0.0001575  31.397   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4301 on 6759 degrees of freedom
+Multiple R-squared:  0.2224,    Adjusted R-squared:  0.2221 
+F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
 </section>
-<section id="testing-single-linear-combination-of-parameters" class="slide level2 smaller">
-<h2>Testing Single Linear combination of parameters</h2>
+<section id="what-can-we-do" class="slide level2 smaller">
+<h2>What can we do?</h2>
+<p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> and <span class="math inline">\(H_1: \beta_1 &lt; \beta_2\)</span></p>
+<!-- - $H_0: \beta_1 - \beta_2 = 0$ and $H_1: \beta_1 - \beta_2 < 0$ -->
+<ul>
+<li>Call <span class="math inline">\(\beta_1 - \beta_2 = \theta\)</span> and so <span class="math inline">\(H_0: \theta = 0\)</span> and <span class="math inline">\(H_1: \theta &lt; 0\)</span></li>
+<li>Test statistic: <span class="math inline">\(t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}\)</span></li>
+<li>Based on d.o.f. we can look up the critical value <span class="math inline">\(t_{\alpha, n-k-1}^*\)</span> and compare with <span class="math inline">\(t_{\hat{\theta}}\)</span>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\hat{\theta}} &lt; t_{\alpha, n-k-1}^*\)</span></li>
+<li>p-value = <span class="math inline">\(P(T &lt; t_{\hat{\theta}})\)</span> where <span class="math inline">\(T \sim t_{n-k-1}\)</span></li>
+<li>Confidence interval: <span class="math inline">\(\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})\)</span></li>
+</ul></li>
+<li>Easy to calculate if <span class="math inline">\(\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}\)</span> is known</li>
+</ul>
+</section>
+<section id="implementation" class="slide level2 smaller">
+<h2>Implementation</h2>
+<p><span class="math display">\[log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></p>
+<p><span class="math display">\[log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb23-2"><a></a>data <span class="ot">&lt;-</span> twoyear</span>
+<span id="cb23-3"><a></a>data<span class="sc">$</span>total_years <span class="ot">&lt;-</span> data<span class="sc">$</span>univ <span class="sc">+</span> data<span class="sc">$</span>jc</span>
+<span id="cb23-4"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> total_years <span class="sc">+</span> exper, <span class="at">data =</span> data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = lwage ~ jc + total_years + exper, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.10362 -0.28132  0.00551  0.28518  1.78167 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.4723256  0.0210602  69.910   &lt;2e-16 ***
+jc          -0.0101795  0.0069359  -1.468    0.142    
+total_years  0.0768762  0.0023087  33.298   &lt;2e-16 ***
+exper        0.0049442  0.0001575  31.397   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4301 on 6759 degrees of freedom
+Multiple R-squared:  0.2224,    Adjusted R-squared:  0.2221 
+F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
 </section>
 <section id="testing-multiple-linear-restrictions" class="slide level2 smaller">
 <h2>Testing Multiple Linear Restrictions</h2>

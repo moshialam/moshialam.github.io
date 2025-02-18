@@ -277,91 +277,105 @@
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#sampling-distributions",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "sampling distributions",
-    "text": "sampling distributions\n\nThe distribution of the sample statistic (e.g., sample mean, sample variance, regression coefficients) over repeated independent sampling\n\nSampling variability: The variability of the sample statistic across different samples\nStandard error: The estimate of the standard deviation of the sampling distribution of a sample statistic\nCentral Limit Theorem (CLT): Let \\(\\{X_1, X_2, \\ldots, X_n\\}\\) be a random sample of size \\(n\\) from a population with mean \\(\\mu\\) and variance \\(\\sigma^2\\). Then, as \\(n\\) approaches infinity, the sampling distribution of the sample mean \\(\\bar{X}\\) approaches a normal distribution with mean \\(\\mu\\) and variance \\(\\sigma^2/n\\).\n\ni.e. as sample size goes to infinity, \\(\\bar{X} \\sim N(\\mu, \\sigma^2/n)\\) so that \\(\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)\\)\nThe average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.\n\nRecall from Econ 160:\n\nThe sampling distribution of the sample proportion \\(\\hat{p}\\) approaches a normal distribution with mean \\(p\\) and variance \\(p(1-p)/n\\).\nThe sampling distribution of sample means follows a \\(t\\)-distribution with \\(n-1\\) degrees of freedom"
+    "text": "sampling distributions\n\nThe distribution of the sample statistic (e.g., sample mean, sample variance, regression coefficients) over repeated independent sampling\n\nSampling variability: The variability of the sample statistic across different samples\nStandard error: The estimate of the standard deviation of the sampling distribution of a sample statistic\nCentral Limit Theorem (CLT): Let \\(\\{X_1, X_2, \\ldots, X_n\\}\\) be a random sample of size \\(n\\) from a population with mean \\(\\mu\\) and variance \\(\\sigma^2\\). Then, as \\(n\\) approaches infinity, \\(\\bar{X} \\sim N(\\mu, \\sigma^2/n)\\) so that \\(\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)\\) \nRecall from Econ 160:\n\nThe sampling distribution of the sample proportion \\(\\hat{p}\\) approaches a normal distribution with mean \\(p\\) and variance \\(p(1-p)/n\\).\nThe sampling distribution of sample means follows a \\(t\\)-distribution with \\(n-1\\) degrees of freedom"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#hypothesis-testing",
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#hypothesis-testing",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Hypothesis testing",
-    "text": "Hypothesis testing\n\nNull hypothesis \\(H_0\\): A statement about the population parameter that is assumed to be true and test against an alternative hypothesis \\(H_1\\)\nType I error: Rejecting the \\(H_0\\) when it is true\nType II error: Failing to reject the \\(H_0\\) when it is false\nSignificance level: The probability of committing a Type I error, denoted by \\(\\alpha\\)\nConfidence interval: A range of values where we are \\(1-\\alpha\\) confident that the true population parameter lies within\n\nestimate \\(\\pm\\) critical value \\(\\times\\) standard error\nWhat happens if the CI contains the hypothesized value?"
+    "text": "Hypothesis testing\n\nNull hypothesis \\(H_0\\): A statement about the population parameter that is assumed to be true and test against an alternative hypothesis \\(H_1\\)\nType I error: Rejecting the \\(H_0\\) when it is true\nType II error: Failing to reject the \\(H_0\\) when it is false\nSignificance level: The probability of committing a Type I error, denoted by \\(\\alpha\\)\nConfidence interval: A range of values where we are \\(1-\\alpha\\) confident that the true population parameter lies within\n\nestimate \\(\\pm\\) critical value \\(\\times\\) standard error\nWhat happens if the CI contains the hypothesized value?\n\nTests can only allow us to reject the \\(H_0\\) or fail to reject the \\(H_0\\) but never accept the \\(H_0\\). Why?"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#section",
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#section",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "",
-    "text": "p-value: The probability of observing the sample statistic or more extreme values under the \\(H_0\\)\n\nWhat does it mean when p-value is less than \\(\\alpha\\)?\n\nCritical value: The value that separates the rejection region from the non-rejection region in hypothesis testing\n\nWhat is critical value for a two-tailed test with \\(\\alpha = 0.05\\)?\n\nCritical region: The range of values that leads to the rejection of the \\(H_0\\)\nOne-tailed test: A hypothesis test that tests the \\(H_0\\) in one direction\nTwo-tailed test: A hypothesis test that tests the \\(H_0\\) in both directions"
+    "text": "p-value: The probability of observing the sample (statistic) if \\(H_0\\) were true\n\nWhat does it mean when p-value is less than \\(\\alpha\\)?\n\nCritical value: The value that separates the rejection region from the non-rejection region in hypothesis testing\n\nWhat is critical value for a two-tailed test with \\(\\alpha = 0.05\\)?\n\nCritical region: The range of values that leads to the rejection of the \\(H_0\\)\nOne-tailed test: A hypothesis test that tests the \\(H_0\\) in one direction\nTwo-tailed test: A hypothesis test that tests the \\(H_0\\) in both directions"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#big-picture",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#big-picture",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Big picture",
+    "text": "Big picture\n\nTo test hypotheses about regression coeffcients \\(\\hat{\\beta}_j\\), we need to know:\n\nthe sampling distribution of the \\(\\hat{\\beta}_j\\)’s  \n\nOnce we have the sampling distribution of the \\(\\hat{\\beta}_j\\)\n\nWe can get the standard errors of the \\(\\hat{\\beta}_j\\)’s\n\nEstimates of the standard deviation of the sampling distribution of the \\(\\hat{\\beta}_j\\)’s\n\n\nWe can make inferences about the population parameters \\(\\beta_j\\)’s’ based on\n\nthe estimates, standard errors and the sampling distribution of the \\(\\hat{\\beta}_j\\)’s\n\nTurns out that under some assumptions, the \\(\\hat{\\beta}_j\\)’s follow a \\(t\\) distribution (in practice) \n\nIt requires an assumption on the distribution of the errors \\(u_i\\)’s MLR.6"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#assumption-mlr.6",
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#assumption-mlr.6",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Assumption MLR.6:",
-    "text": "Assumption MLR.6:\nNormality and independence of Errors\nThe population error \\(u_i\\) is normally distributed with mean 0 and constant variance \\(\\sigma^2\\) for all \\(i = 1, 2, \\ldots, n\\) and independent of the regressors. \\[u_i \\sim N(0, \\sigma^2)\\]\n\nMuch stronger assumption than others\nThis directly implies MLR.4 and MLR.5\nThe full set of assumptions MLR.1-MLR.6 are called the classical linear model (CLM) assumptions. They imply: \\[y \\mid x_1, \\ldots x_k \\sim N(\\beta_0 + \\beta_1 x_{1i} + \\ldots + \\beta_k x_{ki}, \\sigma^2)\\]"
+    "text": "Assumption MLR.6:\n\n\n\nAssumption MLR.6: Normality of Errors\n\n\nThe population error \\(u_i\\) is normally distributed with mean 0 and constant variance \\(\\sigma^2\\) and independent of the regressors for all \\(i = 1, 2, \\ldots, n\\) \\[u_i \\sim N(0, \\sigma^2)\\]\n\n\n\n\nThis directly implies MLR.4 and MLR.5\nThe full set of assumptions MLR.1-MLR.6 are called the classical linear model (CLM) assumptions. Together they imply: \\[y \\mid x_1, \\ldots x_k \\sim N(\\beta_0 + \\beta_1 x_{1i} + \\ldots + \\beta_k x_{ki}, \\sigma^2)\\]\nHard to defend this very strong assumption\n\nThankfully not required for large samples (Ch-5)"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#arguements-for-and-against-the-normality-assumption",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#arguements-for-and-against-the-normality-assumption",
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#section-1",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#section-1",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "Arguements for and against the normality assumption",
-    "text": "Arguements for and against the normality assumption"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.1",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.1",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Theorem 4.1:",
-    "text": "Theorem 4.1:\nNormality of OLS Estimators\nUnder MLR.1-MLR.6, the OLS estimators \\(\\hat{\\beta}_0, \\hat{\\beta}_1, \\ldots, \\hat{\\beta}_k\\) are normally distributed.\nUnder the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,\n\\[\n\\hat{\\beta}_j \\sim \\operatorname{Normal}\\left(\\beta_j , \\operatorname{Var}\\left(\\hat{\\beta}_j\\right)\\right),\n\\]\nwhere \\(\\operatorname{Var}\\left(\\hat{\\beta}_{j}\\right)\\)was given in Chapter 3 [equation (3.51)]. Therefore,\n\\[\n\\frac{\\hat{\\beta}_j-\\beta_j}{\\operatorname{sd}\\left(\\hat{\\beta}_j\\right)} \\sim \\operatorname{Normal}(0,1)\n\\]\nProof: See Math Refresher B. Note that each \\(\\hat{\\beta_j}\\) can be written as a linear combination of the \\(u_i\\)’s and the \\(x_{ji}\\)’s. Specifically, \\(\\hat{\\beta}_j = \\beta_j + \\sum_{i=1}^n w_{ij} u_i\\), where the \\(w_{ij} = \\hat{r_{ij}}/SSR_j\\) where \\(\\hat{r_{ij}}\\) is the \\(i\\)th residual from regressing \\(x_j\\) on all other independent variables and \\(SSR_j\\) is the sum of squared residuals from that regression."
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.2",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#theorem-4.2",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Theorem 4.2:",
-    "text": "Theorem 4.2:\nUnder the CLM assumptions MLR. 1 through MLR.6,\n\\[\n\\frac{\\left(\\hat{\\boldsymbol{\\beta}}_j-\\beta_j\\right)}{\\operatorname{se}\\left(\\hat{\\boldsymbol{\\beta}}_j\\right)} \\sim t_{n-k-1} \\quad \\text { for } j=0,1, \\ldots, k\n\\]\nwhere \\(k+1\\) is the number of unknown parameters in the population model and \\(n-k-1\\) is the degrees of freedom (df).\nThe standard error of \\(\\hat{\\beta}_j\\) is \\(\\operatorname{se}\\left(\\hat{\\beta}_j\\right)=\\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_j\\right)}\\) that we derived in the last class.\nNow that we know the sampling distribution of \\(\\hat{\\beta}_j\\), we can make inferences about the population parameter \\(\\beta_j\\) under any given null hypothesis"
+    "section": "",
+    "text": "Theorem 4.1: Normality of OLS Estimators\n\n\nUnder the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,\n\\[\n\\hat{\\beta}_j \\sim \\operatorname{Normal}\\left(\\beta_j , \\operatorname{Var}\\left(\\hat{\\beta}_j\\right)\\right),\n\\]\nwhere \\(\\operatorname{Var}\\left(\\hat{\\beta}_{j}\\right)\\)was given in Chapter 3 [equation (3.51)]. Therefore,\n\\[\n\\frac{\\hat{\\beta}_j-\\beta_j}{\\operatorname{sd}\\left(\\hat{\\beta}_j\\right)} \\sim \\operatorname{Normal}(0,1) \\quad \\text { for } j=0,1, \\ldots, k\n\\]\n\n\n\n\n\n\nTheorem 4.2: t-distribution of OLS Estimates\n\n\nUnder the CLM assumptions MLR. 1 through MLR.6, conditional on the sample values of the independent variables,\n\\[\n\\frac{\\hat{\\beta}_j-\\beta_j}{\\operatorname{se}\\left(\\hat{\\beta}_j\\right)} \\sim t_{n-k-1} \\quad \\text { for } j=0,1, \\ldots, k\n\\]\nwhere \\(k+1\\) is the number of unknown parameters in the population model and \\(n-k-1\\) is the d.o.f.\n\n\n\nObserve the differences!"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#single-hypothesis-testing",
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#single-hypothesis-testing",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Single hypothesis testing",
-    "text": "Single hypothesis testing\n\nNull hypothesis: \\(H_0: \\beta_j = b\\), where \\(b\\) is a hypothesized value typically 0\nNote that this is a test on the \\(j\\)th population parameter while holding all other parameters constant\nOne-sided alternative: \\(H_1: \\beta_j &gt; b\\) or \\(H_1: \\beta_j &lt; b\\)\nTwo-sided alternative: \\(H_1: \\beta_j \\neq b\\)\nset b= 0. Test statistic: \\(t = \\frac{\\hat{\\beta}_j - b}{\\operatorname{se}(\\hat{\\beta}_j)} = \\frac{\\hat{\\beta}_j}{\\operatorname{se}(\\hat{\\beta}_j)}\\)"
+    "text": "Single hypothesis testing\n\nNull hypothesis: \\(H_0: \\beta_j = b\\), where \\(b\\) is a hypothesized value typically 0\nNote that this is a test on the \\(j\\)th population parameter while holding all other parameters constant\nOne-sided alternative: \\(H_1: \\beta_j &gt; b\\) or \\(H_1: \\beta_j &lt; b\\)\nTwo-sided alternative: \\(H_1: \\beta_j \\neq b\\)\nset b= 0. Test statistic: \\(t_{\\hat{\\beta}_j} = \\frac{\\hat{\\beta}_j - b}{\\operatorname{se}(\\hat{\\beta}_j)} = \\frac{\\hat{\\beta}_j}{\\operatorname{se}(\\hat{\\beta}_j)}\\)\nWe know that the sampling distribution of \\(t_{\\hat{\\beta}_j}\\) follows…"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-alternative",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-alternative",
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-test",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#one-sided-test",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "One-sided alternative",
-    "text": "One-sided alternative\n\nOne-sided alternative: \\(H_1: \\beta_j &gt; 0\\) or \\(H_1: \\beta_j &lt; 0\\)"
+    "section": "One-sided test",
+    "text": "One-sided test\nFix a level of significance \\(\\alpha\\) (e.g., 0.05)\n\n\n\nalternative: \\(H_1: \\beta_j &gt; 0\\) (or \\(H_1: \\beta_j &lt; 0)\\)\n\nReject \\(H_0\\) if \\(t_{\\hat{\\beta}_j} &gt; t_{\\alpha, n-k-1}^*\\)\np-value = \\(P(T &gt; t_{\\hat{\\beta}_j})\\) where \\(T \\sim t_{n-k-1}\\)\nConfidence interval: \\(\\hat{\\beta}_j \\pm t_{\\alpha, n-k-1}^* \\times \\operatorname{se}(\\hat{\\beta}_j)\\)\n\nFor large samples, t-distribution \\(\\rightarrow\\) standard normal\n\nthe critical value \\(\\approx  \\pm 1.65\\) for \\(\\alpha = 0.05\\)\n\n\n\n\n\n\nOne-sided test (right)\n\n\n\n\n\nOne-sided test (left)"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-alternative",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-alternative",
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#examples",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#examples",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "Two-sided alternative",
-    "text": "Two-sided alternative\n\nTwo-sided alternative: \\(H_1: \\beta_j \\neq 0\\)"
+    "section": "Examples",
+    "text": "Examples\n\n\n\nlibrary(wooldridge)\nnrow(meap93) - 4 - 1 # DOF\n\n[1] 403\n\nsummary(lm(math10 ~ totcomp + staff + enroll, data=meap93))\n\n\nCall:\nlm(formula = math10 ~ totcomp + staff + enroll, data = meap93)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.235  -7.008  -0.807   6.097  40.689 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.2740209  6.1137938   0.372    0.710    \ntotcomp      0.0004586  0.0001004   4.570 6.49e-06 ***\nstaff        0.0479199  0.0398140   1.204    0.229    \nenroll      -0.0001976  0.0002152  -0.918    0.359    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 10.24 on 404 degrees of freedom\nMultiple R-squared:  0.05406,   Adjusted R-squared:  0.04704 \nF-statistic: 7.697 on 3 and 404 DF,  p-value: 5.179e-05\n\n\n\n\nlibrary(wooldridge)\nnrow(meap93) - 4 - 1 # DOF\n\n[1] 403\n\nsummary(lm(math10 ~ log(totcomp) + log(staff) + log(enroll), data=meap93))\n\n\nCall:\nlm(formula = math10 ~ log(totcomp) + log(staff) + log(enroll), \n    data = meap93)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.735  -6.838  -0.835   6.139  39.718 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -207.6649    48.7031  -4.264 2.50e-05 ***\nlog(totcomp)   21.1550     4.0555   5.216 2.92e-07 ***\nlog(staff)      3.9800     4.1897   0.950   0.3427    \nlog(enroll)    -1.2680     0.6932  -1.829   0.0681 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 10.18 on 404 degrees of freedom\nMultiple R-squared:  0.06538,   Adjusted R-squared:  0.05844 \nF-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-test",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#two-sided-test",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Two-sided test",
+    "text": "Two-sided test\nFix a level of significance \\(\\alpha\\) (e.g., 0.05)\n\n\n\nalternative: \\(H_1: \\beta_j \\neq 0\\)\n\nReject \\(H_0\\) if \\(|t_{\\hat{\\beta}_j}| &gt; t_{\\alpha/2, n-k-1}^*\\)\np-value = \\(P(|T| &gt; |t_{\\hat{\\beta}_j}|)\\)\nConfidence interval: \\(\\hat{\\beta}_j \\pm t_{\\alpha/2, n-k-1}^* \\times \\operatorname{se}(\\hat{\\beta}_j)\\)\n\nFor large samples, t-distribution \\(\\rightarrow\\) standard normal\n\nthe critical value \\(\\approx \\pm 1.96\\) for \\(\\alpha = 0.05\\)\n\n\n\n\n\n\nTwo-sided test"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#examples-1",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#examples-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Examples",
+    "text": "Examples\n\nlibrary(wooldridge)\nnrow(meap93) - 4 - 1 # DOF\n\n[1] 403\n\nsummary(lm(math10 ~ log(totcomp) + log(staff) + log(enroll), data=meap93))\n\n\nCall:\nlm(formula = math10 ~ log(totcomp) + log(staff) + log(enroll), \n    data = meap93)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.735  -6.838  -0.835   6.139  39.718 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -207.6649    48.7031  -4.264 2.50e-05 ***\nlog(totcomp)   21.1550     4.0555   5.216 2.92e-07 ***\nlog(staff)      3.9800     4.1897   0.950   0.3427    \nlog(enroll)    -1.2680     0.6932  -1.829   0.0681 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 10.18 on 404 degrees of freedom\nMultiple R-squared:  0.06538,   Adjusted R-squared:  0.05844 \nF-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#computing-p-values",
     "href": "teachingmaterials/UG_intro_metrics/05_inference.html#computing-p-values",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Computing p-values",
-    "text": "Computing p-values"
+    "text": "Computing p-values\n\np-value is the probability of observing the sample (statistic) if \\(H_0\\) is true\nIndeed you can do this using a table.\nBut R can do this for you\n\n\nt_value &lt;- 2.5    #  t-value\ndf &lt;- 100         #  degrees of freedom\n\n# Two-tailed p-value\np_value &lt;- 2 * (1 - pt(abs(t_value), df))\nprint(p_value)\n\n[1] 0.01404579\n\n# One-tailed p-value (right tail)\np_right &lt;- 1 - pt(t_value, df)\nprint(p_right)\n\n[1] 0.007022895\n\n# One-tailed p-value (left tail)\np_left &lt;- pt(t_value, df)\nprint(p_left)\n\n[1] 0.9929771"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#confidence-intervals",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#confidence-intervals",
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-linear-combinations",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-linear-combinations",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "Confidence Intervals",
-    "text": "Confidence Intervals"
+    "section": "Testing Linear combinations",
+    "text": "Testing Linear combinations\n\\[log(wage_i) = \\beta_0 + \\beta_1 jc_i + \\beta_2 univ_i + \\beta_3 exper_i + u_i\\] \\(H_0: \\beta_1 = \\beta_2\\) and \\(H_1: \\beta_1 &lt; \\beta_2\\)\n\nlibrary(wooldridge)\nsummary(lm(lwage ~ jc + univ + exper, data = twoyear))\n\n\nCall:\nlm(formula = lwage ~ jc + univ + exper, data = twoyear)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.10362 -0.28132  0.00551  0.28518  1.78167 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 1.4723256  0.0210602  69.910   &lt;2e-16 ***\njc          0.0666967  0.0068288   9.767   &lt;2e-16 ***\nuniv        0.0768762  0.0023087  33.298   &lt;2e-16 ***\nexper       0.0049442  0.0001575  31.397   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4301 on 6759 degrees of freedom\nMultiple R-squared:  0.2224,    Adjusted R-squared:  0.2221 \nF-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-single-linear-combination-of-parameters",
-    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-single-linear-combination-of-parameters",
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#what-can-we-do",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#what-can-we-do",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "Testing Single Linear combination of parameters",
-    "text": "Testing Single Linear combination of parameters"
+    "section": "What can we do?",
+    "text": "What can we do?\n\\[log(wage_i) = \\beta_0 + \\beta_1 jc_i + \\beta_2 univ_i + \\beta_3 exper_i + u_i\\] \\(H_0: \\beta_1 = \\beta_2\\) and \\(H_1: \\beta_1 &lt; \\beta_2\\)\n\n\nCall \\(\\beta_1 - \\beta_2 = \\theta\\) and so \\(H_0: \\theta = 0\\) and \\(H_1: \\theta &lt; 0\\)\nTest statistic: \\(t_{\\hat{\\theta}} = \\frac{\\hat{\\theta}}{\\operatorname{se}(\\hat{\\theta})} = \\frac{\\hat{\\beta}_1 - \\hat{\\beta}_2}{\\operatorname{se}(\\hat{\\beta}_1-\\hat{\\beta}_2)} = \\frac{\\hat{\\beta}_1 - \\hat{\\beta}_2}{\\sqrt{\\operatorname{se}(\\hat{\\beta}_1)^2 + \\operatorname{se}(\\hat{\\beta}_2)^2 + 2\\widehat{\\operatorname{cov}(\\hat{\\beta}_1, \\hat{\\beta}_2)}}}\\)\nBased on d.o.f. we can look up the critical value \\(t_{\\alpha, n-k-1}^*\\) and compare with \\(t_{\\hat{\\theta}}\\)\n\nReject \\(H_0\\) if \\(t_{\\hat{\\theta}} &lt; t_{\\alpha, n-k-1}^*\\)\np-value = \\(P(T &lt; t_{\\hat{\\theta}})\\) where \\(T \\sim t_{n-k-1}\\)\nConfidence interval: \\(\\hat{\\theta} \\pm t_{\\alpha, n-k-1}^* \\times \\operatorname{se}(\\hat{\\theta})\\)\n\nEasy to calculate if \\(\\widehat{\\operatorname{cov}(\\hat{\\beta}_1, \\hat{\\beta}_2)}\\) is known"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#implementation",
+    "href": "teachingmaterials/UG_intro_metrics/05_inference.html#implementation",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Implementation",
+    "text": "Implementation\n\\[log(wage_i) = \\beta_0 + (\\theta + \\beta_2) jc_i + \\beta_2 univ_i + \\beta_3 exper_i + u_i\\]\n\\[log(wage_i) = \\beta_0 + \\theta jc_i + \\beta_2 (jc_i + univ_i) + \\beta_3 exper_i + u_i\\]\n\nlibrary(wooldridge)\ndata &lt;- twoyear\ndata$total_years &lt;- data$univ + data$jc\nsummary(lm(lwage ~ jc + total_years + exper, data = data))\n\n\nCall:\nlm(formula = lwage ~ jc + total_years + exper, data = data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.10362 -0.28132  0.00551  0.28518  1.78167 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  1.4723256  0.0210602  69.910   &lt;2e-16 ***\njc          -0.0101795  0.0069359  -1.468    0.142    \ntotal_years  0.0768762  0.0023087  33.298   &lt;2e-16 ***\nexper        0.0049442  0.0001575  31.397   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4301 on 6759 degrees of freedom\nMultiple R-squared:  0.2224,    Adjusted R-squared:  0.2221 \nF-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#testing-multiple-linear-restrictions",
