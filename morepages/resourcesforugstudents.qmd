@@ -24,6 +24,7 @@ _I strongly encourage students to use open-source languages like R, julia and py
     - [`binsreg`](https://cran.r-project.org/web/packages/binsreg/binsreg.pdf)
     - [`vtable`](https://cloud.r-project.org/web/packages/vtable/index.html)
     - [`stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
+    - [more on `stargazer`](https://www.jakeruss.com/cheatsheets/stargazer/)
     - [`modelsummary`](https://modelsummary.com)
 
 
