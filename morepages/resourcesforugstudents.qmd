@@ -21,9 +21,10 @@ _I strongly encourage students to use open-source languages like R, julia and py
     - [`ggplot2`](https://ggplot2.tidyverse.org/)
     - [`fixest`](https://lrberge.github.io/fixest/)
     - [`AER` (*Applied Econometrics with R*)](https://cran.r-project.org/web/packages/AER/index.html)
-    - [`stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
     - [`binsreg`](https://cran.r-project.org/web/packages/binsreg/binsreg.pdf)
     - [`vtable`](https://cloud.r-project.org/web/packages/vtable/index.html)
+    - [`stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
+    - [`modelsummary`](https://modelsummary.com)
 
 
 ## Stata Resources

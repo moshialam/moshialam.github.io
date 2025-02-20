@@ -206,9 +206,11 @@ Observe the differences!
 
 
 
-
+# Single hypothesis testing 
 
 ## Single hypothesis testing {.smaller}
+
+Inference on the $j$th population parameter $\beta_j$:
 
 - **Null hypothesis:** $H_0: \beta_j = b$, where $b$ is a hypothesized value typically 0
 - Note that this is a test on the $j$th population parameter while holding all other parameters constant
@@ -334,39 +336,46 @@ print(p_left)
 
 ## Testing Linear combinations {.smaller}
 
-$$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ $H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$
+$$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ 
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(wooldridge)
 summary(lm(lwage ~ jc + univ + exper, data = twoyear))
 ```
+- Does attending $jc_i$ has lower effect on wages as going to university $univ_i$?
+- What are we testing?
 
-
-## What can we do? {.smaller}
+## {.smaller}
 $$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ $H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$
 
 
 
 <!-- - $H_0: \beta_1 - \beta_2 = 0$ and $H_1: \beta_1 - \beta_2 < 0$ -->
+:::{.incremental}
 - Call $\beta_1 - \beta_2 = \theta$ and so $H_0: \theta = 0$ and $H_1: \theta < 0$
 - Test statistic: $t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}$
-- Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$ and compare with $t_{\hat{\theta}}$
-  - Reject $H_0$ if $t_{\hat{\theta}} < t_{\alpha, n-k-1}^*$
-  - p-value = $P(T < t_{\hat{\theta}})$ where $T \sim t_{n-k-1}$
-  - Confidence interval: $\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})$
-- Easy to calculate if $\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}$ is known 
-
+<!-- - Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$  -->
+  - Reject $H_0$ 
+    - if $t_{\hat{\theta}} < t_{\alpha, n-k-1}^*$
+    - Or if p-value = $P(T < t_{\hat{\theta}})$ where $T \sim t_{n-k-1}$ is less than $\alpha$
+    - Or if CI: $[\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]$ does not contain zero
+- Easy to calculate  $t_{\hat{\theta}}$ if $\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}$ is known 
+:::
 
 ## Implementation {.smaller}
-$$log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$
 
+
+:::{.incremental}
+- $$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ <!--$H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$ -->
+- $$log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$
+- $$log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i$$
+:::
+
+## R code {.smaller}
 $$log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i$$
-
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(wooldridge)
-data <- twoyear
-data$total_years <- data$univ + data$jc
-summary(lm(lwage ~ jc + total_years + exper, data = data))
+summary(lm(lwage ~ jc + I(jc + univ) + exper, data = twoyear))
 ```
 
 
@@ -376,11 +385,197 @@ summary(lm(lwage ~ jc + total_years + exper, data = data))
 
 
 
+# Testing Multiple Linear Restrictions 
+
+
+## Testing multiple restrictions {.smaller}
+
+- The $t$-test is used to test a hypothesis about a single population parameter $\beta_j$
+- The $F$-test is used to test multiple hypotheses about multiple population parameters *jointly*
+- Example: $\log (\text { salary }_i )=  \beta_0+\beta_1 \text { years }_i +\beta_2 \text { gamesyr }_i +\beta_3 \text { bavg }_i  +\beta_4 \text { hrunsyr }_i +\beta_5 \text { rbisyr }_i +u_i$
+  - $\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0$
+  - $\mathrm{H}_1:$ $H_0$ is not true: At least one of $\beta_3, \beta_4, \beta_5$ is not zero
+
+
+## {.smaller}          
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+summary(lm(log(salary) ~ years + gamesyr + bavg + hrunsyr + rbisyr, data = mlb1))
+```
+- Based on what we have learned so far, what do we think about $\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0$?
+
+<!-- ## Economic vs Statistical Significance {.smaller} -->
+
+## Let us run both models {.smaller}
+
+:::{.columns}
+:::{.column width="50%"}
+#### Unrestricted model
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+unrestricted <-  lm(log(salary) ~ years + gamesyr + bavg + hrunsyr + rbisyr, data = mlb1)
+summary(unrestricted)
+sum(unrestricted$residuals^2)
+```
+:::
+:::{.column width="50%"}
+#### Restricted model
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+restricted <-  lm(log(salary) ~ years + gamesyr, data = mlb1)
+summary(restricted)
+sum(restricted$residuals^2)
+```
+:::
+:::
+
+- Is the increase in SSR large enough to reject the null hypothesis?
+- But what is the test statistic that we can use?
+
+## The F-test {.smaller}
+
+:::{.columns}
+:::{.column width="50%"}
+:::{.incremental}
+- $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$
+<!-- - $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_{k-q-1} x_{k-q-1} + \beta_{k-q} x_{k-q} + \beta_{k-q+1} x_{k-q+1} + \ldots + \beta_k x_{ki} + u_i$ -->
+- Hypotheses Test of $q$ *exclusion restrictions*
+  - $H_0: \beta_{k-q} = \beta_{k-q+1} = \ldots = \beta_k = 0$ 
+  - $H_1:$ At least one of $\beta_{k-q}, \beta_{k-q+1}, \ldots, \beta_k$ is not zero
+- Test statistic: $F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)}$
+  <!-- - $SSR_r$ and $SSR_{ur}$ are the sum of squared residuals from the restricted and unrestricted models
+  - $q$ is the number of restrictions
+  - $n$ is the number of observations and $k$ is the number of parameters in the unrestricted model -->
+  - Follows an $F$-distribution with $q$ and $n-k-1$ d.o.f.
+  - Note:
+    -  $q = dof_r - dof_{ur}$
+    -  F > 0
+:::
+:::
+:::{.column width="50%"}
+![Example F sampling distribution](f_crit.png)
+:::
+:::
+
+## Going back to the example {.smaller}
+
+ $\log(salary_i)=  \beta_0+\beta_1 years_i +\beta_2 gamesyr_i +\beta_3 bavg_i  +\beta_4 hrunsyr_i +\beta_5 rbisyr_i +u_i$
+
+- $\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0$
+- $\mathrm{H}_1:$ $H_0$ is not true.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(wooldridge)
+unrestricted <-  lm(log(salary) ~ years + gamesyr + bavg + hrunsyr + rbisyr, data = mlb1)
+restricted <-  lm(log(salary) ~ years + gamesyr, data = mlb1)
+F_stat <- ((sum(restricted$residuals^2) - sum(unrestricted$residuals^2))/3)/(sum(unrestricted$residuals^2)/(nrow(mlb1) - 5-1))
+print(F_stat)
+
+critical_F <- qf(0.05, df1 = 3, df2 = nrow(mlb1) - 5-1, lower.tail = F)
+print(critical_F)
+
+if (F_stat > critical_F) {
+  print("Reject H0")
+} else {
+  print("Fail to reject H0")
+}
+```
+
+## {.smaller}
+ $\log(salary_i)=  \beta_0+\beta_1 years_i +\beta_2 gamesyr_i +\beta_3 bavg_i  +\beta_4 hrunsyr_i +\beta_5 rbisyr_i +u_i$
+
+
+:::{.incremental}
+- But recall when we ran the unrestricted model, we found that $\beta_3, \beta_4, \beta_5$ were not statistically significant.
+- So, whats going on here with the joint F-test?
+- $hrunsyr$ and $rbisyr$ are highly correlated. 
+  -  multicollinearity $\rightarrow$ large standard errors $\rightarrow$  low t-stats  $\rightarrow$  individual statistical insignificance
+- The F-test is a joint test (including bavg) and is not affected by multicollinearity 
+- Hence F-tests of joint hypotheses can be useful in the presence of multicollinearity
+:::
+
+## Relationship between t and F tests {.smaller}
+
+- For a single restriction $q=1$, the F-test is equivalent to the t-test
+  - $F_{1,n-k-1} = t^2_{n-k-1}$
+- For single hypothesis testing, the t-test is more powerful
+  -  F-tests remain under-powered than t-tests (See Math refresher C)
 
 
 
+## Reporting Regression Results {.smaller}
 
-## Testing Multiple Linear Restrictions {.smaller}
-### F-test {.smaller}
+- **Report Estimated Coefficients**  
+  - Interpret key variables' estimates in economic or practical terms.
 
-## Economic vs Statistical Significance {.smaller}
+- **Include Standard Errors**  
+  - Preferred over just $t$-statistics as they help interpret hypothesis tests and confidence intervals.
+
+- **Report $R^2$ and Other Fit Statistics**  
+  - $R^2$ is essential for goodness-of-fit.  
+  - Reporting F-statistics helps test exclusion restrictions.
+
+- **Summarize in Tables for Multiple Models**  
+  - If multiple equations are estimated, use tables instead of inline equations.  
+  - Dependent variable should be clearly indicated.  
+  - Independent variables should be listed in the first column.  
+  - Standard errors in parentheses below estimates.
+
+
+## Salary and Benefits Tradeoff example {.smaller}
+
+:::{.incremental}
+- **Total compensation** ($totcomp$) consists of salary and benefits:$$totcomp = salary + benefits = salary \left( 1 + \frac{benefits}{salary} \right)$$
+- Taking the **log transformation**: $\log(totcomp) = \log(salary) + \log(1 + b/s).$
+- For **small** $b/s$, can approximate $\log(1 + b/s) \approx b/s.$
+- This leads to the econometric model:$$\log(salary) = \beta_0 + \beta_1 (b/s) + \text{other *controls*}. $$
+- **Hypothesis Test**: Testing the **salary-benefits tradeoff**:
+  - $H_0: \beta_1 = -1$ (full tradeoff)
+  - $H_1: \beta_1 \neq -1$ (partial or no tradeoff)
+- Data from **MEAP93** controls for enrollment, staff size, dropout, and graduation rates.
+:::
+
+## {.smaller}
+
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+library(stargazer, wooldridge)
+model1 <- lm(log(salary) ~ I(benefits/salary), data = meap93)
+model2 <- lm(log(salary) ~ I(benefits/salary) + I(log(enroll)) + I(log(staff)), data = meap93)
+model3 <- lm(log(salary) ~ I(benefits/salary) + I(log(enroll)) + I(log(staff)) + droprate + gradrate, data = meap93)
+
+stargazer(model1, model2, model3, 
+          type = "text", 
+          title = "Regression Results",
+          omit.stat = c("ser"), # Omit some stats if needed
+          dep.var.labels = "Log(salary)",
+          column.labels = c("Model 1", "Model 2", "Model 3"),
+          covariate.labels = c("benefits to salary ratio", "log of enrollment", "log of staff", "Drop out rate", "Graduation rate", "Intercept"))
+
+
+```
+
+
+## `modelsummary` package   {.smaller}
+
+```{r, echo=T, message=FALSE, warning=FALSE}
+
+library(modelsummary)
+models <- list(
+  "Model 1" = model1,
+  "Model 2" = model2,
+  "Model 3" = model3
+)
+modelsummary(models, stars = TRUE, output = "markdown")
+```
+
+<!-- ## kableExtra package   {.smaller}
+
+```{r, echo=T, message=FALSE, warning=FALSE}
+library(kableExtra)
+summary_table <- modelsummary(models, output = "data.frame")
+kable(summary_table, format = "html") %>%
+  kable_styling(full_width = FALSE)
+
+``` -->

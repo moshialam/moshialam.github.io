@@ -422,9 +422,15 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Observe the differences!</p>
+</section></section>
+<section>
+<section id="single-hypothesis-testing" class="title-slide slide level1 center">
+<h1>Single hypothesis testing</h1>
+
 </section>
-<section id="single-hypothesis-testing" class="slide level2 smaller">
+<section id="single-hypothesis-testing-1" class="slide level2 smaller">
 <h2>Single hypothesis testing</h2>
+<p>Inference on the <span class="math inline">\(j\)</span>th population parameter <span class="math inline">\(\beta_j\)</span>:</p>
 <ul>
 <li><strong>Null hypothesis:</strong> <span class="math inline">\(H_0: \beta_j = b\)</span>, where <span class="math inline">\(b\)</span> is a hypothesized value typically 0</li>
 <li>Note that this is a test on the <span class="math inline">\(j\)</span>th population parameter while holding all other parameters constant</li>
@@ -631,7 +637,7 @@ F-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06</code></pre>
 </section>
 <section id="testing-linear-combinations" class="slide level2 smaller">
 <h2>Testing Linear combinations</h2>
-<p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> and <span class="math inline">\(H_1: \beta_1 &lt; \beta_2\)</span></p>
+<p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(wooldridge)</span>
 <span id="cb21-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> univ <span class="sc">+</span> exper, <span class="at">data =</span> twoyear))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -658,47 +664,62 @@ Multiple R-squared:  0.2224,    Adjusted R-squared:  0.2221
 F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+<ul>
+<li>Does attending <span class="math inline">\(jc_i\)</span> has lower effect on wages as going to university <span class="math inline">\(univ_i\)</span>?</li>
+<li>What are we testing?</li>
+</ul>
 </section>
-<section id="what-can-we-do" class="slide level2 smaller">
-<h2>What can we do?</h2>
+<section id="section-2" class="slide level2 smaller">
+<h2></h2>
 <p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> and <span class="math inline">\(H_1: \beta_1 &lt; \beta_2\)</span></p>
 <!-- - $H_0: \beta_1 - \beta_2 = 0$ and $H_1: \beta_1 - \beta_2 < 0$ -->
+<div>
 <ul>
-<li>Call <span class="math inline">\(\beta_1 - \beta_2 = \theta\)</span> and so <span class="math inline">\(H_0: \theta = 0\)</span> and <span class="math inline">\(H_1: \theta &lt; 0\)</span></li>
-<li>Test statistic: <span class="math inline">\(t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}\)</span></li>
-<li>Based on d.o.f. we can look up the critical value <span class="math inline">\(t_{\alpha, n-k-1}^*\)</span> and compare with <span class="math inline">\(t_{\hat{\theta}}\)</span>
+<li class="fragment">Call <span class="math inline">\(\beta_1 - \beta_2 = \theta\)</span> and so <span class="math inline">\(H_0: \theta = 0\)</span> and <span class="math inline">\(H_1: \theta &lt; 0\)</span></li>
+<li class="fragment">Test statistic: <span class="math inline">\(t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}\)</span> <!-- - Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$  -->
 <ul>
-<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\hat{\theta}} &lt; t_{\alpha, n-k-1}^*\)</span></li>
-<li>p-value = <span class="math inline">\(P(T &lt; t_{\hat{\theta}})\)</span> where <span class="math inline">\(T \sim t_{n-k-1}\)</span></li>
-<li>Confidence interval: <span class="math inline">\(\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})\)</span></li>
+<li class="fragment">Reject <span class="math inline">\(H_0\)</span>
+<ul>
+<li class="fragment">if <span class="math inline">\(t_{\hat{\theta}} &lt; t_{\alpha, n-k-1}^*\)</span></li>
+<li class="fragment">Or if p-value = <span class="math inline">\(P(T &lt; t_{\hat{\theta}})\)</span> where <span class="math inline">\(T \sim t_{n-k-1}\)</span> is less than <span class="math inline">\(\alpha\)</span></li>
+<li class="fragment">Or if CI: <span class="math inline">\([\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]\)</span> does not contain zero</li>
 </ul></li>
-<li>Easy to calculate if <span class="math inline">\(\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}\)</span> is known</li>
+</ul></li>
+<li class="fragment">Easy to calculate <span class="math inline">\(t_{\hat{\theta}}\)</span> if <span class="math inline">\(\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}\)</span> is known</li>
 </ul>
+</div>
 </section>
 <section id="implementation" class="slide level2 smaller">
 <h2>Implementation</h2>
-<p><span class="math display">\[log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></p>
+<div>
+<ul>
+<li class="fragment"><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <!--$H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$ --></li>
+<li class="fragment"><span class="math display">\[log(wage_i) = \beta_0 + (\theta + \beta_2) jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></li>
+<li class="fragment"><span class="math display">\[log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i\]</span></li>
+</ul>
+</div>
+</section>
+<section id="r-code" class="slide level2 smaller">
+<h2>R code</h2>
 <p><span class="math display">\[log(wage_i) = \beta_0 + \theta jc_i + \beta_2 (jc_i + univ_i) + \beta_3 exper_i + u_i\]</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(wooldridge)</span>
-<span id="cb23-2"><a></a>data <span class="ot">&lt;-</span> twoyear</span>
-<span id="cb23-3"><a></a>data<span class="sc">$</span>total_years <span class="ot">&lt;-</span> data<span class="sc">$</span>univ <span class="sc">+</span> data<span class="sc">$</span>jc</span>
-<span id="cb23-4"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> total_years <span class="sc">+</span> exper, <span class="at">data =</span> data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> <span class="fu">I</span>(jc <span class="sc">+</span> univ) <span class="sc">+</span> exper, <span class="at">data =</span> twoyear))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = lwage ~ jc + total_years + exper, data = data)
+lm(formula = lwage ~ jc + I(jc + univ) + exper, data = twoyear)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -2.10362 -0.28132  0.00551  0.28518  1.78167 
 
 Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  1.4723256  0.0210602  69.910   &lt;2e-16 ***
-jc          -0.0101795  0.0069359  -1.468    0.142    
-total_years  0.0768762  0.0023087  33.298   &lt;2e-16 ***
-exper        0.0049442  0.0001575  31.397   &lt;2e-16 ***
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   1.4723256  0.0210602  69.910   &lt;2e-16 ***
+jc           -0.0101795  0.0069359  -1.468    0.142    
+I(jc + univ)  0.0768762  0.0023087  33.298   &lt;2e-16 ***
+exper         0.0049442  0.0001575  31.397   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -707,13 +728,573 @@ Multiple R-squared:  0.2224,    Adjusted R-squared:  0.2221
 F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+</section></section>
+<section>
+<section id="testing-multiple-linear-restrictions" class="title-slide slide level1 center">
+<h1>Testing Multiple Linear Restrictions</h1>
+
 </section>
-<section id="testing-multiple-linear-restrictions" class="slide level2 smaller">
-<h2>Testing Multiple Linear Restrictions</h2>
-<h3 class="smaller" id="f-test">F-test</h3>
+<section id="testing-multiple-restrictions" class="slide level2 smaller">
+<h2>Testing multiple restrictions</h2>
+<ul>
+<li>The <span class="math inline">\(t\)</span>-test is used to test a hypothesis about a single population parameter <span class="math inline">\(\beta_j\)</span></li>
+<li>The <span class="math inline">\(F\)</span>-test is used to test multiple hypotheses about multiple population parameters <em>jointly</em></li>
+<li>Example: <span class="math inline">\(\log (\text { salary }_i )=  \beta_0+\beta_1 \text { years }_i +\beta_2 \text { gamesyr }_i +\beta_3 \text { bavg }_i  +\beta_4 \text { hrunsyr }_i +\beta_5 \text { rbisyr }_i +u_i\)</span>
+<ul>
+<li><span class="math inline">\(\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0\)</span></li>
+<li><span class="math inline">\(\mathrm{H}_1:\)</span> <span class="math inline">\(H_0\)</span> is not true: At least one of <span class="math inline">\(\beta_3, \beta_4, \beta_5\)</span> is not zero</li>
+</ul></li>
+</ul>
 </section>
-<section id="economic-vs-statistical-significance" class="slide level2 smaller">
-<h2>Economic vs Statistical Significance</h2>
+<section id="section-3" class="slide level2 smaller">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb25-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> years <span class="sc">+</span> gamesyr <span class="sc">+</span> bavg <span class="sc">+</span> hrunsyr <span class="sc">+</span> rbisyr, <span class="at">data =</span> mlb1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(salary) ~ years + gamesyr + bavg + hrunsyr + 
+    rbisyr, data = mlb1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-3.02508 -0.45034 -0.04013  0.47014  2.68924 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 1.119e+01  2.888e-01  38.752  &lt; 2e-16 ***
+years       6.886e-02  1.211e-02   5.684 2.79e-08 ***
+gamesyr     1.255e-02  2.647e-03   4.742 3.09e-06 ***
+bavg        9.786e-04  1.104e-03   0.887    0.376    
+hrunsyr     1.443e-02  1.606e-02   0.899    0.369    
+rbisyr      1.077e-02  7.175e-03   1.500    0.134    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7266 on 347 degrees of freedom
+Multiple R-squared:  0.6278,    Adjusted R-squared:  0.6224 
+F-statistic: 117.1 on 5 and 347 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>Based on what we have learned so far, what do we think about <span class="math inline">\(\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0\)</span>?</li>
+</ul>
+<!-- ## Economic vs Statistical Significance {.smaller} -->
+</section>
+<section id="let-us-run-both-models" class="slide level2 smaller">
+<h2>Let us run both models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="unrestricted-model">Unrestricted model</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb27-2"><a></a>unrestricted <span class="ot">&lt;-</span>  <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> years <span class="sc">+</span> gamesyr <span class="sc">+</span> bavg <span class="sc">+</span> hrunsyr <span class="sc">+</span> rbisyr, <span class="at">data =</span> mlb1)</span>
+<span id="cb27-3"><a></a><span class="fu">summary</span>(unrestricted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(salary) ~ years + gamesyr + bavg + hrunsyr + 
+    rbisyr, data = mlb1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-3.02508 -0.45034 -0.04013  0.47014  2.68924 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 1.119e+01  2.888e-01  38.752  &lt; 2e-16 ***
+years       6.886e-02  1.211e-02   5.684 2.79e-08 ***
+gamesyr     1.255e-02  2.647e-03   4.742 3.09e-06 ***
+bavg        9.786e-04  1.104e-03   0.887    0.376    
+hrunsyr     1.443e-02  1.606e-02   0.899    0.369    
+rbisyr      1.077e-02  7.175e-03   1.500    0.134    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7266 on 347 degrees of freedom
+Multiple R-squared:  0.6278,    Adjusted R-squared:  0.6224 
+F-statistic: 117.1 on 5 and 347 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">sum</span>(unrestricted<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 183.1863</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h4 id="restricted-model">Restricted model</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb31-2"><a></a>restricted <span class="ot">&lt;-</span>  <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> years <span class="sc">+</span> gamesyr, <span class="at">data =</span> mlb1)</span>
+<span id="cb31-3"><a></a><span class="fu">summary</span>(restricted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(salary) ~ years + gamesyr, data = mlb1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.66858 -0.46412 -0.01177  0.49219  2.68829 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 11.223804   0.108312 103.625  &lt; 2e-16 ***
+years        0.071318   0.012505   5.703  2.5e-08 ***
+gamesyr      0.020174   0.001343  15.023  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7527 on 350 degrees of freedom
+Multiple R-squared:  0.5971,    Adjusted R-squared:  0.5948 
+F-statistic: 259.3 on 2 and 350 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">sum</span>(restricted<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 198.3115</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li>Is the increase in SSR large enough to reject the null hypothesis?</li>
+<li>But what is the test statistic that we can use?</li>
+</ul>
+</section>
+<section id="the-f-test" class="slide level2 smaller">
+<h2>The F-test</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i\)</span> <!-- - $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_{k-q-1} x_{k-q-1} + \beta_{k-q} x_{k-q} + \beta_{k-q+1} x_{k-q+1} + \ldots + \beta_k x_{ki} + u_i$ --></li>
+<li class="fragment">Hypotheses Test of <span class="math inline">\(q\)</span> <em>exclusion restrictions</em>
+<ul>
+<li class="fragment"><span class="math inline">\(H_0: \beta_{k-q} = \beta_{k-q+1} = \ldots = \beta_k = 0\)</span></li>
+<li class="fragment"><span class="math inline">\(H_1:\)</span> At least one of <span class="math inline">\(\beta_{k-q}, \beta_{k-q+1}, \ldots, \beta_k\)</span> is not zero</li>
+</ul></li>
+<li class="fragment">Test statistic: <span class="math inline">\(F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)}\)</span> <!-- - $SSR_r$ and $SSR_{ur}$ are the sum of squared residuals from the restricted and unrestricted models
+  - $q$ is the number of restrictions
+  - $n$ is the number of observations and $k$ is the number of parameters in the unrestricted model -->
+<ul>
+<li class="fragment">Follows an <span class="math inline">\(F\)</span>-distribution with <span class="math inline">\(q\)</span> and <span class="math inline">\(n-k-1\)</span> d.o.f.</li>
+<li class="fragment">Note:
+<ul>
+<li class="fragment"><span class="math inline">\(q = dof_r - dof_{ur}\)</span></li>
+<li class="fragment">F &gt; 0</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="f_crit.png"></p>
+<figcaption>Example F sampling distribution</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="going-back-to-the-example" class="slide level2 smaller">
+<h2>Going back to the example</h2>
+<p><span class="math inline">\(\log(salary_i)=  \beta_0+\beta_1 years_i +\beta_2 gamesyr_i +\beta_3 bavg_i  +\beta_4 hrunsyr_i +\beta_5 rbisyr_i +u_i\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathrm{H}_0: \beta_3=0, \beta_4=0, \beta_5=0\)</span></li>
+<li><span class="math inline">\(\mathrm{H}_1:\)</span> <span class="math inline">\(H_0\)</span> is not true.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb35-2"><a></a>unrestricted <span class="ot">&lt;-</span>  <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> years <span class="sc">+</span> gamesyr <span class="sc">+</span> bavg <span class="sc">+</span> hrunsyr <span class="sc">+</span> rbisyr, <span class="at">data =</span> mlb1)</span>
+<span id="cb35-3"><a></a>restricted <span class="ot">&lt;-</span>  <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> years <span class="sc">+</span> gamesyr, <span class="at">data =</span> mlb1)</span>
+<span id="cb35-4"><a></a>F_stat <span class="ot">&lt;-</span> ((<span class="fu">sum</span>(restricted<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">sum</span>(unrestricted<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span><span class="dv">3</span>)<span class="sc">/</span>(<span class="fu">sum</span>(unrestricted<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">nrow</span>(mlb1) <span class="sc">-</span> <span class="dv">5-1</span>))</span>
+<span id="cb35-5"><a></a><span class="fu">print</span>(F_stat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.550254</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>critical_F <span class="ot">&lt;-</span> <span class="fu">qf</span>(<span class="fl">0.05</span>, <span class="at">df1 =</span> <span class="dv">3</span>, <span class="at">df2 =</span> <span class="fu">nrow</span>(mlb1) <span class="sc">-</span> <span class="dv">5-1</span>, <span class="at">lower.tail =</span> F)</span>
+<span id="cb37-2"><a></a><span class="fu">print</span>(critical_F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.630641</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="cf">if</span> (F_stat <span class="sc">&gt;</span> critical_F) {</span>
+<span id="cb39-2"><a></a>  <span class="fu">print</span>(<span class="st">"Reject H0"</span>)</span>
+<span id="cb39-3"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb39-4"><a></a>  <span class="fu">print</span>(<span class="st">"Fail to reject H0"</span>)</span>
+<span id="cb39-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Reject H0"</code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2 smaller">
+<h2></h2>
+<p><span class="math inline">\(\log(salary_i)=  \beta_0+\beta_1 years_i +\beta_2 gamesyr_i +\beta_3 bavg_i  +\beta_4 hrunsyr_i +\beta_5 rbisyr_i +u_i\)</span></p>
+<div>
+<ul>
+<li class="fragment">But recall when we ran the unrestricted model, we found that <span class="math inline">\(\beta_3, \beta_4, \beta_5\)</span> were not statistically significant.</li>
+<li class="fragment">So, whats going on here with the joint F-test?</li>
+<li class="fragment"><span class="math inline">\(hrunsyr\)</span> and <span class="math inline">\(rbisyr\)</span> are highly correlated.
+<ul>
+<li class="fragment">multicollinearity <span class="math inline">\(\rightarrow\)</span> large standard errors <span class="math inline">\(\rightarrow\)</span> low t-stats <span class="math inline">\(\rightarrow\)</span> individual statistical insignificance</li>
+</ul></li>
+<li class="fragment">The F-test is a joint test (including bavg) and is not affected by multicollinearity</li>
+<li class="fragment">Hence F-tests of joint hypotheses can be useful in the presence of multicollinearity</li>
+</ul>
+</div>
+</section>
+<section id="relationship-between-t-and-f-tests" class="slide level2 smaller">
+<h2>Relationship between t and F tests</h2>
+<ul>
+<li>For a single restriction <span class="math inline">\(q=1\)</span>, the F-test is equivalent to the t-test
+<ul>
+<li><span class="math inline">\(F_{1,n-k-1} = t^2_{n-k-1}\)</span></li>
+</ul></li>
+<li>For single hypothesis testing, the t-test is more powerful
+<ul>
+<li>F-tests remain under-powered than t-tests (See Math refresher C)</li>
+</ul></li>
+</ul>
+</section>
+<section id="reporting-regression-results" class="slide level2 smaller">
+<h2>Reporting Regression Results</h2>
+<ul>
+<li><strong>Report Estimated Coefficients</strong>
+<ul>
+<li>Interpret key variables’ estimates in economic or practical terms.</li>
+</ul></li>
+<li><strong>Include Standard Errors</strong>
+<ul>
+<li>Preferred over just <span class="math inline">\(t\)</span>-statistics as they help interpret hypothesis tests and confidence intervals.</li>
+</ul></li>
+<li><strong>Report <span class="math inline">\(R^2\)</span> and Other Fit Statistics</strong>
+<ul>
+<li><span class="math inline">\(R^2\)</span> is essential for goodness-of-fit.<br>
+</li>
+<li>Reporting F-statistics helps test exclusion restrictions.</li>
+</ul></li>
+<li><strong>Summarize in Tables for Multiple Models</strong>
+<ul>
+<li>If multiple equations are estimated, use tables instead of inline equations.<br>
+</li>
+<li>Dependent variable should be clearly indicated.<br>
+</li>
+<li>Independent variables should be listed in the first column.<br>
+</li>
+<li>Standard errors in parentheses below estimates.</li>
+</ul></li>
+</ul>
+</section>
+<section id="salary-and-benefits-tradeoff-example" class="slide level2 smaller">
+<h2>Salary and Benefits Tradeoff example</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Total compensation</strong> (<span class="math inline">\(totcomp\)</span>) consists of salary and benefits:<span class="math display">\[totcomp = salary + benefits = salary \left( 1 + \frac{benefits}{salary} \right)\]</span></li>
+<li class="fragment">Taking the <strong>log transformation</strong>: <span class="math inline">\(\log(totcomp) = \log(salary) + \log(1 + b/s).\)</span></li>
+<li class="fragment">For <strong>small</strong> <span class="math inline">\(b/s\)</span>, can approximate <span class="math inline">\(\log(1 + b/s) \approx b/s.\)</span></li>
+<li class="fragment">This leads to the econometric model:<span class="math display">\[\log(salary) = \beta_0 + \beta_1 (b/s) + \text{other *controls*}. \]</span></li>
+<li class="fragment"><strong>Hypothesis Test</strong>: Testing the <strong>salary-benefits tradeoff</strong>:
+<ul>
+<li class="fragment"><span class="math inline">\(H_0: \beta_1 = -1\)</span> (full tradeoff)</li>
+<li class="fragment"><span class="math inline">\(H_1: \beta_1 \neq -1\)</span> (partial or no tradeoff)</li>
+</ul></li>
+<li class="fragment">Data from <strong>MEAP93</strong> controls for enrollment, staff size, dropout, and graduation rates.</li>
+</ul>
+</div>
+</section>
+<section id="section-5" class="slide level2 smaller">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">library</span>(stargazer, wooldridge)</span>
+<span id="cb41-2"><a></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">I</span>(benefits<span class="sc">/</span>salary), <span class="at">data =</span> meap93)</span>
+<span id="cb41-3"><a></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">I</span>(benefits<span class="sc">/</span>salary) <span class="sc">+</span> <span class="fu">I</span>(<span class="fu">log</span>(enroll)) <span class="sc">+</span> <span class="fu">I</span>(<span class="fu">log</span>(staff)), <span class="at">data =</span> meap93)</span>
+<span id="cb41-4"><a></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">I</span>(benefits<span class="sc">/</span>salary) <span class="sc">+</span> <span class="fu">I</span>(<span class="fu">log</span>(enroll)) <span class="sc">+</span> <span class="fu">I</span>(<span class="fu">log</span>(staff)) <span class="sc">+</span> droprate <span class="sc">+</span> gradrate, <span class="at">data =</span> meap93)</span>
+<span id="cb41-5"><a></a></span>
+<span id="cb41-6"><a></a><span class="fu">stargazer</span>(model1, model2, model3, </span>
+<span id="cb41-7"><a></a>          <span class="at">type =</span> <span class="st">"text"</span>, </span>
+<span id="cb41-8"><a></a>          <span class="at">title =</span> <span class="st">"Regression Results"</span>,</span>
+<span id="cb41-9"><a></a>          <span class="at">omit.stat =</span> <span class="fu">c</span>(<span class="st">"ser"</span>), <span class="co"># Omit some stats if needed</span></span>
+<span id="cb41-10"><a></a>          <span class="at">dep.var.labels =</span> <span class="st">"Log(salary)"</span>,</span>
+<span id="cb41-11"><a></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"Model 1"</span>, <span class="st">"Model 2"</span>, <span class="st">"Model 3"</span>),</span>
+<span id="cb41-12"><a></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">"benefits to salary ratio"</span>, <span class="st">"log of enrollment"</span>, <span class="st">"log of staff"</span>, <span class="st">"Drop out rate"</span>, <span class="st">"Graduation rate"</span>, <span class="st">"Intercept"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Regression Results
+================================================================================================
+                                                   Dependent variable:                          
+                         -----------------------------------------------------------------------
+                                                       Log(salary)                              
+                                 Model 1                 Model 2                 Model 3        
+                                   (1)                     (2)                     (3)          
+------------------------------------------------------------------------------------------------
+benefits to salary ratio        -0.825***               -0.605***               -0.589***       
+                                 (0.200)                 (0.165)                 (0.165)        
+                                                                                                
+log of enrollment                                       0.087***                0.088***        
+                                                         (0.007)                 (0.007)        
+                                                                                                
+log of staff                                            -0.222***               -0.218***       
+                                                         (0.050)                 (0.050)        
+                                                                                                
+Drop out rate                                                                    -0.0003        
+                                                                                 (0.002)        
+                                                                                                
+Graduation rate                                                                   0.001         
+                                                                                 (0.001)        
+                                                                                                
+Intercept                       10.523***               10.844***               10.738***       
+                                 (0.042)                 (0.252)                 (0.258)        
+                                                                                                
+------------------------------------------------------------------------------------------------
+Observations                       408                     408                     408          
+R2                                0.040                   0.353                   0.361         
+Adjusted R2                       0.038                   0.348                   0.353         
+F Statistic              17.050*** (df = 1; 406) 73.386*** (df = 3; 404) 45.428*** (df = 5; 402)
+================================================================================================
+Note:                                                                *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="modelsummary-package" class="slide level2 smaller">
+<h2><code>modelsummary</code> package</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb43-2"><a></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb43-3"><a></a>  <span class="st">"Model 1"</span> <span class="ot">=</span> model1,</span>
+<span id="cb43-4"><a></a>  <span class="st">"Model 2"</span> <span class="ot">=</span> model2,</span>
+<span id="cb43-5"><a></a>  <span class="st">"Model 3"</span> <span class="ot">=</span> model3</span>
+<span id="cb43-6"><a></a>)</span>
+<span id="cb43-7"><a></a><span class="fu">modelsummary</span>(models, <span class="at">stars =</span> <span class="cn">TRUE</span>, <span class="at">output =</span> <span class="st">"markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_ndopcc82kte1s9bklmcw(i, j, css_id) {
+          var table = document.getElementById("tinytable_ndopcc82kte1s9bklmcw");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_ndopcc82kte1s9bklmcw');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_ndopcc82kte1s9bklmcw(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ndopcc82kte1s9bklmcw");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 12, j: 2 }, { i: 12, j: 1 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_r3zpqylv12kml34o93hg',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_i4f7uxhbet9hsvzxu9bb',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_fjoscaphzn40hqom6fnr',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 }, { i: 18, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_dv47e0p6eiwjz703ahc7',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_87o7oe25he0yczyi0ifu',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_6raffiynbjh2x86wx1m9',}, 
+          { positions: [ { i: 20, j: 2 }, { i: 20, j: 1 }, { i: 20, j: 3 },  ], css_id: 'tinytable_css_57ffhf6llujlikgxop3v',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 4, j: 3 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 17, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 15, j: 2 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 3, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 16, j: 3 }, { i: 13, j: 3 }, { i: 10, j: 3 }, { i: 15, j: 3 }, { i: 14, j: 3 }, { i: 19, j: 3 }, { i: 18, j: 3 },  ], css_id: 'tinytable_css_286vyfnaxr7tc2s9xp5y',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_ndopcc82kte1s9bklmcw(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_r3zpqylv12kml34o93hg, .table th.tinytable_css_r3zpqylv12kml34o93hg { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_i4f7uxhbet9hsvzxu9bb, .table th.tinytable_css_i4f7uxhbet9hsvzxu9bb { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_fjoscaphzn40hqom6fnr, .table th.tinytable_css_fjoscaphzn40hqom6fnr { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_dv47e0p6eiwjz703ahc7, .table th.tinytable_css_dv47e0p6eiwjz703ahc7 { text-align: left; }
+      .table td.tinytable_css_87o7oe25he0yczyi0ifu, .table th.tinytable_css_87o7oe25he0yczyi0ifu { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6raffiynbjh2x86wx1m9, .table th.tinytable_css_6raffiynbjh2x86wx1m9 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_57ffhf6llujlikgxop3v, .table th.tinytable_css_57ffhf6llujlikgxop3v { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_286vyfnaxr7tc2s9xp5y, .table th.tinytable_css_286vyfnaxr7tc2s9xp5y { text-align: center; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_ndopcc82kte1s9bklmcw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Model 1</th>
+                <th scope="col">Model 2</th>
+                <th scope="col">Model 3</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="4">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>(Intercept)</td>
+                  <td>10.523***</td>
+                  <td>10.844***</td>
+                  <td>10.738***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.042)</td>
+                  <td>(0.252)</td>
+                  <td>(0.258)</td>
+                </tr>
+                <tr>
+                  <td>I(benefits/salary)</td>
+                  <td>-0.825***</td>
+                  <td>-0.605***</td>
+                  <td>-0.589***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.200)</td>
+                  <td>(0.165)</td>
+                  <td>(0.165)</td>
+                </tr>
+                <tr>
+                  <td>I(log(enroll))</td>
+                  <td></td>
+                  <td>0.087***</td>
+                  <td>0.088***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>(0.007)</td>
+                  <td>(0.007)</td>
+                </tr>
+                <tr>
+                  <td>I(log(staff))</td>
+                  <td></td>
+                  <td>-0.222***</td>
+                  <td>-0.218***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>(0.050)</td>
+                  <td>(0.050)</td>
+                </tr>
+                <tr>
+                  <td>droprate</td>
+                  <td></td>
+                  <td></td>
+                  <td>-0.000</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>(0.002)</td>
+                </tr>
+                <tr>
+                  <td>gradrate</td>
+                  <td></td>
+                  <td></td>
+                  <td>0.001</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>(0.001)</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>408</td>
+                  <td>408</td>
+                  <td>408</td>
+                </tr>
+                <tr>
+                  <td>R2</td>
+                  <td>0.040</td>
+                  <td>0.353</td>
+                  <td>0.361</td>
+                </tr>
+                <tr>
+                  <td>R2 Adj.</td>
+                  <td>0.038</td>
+                  <td>0.348</td>
+                  <td>0.353</td>
+                </tr>
+                <tr>
+                  <td>AIC</td>
+                  <td>8070.3</td>
+                  <td>7913.7</td>
+                  <td>7912.4</td>
+                </tr>
+                <tr>
+                  <td>BIC</td>
+                  <td>8082.4</td>
+                  <td>7933.7</td>
+                  <td>7940.5</td>
+                </tr>
+                <tr>
+                  <td>Log.Lik.</td>
+                  <td>192.417</td>
+                  <td>272.763</td>
+                  <td>275.397</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>17.050</td>
+                  <td>73.386</td>
+                  <td>45.428</td>
+                </tr>
+                <tr>
+                  <td>RMSE</td>
+                  <td>0.15</td>
+                  <td>0.12</td>
+                  <td>0.12</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<!-- ## kableExtra package   {.smaller}
+
+
+library(kableExtra)
+summary_table <- modelsummary(models, output = "data.frame")
+kable(summary_table, format = "html") %>%
+  kable_styling(full_width = FALSE)
+
+``` -->
 
 
 </section></section>
