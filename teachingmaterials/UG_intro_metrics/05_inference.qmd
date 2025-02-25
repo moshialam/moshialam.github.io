@@ -443,6 +443,7 @@ sum(restricted$residuals^2)
   - $H_0: \beta_{k-q} = \beta_{k-q+1} = \ldots = \beta_k = 0$ 
   - $H_1:$ At least one of $\beta_{k-q}, \beta_{k-q+1}, \ldots, \beta_k$ is not zero
 - Test statistic: $F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)}$
+  - Can bee re-written as $\frac{(R^2_{UR} - R^2_R)/q}{(1 - R^2_{UR})/(n-k-1)}$
   <!-- - $SSR_r$ and $SSR_{ur}$ are the sum of squared residuals from the restricted and unrestricted models
   - $q$ is the number of restrictions
   - $n$ is the number of observations and $k$ is the number of parameters in the unrestricted model -->

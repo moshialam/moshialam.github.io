@@ -1111,5 +1111,82 @@
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Variances in misspecified models",
     "text": "Variances in misspecified models\n\nWe saw what happens to bias. What happens to precision?\nTrue model: \\(y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + u_i\\) and \\(x_{1i}\\) and \\(x_{2i}\\) are correlated\nEstimate two models:\n\nModel 1: \\(\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\)\nModel 2: \\(\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\)\n\n\n\n\nWhen \\(\\beta_2 \\neq 0, \\widetilde{\\beta}_1\\) is biased, \\(\\hat{\\beta}_1\\) is unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\nWhen \\(\\beta_2=0, \\widetilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) are both unbiased, and \\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)&lt;\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\n\nThis is because (recall the formula for the variance of the OLS estimator):\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\left(1-R_1^2\\right)\\right]\\)\n\\(\\operatorname{Var}\\left(\\widetilde{\\beta}_1\\right)=\\sigma^2 /\\left[\\operatorname{SST}_1\\right]\\)\n\nTake away: Including irrelevant variables in the model “may” not affect the unbiasedness of the OLS estimator, but it will affect the precision of the estimates."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html",
+    "title": "Formula Sheet: ECON 265",
+    "section": "",
+    "text": "For random variables X and Y and constants a and b, and functions f() and g():\n\n\nSample counterpart of E(X) is the sample mean \\bar{x}=\\frac{1}{n}\\sum_{i=1}^n x_i\n\nE(aX+bY)=aE(X)+bE(Y)\nE(X+Y)=E(X)+E(Y)\nE(a)=a\nE(XY)=E(X)E(Y) if X and Y are independent\nE(XY)=E(X)E(Y)+\\mathrm{Cov}(X,Y)\nE(XY|Z)=E(X|Z)E(Y|Z)+\\mathrm{Cov}(X,Y|Z)\nE(X|Y)=E(X) if X and Y are independent\nE(g(Y) + f(X)) = E(g(Y)) + E(f(X))\nE(g(Y) + f(X) \\mid X) = E(g(Y) \\mid X) + f(X)\n\n\n\n\nSample counterpart of \\mathrm{Cov}(X,Y) is the sample covariance\ns_{XY}=\\frac{1}{n-1}\\sum_{i=1}^n (x_i-\\bar{x})(y_i-\\bar{y})\n\n\\mathrm{Cov}(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)\n\\mathrm{Cov}(aX,bY)=ab\\mathrm{Cov}(X,Y)\n\\mathrm{Cov}(X,Y)= 0 if X and Y are independent\n\\mathrm{Cov}(f(X),g(Y) \\mid X)=0\n\\mathrm{Cov}(X,X)=E(X^2)-E(X)^2=\\mathrm{Var}(X)\n\n\n\n\nSample counterpart of \\mathrm{Var}(X) is the sample variance\ns^2=\\frac{1}{n-1}\\sum_{i=1}^n (x_i-\\bar{x})^2\n\n\\mathrm{Var}(X)=E(X^2)-E(X)^2\n\\mathrm{Var}(a)=0\n\\mathrm{Var}(aX)=a^2\\mathrm{Var}(X)\n\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)\n\\mathrm{Var}(aX+bY)=a^2\\mathrm{Var}(X)+b^2\\mathrm{Var}(Y)+2ab\\mathrm{Cov}(X,Y)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#expectation",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#expectation",
+    "title": "Formula Sheet: ECON 265",
+    "section": "",
+    "text": "Sample counterpart of E(X) is the sample mean \\bar{x}=\\frac{1}{n}\\sum_{i=1}^n x_i\n\nE(aX+bY)=aE(X)+bE(Y)\nE(X+Y)=E(X)+E(Y)\nE(a)=a\nE(XY)=E(X)E(Y) if X and Y are independent\nE(XY)=E(X)E(Y)+\\mathrm{Cov}(X,Y)\nE(XY|Z)=E(X|Z)E(Y|Z)+\\mathrm{Cov}(X,Y|Z)\nE(X|Y)=E(X) if X and Y are independent\nE(g(Y) + f(X)) = E(g(Y)) + E(f(X))\nE(g(Y) + f(X) \\mid X) = E(g(Y) \\mid X) + f(X)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#covariance",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#covariance",
+    "title": "Formula Sheet: ECON 265",
+    "section": "",
+    "text": "Sample counterpart of \\mathrm{Cov}(X,Y) is the sample covariance\ns_{XY}=\\frac{1}{n-1}\\sum_{i=1}^n (x_i-\\bar{x})(y_i-\\bar{y})\n\n\\mathrm{Cov}(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)\n\\mathrm{Cov}(aX,bY)=ab\\mathrm{Cov}(X,Y)\n\\mathrm{Cov}(X,Y)= 0 if X and Y are independent\n\\mathrm{Cov}(f(X),g(Y) \\mid X)=0\n\\mathrm{Cov}(X,X)=E(X^2)-E(X)^2=\\mathrm{Var}(X)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#variance",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#variance",
+    "title": "Formula Sheet: ECON 265",
+    "section": "",
+    "text": "Sample counterpart of \\mathrm{Var}(X) is the sample variance\ns^2=\\frac{1}{n-1}\\sum_{i=1}^n (x_i-\\bar{x})^2\n\n\\mathrm{Var}(X)=E(X^2)-E(X)^2\n\\mathrm{Var}(a)=0\n\\mathrm{Var}(aX)=a^2\\mathrm{Var}(X)\n\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)\n\\mathrm{Var}(aX+bY)=a^2\\mathrm{Var}(X)+b^2\\mathrm{Var}(Y)+2ab\\mathrm{Cov}(X,Y)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#assumptions-slr-1-5",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#assumptions-slr-1-5",
+    "title": "Formula Sheet: ECON 265",
+    "section": "2.1 Assumptions SLR 1-5",
+    "text": "2.1 Assumptions SLR 1-5\n\nSLR 1: Linearity: y=\\beta_0+\\beta_1 x+u\nSLR 2: Random sampling: \\{(x_i, y_i): i=1,2, \\dots, n\\}\nSLR 3: Sample variation in X: \\widehat{Var}(x_i) &gt; 0\nSLR 4: Zero conditional mean: E(u_i \\mid x_i)=0\nSLR 5: Homoskedasticity: Var(u_i \\mid x_i)=\\sigma^2"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#ols-estimates",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#ols-estimates",
+    "title": "Formula Sheet: ECON 265",
+    "section": "2.2 OLS Estimates",
+    "text": "2.2 OLS Estimates\nThe OLS estimates are:\n\n\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^n (x_i - \\bar{x})^2}\n \n\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}\n\nwhere\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^n x_i, \\quad \\bar{y} = \\frac{1}{n}\\sum_{i=1}^n y_i"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#assumptions-mlr-1-6",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#assumptions-mlr-1-6",
+    "title": "Formula Sheet: ECON 265",
+    "section": "3.1 Assumptions MLR 1-6",
+    "text": "3.1 Assumptions MLR 1-6\n\nMLR 1: Linearity: y=\\beta_0+\\beta_1 x_1+\\beta_2 x_2+\\ldots+\\beta_k x_k+u\nMLR 2: Random sampling: \\{(x_{1i}, x_{2i}, \\dots, y_i): i=1,2, \\dots, n\\}\nMLR 3: No perfect multicollinearity: No exact linear relationships among x variables\nMLR 4: Zero conditional mean: E(u_i \\mid x_{1i}, \\dots, x_{ki})=0\nMLR 5: Homoskedasticity: Var(u_i \\mid x_{1i}, \\dots, x_{ki})=\\sigma^2\nMLR 6: Normality: u is normally distributed"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#ols-estimates-1",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#ols-estimates-1",
+    "title": "Formula Sheet: ECON 265",
+    "section": "3.2 OLS Estimates",
+    "text": "3.2 OLS Estimates\nThe OLS estimates are:\n\n\\hat{\\beta}_0, \\hat{\\beta}_1, \\ldots, \\hat{\\beta}_k\n\nthat minimize the sum of squared residuals."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#single-coefficient-hypothesis-test",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#single-coefficient-hypothesis-test",
+    "title": "Formula Sheet: ECON 265",
+    "section": "4.1 Single coefficient hypothesis test",
+    "text": "4.1 Single coefficient hypothesis test\nUnder the null hypothesis H_0: \\beta_j = b, the test statistic is:\n\nt = \\frac{\\hat{\\beta}_j - b}{se(\\hat{\\beta}_j)}\n\nwhere se(\\hat{\\beta}_j) = \\sqrt{\\frac{\\hat{\\sigma}^2}{(1 - R_j^2)SST_{x_j}}}."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#multiple-coefficient-hypothesis-test",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#multiple-coefficient-hypothesis-test",
+    "title": "Formula Sheet: ECON 265",
+    "section": "4.2 Multiple coefficient hypothesis test",
+    "text": "4.2 Multiple coefficient hypothesis test\nTesting q restrictions:\n\nF = \\frac{SSR_{UR} - SSR_R}{q} \\bigg/ \\frac{SSR_R}{n-k-1} = \\frac{(R^2_{UR} - R^2_R)/q}{(1 - R^2_{UR})/(n-k-1)}"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/metricssheet.html#rejection-rules",
+    "href": "teachingmaterials/UG_intro_metrics/metricssheet.html#rejection-rules",
+    "title": "Formula Sheet: ECON 265",
+    "section": "4.3 Rejection rules",
+    "text": "4.3 Rejection rules\n\nIf test statistic is higher than the critical value\nIf p-value is lower than the significance level\nIf the confidence interval does not contain the null hypothesis value"
   }
 ]
