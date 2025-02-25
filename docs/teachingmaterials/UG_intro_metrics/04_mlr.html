@@ -745,10 +745,9 @@ summary(reg_resid_logwage)
 <div>
 <ul>
 <li class="fragment">Might be tempting to think that <span class="math inline">\(\tilde{\beta}_2\)</span> is unbiased and only <span class="math inline">\(\tilde{\beta}_1\)</span> is biased</li>
-<li class="fragment">In fact we can show that: <span class="math display">\[\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) (x_{i 3} - \bar{x_3})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}\]</span><br>
-<!-- $$\mathrm{E}\left(\widetilde{\beta}_2\right)=\beta_2 + \beta_3 \frac{\sum_{i=1}^n\left(x_{i 2}-\bar{x}_2\right) (x_{i 1} - \bar{x_1})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$ --></li>
-<li class="fragment">Note that we never said that the variables are pairwise uncorrelated</li>
-<li class="fragment">The bias in <span class="math inline">\(\tilde{\beta}_1\)</span> is due to the induced correlation between <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> when <span class="math inline">\(x_{3i}\)</span> is omitted</li>
+<li class="fragment">But both will be biased because of the induced correlation between <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> when <span class="math inline">\(x_{3i}\)</span> is omitted</li>
+<li class="fragment"><span class="math inline">\(\tilde{\beta}_2\)</span> is unbiased only when<span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> are uncorrelated. Then we can show that: <span class="math display">\[\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) (x_{i 3} - \bar{x_3})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}\]</span><br>
+<!-- - The bias in $\tilde{\beta}_1$ is due to the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted --></li>
 </ul>
 </div>
 </section>

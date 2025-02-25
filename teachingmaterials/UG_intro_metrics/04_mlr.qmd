@@ -425,11 +425,10 @@ For the true population modelsatisfying MLR1-MLR4: $$y_i = \beta_0 + \beta_1 x_{
 
 :::{.incremental}
 - Might be tempting to think that $\tilde{\beta}_2$ is unbiased and only $\tilde{\beta}_1$ is biased
-- In fact we can show that:
+- But both will be biased because of the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted
+- $\tilde{\beta}_2$ is unbiased only when$x_{1i}$ and $x_{2i}$ are uncorrelated. Then we can show that:
 $$\mathrm{E}\left(\widetilde{\beta}_1\right)=\beta_1+\beta_3 \frac{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right) (x_{i 3} - \bar{x_3})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$  
-<!-- $$\mathrm{E}\left(\widetilde{\beta}_2\right)=\beta_2 + \beta_3 \frac{\sum_{i=1}^n\left(x_{i 2}-\bar{x}_2\right) (x_{i 1} - \bar{x_1})}{\sum_{i=1}^n\left(x_{i 1}-\bar{x}_1\right)^2}$$ -->
-- Note that we never said that the variables are pairwise uncorrelated
-- The bias in $\tilde{\beta}_1$ is due to the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted
+<!-- - The bias in $\tilde{\beta}_1$ is due to the induced correlation between $x_{1i}$ and $x_{2i}$ when $x_{3i}$ is omitted -->
 :::
 
 ## Ability bias example {.smaller}
