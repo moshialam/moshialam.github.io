@@ -1,0 +1,165 @@
+---
+title: "Econ 265: \n Introduction to Econometrics"
+subtitle: "Topic 6: Variants on MLR"
+author: "Moshi Alam"
+format:
+  revealjs:
+    theme: serif
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+## Introduction {.smaller}
+
+- Data scaling
+- Standardized coefficients
+- Nonlinearities in X
+- Interaction terms
+- Average partial effects
+- Adjusted R-squared
+- Over fitting
+<!-- - Predicting $\hat{y}$ with results from regression of $f(y)$ on $x$ -->
+
+## Data Scaling {.smaller}
+```{r}
+library(wooldridge); library(stargazer);
+model1 <- lm(bwght ~ cigs + faminc, bwght) # bwght in grams
+model2 <- lm(I(bwght/16) ~ cigs + faminc, bwght) # bwght in pounds
+bwght$packs <- bwght$cigs/20 # 1 pack =  20 cigs
+model3 <- lm(bwght ~ packs + faminc, bwght) # use packs instead of cigs
+stargazer(model1, model2, model3, type = "text")
+```
+
+## Data Scaling {.smaller}
+- Coefficients in a regression model are sensitive to the units of measurement
+
+<!-- :::{.incremental} -->
+- The population model: $bwght_i = \beta_0 + \beta_1 cigs_i + \beta_2 faminc + u_i$ follows MLR 1-5
+- $bwght_i/16 = \beta_0/16 + \beta_1/16 cigs_i + \beta_2/16 faminc + u_i$
+  - Coefficients scaled down by factor with which dependent variable is scaled
+- $bwhgt_i = \beta_0 + 20\beta_1 cigs_i/20 + \beta_2 faminc + u_i$
+  - which simplifies to $bwhgt_i = \beta_0 + 20\beta_1 packs_i + \beta_2 faminc + u_i$
+  - Coefficients scaled up by factor with which independent variable is scaled
+- What about SE? R^2?
+<!-- ::: -->
+
+## Standardized Coefficients {.smaller}
+
+Instead of asking what happens to $y$ when $x$ changes by 1 unit, we ask what happens to $y$ when $x$ changes by 1 standard deviation
+
+- This is useful because: 
+  - $x$ may be measured in different units in different datasets
+  - $x$ may be a composite index of several variables
+  - $x$ could be scaled up or down differently in different datasets. E.g. GPA
+- But s.d. effects are only useful when interpreted relative to the mean of $x$
+  - So the standardized $x_i$ is $x^* = (x_i - \bar{x})/s_x$
+- Thus from the population model: $y = \beta_0 + \beta_1 x_1 + \ldots + \beta_k x_k + u$
+  - The standardized model is: $y = \beta_0^* + \beta_1^* x_1^* + \ldots + \beta_k^* x_k^* + u^*$
+    - where $\beta_j^* =  \frac{s_{x_j}}{s_y}\beta_j$ for $j = 1, \ldots, k$
+- How would you derive this?
+- This is easy to implement in R using `scale()` function
+
+
+## Standardized Coefficients {.smaller}
+
+:::{.columns}
+::::{.column}
+Scaled estimation:
+```{r}
+model4 <- lm(scale(bwght) ~ scale(cigs) + scale(faminc), bwght)
+stargazer(model1, model4, type = "text", omit.stat = c("f", "ser"))
+```
+::::
+::::{.column}
+Compute manually:
+```{r}
+model1$coef["cigs"]* sd(bwght$cigs)/sd(bwght$bwght)
+model1$coef["faminc"]* sd(bwght$faminc)/sd(bwght$bwght)
+```
+:::
+:::
+
+## More examples {.smaller}
+
+price $=\beta_0+\beta_1$ nox $+\beta_2$ crime $+\beta_3$ rooms $+\beta_4$ dist $+\beta_5$ stratio $+u$
+
+:::{.columns}
+::::{.column}
+```{r}
+library(wooldridge)
+summary(lm(price ~ nox + crime + rooms + dist + stratio, hprice2))
+```
+::::
+::::{.column}
+```{r}
+summary(lm(scale(price) ~ scale(nox) + scale(crime) + scale(rooms) + scale(dist) + scale(stratio), hprice2))
+```
+::::
+:::
+
+## Functional forms {.smaller}
+Recall from lecture 1
+
+| Specification | Change in x | Effect on y               |
+|---------------|-------------|---------------------------|
+| Level-level   | +1 unit     | \+$b_1$ units             |
+| Level-log     | +1%         | \+$\frac{b_1}{100}$ units |
+| Log-level     | +1 unit     | \+$(100 \times b_1)\%$    |
+| Log-log       | +1%         | \+$b_1\%$                 |
+
+
+## Nonlinearities in X {.smaller}
+
+$$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{2i} + u_i$$
+
+$$\frac{\partial y}{\partial x_{1i}} = \beta_1 + 2\beta_2 x_{1i}$$
+
+Discuss the nature of price change of houses with respect to number of rooms:
+```{r}
+lm(log(price) ~ log(nox) + log(dist) + rooms + I(rooms^2), hprice2)
+```
+:::{.incremental}
+- Based on estimates how does price change as # of rooms go up?
+- Increasing or decreasing rates?
+- Are there tipping points?
+  - $|\beta_1/2\beta_2|$ is the tipping point for $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{3i} + u_i$ when $x_{1i}$ changes
+:::
+
+## Interaction terms {.smaller}
+:::{.incremental}
+- $p =  \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms +u$
+
+<!-- $$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$  
+
+More useful is the marginal effect of bdrms on price when sqrft is at its mean:
+$$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 \bar{sqrft}$$ -->
+
+- We can formalize it with conditional expecations:
+- $E(p|sqrft, bdrms, bthrms) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms$
+
+- $$\frac{\partial E(p|sqrft, bdrms, bthrms)}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$
+
+- So at sqrft = $\bar{sqrft}$, the effect of bdrms on price is $\beta_2 + \beta_3 \bar{sqrft}$
+- Easy to obtain given $\hat{\beta}_2$ and $\hat{\beta}_3$ and $\bar{sqrft}$
+- Similarly in the previous slide $\frac{\partial E(y | x_1 = \bar{x_1}, x_2)}{\partial x_1} = \beta_1 + 2\beta_2 \bar{x_1}$
+:::
+
+
+## Adjusted R-squared {.smaller}
+
+- Adjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.
+- It is used to compare the goodness of fit of regression models with different numbers of predictors.
+  $$
+  \text{Adjusted } R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)
+  $$
+  where:
+  - $R^2$ is the R-squared value
+  - $n$ is the number of observations and $k$ is the number of X's
+- Adjusted R-squared can be lower than R-squared if the added predictors do not improve the model.
+  - Penalizes the addition of unnecessary predictors
+- The F-test could be related to the adjusted R-squared. 
+  - Think abour $UR$ and $R$ models in the context of the F-test
