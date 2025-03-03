@@ -7,7 +7,7 @@ categories: [julia, Programming, Reproducibility]
 A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using [julia environments](https://pkgdocs.julialang.org/v1/environments/).[^1] The setup below works for me to ensure that the correct versions of my dependencies are used automatically on any machine.
 
 
-[^1]: This is different from creating a julia package. Excellent resources on creating julia packages can be found [here](https://julialang.github.io/Pkg.jl/v1/creating-packages/) and using the `PkgTemplates.jl` package to create a new package can be found [here](https://juliaci.github.io/PkgTemplates.jl/stable/user/)
+[^1]: This is different from creating a julia package. Excellent resources on creating julia packages can be found [here](https://julialang.github.io/Pkg.jl/v1/creating-packages/), [here](https://syl1.gitbook.io/julia-language-a-concise-tutorial/language-core/11-developing-julia-packages) and using the `PkgTemplates.jl` package to create a new package can be found [here](https://juliaci.github.io/PkgTemplates.jl/stable/user/)
 
 
 ## Setting up a julia project environment
