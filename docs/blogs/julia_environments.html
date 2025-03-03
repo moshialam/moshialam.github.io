@@ -160,6 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-up-a-julia-project-environment" id="toc-setting-up-a-julia-project-environment" class="nav-link active" data-scroll-target="#setting-up-a-julia-project-environment">Setting up a julia project environment</a></li>
   <li><a href="#reusing-and-modifying-your-environment" id="toc-reusing-and-modifying-your-environment" class="nav-link" data-scroll-target="#reusing-and-modifying-your-environment">Reusing and modifying your environment</a></li>
   <li><a href="#sharing-your-environment" id="toc-sharing-your-environment" class="nav-link" data-scroll-target="#sharing-your-environment">Sharing your environment</a></li>
+  <li><a href="#setting-up-the-project-on-a-different-machine" id="toc-setting-up-the-project-on-a-different-machine" class="nav-link" data-scroll-target="#setting-up-the-project-on-a-different-machine">Setting up the project on a different machine</a></li>
   </ul>
 </nav>
     </div>
@@ -202,13 +203,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using <a href="https://pkgdocs.julialang.org/v1/environments/">julia environments</a>. The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine.</p>
+<p>A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using <a href="https://pkgdocs.julialang.org/v1/environments/">julia environments</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The setup below works for me to ensure that the correct versions of my dependencies are used automatically on any machine.</p>
 <section id="setting-up-a-julia-project-environment" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-a-julia-project-environment">Setting up a julia project environment</h2>
 <p>First, setting up a new julia project typically involves creating the working directory, <strong>initializing the environment</strong> within that directory, and then modifying the environment, e.g.&nbsp;adding any necessary packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> path/to/MyCoolProject</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/MyCoolProject</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then I typically create a <code>setup.jl</code> file in the <code>path/to/MyCoolProject/code</code> folder to activate the environment and adding neccesary packages.</p>
+<p>Then I typically create a <code>setup.jl</code> file in the <code>path/to/MyCoolProject/code</code> folder to activate the environment and adding necessary packages.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span>(<span class="pp">@__DIR__</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="pp">@__DIR__</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -216,8 +217,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ### Adding Packages to Your Project -->
 <p>Once you’ve initialized your project, you can add packages to it, as you normally would.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add packages to your project</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> add DataFrames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Adding the very first package does two things: 1. Updates Project.toml: It adds DataFrames to the list of dependencies. 2. Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.</p>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> add DataFramesMeta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Adding the very first package does two things:</p>
+<ol type="1">
+<li>Updates <code>Project.toml</code>: It adds DataFrames to the list of dependencies.</li>
+<li>Updates <code>Manifest.toml</code>: It records the exact version of DataFrames and its dependencies to ensure reproducibility.</li>
+</ol>
 </section>
 <section id="reusing-and-modifying-your-environment" class="level2">
 <h2 class="anchored" data-anchor-id="reusing-and-modifying-your-environment">Reusing and modifying your environment</h2>
@@ -225,38 +230,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span>(<span class="st">"path/to/MyCoolProject"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.</p>
+<p>This reactivates the environment associated with the <code>Project.toml</code> and <code>Manifest.toml</code> files in the same directory.</p>
 <p>To add more packages to your project at any time:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> add Plots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.</p>
-<p>To see the current status of your environment:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command updates your environment to include the Plots package. The <code>Project.toml</code> and <code>Manifest.toml</code> files will be updated accordingly.</p>
+<p>To see the current status of your environment run <code>Pkg.status()</code> and to update run <code>Pkg.update()</code></p>
 </section>
 <section id="sharing-your-environment" class="level2">
 <h2 class="anchored" data-anchor-id="sharing-your-environment">Sharing your environment</h2>
-<p>To share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:</p>
+<p>To share your project with others, provide the directory containing <code>Project.toml</code> and <code>Manifest.toml</code>. Others can recreate your environment by running:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> instantiate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This installs all the dependencies listed in <code>Manifest.toml</code>, recreating your exact environment.</p>
+</section>
+<section id="setting-up-the-project-on-a-different-machine" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-project-on-a-different-machine">Setting up the project on a different machine</h2>
+<ul>
+<li>When you clone a project repository or copy a project folder to a different machine, the <code>Manifest.toml</code> file contains the exact versions of all dependencies needed.</li>
+<li>Running <code>Pkg.instantiate()</code> in this context installs these exact versions, recreating the original environment.</li>
+</ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> activate .</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>(MyCoolProject) pkg<span class="op">&gt;</span> instantiate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.</p>
-<p>Setting Up the Project on a Different Machine: - When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed. - Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> ]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> instantiate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(v1<span class="fl">.9</span>) pkg<span class="op">&gt;</span> instantiate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>instantiate</code> command has two more useful features:</p>
 <ol type="1">
-<li>Restoring an Environment:
+<li><p>Restoring an Environment:</p>
 <ul>
-<li>If you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.</li>
+<li>If you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the <code>Manifest.toml</code>, you can use <code>Pkg.instantiate()</code> to reinstall all necessary dependencies.</li>
 <li>This is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.</li>
 </ul></li>
-<li>Ensuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.</li>
+<li><p>Ensuring consistency across users: If you’re working in a shared project and the <code>Manifest.toml</code> has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the <code>Manifest.toml</code>.</p></li>
 </ol>
-<p>In a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub.</p>
+<p>Happy researching!</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is different from creating a julia package. Excellent resources on creating julia packages can be found <a href="https://julialang.github.io/Pkg.jl/v1/creating-packages/">here</a> and using the <code>PkgTemplates.jl</code> package to create a new package can be found <a href="https://juliaci.github.io/PkgTemplates.jl/stable/user/">here</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

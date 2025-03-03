@@ -4,7 +4,11 @@ author: "Moshi Alam"
 date: "2024-08-24"
 categories: [julia, Programming, Reproducibility]
 ---
-A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using [julia environments](https://pkgdocs.julialang.org/v1/environments/). The setup below will ensure that the correct versions of your dependencies are used automatically on any given machine.
+A workflow that starts your project to be reproducible from day one, will reduce your work going forward. Since I have started using this workflow, I have realized that by construction it forces certain good habits. In this post, I will share a simple example of creating a reproducible project in julia, by using [julia environments](https://pkgdocs.julialang.org/v1/environments/).[^1] The setup below works for me to ensure that the correct versions of my dependencies are used automatically on any machine.
+
+
+[^1]: This is different from creating a julia package. Excellent resources on creating julia packages can be found [here](https://julialang.github.io/Pkg.jl/v1/creating-packages/) and using the `PkgTemplates.jl` package to create a new package can be found [here](https://juliaci.github.io/PkgTemplates.jl/stable/user/)
+
 
 ## Setting up a julia project environment
 
@@ -13,7 +17,7 @@ First, setting up a new julia project typically involves creating the working di
 mkdir -p path/to/MyCoolProject
 cd path/to/MyCoolProject
 ```
-Then I typically create a `setup.jl` file in the `path/to/MyCoolProject/code` folder to activate the environment and adding neccesary packages.
+Then I typically create a `setup.jl` file in the `path/to/MyCoolProject/code` folder to activate the environment and adding necessary packages.
 
 ```julia
 using Pkg
@@ -29,12 +33,13 @@ Once you’ve initialized your project, you can add packages to it, as you norma
 
 ```julia
 # Add packages to your project
-(MyCoolProject) pkg> add DataFrames
+(MyCoolProject) pkg> add DataFramesMeta
 ```
 
 Adding the very first package does two things:
-1.	Updates Project.toml: It adds DataFrames to the list of dependencies.
-2.	Updates Manifest.toml: It records the exact version of DataFrames and its dependencies to ensure reproducibility.
+
+1.	Updates `Project.toml`: It adds DataFrames to the list of dependencies.
+2.	Updates `Manifest.toml`: It records the exact version of DataFrames and its dependencies to ensure reproducibility.
 
 ## Reusing and modifying your environment
 
@@ -46,31 +51,30 @@ julia> ]
 (v1.9) pkg> activate .
 ```
 
-This reactivates the environment associated with the Project.toml and Manifest.toml files in the same directory.
+This reactivates the environment associated with the `Project.toml` and `Manifest.toml` files in the same directory.
 
 To add more packages to your project at any time:
 ```julia
 (MyCoolProject) pkg> add Plots
 ```
-This command updates your environment to include the Plots package. The Project.toml and Manifest.toml files will be updated accordingly.
+This command updates your environment to include the Plots package. The `Project.toml` and `Manifest.toml` files will be updated accordingly.
 
-To see the current status of your environment:
-```julia
-(MyCoolProject) pkg> update
-```
+To see the current status of your environment run `Pkg.status()` and to update run `Pkg.update()`
+
 ## Sharing your environment
 
-To share your project with others, provide the directory containing Project.toml and Manifest.toml. Others can recreate your environment by running:
+To share your project with others, provide the directory containing `Project.toml` and `Manifest.toml`. Others can recreate your environment by running:
 ```julia
 julia> ]
 (v1.9) pkg> activate .
 (MyCoolProject) pkg> instantiate
 ```
-The instantiate command installs all the dependencies listed in Manifest.toml, recreating your exact environment.
+This installs all the dependencies listed in `Manifest.toml`, recreating your exact environment.
 
-Setting Up the Project on a Different Machine:
-- When you clone a project repository or copy a project folder to a different machine, the Manifest.toml file contains the exact versions of all dependencies needed.
-- Running Pkg.instantiate in this context installs these exact versions, recreating the original environment.
+## Setting up the project on a different machine
+
+- When you clone a project repository or copy a project folder to a different machine, the `Manifest.toml` file contains the exact versions of all dependencies needed.
+- Running `Pkg.instantiate()` in this context installs these exact versions, recreating the original environment.
 
 ```julia
 julia> ]
@@ -79,10 +83,10 @@ julia> ]
 The `instantiate` command has two more useful features:
 
 1.	Restoring an Environment:
-	- If you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the Manifest.toml, you can use Pkg.instantiate to reinstall all necessary dependencies.
+
+	- If you’ve made changes to your environment or accidentally removed packages and want to restore the environment to the exact state described in the `Manifest.toml`, you can use `Pkg.instantiate()` to reinstall all necessary dependencies.
 	- This is also useful if you’ve deleted the ~/.julia/environments directory or are switching between environments and want to ensure the current project has all the required packages.
+2.	Ensuring consistency across users: If you’re working in a shared project and the `Manifest.toml` has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the `Manifest.toml`.
 
-2.	Ensuring consistency across users: If you’re working in a shared project and the Manifest.toml has been updated by someone else (e.g., new packages have been added or versions changed), running Pkg.instantiate will synchronize your local environment with the latest dependencies as defined in the Manifest.toml.
 
-
-In a separate post I will cover my basic setup to version control my scriptss using git and hosting them on GitHub. 
+Happy researching!
