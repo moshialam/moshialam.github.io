@@ -15,16 +15,16 @@ editor: visual
 
 ## Introduction {.smaller}
 
-- Data scaling
-- Standardized coefficients
-- Nonlinearities in X
-- Interaction terms
-- Average partial effects
-- Adjusted R-squared
-- Over fitting
-<!-- - Predicting $\hat{y}$ with results from regression of $f(y)$ on $x$ -->
+-   Data scaling
+-   Standardized coefficients
+-   Nonlinearities in X
+-   Interaction terms
+-   Average partial effects
+-   Adjusted R-squared
+-   Over fitting <!-- - Predicting $\hat{y}$ with results from regression of $f(y)$ on $x$ -->
 
 ## Data Scaling {.smaller}
+
 ```{r}
 library(wooldridge); library(stargazer);
 model1 <- lm(bwght ~ cigs + faminc, bwght) # bwght in grams
@@ -35,73 +35,78 @@ stargazer(model1, model2, model3, type = "text")
 ```
 
 ## Data Scaling {.smaller}
-- Coefficients in a regression model are sensitive to the units of measurement
+
+-   Coefficients in a regression model are sensitive to the units of measurement
 
 <!-- :::{.incremental} -->
-- The population model: $bwght_i = \beta_0 + \beta_1 cigs_i + \beta_2 faminc + u_i$ follows MLR 1-5
-- $bwght_i/16 = \beta_0/16 + \beta_1/16 cigs_i + \beta_2/16 faminc + u_i$
-  - Coefficients scaled down by factor with which dependent variable is scaled
-- $bwhgt_i = \beta_0 + 20\beta_1 cigs_i/20 + \beta_2 faminc + u_i$
-  - which simplifies to $bwhgt_i = \beta_0 + 20\beta_1 packs_i + \beta_2 faminc + u_i$
-  - Coefficients scaled up by factor with which independent variable is scaled
-- What about SE? R^2?
-<!-- ::: -->
+
+-   The population model: $bwght_i = \beta_0 + \beta_1 cigs_i + \beta_2 faminc + u_i$ follows MLR 1-5
+-   $bwght_i/16 = \beta_0/16 + \beta_1/16 cigs_i + \beta_2/16 faminc + u_i$
+    -   Coefficients scaled down by factor with which dependent variable is scaled
+-   $bwhgt_i = \beta_0 + 20\beta_1 cigs_i/20 + \beta_2 faminc + u_i$
+    -   which simplifies to $bwhgt_i = \beta_0 + 20\beta_1 packs_i + \beta_2 faminc + u_i$
+    -   Coefficients scaled up by factor with which independent variable is scaled
+-   What about SE? R\^2? <!-- ::: -->
 
 ## Standardized Coefficients {.smaller}
 
 Instead of asking what happens to $y$ when $x$ changes by 1 unit, we ask what happens to $y$ when $x$ changes by 1 standard deviation
 
-- This is useful because: 
-  - $x$ may be measured in different units in different datasets
-  - $x$ may be a composite index of several variables
-  - $x$ could be scaled up or down differently in different datasets. E.g. GPA
-- But s.d. effects are only useful when interpreted relative to the mean of $x$
-  - So the standardized $x_i$ is $x^* = (x_i - \bar{x})/s_x$
-- Thus from the population model: $y = \beta_0 + \beta_1 x_1 + \ldots + \beta_k x_k + u$
-  - The standardized model is: $y = \beta_0^* + \beta_1^* x_1^* + \ldots + \beta_k^* x_k^* + u^*$
-    - where $\beta_j^* =  \frac{s_{x_j}}{s_y}\beta_j$ for $j = 1, \ldots, k$
-- How would you derive this?
-- This is easy to implement in R using `scale()` function
-
+-   This is useful because:
+    -   $x$ may be measured in different units in different datasets
+    -   $x$ may be a composite index of several variables
+    -   $x$ could be scaled up or down differently in different datasets. E.g. GPA
+-   But s.d. effects are only useful when interpreted relative to the mean of $x$
+    -   So the standardized $x_i$ is $x^* = (x_i - \bar{x})/s_x$
+-   Thus from the population model: $y = \beta_0 + \beta_1 x_1 + \ldots + \beta_k x_k + u$
+    -   The standardized model is: $y = \beta_0^* + \beta_1^* x_1^* + \ldots + \beta_k^* x_k^* + u^*$
+        -   where $\beta_j^* =  \frac{s_{x_j}}{s_y}\beta_j$ for $j = 1, \ldots, k$
+-   How would you derive this?
+-   This is easy to implement in R using `scale()` function
 
 ## Standardized Coefficients {.smaller}
 
-:::{.columns}
-::::{.column}
+::::: columns
+::: column
 Scaled estimation:
+
 ```{r}
 model4 <- lm(scale(bwght) ~ scale(cigs) + scale(faminc), bwght)
 stargazer(model1, model4, type = "text", omit.stat = c("f", "ser"))
 ```
-::::
-::::{.column}
+:::
+
+::: column
 Compute manually:
+
 ```{r}
 model1$coef["cigs"]* sd(bwght$cigs)/sd(bwght$bwght)
 model1$coef["faminc"]* sd(bwght$faminc)/sd(bwght$bwght)
 ```
 :::
-:::
+:::::
 
 ## More examples {.smaller}
 
 price $=\beta_0+\beta_1$ nox $+\beta_2$ crime $+\beta_3$ rooms $+\beta_4$ dist $+\beta_5$ stratio $+u$
 
-:::{.columns}
-::::{.column}
+::::: columns
+::: column
 ```{r}
 library(wooldridge)
 summary(lm(price ~ nox + crime + rooms + dist + stratio, hprice2))
 ```
-::::
-::::{.column}
+:::
+
+::: column
 ```{r}
 summary(lm(scale(price) ~ scale(nox) + scale(crime) + scale(rooms) + scale(dist) + scale(stratio), hprice2))
 ```
-::::
 :::
+:::::
 
 ## Functional forms {.smaller}
+
 Recall from lecture 1
 
 | Specification | Change in x | Effect on y               |
@@ -111,7 +116,6 @@ Recall from lecture 1
 | Log-level     | +1 unit     | \+$(100 \times b_1)\%$    |
 | Log-log       | +1%         | \+$b_1\%$                 |
 
-
 ## Nonlinearities in X {.smaller}
 
 $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{2i} + u_i$$
@@ -119,47 +123,196 @@ $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{2i} + u_i$$
 $$\frac{\partial y}{\partial x_{1i}} = \beta_1 + 2\beta_2 x_{1i}$$
 
 Discuss the nature of price change of houses with respect to number of rooms:
+
 ```{r}
 lm(log(price) ~ log(nox) + log(dist) + rooms + I(rooms^2), hprice2)
 ```
-:::{.incremental}
-- Based on estimates how does price change as # of rooms go up?
-- Increasing or decreasing rates?
-- Are there tipping points?
-  - $|\beta_1/2\beta_2|$ is the tipping point for $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{3i} + u_i$ when $x_{1i}$ changes
+
+::: incremental
+-   Based on estimates how does price change as \# of rooms go up?
+-   Increasing or decreasing rates?
+-   Are there tipping points?
+    -   $|\beta_1/2\beta_2|$ is the tipping point for $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{1i}^2 + \beta_3 x_{3i} + u_i$ when $x_{1i}$ changes
 :::
 
 ## Interaction terms {.smaller}
-:::{.incremental}
-- $p =  \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms +u$
 
-<!-- $$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$  
+::: incremental
+-   $p =  \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms +u$
 
-More useful is the marginal effect of bdrms on price when sqrft is at its mean:
-$$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 \bar{sqrft}$$ -->
 
-- We can formalize it with conditional expecations:
-- $E(p|sqrft, bdrms, bthrms) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms$
+-   We can formalize it with conditional expecations:
 
-- $$\frac{\partial E(p|sqrft, bdrms, bthrms)}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$
+-   $E(p|sqrft, bdrms, bthrms) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms$
 
-- So at sqrft = $\bar{sqrft}$, the effect of bdrms on price is $\beta_2 + \beta_3 \bar{sqrft}$
-- Easy to obtain given $\hat{\beta}_2$ and $\hat{\beta}_3$ and $\bar{sqrft}$
-- Similarly in the previous slide $\frac{\partial E(y | x_1 = \bar{x_1}, x_2)}{\partial x_1} = \beta_1 + 2\beta_2 \bar{x_1}$
+-   $$\frac{\partial E(p|sqrft, bdrms, bthrms)}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$
+
+-   So at sqrft = $\bar{sqrft}$, the effect of bdrms on price is $\beta_2 + \beta_3 \bar{sqrft}$
+
+-   Easy to obtain given $\hat{\beta}_2$ and $\hat{\beta}_3$ and $\bar{sqrft}$
+
+-   Similarly in the previous slide $\frac{\partial E(y | x_1 = \bar{x_1}, x_2)}{\partial x_1} = \beta_1 + 2\beta_2 \bar{x_1}$
 :::
+
+```{r}
+
+model <-  lm(price ~ sqrft + bdrms + I(sqrft * bdrms), data = hprice1)
+ model$coefficients["bdrms"] + model$coefficients["I(sqrft * bdrms)"] * mean(hprice1$sqrft)
+```
+
 
 
 ## Adjusted R-squared {.smaller}
 
-- Adjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.
-- It is used to compare the goodness of fit of regression models with different numbers of predictors.
-  $$
-  \text{Adjusted } R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)
-  $$
-  where:
-  - $R^2$ is the R-squared value
-  - $n$ is the number of observations and $k$ is the number of X's
-- Adjusted R-squared can be lower than R-squared if the added predictors do not improve the model.
-  - Penalizes the addition of unnecessary predictors
-- The F-test could be related to the adjusted R-squared. 
-  - Think abour $UR$ and $R$ models in the context of the F-test
+- Recall Econ 160
+-   Adjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.
+-   Compare goodness of fit of models with different numbers of X's. 
+$$\text{Adjusted-}R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)$$
+    $R^2$ is the R-squared value, $n$ is the \# observations and $k$ is the number of X's
+    -   Penalizes the addition of unnecessary predictors
+-   The F-test could be related to the adjusted R-squared.
+    -   Think abour $UR$ and $R$ models in the context of the F-test
+    -   F-test is useful when models are *nested*
+
+
+
+## Overfitting/overcontrolling {.smaller}
+
+- Including too many controls can distort causal interpretation.  
+- Example: Estimating the effect of **beer tax** on traffic fatalities ins tates:
+
+$$
+\text{fatalities}_s = \beta_0 + \beta_1 \text{tax}_s + \beta_2 \text{miles}_s + \beta_3 \text{percmale}_s + \beta_4 \text{perc16_21}_s + \dots
+$$
+
+- **Should we control for beer consumption (`beercons`)?**  
+  - No, it mediates the effect of `tax` on fatalities.  
+  - Controlling for it absorbs the policy impact.
+
+---
+
+## The Problem of Overcontrolling {.smaller}
+
+- Overcontrolling can remove meaningful variation in key variables.  
+- Example: Estimating the effect of **pesticides** on health costs:
+  - Controlling for doctor visits **blocks part of the effect**.
+- Another case: **School quality → earnings**:
+  - If quality raises education, controlling for education **understates** its impact.
+- **Takeaway:** Control variables should reflect **causal logic**, not just maximize $R^2$.
+
+
+# Qualitative data
+
+---
+
+## Binary variables {.smaller}
+
+::: incremental
+-   Binary variables are {0,1} variables. E.g. `female`, `married`, `smoker`
+- Example: Estimating the effect of **gender** on wages:
+- $wage_i = \beta_0 + \delta_0 female_i + \beta_1 educ_i + u_i$
+- $\delta_0=\mathrm{E}( wage_i \mid female_i =1, educ_i )-\mathrm{E}( wage_i \mid female_i =0, educ_i )$
+- Difference in wages **between females and males**, holding education constant.
+- If $\delta_0 < 0$, women earn less than men on average, given education.
+  - Males are the base group ($\beta_0$ is their intercept)[draw]
+- Including both `male` and `female` leads to perfect collinearity.
+- Alternatively: $wage_i = \alpha_0 + \gamma_0 male_i + \beta_1 educ_i + u_i$
+  - Here, females are the base group.
+:::
+
+
+
+## tests for wage discrimination {.smaller}
+
+wage $=\beta_0+\delta_0$ female $+\beta_1$ educ $+\beta_2$ exper $+\beta_3$ tenure $+u$
+
+
+```{r}
+library(wooldridge)
+summary( lm(wage ~ female + educ + exper + tenure, data = wage1))
+```
+
+
+
+
+
+
+
+
+
+## Multiple categories {.smaller}
+
+Marital status and gender:
+$$
+log(wage_i) = \beta_0 + \beta_1 marriedmale_i + \beta_2 marriedfemale_i + \beta_3 unmarriedfemale_i \\
++ \beta_4 educ_i + \beta_5 exper_i + \beta_6 tenure_i + \beta_7 exper^2_i + \beta_8 tenure^2_i + u_i$$
+ What is the base group?
+
+```{r}
+summary(lm(log(wage) ~ I(married*(1-female)) + I(married*female) + I((1-married)*female) + educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1) )
+```
+- What is the wage gap between married females and unmarried females?
+
+
+## Interactions with dummy variables {.smaller}
+
+What is the point of interacting: Marital status X gender?
+
+$$
+log(wage_i) = \beta_0 + \beta_1  female_i + \beta_2 married_i + \beta_3 married_i * female_i \\
++ \beta_4 educ_i + \beta_5 exper_i + \beta_6 tenure_i + \beta_7 exper^2_i + \beta_8 tenure^2_i + u_i$$
+
+```{r}
+summary(lm(log(wage) ~ female + married + I((married)*female) + educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1))
+```
+
+
+## Different slopes {.smaller}
+
+- Do men and women have different returns to education?
+-  $wage_i = \beta_0 + \beta_1 educ_i + \beta_2 female_i + \beta_3 educ_i * female_i + u_i$
+
+-  $E(wage_i | educ_i, female_i = 1) - E(wage_i | educ_i, female_i = 0) = \beta_3 educ_i$
+-  $\uparrow$ educ by 1 unit  $\uparrow$  wage by $\beta_1 + \beta_3$ for females and $\beta_1$ for males.
+<!-- -  Returns to  $\uparrow$  1 year of educ  $\uparrow$  wages for females relative to males by $\beta_3$ -->
+```{r}
+summary(lm(log(wage) ~ educ + female + I(educ*female) + exper + expersq + tenure + tenursq, data = wage1))
+```
+- What is the gender gap at the average education level? 
+
+
+
+## Different models for diff groups {.smaller}
+
+$$
+ GPA_i =\beta_0+\beta_1  SAT_i +\beta_2  hsrankperc_i +\beta_3  tothrs_i +u_i
+$$
+
+- For any of the slopes to depend on gender, we simply interact it with $female_i$, and include it 
+
+- To test if the model is different between men and women, then we need a model where the intercept and all slopes can be different across the two groups
+
+$$
+\begin{aligned}
+ GPA_i = & \beta_0+\beta_1  sat_i +\beta_2  hsperc_i   +\beta_3  tothrs_i \\
+& +\delta_0  female_i  +\delta_1  female_i  *  sat_i +\delta_2  female_i  *  hsperc_i +\delta_3  female_i  *  tothrs_i  \\
+& +u_i 
+\end{aligned}
+$$
+
+## {.smaller}
+
+:::: columns
+::: {.column width="50%"}
+```{r}
+summary(lm(cumgpa ~ sat + hsperc + tothrs, data = gpa3))
+```
+::::
+::: {.column width="50%"}
+```{r}
+summary(lm(cumgpa ~ sat + hsperc + tothrs + female + I(sat*female) + I(hsperc*female) + I(tothrs*female), data = gpa3)) 
+```
+:::
+::::
+
+## Heteroskedasticity to be covered by Zeyi in the lab {.smaller}

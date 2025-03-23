@@ -60,14 +60,84 @@
     "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#interaction-terms",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Interaction terms",
-    "text": "Interaction terms\n\n\n\\(p =  \\beta_0 + \\beta_1 sqrft + \\beta_2 bdrms + \\beta_3 sqrft \\times bdrms + \\beta_4 bthrms +u\\)\n\n\n\nWe can formalize it with conditional expecations:\n\\(E(p|sqrft, bdrms, bthrms) = \\beta_0 + \\beta_1 sqrft + \\beta_2 bdrms + \\beta_3 sqrft \\times bdrms + \\beta_4 bthrms\\)\n\\[\\frac{\\partial E(p|sqrft, bdrms, bthrms)}{\\partial bdrms} = \\beta_2 + \\beta_3 sqrft\\]\nSo at sqrft = \\(\\bar{sqrft}\\), the effect of bdrms on price is \\(\\beta_2 + \\beta_3 \\bar{sqrft}\\)\nEasy to obtain given \\(\\hat{\\beta}_2\\) and \\(\\hat{\\beta}_3\\) and \\(\\bar{sqrft}\\)\nSimilarly in the previous slide \\(\\frac{\\partial E(y | x_1 = \\bar{x_1}, x_2)}{\\partial x_1} = \\beta_1 + 2\\beta_2 \\bar{x_1}\\)"
+    "text": "Interaction terms\n\n\n\\(p =  \\beta_0 + \\beta_1 sqrft + \\beta_2 bdrms + \\beta_3 sqrft \\times bdrms + \\beta_4 bthrms +u\\)\nWe can formalize it with conditional expecations:\n\\(E(p|sqrft, bdrms, bthrms) = \\beta_0 + \\beta_1 sqrft + \\beta_2 bdrms + \\beta_3 sqrft \\times bdrms + \\beta_4 bthrms\\)\n\\[\\frac{\\partial E(p|sqrft, bdrms, bthrms)}{\\partial bdrms} = \\beta_2 + \\beta_3 sqrft\\]\nSo at sqrft = \\(\\bar{sqrft}\\), the effect of bdrms on price is \\(\\beta_2 + \\beta_3 \\bar{sqrft}\\)\nEasy to obtain given \\(\\hat{\\beta}_2\\) and \\(\\hat{\\beta}_3\\) and \\(\\bar{sqrft}\\)\nSimilarly in the previous slide \\(\\frac{\\partial E(y | x_1 = \\bar{x_1}, x_2)}{\\partial x_1} = \\beta_1 + 2\\beta_2 \\bar{x_1}\\)\n\n\n\nmodel &lt;-  lm(price ~ sqrft + bdrms + I(sqrft * bdrms), data = hprice1)\n model$coefficients[\"bdrms\"] + model$coefficients[\"I(sqrft * bdrms)\"] * mean(hprice1$sqrft)\n\n   bdrms \n11.26181"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#adjusted-r-squared",
     "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#adjusted-r-squared",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Adjusted R-squared",
-    "text": "Adjusted R-squared\n\nAdjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.\nIt is used to compare the goodness of fit of regression models with different numbers of predictors. \\[\n\\text{Adjusted } R^2 = 1 - \\left( \\frac{(1 - R^2)(n - 1)}{n - k - 1} \\right)\n\\] where:\n\n\\(R^2\\) is the R-squared value\n\\(n\\) is the number of observations and \\(k\\) is the number of X’s\n\nAdjusted R-squared can be lower than R-squared if the added predictors do not improve the model.\n\nPenalizes the addition of unnecessary predictors\n\nThe F-test could be related to the adjusted R-squared.\n\nThink abour \\(UR\\) and \\(R\\) models in the context of the F-test"
+    "text": "Adjusted R-squared\n\nRecall Econ 160\nAdjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.\nCompare goodness of fit of models with different numbers of X’s. \\[\\text{Adjusted-}R^2 = 1 - \\left( \\frac{(1 - R^2)(n - 1)}{n - k - 1} \\right)\\] \\(R^2\\) is the R-squared value, \\(n\\) is the # observations and \\(k\\) is the number of X’s\n\nPenalizes the addition of unnecessary predictors\n\nThe F-test could be related to the adjusted R-squared.\n\nThink abour \\(UR\\) and \\(R\\) models in the context of the F-test\nF-test is useful when models are nested"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#overfittingovercontrolling",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#overfittingovercontrolling",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Overfitting/overcontrolling",
+    "text": "Overfitting/overcontrolling\n\nIncluding too many controls can distort causal interpretation.\n\nExample: Estimating the effect of beer tax on traffic fatalities ins tates:\n\n\\[\n\\text{fatalities}_s = \\beta_0 + \\beta_1 \\text{tax}_s + \\beta_2 \\text{miles}_s + \\beta_3 \\text{percmale}_s + \\beta_4 \\text{perc16_21}_s + \\dots\n\\]\n\nShould we control for beer consumption (beercons)?\n\nNo, it mediates the effect of tax on fatalities.\n\nControlling for it absorbs the policy impact."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#the-problem-of-overcontrolling",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#the-problem-of-overcontrolling",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "The Problem of Overcontrolling",
+    "text": "The Problem of Overcontrolling\n\nOvercontrolling can remove meaningful variation in key variables.\n\nExample: Estimating the effect of pesticides on health costs:\n\nControlling for doctor visits blocks part of the effect.\n\nAnother case: School quality → earnings:\n\nIf quality raises education, controlling for education understates its impact.\n\nTakeaway: Control variables should reflect causal logic, not just maximize \\(R^2\\)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#binary-variables",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#binary-variables",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Binary variables",
+    "text": "Binary variables\n\n\nBinary variables are {0,1} variables. E.g. female, married, smoker\nExample: Estimating the effect of gender on wages:\n\\(wage_i = \\beta_0 + \\delta_0 female_i + \\beta_1 educ_i + u_i\\)\n\\(\\delta_0=\\mathrm{E}( wage_i \\mid female_i =1, educ_i )-\\mathrm{E}( wage_i \\mid female_i =0, educ_i )\\)\nDifference in wages between females and males, holding education constant.\nIf \\(\\delta_0 &lt; 0\\), women earn less than men on average, given education.\n\nMales are the base group (\\(\\beta_0\\) is their intercept)[draw]\n\nIncluding both male and female leads to perfect collinearity.\nAlternatively: \\(wage_i = \\alpha_0 + \\gamma_0 male_i + \\beta_1 educ_i + u_i\\)\n\nHere, females are the base group."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#tests-for-wage-discrimination",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#tests-for-wage-discrimination",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "tests for wage discrimination",
+    "text": "tests for wage discrimination\nwage \\(=\\beta_0+\\delta_0\\) female \\(+\\beta_1\\) educ \\(+\\beta_2\\) exper \\(+\\beta_3\\) tenure \\(+u\\)\n\nlibrary(wooldridge)\nsummary( lm(wage ~ female + educ + exper + tenure, data = wage1))\n\n\nCall:\nlm(formula = wage ~ female + educ + exper + tenure, data = wage1)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-7.7675 -1.8080 -0.4229  1.0467 14.0075 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -1.56794    0.72455  -2.164   0.0309 *  \nfemale      -1.81085    0.26483  -6.838 2.26e-11 ***\neduc         0.57150    0.04934  11.584  &lt; 2e-16 ***\nexper        0.02540    0.01157   2.195   0.0286 *  \ntenure       0.14101    0.02116   6.663 6.83e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.958 on 521 degrees of freedom\nMultiple R-squared:  0.3635,    Adjusted R-squared:  0.3587 \nF-statistic:  74.4 on 4 and 521 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#multiple-categories",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#multiple-categories",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Multiple categories",
+    "text": "Multiple categories\nMarital status and gender: \\[\nlog(wage_i) = \\beta_0 + \\beta_1 marriedmale_i + \\beta_2 marriedfemale_i + \\beta_3 unmarriedfemale_i \\\\\n+ \\beta_4 educ_i + \\beta_5 exper_i + \\beta_6 tenure_i + \\beta_7 exper^2_i + \\beta_8 tenure^2_i + u_i\\] What is the base group?\n\nsummary(lm(log(wage) ~ I(married*(1-female)) + I(married*female) + I((1-married)*female) + educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1) )\n\n\nCall:\nlm(formula = log(wage) ~ I(married * (1 - female)) + I(married * \n    female) + I((1 - married) * female) + educ + exper + tenure + \n    I(exper^2) + I(tenure^2), data = wage1)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.89697 -0.24060 -0.02689  0.23144  1.09197 \n\nCoefficients:\n                            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                0.3213781  0.1000090   3.213 0.001393 ** \nI(married * (1 - female))  0.2126757  0.0553572   3.842 0.000137 ***\nI(married * female)       -0.1982676  0.0578355  -3.428 0.000656 ***\nI((1 - married) * female) -0.1103502  0.0557421  -1.980 0.048272 *  \neduc                       0.0789103  0.0066945  11.787  &lt; 2e-16 ***\nexper                      0.0268006  0.0052428   5.112 4.50e-07 ***\ntenure                     0.0290875  0.0067620   4.302 2.03e-05 ***\nI(exper^2)                -0.0005352  0.0001104  -4.847 1.66e-06 ***\nI(tenure^2)               -0.0005331  0.0002312  -2.306 0.021531 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3933 on 517 degrees of freedom\nMultiple R-squared:  0.4609,    Adjusted R-squared:  0.4525 \nF-statistic: 55.25 on 8 and 517 DF,  p-value: &lt; 2.2e-16\n\n\n\nWhat is the wage gap between married females and unmarried females?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#interactions-with-dummy-variables",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#interactions-with-dummy-variables",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Interactions with dummy variables",
+    "text": "Interactions with dummy variables\nWhat is the point of interacting: Marital status X gender?\n\\[\nlog(wage_i) = \\beta_0 + \\beta_1  female_i + \\beta_2 married_i + \\beta_3 married_i * female_i \\\\\n+ \\beta_4 educ_i + \\beta_5 exper_i + \\beta_6 tenure_i + \\beta_7 exper^2_i + \\beta_8 tenure^2_i + u_i\\]\n\nsummary(lm(log(wage) ~ female + married + I((married)*female) + educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1))\n\n\nCall:\nlm(formula = log(wage) ~ female + married + I((married) * female) + \n    educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.89697 -0.24060 -0.02689  0.23144  1.09197 \n\nCoefficients:\n                        Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)            0.3213781  0.1000090   3.213 0.001393 ** \nfemale                -0.1103502  0.0557421  -1.980 0.048272 *  \nmarried                0.2126757  0.0553572   3.842 0.000137 ***\nI((married) * female) -0.3005931  0.0717669  -4.188 3.30e-05 ***\neduc                   0.0789103  0.0066945  11.787  &lt; 2e-16 ***\nexper                  0.0268006  0.0052428   5.112 4.50e-07 ***\ntenure                 0.0290875  0.0067620   4.302 2.03e-05 ***\nI(exper^2)            -0.0005352  0.0001104  -4.847 1.66e-06 ***\nI(tenure^2)           -0.0005331  0.0002312  -2.306 0.021531 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3933 on 517 degrees of freedom\nMultiple R-squared:  0.4609,    Adjusted R-squared:  0.4525 \nF-statistic: 55.25 on 8 and 517 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#different-slopes",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#different-slopes",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Different slopes",
+    "text": "Different slopes\n\nDo men and women have different returns to education?\n\\(wage_i = \\beta_0 + \\beta_1 educ_i + \\beta_2 female_i + \\beta_3 educ_i * female_i + u_i\\)\n\\(E(wage_i | educ_i, female_i = 1) - E(wage_i | educ_i, female_i = 0) = \\beta_3 educ_i\\)\n\\(\\uparrow\\) educ by 1 unit \\(\\uparrow\\) wage by \\(\\beta_1 + \\beta_3\\) for females and \\(\\beta_1\\) for males. \n\n\nsummary(lm(log(wage) ~ educ + female + I(educ*female) + exper + expersq + tenure + tenursq, data = wage1))\n\n\nCall:\nlm(formula = log(wage) ~ educ + female + I(educ * female) + exper + \n    expersq + tenure + tenursq, data = wage1)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.83265 -0.25261 -0.02374  0.25396  1.13584 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       0.3888060  0.1186871   3.276  0.00112 ** \neduc              0.0823692  0.0084699   9.725  &lt; 2e-16 ***\nfemale           -0.2267886  0.1675394  -1.354  0.17644    \nI(educ * female) -0.0055645  0.0130618  -0.426  0.67028    \nexper             0.0293366  0.0049842   5.886 7.11e-09 ***\nexpersq          -0.0005804  0.0001075  -5.398 1.03e-07 ***\ntenure            0.0318967  0.0068640   4.647 4.28e-06 ***\ntenursq          -0.0005900  0.0002352  -2.509  0.01242 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4001 on 518 degrees of freedom\nMultiple R-squared:  0.441, Adjusted R-squared:  0.4334 \nF-statistic: 58.37 on 7 and 518 DF,  p-value: &lt; 2.2e-16\n\n\n\nWhat is the gender gap at the average education level?"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#different-models-for-diff-groups",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#different-models-for-diff-groups",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Different models for diff groups",
+    "text": "Different models for diff groups\n\\[\nGPA_i =\\beta_0+\\beta_1  SAT_i +\\beta_2  hsrankperc_i +\\beta_3  tothrs_i +u_i\n\\]\n\nFor any of the slopes to depend on gender, we simply interact it with \\(female_i\\), and include it\nTo test if the model is different between men and women, then we need a model where the intercept and all slopes can be different across the two groups\n\n\\[\n\\begin{aligned}\nGPA_i = & \\beta_0+\\beta_1  sat_i +\\beta_2  hsperc_i   +\\beta_3  tothrs_i \\\\\n& +\\delta_0  female_i  +\\delta_1  female_i  *  sat_i +\\delta_2  female_i  *  hsperc_i +\\delta_3  female_i  *  tothrs_i  \\\\\n& +u_i\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#section",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#section",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "summary(lm(cumgpa ~ sat + hsperc + tothrs, data = gpa3))\n\n\nCall:\nlm(formula = cumgpa ~ sat + hsperc + tothrs, data = gpa3)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.01959 -0.42768  0.04212  0.45355  2.90131 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.9291105  0.2285515   4.065 5.32e-05 ***\nsat          0.0009028  0.0002079   4.343 1.60e-05 ***\nhsperc      -0.0063791  0.0015678  -4.069 5.24e-05 ***\ntothrs       0.0119779  0.0009314  12.860  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8671 on 728 degrees of freedom\nMultiple R-squared:  0.2354,    Adjusted R-squared:  0.2323 \nF-statistic: 74.72 on 3 and 728 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nsummary(lm(cumgpa ~ sat + hsperc + tothrs + female + I(sat*female) + I(hsperc*female) + I(tothrs*female), data = gpa3)) \n\n\nCall:\nlm(formula = cumgpa ~ sat + hsperc + tothrs + female + I(sat * \n    female) + I(hsperc * female) + I(tothrs * female), data = gpa3)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.08519 -0.39944  0.05277  0.45862  2.73325 \n\nCoefficients:\n                     Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)         1.214e+00  2.648e-01   4.584 5.37e-06 ***\nsat                 6.113e-04  2.350e-04   2.601 0.009484 ** \nhsperc             -5.967e-03  1.776e-03  -3.359 0.000823 ***\ntothrs              1.030e-02  1.093e-03   9.425  &lt; 2e-16 ***\nfemale             -1.114e+00  5.285e-01  -2.107 0.035460 *  \nI(sat * female)     1.117e-03  5.000e-04   2.233 0.025832 *  \nI(hsperc * female)  5.076e-05  4.103e-03   0.012 0.990132    \nI(tothrs * female)  5.560e-03  2.070e-03   2.686 0.007386 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8591 on 724 degrees of freedom\nMultiple R-squared:  0.2537,    Adjusted R-squared:  0.2464 \nF-statistic: 35.15 on 7 and 724 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#heteroskedasticity-to-be-covered-by-zeyi-in-the-lab",
+    "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#heteroskedasticity-to-be-covered-by-zeyi-in-the-lab",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Heteroskedasticity to be covered by Zeyi in the lab",
+    "text": "Heteroskedasticity to be covered by Zeyi in the lab"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#introduction",

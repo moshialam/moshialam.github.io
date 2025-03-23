@@ -490,13 +490,7 @@ Coefficients:
 <h2>Interaction terms</h2>
 <div>
 <ul>
-<li class="fragment"><span class="math inline">\(p =  \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms +u\)</span></li>
-</ul>
-<!-- $$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 sqrft$$  
-
-More useful is the marginal effect of bdrms on price when sqrft is at its mean:
-$$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 \bar{sqrft}$$ -->
-<ul>
+<li class="fragment"><p><span class="math inline">\(p =  \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms +u\)</span></p></li>
 <li class="fragment"><p>We can formalize it with conditional expecations:</p></li>
 <li class="fragment"><p><span class="math inline">\(E(p|sqrft, bdrms, bthrms) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + \beta_3 sqrft \times bdrms + \beta_4 bthrms\)</span></p></li>
 <li class="fragment"><p><span class="math display">\[\frac{\partial E(p|sqrft, bdrms, bthrms)}{\partial bdrms} = \beta_2 + \beta_3 sqrft\]</span></p></li>
@@ -505,30 +499,328 @@ $$\frac{\partial price}{\partial bdrms} = \beta_2 + \beta_3 \bar{sqrft}$$ -->
 <li class="fragment"><p>Similarly in the previous slide <span class="math inline">\(\frac{\partial E(y | x_1 = \bar{x_1}, x_2)}{\partial x_1} = \beta_1 + 2\beta_2 \bar{x_1}\)</span></p></li>
 </ul>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>model <span class="ot">&lt;-</span>  <span class="fu">lm</span>(price <span class="sc">~</span> sqrft <span class="sc">+</span> bdrms <span class="sc">+</span> <span class="fu">I</span>(sqrft <span class="sc">*</span> bdrms), <span class="at">data =</span> hprice1)</span>
+<span id="cb15-2"><a></a> model<span class="sc">$</span>coefficients[<span class="st">"bdrms"</span>] <span class="sc">+</span> model<span class="sc">$</span>coefficients[<span class="st">"I(sqrft * bdrms)"</span>] <span class="sc">*</span> <span class="fu">mean</span>(hprice1<span class="sc">$</span>sqrft)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   bdrms 
+11.26181 </code></pre>
+</div>
+</div>
 </section>
 <section id="adjusted-r-squared" class="slide level2 smaller">
 <h2>Adjusted R-squared</h2>
 <ul>
+<li>Recall Econ 160</li>
 <li>Adjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.</li>
-<li>It is used to compare the goodness of fit of regression models with different numbers of predictors. <span class="math display">\[
-\text{Adjusted } R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)
-\]</span> where:
-<ul>
-<li><span class="math inline">\(R^2\)</span> is the R-squared value</li>
-<li><span class="math inline">\(n\)</span> is the number of observations and <span class="math inline">\(k\)</span> is the number of X’s</li>
-</ul></li>
-<li>Adjusted R-squared can be lower than R-squared if the added predictors do not improve the model.
+<li>Compare goodness of fit of models with different numbers of X’s. <span class="math display">\[\text{Adjusted-}R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)\]</span> <span class="math inline">\(R^2\)</span> is the R-squared value, <span class="math inline">\(n\)</span> is the # observations and <span class="math inline">\(k\)</span> is the number of X’s
 <ul>
 <li>Penalizes the addition of unnecessary predictors</li>
 </ul></li>
 <li>The F-test could be related to the adjusted R-squared.
 <ul>
 <li>Think abour <span class="math inline">\(UR\)</span> and <span class="math inline">\(R\)</span> models in the context of the F-test</li>
+<li>F-test is useful when models are <em>nested</em></li>
 </ul></li>
 </ul>
-
+</section>
+<section id="overfittingovercontrolling" class="slide level2 smaller">
+<h2>Overfitting/overcontrolling</h2>
+<ul>
+<li>Including too many controls can distort causal interpretation.<br>
+</li>
+<li>Example: Estimating the effect of <strong>beer tax</strong> on traffic fatalities ins tates:</li>
+</ul>
+<p><span class="math display">\[
+\text{fatalities}_s = \beta_0 + \beta_1 \text{tax}_s + \beta_2 \text{miles}_s + \beta_3 \text{percmale}_s + \beta_4 \text{perc16_21}_s + \dots
+\]</span></p>
+<ul>
+<li><strong>Should we control for beer consumption (<code>beercons</code>)?</strong>
+<ul>
+<li>No, it mediates the effect of <code>tax</code> on fatalities.<br>
+</li>
+<li>Controlling for it absorbs the policy impact.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-problem-of-overcontrolling" class="slide level2 smaller">
+<h2>The Problem of Overcontrolling</h2>
+<ul>
+<li>Overcontrolling can remove meaningful variation in key variables.<br>
+</li>
+<li>Example: Estimating the effect of <strong>pesticides</strong> on health costs:
+<ul>
+<li>Controlling for doctor visits <strong>blocks part of the effect</strong>.</li>
+</ul></li>
+<li>Another case: <strong>School quality → earnings</strong>:
+<ul>
+<li>If quality raises education, controlling for education <strong>understates</strong> its impact.</li>
+</ul></li>
+<li><strong>Takeaway:</strong> Control variables should reflect <strong>causal logic</strong>, not just maximize <span class="math inline">\(R^2\)</span>.</li>
+</ul>
+</section>
+<section>
+<section id="qualitative-data" class="title-slide slide level1 center">
+<h1>Qualitative data</h1>
 
 </section>
+<section id="binary-variables" class="slide level2 smaller">
+<h2>Binary variables</h2>
+<div>
+<ul>
+<li class="fragment">Binary variables are {0,1} variables. E.g. <code>female</code>, <code>married</code>, <code>smoker</code></li>
+<li class="fragment">Example: Estimating the effect of <strong>gender</strong> on wages:</li>
+<li class="fragment"><span class="math inline">\(wage_i = \beta_0 + \delta_0 female_i + \beta_1 educ_i + u_i\)</span></li>
+<li class="fragment"><span class="math inline">\(\delta_0=\mathrm{E}( wage_i \mid female_i =1, educ_i )-\mathrm{E}( wage_i \mid female_i =0, educ_i )\)</span></li>
+<li class="fragment">Difference in wages <strong>between females and males</strong>, holding education constant.</li>
+<li class="fragment">If <span class="math inline">\(\delta_0 &lt; 0\)</span>, women earn less than men on average, given education.
+<ul>
+<li class="fragment">Males are the base group (<span class="math inline">\(\beta_0\)</span> is their intercept)[draw]</li>
+</ul></li>
+<li class="fragment">Including both <code>male</code> and <code>female</code> leads to perfect collinearity.</li>
+<li class="fragment">Alternatively: <span class="math inline">\(wage_i = \alpha_0 + \gamma_0 male_i + \beta_1 educ_i + u_i\)</span>
+<ul>
+<li class="fragment">Here, females are the base group.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="tests-for-wage-discrimination" class="slide level2 smaller">
+<h2>tests for wage discrimination</h2>
+<p>wage <span class="math inline">\(=\beta_0+\delta_0\)</span> female <span class="math inline">\(+\beta_1\)</span> educ <span class="math inline">\(+\beta_2\)</span> exper <span class="math inline">\(+\beta_3\)</span> tenure <span class="math inline">\(+u\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb17-2"><a></a><span class="fu">summary</span>( <span class="fu">lm</span>(wage <span class="sc">~</span> female <span class="sc">+</span> educ <span class="sc">+</span> exper <span class="sc">+</span> tenure, <span class="at">data =</span> wage1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = wage ~ female + educ + exper + tenure, data = wage1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.7675 -1.8080 -0.4229  1.0467 14.0075 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.56794    0.72455  -2.164   0.0309 *  
+female      -1.81085    0.26483  -6.838 2.26e-11 ***
+educ         0.57150    0.04934  11.584  &lt; 2e-16 ***
+exper        0.02540    0.01157   2.195   0.0286 *  
+tenure       0.14101    0.02116   6.663 6.83e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.958 on 521 degrees of freedom
+Multiple R-squared:  0.3635,    Adjusted R-squared:  0.3587 
+F-statistic:  74.4 on 4 and 521 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="multiple-categories" class="slide level2 smaller">
+<h2>Multiple categories</h2>
+<p>Marital status and gender: <span class="math display">\[
+log(wage_i) = \beta_0 + \beta_1 marriedmale_i + \beta_2 marriedfemale_i + \beta_3 unmarriedfemale_i \\
++ \beta_4 educ_i + \beta_5 exper_i + \beta_6 tenure_i + \beta_7 exper^2_i + \beta_8 tenure^2_i + u_i\]</span> What is the base group?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(<span class="fu">log</span>(wage) <span class="sc">~</span> <span class="fu">I</span>(married<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>female)) <span class="sc">+</span> <span class="fu">I</span>(married<span class="sc">*</span>female) <span class="sc">+</span> <span class="fu">I</span>((<span class="dv">1</span><span class="sc">-</span>married)<span class="sc">*</span>female) <span class="sc">+</span> educ <span class="sc">+</span> exper <span class="sc">+</span> tenure <span class="sc">+</span> <span class="fu">I</span>(exper<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">I</span>(tenure<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> wage1) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ I(married * (1 - female)) + I(married * 
+    female) + I((1 - married) * female) + educ + exper + tenure + 
+    I(exper^2) + I(tenure^2), data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.89697 -0.24060 -0.02689  0.23144  1.09197 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                0.3213781  0.1000090   3.213 0.001393 ** 
+I(married * (1 - female))  0.2126757  0.0553572   3.842 0.000137 ***
+I(married * female)       -0.1982676  0.0578355  -3.428 0.000656 ***
+I((1 - married) * female) -0.1103502  0.0557421  -1.980 0.048272 *  
+educ                       0.0789103  0.0066945  11.787  &lt; 2e-16 ***
+exper                      0.0268006  0.0052428   5.112 4.50e-07 ***
+tenure                     0.0290875  0.0067620   4.302 2.03e-05 ***
+I(exper^2)                -0.0005352  0.0001104  -4.847 1.66e-06 ***
+I(tenure^2)               -0.0005331  0.0002312  -2.306 0.021531 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.3933 on 517 degrees of freedom
+Multiple R-squared:  0.4609,    Adjusted R-squared:  0.4525 
+F-statistic: 55.25 on 8 and 517 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>What is the wage gap between married females and unmarried females?</li>
+</ul>
+</section>
+<section id="interactions-with-dummy-variables" class="slide level2 smaller">
+<h2>Interactions with dummy variables</h2>
+<p>What is the point of interacting: Marital status X gender?</p>
+<p><span class="math display">\[
+log(wage_i) = \beta_0 + \beta_1  female_i + \beta_2 married_i + \beta_3 married_i * female_i \\
++ \beta_4 educ_i + \beta_5 exper_i + \beta_6 tenure_i + \beta_7 exper^2_i + \beta_8 tenure^2_i + u_i\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(<span class="fu">log</span>(wage) <span class="sc">~</span> female <span class="sc">+</span> married <span class="sc">+</span> <span class="fu">I</span>((married)<span class="sc">*</span>female) <span class="sc">+</span> educ <span class="sc">+</span> exper <span class="sc">+</span> tenure <span class="sc">+</span> <span class="fu">I</span>(exper<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">I</span>(tenure<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> wage1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ female + married + I((married) * female) + 
+    educ + exper + tenure + I(exper^2) + I(tenure^2), data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.89697 -0.24060 -0.02689  0.23144  1.09197 
+
+Coefficients:
+                        Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            0.3213781  0.1000090   3.213 0.001393 ** 
+female                -0.1103502  0.0557421  -1.980 0.048272 *  
+married                0.2126757  0.0553572   3.842 0.000137 ***
+I((married) * female) -0.3005931  0.0717669  -4.188 3.30e-05 ***
+educ                   0.0789103  0.0066945  11.787  &lt; 2e-16 ***
+exper                  0.0268006  0.0052428   5.112 4.50e-07 ***
+tenure                 0.0290875  0.0067620   4.302 2.03e-05 ***
+I(exper^2)            -0.0005352  0.0001104  -4.847 1.66e-06 ***
+I(tenure^2)           -0.0005331  0.0002312  -2.306 0.021531 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.3933 on 517 degrees of freedom
+Multiple R-squared:  0.4609,    Adjusted R-squared:  0.4525 
+F-statistic: 55.25 on 8 and 517 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="different-slopes" class="slide level2 smaller">
+<h2>Different slopes</h2>
+<ul>
+<li><p>Do men and women have different returns to education?</p></li>
+<li><p><span class="math inline">\(wage_i = \beta_0 + \beta_1 educ_i + \beta_2 female_i + \beta_3 educ_i * female_i + u_i\)</span></p></li>
+<li><p><span class="math inline">\(E(wage_i | educ_i, female_i = 1) - E(wage_i | educ_i, female_i = 0) = \beta_3 educ_i\)</span></p></li>
+<li><p><span class="math inline">\(\uparrow\)</span> educ by 1 unit <span class="math inline">\(\uparrow\)</span> wage by <span class="math inline">\(\beta_1 + \beta_3\)</span> for females and <span class="math inline">\(\beta_1\)</span> for males. <!-- -  Returns to  $\uparrow$  1 year of educ  $\uparrow$  wages for females relative to males by $\beta_3$ --></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(<span class="fu">log</span>(wage) <span class="sc">~</span> educ <span class="sc">+</span> female <span class="sc">+</span> <span class="fu">I</span>(educ<span class="sc">*</span>female) <span class="sc">+</span> exper <span class="sc">+</span> expersq <span class="sc">+</span> tenure <span class="sc">+</span> tenursq, <span class="at">data =</span> wage1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ educ + female + I(educ * female) + exper + 
+    expersq + tenure + tenursq, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83265 -0.25261 -0.02374  0.25396  1.13584 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       0.3888060  0.1186871   3.276  0.00112 ** 
+educ              0.0823692  0.0084699   9.725  &lt; 2e-16 ***
+female           -0.2267886  0.1675394  -1.354  0.17644    
+I(educ * female) -0.0055645  0.0130618  -0.426  0.67028    
+exper             0.0293366  0.0049842   5.886 7.11e-09 ***
+expersq          -0.0005804  0.0001075  -5.398 1.03e-07 ***
+tenure            0.0318967  0.0068640   4.647 4.28e-06 ***
+tenursq          -0.0005900  0.0002352  -2.509  0.01242 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4001 on 518 degrees of freedom
+Multiple R-squared:  0.441, Adjusted R-squared:  0.4334 
+F-statistic: 58.37 on 7 and 518 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>What is the gender gap at the average education level?</li>
+</ul>
+</section>
+<section id="different-models-for-diff-groups" class="slide level2 smaller">
+<h2>Different models for diff groups</h2>
+<p><span class="math display">\[
+GPA_i =\beta_0+\beta_1  SAT_i +\beta_2  hsrankperc_i +\beta_3  tothrs_i +u_i
+\]</span></p>
+<ul>
+<li><p>For any of the slopes to depend on gender, we simply interact it with <span class="math inline">\(female_i\)</span>, and include it</p></li>
+<li><p>To test if the model is different between men and women, then we need a model where the intercept and all slopes can be different across the two groups</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+GPA_i = &amp; \beta_0+\beta_1  sat_i +\beta_2  hsperc_i   +\beta_3  tothrs_i \\
+&amp; +\delta_0  female_i  +\delta_1  female_i  *  sat_i +\delta_2  female_i  *  hsperc_i +\delta_3  female_i  *  tothrs_i  \\
+&amp; +u_i
+\end{aligned}
+\]</span></p>
+</section>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(cumgpa <span class="sc">~</span> sat <span class="sc">+</span> hsperc <span class="sc">+</span> tothrs, <span class="at">data =</span> gpa3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cumgpa ~ sat + hsperc + tothrs, data = gpa3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.01959 -0.42768  0.04212  0.45355  2.90131 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.9291105  0.2285515   4.065 5.32e-05 ***
+sat          0.0009028  0.0002079   4.343 1.60e-05 ***
+hsperc      -0.0063791  0.0015678  -4.069 5.24e-05 ***
+tothrs       0.0119779  0.0009314  12.860  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.8671 on 728 degrees of freedom
+Multiple R-squared:  0.2354,    Adjusted R-squared:  0.2323 
+F-statistic: 74.72 on 3 and 728 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(cumgpa <span class="sc">~</span> sat <span class="sc">+</span> hsperc <span class="sc">+</span> tothrs <span class="sc">+</span> female <span class="sc">+</span> <span class="fu">I</span>(sat<span class="sc">*</span>female) <span class="sc">+</span> <span class="fu">I</span>(hsperc<span class="sc">*</span>female) <span class="sc">+</span> <span class="fu">I</span>(tothrs<span class="sc">*</span>female), <span class="at">data =</span> gpa3)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cumgpa ~ sat + hsperc + tothrs + female + I(sat * 
+    female) + I(hsperc * female) + I(tothrs * female), data = gpa3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.08519 -0.39944  0.05277  0.45862  2.73325 
+
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         1.214e+00  2.648e-01   4.584 5.37e-06 ***
+sat                 6.113e-04  2.350e-04   2.601 0.009484 ** 
+hsperc             -5.967e-03  1.776e-03  -3.359 0.000823 ***
+tothrs              1.030e-02  1.093e-03   9.425  &lt; 2e-16 ***
+female             -1.114e+00  5.285e-01  -2.107 0.035460 *  
+I(sat * female)     1.117e-03  5.000e-04   2.233 0.025832 *  
+I(hsperc * female)  5.076e-05  4.103e-03   0.012 0.990132    
+I(tothrs * female)  5.560e-03  2.070e-03   2.686 0.007386 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.8591 on 724 degrees of freedom
+Multiple R-squared:  0.2537,    Adjusted R-squared:  0.2464 
+F-statistic: 35.15 on 7 and 724 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="heteroskedasticity-to-be-covered-by-zeyi-in-the-lab" class="slide level2 smaller">
+<h2>Heteroskedasticity to be covered by Zeyi in the lab</h2>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
