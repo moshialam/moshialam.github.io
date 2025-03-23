@@ -5,7 +5,7 @@
 - [**Labor Market Consequences of Pay-Equity Laws**](papers/Alam_JMP_payequity.pdf) (Post-doc JMP) <p>with Steven Lehrer and Nuno Souso Pereira **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">
   [+Abstract]
 </a>** 
-<p><span class="badge bg-primary">_Updated Dec '24_</span>   
+<p><span class="badge bg-primary">_Updated Mar '25_</span>   
 - [**The Unintended Benefits of Women’s Empowerment on Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
   [+Abstract]
 </a>** 
