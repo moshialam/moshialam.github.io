@@ -15,9 +15,10 @@ Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 - [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
 - [Inference in regression models](/teachingmaterials/UG_intro_metrics/05_inference.qmd)
 - [Variants on MLR](/teachingmaterials/UG_intro_metrics/06_mlrvariants.qmd)
-- Heteroskedasticity and serial correlation
-- Mis-specification
-- Potential outcomes
+- Heteroskedasticity and serial correlation [covered by Zeyi in discussion section]
+<!-- - Mis-specification -->
+- [Potential outcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)
+- [RCTs](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
 - Two-stage least squares
 - Regression discontinuity
 - Non-linear models
