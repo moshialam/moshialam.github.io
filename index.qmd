@@ -32,18 +32,10 @@ output:
  <!-- <a href="mailto:mdalam@clarku.edu" class="btn btn-info btn-sm"> <i class="bi bi-envelope-at"></i>  **Email** </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-info btn-sm"> <i class="bi bi-filetype-pdf"></i>  **CV** </a> <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-info btn-sm"> <i class="bi bi-google"></i> **Scholar** </a> <a href="https://twitter.com/MoshiAlam" class="btn btn-dark btn-sm"> <i class="bi bi-twitter-x"></i> </a> <a href="https://bsky.app/profile/moshialam.bsky.social" class="btn btn-info btn-sm"> *BlueSky* </a> -->
 
 
-Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either design-based, or model-based methods, or both. I received my PhD  in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). 
+Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either reduced form, or structural models, or both. I received my PhD  in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). 
 
-
-<!-- **Research fields:** Labor Economics, Public Economics,  Applied Econometrics 
-
-_My research interests are in answering microeconomic questions on economic inequality. Depending on the question, I use either design-based, or model-based methods, or both._ -->
 
 {{< include papers.qmd >}}
-
-
-
-
 
 
 
