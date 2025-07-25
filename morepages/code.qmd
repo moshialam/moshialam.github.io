@@ -5,25 +5,23 @@ date-modified: last-modified
 
 # Code for research
 
-Here are the codes of some `julia` functions that I have implemented for some of my research. Some of them can easily be done in other languages through off-the-shelf packages. This is not to claim that `julia` code will be the most efficient but often it could help if the data or the parameter space is large. And I like coding in it. 
+Here are the codes of some `julia`/`R` functions that I have implemented in my research. There may be more efficient routines.  I have often found `julia` to be quite fast if the data or the parameter space is large. And I like coding in it. 
 
 I have tried to make them context agnostic. However, they may not be fully general, some almost by construction. Hence these are not packages. Please feel free to use them, or report a bug if you find one!
 
-- Parametric Empirical Bayes 
-- Non-parametric Empirical Bayes with or without shape restrictions
-- Nelder-Mead simplex algorithm
-- Indirect Inference
-- Event studies with interacted FE
-- Quantile regressions with FE (Canay 2011)
+- Quantile regressions with FE (Canay 2011) (`julia`)
+- Nelder-Mead simplex algorithm (`julia`)
+- Parametric shrinkage with heteroskedastic errors (`julia`)
+- Non-parametric shrinkage with heteroskedastic errors and shape restrictions (`R`)
+- Event studies with interacted FE (`julia`)
 
 
 # Code for teaching
 
-Most of these are in `R`. Their objective is to primarily simulate data with failures in assumptions required for identification, or for inference and show what happens. Some of them are simply hard-coding the estimator instead of using a package which could help students remember and thus compare various estimators.
+Most of these are in `R`. Their objective is to simulate data with failures in assumptions required for identification, or for inference and show what happens. Some of them are simply hard-coding the estimator instead of using a package which I have found to be helpful being able to compare various estimators.
 
 - Simple linear regression
 - Central Limit Theorem
 - Frisch-Waugh-Lovell theorem
-<!-- - Random assignment with covariates -->
 - IV and 2SLS
 - Weak IV vs Strong IV
