@@ -9,7 +9,8 @@
   [+Abstract]
 </a>** 
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="text-info"> [<i class="fas fa-file-pdf" style="color: #ec0909;"></i> SSRN]</a> <p><span class="badge bg-primary">_Updated April '25_</span>  <small><small> [_Under review_] </small></small> </p>
-- **Location Choice and the Marginal Utility of Consumption**
+- **Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption**
+<!-- - **Location Choice and the Marginal Utility of Consumption** -->
 <p> with Morris Davis and Jesse Gregory </p> <p><span class="badge bg-primary">_Draft coming soon!_</span> 
 ---
 
