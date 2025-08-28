@@ -5,7 +5,7 @@ date-modified: last-modified
 
 # Syllabus
 
-[Syllabus](/teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_S25.pdf)
+[Syllabus](/teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf)
 
 Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 
