@@ -11,6 +11,7 @@ Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 
 # Lecture slides:
 - [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
+- [Stat review and population concepts](/teachingmaterials/UG_intro_metrics/02_stat_review.pdf)
 - [Simple Linear Regressions](/teachingmaterials/UG_intro_metrics/03_regression.qmd)
 - [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
 - [Inference in regression models](/teachingmaterials/UG_intro_metrics/05_inference.qmd)
