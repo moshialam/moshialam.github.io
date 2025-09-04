@@ -20,10 +20,7 @@ editor: visual
 -   Here in addition, we will be
     -   more formal
     -   apply in code
--   First, we will formalize some fundamental probabilistic concepts:
-    -   Expectations
-    -   Covariances
--   Readings: Ch-2 of Wooldridge
+-   Readings: Ch-2 of Wooldridge and these slides
 
 
 # Foundations of Regression Analysis {background-color="#1c5253"}
@@ -36,9 +33,10 @@ Simple linear regression model (SLRM): studies how $y$ changes with changes in $
 ::: {.column width="50%"}
 Population Model: $$y_i = β₀ + β₁x_i + u_i$$
 
--   β₀: Population intercept
--   β₁: Population slope
+-   β₀: Population intercept *parameter*
+-   β₁: Population slope *parameter*
 -   $u_i$: Error term (unobserved factors)
+-   Example: $wages_i = β₀ + β₁education_i + u_i$
 :::
 
 ::: {.column width="50%"}
@@ -51,33 +49,29 @@ Estimation from a sample gives: $$\hat{y_i} = \widehat{\beta_0} + \widehat{\beta
 :::::
 
 ::: callout-note
+-   *parameters* by defintion are model-defined population constants (not random variables)
 -   "hats" refer to estimates
 -   If I write $y$ instead of $y_i$ that means I am referring to the entire vector of all $y_i$'s
 :::
 
-## Interpret parameters {.smaller}
-
-Population Model: $$y_i = β₀ + β₁x_i + u_i$$
-
-Example: $$wages_i = β₀ + β₁education_i + u_i$$
-
--   What do β₀,β₁ represent?
 
 ##  {.smaller}
 
 Population Model: $$y_i = β₀ + β₁x_i + u_i$$
 
+
+::: incremental
 -   If the other unobserved factors in u are held fixed,
     -   so that the changes in u is zero,
 -   then x has a linear effect on y
 -   simply: $\Delta y_i = \beta_1 \Delta x_i$ iff $\Delta u_i = 0$
-
-Formally, $\frac{\partial y_i}{\partial x_i} = \beta_1$ iff $\frac{\partial u_i}{\partial x_i} = 0$
+- Formally, $\frac{\partial y_i}{\partial x_i} = \beta_1$ iff $\frac{\partial u_i}{\partial x_i} = 0$
 
 ::: callout-note
--   We are imposing an assumption on the relation between $x$ and $u$ to be able to interpret $\beta_1$. We will formalize this soon.
+-   We are imposing an assumption on the relation between $x$ and $u$ to be able to interpret $\beta_1$. 
+-   Lets formalize.
 :::
-
+:::
 # Assumptions {background-color="#1c5253"}
 
 ## Key Assumptions About $u$ {.smaller}
@@ -85,6 +79,7 @@ Formally, $\frac{\partial y_i}{\partial x_i} = \beta_1$ iff $\frac{\partial u_i}
 ::::::::: panel-tabset
 ### Assumptions
 
+::: incremental
 ::::: columns
 ::: {.column width="50%"}
 **1. Zero Mean: $E(u) = 0$**
@@ -112,6 +107,7 @@ Formally, $\frac{\partial y_i}{\partial x_i} = \beta_1$ iff $\frac{\partial u_i}
 -   Essential for interpreting $\beta_1$ as causal effect
 :::
 :::::
+:::
 
 ### Why is $E(u)=0$ just a normalization? {.smaller}
 
@@ -151,7 +147,7 @@ Where:
 
 $$ wage_i = \beta_0 + \beta_1 education_i + u_i $$
 
--   what does mean independence and thereby zero conditional mean, mean here?
+-   what does *mean independence* and thereby *zero conditional mean*, mean here?
 -   is it too strong an assumption?
 
 ## Population Regression Function {.smaller}
@@ -186,7 +182,7 @@ For $hsGPA = 3.6$:
 :::
 :::::
 
-### Visualization
+### Sample Visualization
 
 ```{r}
 #| echo: true
@@ -194,11 +190,8 @@ For $hsGPA = 3.6$:
 #| message: false
 #| warning: false
 library(wooldridge)
-
-# gpa_model <- lm(gpa1$colGPA ~ gpa1$hsGPA)
+# gpa_model <- lm(colGPA ~ hsGPA, data = gpa1)
 # summary(gpa_model)
-
-
 plot(gpa1$hsGPA, gpa1$colGPA,
      xlab = "High school  GPA",
      ylab = "College GPA",
@@ -214,17 +207,17 @@ abline(lm(gpa1$colGPA ~ gpa1$hsGPA), col = "blue")
 **Systematic Part**
 
 -   $\beta_0 + \beta_1x = E(y|x)$
--   Explained by x
+-   Explained by $x$
 -   Population regression line
--   Blue line shows $E(y|x)$
+-   Blue line shows $E(y|x)$ assuming linear model
 :::
 
 ::: {.column width="50%"}
 **Unsystematic Part**
 
--   u = Deviation from $E(y|x)$
--   Not explained by x
--   Zero mean at each x $E(u \mid x) = 0$
+-   $u$ = Deviation from $E(y|x)$
+-   Not explained by $x$
+-   Zero mean at each $x$: $E(u \mid x) = 0$
 :::
 :::::
 :::::::::
@@ -233,15 +226,15 @@ abline(lm(gpa1$colGPA ~ gpa1$hsGPA), col = "blue")
 
 ##  {.smaller}
 
-::: panel-tabset
 ### Starting assumption to deriving OLS estimators
+:::incremental
 
 We start with two key assumptions:
 
 1.  $E(u) = 0$
 2.  $E(u \mid x) = 0$ (zero conditional mean)
 
-This implies:
+Using this we can show that:
 
 -   $Cov(x,u) = E(xu) - E(x)E(u)$
 -   Since $E(u) = 0$:
@@ -273,9 +266,9 @@ Population Model: $$y_i = β₀ + β₁x_i + u_i$$
 -   estimates $\hat{\beta_0}$ and $\hat{\beta_1}$ solve the sample counterparts of the moment conditions,
     -   leading to equations:
 
-$$n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
+$$\frac{1}{n} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
 
-$$n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
+$$\frac{1}{n} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
 
 -   These equations can be solved for $\hat{\beta_0}$ and $\hat{\beta_1}$.
 :::
@@ -283,17 +276,17 @@ $$n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$$
 
 ##  {.smaller}
 
-Now, $n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$, simplifies to
+Now, $\frac{1}{n}  \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$, simplifies to
 
 $$\bar{y_i} = \hat{\beta_0} + \hat{\beta_1}\bar{x_i}$$
 
-Where $\bar{y_i} = n^{-1} \sum_{i=1}^{n}y_i$ is the sample average of the $y_i$.
+Where $\bar{y_i} = \frac{1}{n}  \sum_{i=1}^{n}y_i$ is the sample average of the $y_i$.
 
 Thus,
 
 $$\hat{\beta_0} = \bar{y_i}  - \hat{\beta_1}\bar{x_i}$$
 
-Plug in $\hat{\beta_0}$ into: $n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$ and simplifying gives us the slope coefficient $\hat{\beta_1}$:
+Plug in $\hat{\beta_0}$ into: $\frac{1}{n}  \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$ and simplifying gives us the slope coefficient $\hat{\beta_1}$:
 
 $$\hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
 
@@ -345,8 +338,8 @@ arrows(cars$speed, cars$dist,
 
 -   lead to FOC's that are same as what we obtained as the sample counterparts of the moment conditions
 
-    -   $n^{-1} \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
-    -   $n^{-1} \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
+    -   $\frac{1}{n}  \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
+    -   $\frac{1}{n}  \sum_{i=1}^{n}x_i(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0$
 
 -   that we used to derive the OLS estimates
 
