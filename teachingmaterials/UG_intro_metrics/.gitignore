@@ -7,6 +7,11 @@
 
 /archive/
 
+*.tex
+*.synctex.gz(busy)
+*.synctex.gz
+*.aux
+
 */*.synctex*
 */*.aux
 */*.log
