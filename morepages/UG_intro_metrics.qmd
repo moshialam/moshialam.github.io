@@ -21,6 +21,8 @@ Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 - [Potential outcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)
 - [RCTs](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
 - [IV, 2SLS and HTE](/teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf)
+
+- [Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
 <!-- - Regression discontinuity
 - Non-linear models
 - Estimators for repeated cross-section and panel data
