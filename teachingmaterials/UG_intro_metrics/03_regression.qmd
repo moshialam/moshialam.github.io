@@ -25,103 +25,6 @@ editor: visual
     -   Covariances
 -   Readings: Ch-2 of Wooldridge
 
-# Fundamentals: Expectation and Covarainces {background-color="#1c5253"}
-
-## Expectation and Covariances
-
-::: panel-tabset
-## Expectation Primer {.smaller}
-
--   *Expected Value* of a random variable (r.v.) is the average of the r.v. in the **population** a.k.a **the true mean**
-    -   Population parameter, different from *sample average*
--   What we "expect" to see most often using averages in [large representative samples]{style="color:red;"}
--   I love the visualization in [*Seeing Theory*](https://seeing-theory.brown.edu/basic-probability/index.html)
-
-For a discrete random variable $X$ with possible values $x_i$ and probabilities $p_i$:
-
-$$\mathbb{E}[X] = \sum_{i=1}^n x_i p_i$$
-
-For a continuous random variable $X$ defined over $(-\infty, \infty)$ with probability density function $f(x)$:
-
-$$\mathbb{E}[X] = \int_{-\infty}^{\infty} \quad x \quad f(x) \quad dx$$
-
-## Properties
-
--   *Additive separability:* $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$
--   *Linearity*: $\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$
--   If $X$ and $Y$ are independent: $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$
-
-## Covariance Primer
-
--   Covariance measures how two variables move together: co-vary
--   Formula: $Cov(x,y) = E[(x - E(x))(y - E(y))]$
--   Can be rewritten as: $Cov(x,y) = E(xy) - E(x)E(y)$
--   Properties:
-    -   If x,y independent: $Cov(x,y) = 0$
-    -   If $Cov(x,y) = 0$: x,y are uncorrelated
--   If we replace y with x, $Cov(x,x) = Var(x) = E[(x - E(x))]^2$
-:::
-
-````{=html}
-<!--
-## Simple Example: {.smaller}
-
-```{r}
-# Rolling a fair six-sided die
-die_outcomes <- 1:6
-# Probability of each outcome
-prob <- rep(1/6, 6)
-
-# Expected value
-E_die <- sum(die_outcomes * prob)
-cat("Expected value of rolling a die:", E_die)
-
-# Simulate 1000 die rolls
-set.seed(123)
-rolls <- sample(die_outcomes, size=1000, replace=TRUE)
-mean(rolls)
-
-# Visualize
-hist(rolls, breaks=seq(0.5, 6.5, 1), 
-     main="Distribution of 1000 Die Rolls",
-     xlab="Outcome",
-     col="lightblue")
-abline(v=E_die, col="red", lwd=2)
-```
--->
-````
-
-## Notation {.smaller}
-
-Note that in this course for the most part we will be using a *single cross-sectional data*
-
-1.  Observations and Indices:
-    -   i: Index for a unit of observation (i = 1, ..., n)
-        -   Could be individual, city, firm
-    -   n: Sample size
-    -   $\sum_{i=1}^n$: Sum over all observations
-2.  Variables:
-    -   y: Outcome/dependent variable (what we want to explain)
-    -   x: Independent/explanatory variable(s) (what helps explain y)
-    -   yᵢ: The i-th observation of y
-    -   xᵢ: The i-th observation of x
-
-```{=html}
-<!--
-##  {.smaller}
-
-| Population Parameters (Greek Letters)   | Sample (Roman Letters)              |
-|:------------------------------------|:----------------------------------|
-| β₀,β₁: Population intercept & slope     | b₀, b₁: Estimated intercept & slope |
-| ε (epsilon) or u: Error term            | ȳ, x̄: Sample mean of y & x          |
-| σ² (sigma squared): Population variance | s²: Sample variance                 |
-| μ (mu): Population mean                 |                                     |
-
-::: callout-tip
-Remember: Greek letters (β, σ, μ) typically represent unknown population parameters, while Roman letters (b, s, m) represent sample statistics we can calculate.
-:::
--->
-```
 
 # Foundations of Regression Analysis {background-color="#1c5253"}
 
@@ -169,9 +72,7 @@ Population Model: $$y_i = β₀ + β₁x_i + u_i$$
 -   then x has a linear effect on y
 -   simply: $\Delta y_i = \beta_1 \Delta x_i$ iff $\Delta u_i = 0$
 
-Formally,
-
-$$\frac{\partial y_i}{\partial x_i} = \beta_1 $$ iff $\frac{\partial u_i}{\partial x_i} = 0$
+Formally, $\frac{\partial y_i}{\partial x_i} = \beta_1$ iff $\frac{\partial u_i}{\partial x_i} = 0$
 
 ::: callout-note
 -   We are imposing an assumption on the relation between $x$ and $u$ to be able to interpret $\beta_1$. We will formalize this soon.
@@ -186,9 +87,8 @@ $$\frac{\partial y_i}{\partial x_i} = \beta_1 $$ iff $\frac{\partial u_i}{\parti
 
 ::::: columns
 ::: {.column width="50%"}
-**Zero Mean**
+**1. Zero Mean: $E(u) = 0$**
 
--   $E(u) = 0$
 -   Simple normalization of unobservables
 -   Can always redefine intercept to make this true
 
@@ -199,22 +99,21 @@ $$\frac{\partial y_i}{\partial x_i} = \beta_1 $$ iff $\frac{\partial u_i}{\parti
 :::
 
 ::: {.column width="50%"}
-**Mean Independence**
+**2. Mean Independence: $E(u|x) = E(u)$**
 
--   $E(u|x) = E(u)$
--   Average error same across all x-values
+-   Average error same for all values of $x$
 -   Stronger than zero correlation
 -   Very strong assumption
 
-**Key Implications**
+**Implications**
 
 -   Combines with first assumption to give:
--   $E(u|x) = 0$ (Zero Conditional Mean)
+-   $E(u|x) = 0$ (**Zero Conditional Mean**)
 -   Essential for interpreting $\beta_1$ as causal effect
 :::
 :::::
 
-### Why $E(u)=0$ works?
+### Why is $E(u)=0$ just a normalization? {.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -227,7 +126,7 @@ Where $u$ includes ability:
 -   Average ability = 100 (IQ points)
 -   So $E(u) = 100 \neq 0$
 
-This means: $wage = \beta_0 + \beta_1educ + 100 + \tilde{u}$
+<!-- This means: $wage = \beta_0 + \beta_1educ + 100 + \tilde{u}$ -->
 :::
 
 ::: {.column width="50%"}
@@ -244,12 +143,6 @@ Where:
 :::
 :::::
 
-**Key Insight**
-
--   Original error ($u$): Ability with mean 100
--   New error ($\tilde{u}$): Deviation from average ability
--   Slopes ($\beta_1$) identical in both models
--   Only intercept changes to absorb the mean
 :::::::::
 
 ## What about $E(u \mid x) = 0$?
@@ -258,7 +151,7 @@ Where:
 
 $$ wage_i = \beta_0 + \beta_1 education_i + u_i $$
 
--   what does mean independence /zero conditional mean, mean here?
+-   what does mean independence and thereby zero conditional mean, mean here?
 -   is it too strong an assumption?
 
 ## Population Regression Function {.smaller}
@@ -648,7 +541,7 @@ An estimator producing an estimate $\hat{\theta}$ for a parameter $\theta$ is co
 $$
 :::
 
-Basically means that the sampling distribution of $\hat{\theta}$ is centered around the true  $\theta$ **on average**
+Basically means that the sampling distribution of $\hat{\theta}$ is centered around the true $\theta$ **on average**
 
 We will now show that the OLS estimator for a SLR model's parameters $(\beta_0, \beta_1)$ is unbiased
 
@@ -705,10 +598,6 @@ $$
 -   Let us prove it using our assumptions!
 -   In doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof.
 
-
-
-
-
 ## Please make sure you go through all of Math Refresher A and B {.smaller}
 
 ### B-4f Properties of Conditional Expectation
@@ -716,15 +605,9 @@ $$
 -   $\text {CE.1: } \mathrm{E}[c(X) \mid X]=c(X) \text {, for any function } c(X)$
 -   $\text {CE.2: For functions } a(X) \text { and } b(X) \text {, } \mathrm{E}[a(X) Y+b(X) \mid X]=a(X) \mathrm{E}(Y \mid X)+b(X)$
 -   $\text {CE. 3: If } X \text { and } Y \text { are independent, then } \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$
--   $\text {CE. 4:} \mathrm{E}[\mathrm{E}(Y \mid X)]=\mathrm{E}(Y)$ *[Law of Iterated Expectations]*
--   $\text {CE. } 4^{\prime}: \mathrm{E}(Y \mid X)=\mathrm{E}[\mathrm{E}(Y \mid X, Z) \mid X]$ *[Generalized Law of Iterated Expectations]*
+-   $\text {CE. 4:} \mathrm{E}[\mathrm{E}(Y \mid X)]=\mathrm{E}(Y)$ *\[Law of Iterated Expectations\]*
+-   $\text {CE. } 4^{\prime}: \mathrm{E}(Y \mid X)=\mathrm{E}[\mathrm{E}(Y \mid X, Z) \mid X]$ *\[Generalized Law of Iterated Expectations\]*
 -   $\text {CE. } 5: \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$ then $cov(X, Y)=0$
-
-
-
-
-
-
 
 ## Key patterns in the proof {.smaller}
 
@@ -743,27 +626,9 @@ $$
     -   impose the SLR assumptions on zero mean and zero conditional mean
     -   use LIE
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Variance of the OLS Estimators {background-color="#1c5253"}
 
-## SLR 5: Homoskedasticity  assumption {.smaller}
+## SLR 5: Homoskedasticity assumption {.smaller}
 
 The population error $u_i$ has the same variance given any value of $x_i$, i.e.,
 
@@ -776,11 +641,6 @@ SLR 5 further implies that $\sigma^2$ is also the unconditional variance of $u$.
 $$\operatorname{Var}(u \mid x)=\mathrm{E}\left(u^2 \mid x\right)-[\mathrm{E}(u \mid x)]^2$$
 
 $$ \text { and since } \mathrm{E}(u \mid x)=0, \sigma^2=\mathrm{E}\left(u^2 \mid x\right)$$
-
-
-
-
-
 
 ## Now we have $Var( y \mid x)$
 
@@ -803,12 +663,6 @@ From here we can get $Var(u \mid x)$
 :::
 :::::
 
-
-
-
-
-
-
 ## Theorem {.smaller}
 
 ::: {.callout-important icon = "false"}
@@ -827,17 +681,13 @@ $$
 \operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}
 $$
 
-where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$. 
-:::
+where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$. :::
 
 -   Let us prove this!
 
-
-
-
 ## Proof of $\operatorname{Var}\left(\hat{\beta}_1\right)$ {.smaller}
 
--   Let us work with  $\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$ $\implies$ $\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n}(x_i - \bar{x})u_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$
+-   Let us work with $\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$ $\implies$ $\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n}(x_i - \bar{x})u_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$
 -   Denote $(x_i - \bar{x})$ as $d_i$. So $\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n} d_iu_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$
 -   Now take the variance of $\hat{\beta}_1$ conditional on the sample values $x_i$
 
@@ -850,13 +700,14 @@ where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\
 
 ## Measure of precision of $\hat{\beta_1}$ {.smaller}
 
-::: {.incremental}
-- $sd(\hat{\beta}_1) = \sqrt{\operatorname{Var}\left(\hat{\beta}_1\right)}$ gives a measure of the precision of $\hat{\beta}_1$
-- But we do not know $\sigma^2$ so we do not know $sd(\hat{\beta}_1)$
-- So we have to estimate $\sigma^2$ to get an estimate of $sd(\hat{\beta}_1)$
-- The estimate of the $sd(\hat{\beta}_1)$ is called the standard error of $\hat{\beta}_1$
+::: incremental
+-   $sd(\hat{\beta}_1) = \sqrt{\operatorname{Var}\left(\hat{\beta}_1\right)}$ gives a measure of the precision of $\hat{\beta}_1$
+-   But we do not know $\sigma^2$ so we do not know $sd(\hat{\beta}_1)$
+-   So we have to estimate $\sigma^2$ to get an estimate of $sd(\hat{\beta}_1)$
+-   The estimate of the $sd(\hat{\beta}_1)$ is called the standard error of $\hat{\beta}_1$
 :::
 
+```{=html}
 <!--
 ## What do we have so far {.smaller}
 -   We have shown under SLR 1-5 that the OLS estimators are unbiased
@@ -869,11 +720,7 @@ where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\
 -   We will estimate $\sigma^2$ using the residuals to get $\hat{\sigma}^2$ and then use that to get the standard errors of the OLS estimators
 -   This estimate $\hat{\sigma}^2$ also has to be s.t. it is **unbiased**
 -->
-
-
-
-
-
+```
 
 ## Theorem {.smaller}
 
@@ -892,14 +739,9 @@ where $\hat{\sigma}^2=\frac{1}{n-2} \sum_{i=1}^n \hat{u}_i^2$, where $\hat{u}_i=
 -   Study the proof from 2-5c
 -   Try to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates
 
-
-
-
-
-
 ## In essence we have shown {.smaller}
 
-::: {.incremental}
+::: incremental
 Assuming SLR 1-5, and conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$, we have shown that:
 
 -   The OLS estimators are unbiased
@@ -914,11 +756,6 @@ Assuming SLR 1-5, and conditional on the sample values $\left\{x_1, \ldots, x_n\
 -   And some stuff about how to work with data
 :::
 
-
-
-
-
-
 ## Remaining things for you to sudy {.smaller}
 
 -   Read up on the properties of the conditional expectation in Math Refresher B
@@ -928,11 +765,6 @@ Assuming SLR 1-5, and conditional on the sample values $\left\{x_1, \ldots, x_n\
 -   Again: Make sure you go through all of Math Refresher A and B
 
 next class we will start chapter 3
-
-
-
-
-
 
 ````{=html}
 <!--
