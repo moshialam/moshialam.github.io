@@ -1103,7 +1103,7 @@
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#properties",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Properties",
-    "text": "Properties\n\nMean of residuals is zero\nSample mean of x and y, i.e., the point \\((\\bar{x}, \\bar{y})\\) lies on the regression line\nThe sample covariance between the regressors and the OLS residuals is zero\nPredictions and residuals are uncorrelated\n\nTry testing these out with this generated data:\n\nset.seed(123)\nx &lt;- seq(1, 100, length.out = 50)\ny &lt;- 2 + 3*x + rnorm(50, 0, 20) #DGP\nplot(x, y, main=\"Linear Relationship Example\")\nabline(lm(y ~ x), col=\"red\", lwd=2)"
+    "text": "Properties\n\nSample mean of residuals is zero \\(\\frac{1}{n} \\sum_{i=1}^{n} \\hat{u}_i = 0\\)\nSample mean of x and y \\((\\bar{x}, \\bar{y})\\) lies on the regression line\nThe sample covariance between the regressors (\\(x\\)) and the OLS residuals is zero \\(\\frac{1}{n} \\sum_{i=1}^{n} (x_i - \\bar{x})\\hat{u}_i = 0\\)\nPredictions and residuals are uncorrelated \\(\\frac{1}{n} \\sum_{i=1}^{n} (\\hat{y}_i - \\bar{y})\\hat{u}_i = 0\\)\n\nTry testing these out with this generated data:\n\nset.seed(123)\nx &lt;- seq(1, 100, length.out = 50)\ny &lt;- 2 + 3*x + rnorm(50, 0, 20) #DGP\nplot(x, y, main=\"Linear Relationship Example\")\nabline(lm(y ~ x), col=\"red\", lwd=2)"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#decomposition",
@@ -1118,6 +1118,90 @@
     "title": "Econ 265: Introduction to Econometrics",
     "section": "R-squared",
     "text": "R-squared\n\nMeasures goodness of fit \\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\]\nRanges from 0 to 1\nInterpretation: Proportion of variance explained by model\n\n\n# Calculate R-squared\nsummary(model)$r.squared\n\n[1] 0.4923586\n\n# Decomposition of variance\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: y\n          Df Sum Sq Mean Sq F value  Pr(&gt;F)  \nx          1 42.639  42.639  6.7893 0.03514 *\nResiduals  7 43.962   6.280                  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Overview",
+    "text": "Overview\n\nFor any estimator we want to know two important things\n\nWhether we are getting unbiased estimates\nIf yes, how precisely can we obtain those estimates\n\nWill require assumptions\nFor OLS, we have 5 of them, which will constitute the Gauss-Markov assumptions"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Unbiasedness of an estimator",
+    "text": "Unbiasedness of an estimator\nAn estimator is unbiased if, on average, it produces estimates that are equal to the true value of the parameter being estimated.\n\n\n\nDefinition\n\n\nAn estimator producing an estimate \\(\\hat{\\theta}\\) for a parameter \\(\\theta\\) is considered unbiased if: \\[\n\\mathbb{E}(\\widehat{\\theta}) = \\theta\n\\]\n\n\n\nBasically means that the sampling distribution of \\(\\hat{\\theta}\\) is centered around the true \\(\\theta\\) on average\nWe will now show that the OLS estimator for a SLR model’s parameters \\((\\beta_0, \\beta_1)\\) is unbiased"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Assumptions to prove unbiasedness of OLS",
+    "text": "Assumptions to prove unbiasedness of OLS\n\nSLR 1 - 4SLR1SLR2SLR3SLR4\n\n\n\nLinear in parameters\nRandom sampling\nSample Variation in X\nZero Conditional mean\n\n\n\n\nLinear in parameters:\nIn the population model, the dependent variable, \\(y\\), is related to the independent variable, \\(x\\), and the error (or disturbance), \\(u\\), as: \\[\ny=\\beta_0+\\beta_1 x+u\n\\] where \\(\\beta_0\\) and \\(\\beta_1\\) are the population intercept and slope parameters, respectively.\n\n\n\n\nRandom Sampling\nWe have a random sample of size n,\\(\\left\\{\\left(x_i, y_i\\right): i=1,2, \\ldots, n\\right\\}\\) in the population model\n\n\n\n\nSample variation in X\nThe sample explanatory x variable, namely, \\(x_i\\) , \\(i \\in \\{1, \\cdots, n\\}\\) , are not all the same value \\[\\widehat{Var}(x_i) &gt; 0\\]\n\n\n\n\nZero conditional mean\n\nThe error \\(u\\) has an expected value of zero given any value of the explanatory variable. In other words, \\[E(u \\mid x)=0\\] ."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nTheorem: Unbiasedness of the OLS estimator\n\n\nUsing Assumptions SLR. 1 through SLR.4,\n\\[\n\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0 \\text { and } \\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\n\\]\n\n\n\n\nIn other words, \\(\\hat{\\beta}_0\\) is unbiased for \\(\\beta_0\\), and \\(\\hat{\\beta}_1\\) is unbiased for \\(\\beta_1\\).\nLet us prove it using our assumptions!\nIn doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Key patterns in the proof",
+    "text": "Key patterns in the proof\n\nStart with the OLS estimate \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) and \\(\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1\\bar{x}\\)\nWrite the OLS estimator in terms of the population parameters\n\nTo do this we have to bring in \\(y_i\\) (population model) and not \\(\\hat{y_i}\\)\n\nThis is what brings in the population parameters \\(\\beta_0\\) and \\(\\beta_1\\) on the RHS\n\nTricks to bring in \\(y_i\\) in the OLS estimator:\n\nWithout any assumptions we showed and used:\n\\(\\sum_{i=1}^n(x_i - \\bar{x})(y_i - \\bar{y}) = \\sum_{i=1}^n(x_i - \\bar{x})y_i\\)\n\nCould have written this as \\(\\sum_{i=1}^n(y_i - \\bar{y})x_i\\) but did not to bring in \\(y_i\\)\n\n\nOther tricks: Without any assumptions\n\n\\(\\sum_{i=1}^n(x_i - \\bar{x}) = 0\\)\n\\(\\sum_{i=1}^n(x_i - \\bar{x})x_i = \\sum_{i=1}^n(x_i - \\bar{x})^2\\)\n\n\nTake the expectation conditional on \\(x_i\\)\n\nimpose the SLR assumptions on zero mean and zero conditional mean\nuse LIE"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "SLR 5: Homoskedasticity assumption",
+    "text": "SLR 5: Homoskedasticity assumption\nThe population error \\(u_i\\) has the same variance given any value of \\(x_i\\), i.e.,\n\\[\nVar(u \\mid x) = \\sigma^2\n\\]\nSLR 5 further implies that \\(\\sigma^2\\) is also the unconditional variance of \\(u\\).\n\\[\\operatorname{Var}(u \\mid x)=\\mathrm{E}\\left(u^2 \\mid x\\right)-[\\mathrm{E}(u \\mid x)]^2\\]\n\\[ \\text { and since } \\mathrm{E}(u \\mid x)=0, \\sigma^2=\\mathrm{E}\\left(u^2 \\mid x\\right)\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Now we have \\(Var( y \\mid x)\\)",
+    "text": "Now we have \\(Var( y \\mid x)\\)\n\n\nusing Assumptions SLR. 4 and SLR. 5 we can derive the conditional variance of \\(y\\) :\n\\[\n\\begin{gathered}\n\\mathrm{E}(y \\mid x)=\\beta_0+\\beta_1 x \\\\\n\\operatorname{Var}(y \\mid x)=\\sigma^2\n\\end{gathered}\n\\]\nFrom here we can get \\(Var(u \\mid x)\\)\n\n\n\n\nHomoskedasticity"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nSampling variance of OLS estimators\n\n\nUnder Assumptions SLR. 1 through SLR.5,\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x},\n\\]\nand\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\n\\]\nwhere these are conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\).\n\n\n\n\nLet us prove this!"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)",
+    "text": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\nLet us work with \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) \\(\\implies\\) \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})u_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nDenote \\((x_i - \\bar{x})\\) as \\(d_i\\). So \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nNow take the variance of \\(\\hat{\\beta}_1\\) conditional on the sample values \\(x_i\\)\n\n\\[\\begin{align*}\n    \\operatorname{Var}\\left(\\hat{\\beta}_1\\right) & = \\operatorname{Var}\\left(\\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\\\\n    & = \\operatorname{Var}\\left(\\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\quad \\text{skipping 2 steps} \\\\\n    & = \\frac{1}{\\left(SST_x\\right)^2} \\sum_{i=1}^{n} d_i^2 \\operatorname{Var}(u_i) \\quad \\text{skipping 3 steps} \\\\\n    & = \\frac{\\sigma^2}{SST_x}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Measure of precision of \\(\\hat{\\beta_1}\\)",
+    "text": "Measure of precision of \\(\\hat{\\beta_1}\\)\n\n\n\\(sd(\\hat{\\beta}_1) = \\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)}\\) gives a measure of the precision of \\(\\hat{\\beta}_1\\)\nBut we do not know \\(\\sigma^2\\) so we do not know \\(sd(\\hat{\\beta}_1)\\)\nSo we have to estimate \\(\\sigma^2\\) to get an estimate of \\(sd(\\hat{\\beta}_1)\\)\nThe estimate of the \\(sd(\\hat{\\beta}_1)\\) is called the standard error of \\(\\hat{\\beta}_1\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Theorem",
+    "text": "Theorem\n\n\n\nUnbiased estimation of \\(\\sigma^2\\)\n\n\nUnder Assumptions SLR. through SLR.5,\n\\[\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\]\nwhere \\(\\hat{\\sigma}^2=\\frac{1}{n-2} \\sum_{i=1}^n \\hat{u}_i^2\\), where \\(\\hat{u}_i=y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_i\\)\n\n\n\n\nStudy the proof from 2-5c\nTry to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "In essence we have shown",
+    "text": "In essence we have shown\n\nAssuming SLR 1-5, and conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\), we have shown that:\n\nThe OLS estimators are unbiased\n\n\\(\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0\\) and \\(\\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\\)\n\nWe can obtain the variance of the OLS estimators\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x}\\)\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\\)\n\nBut we do not know \\(\\sigma^2\\)\n\nThe residual variance \\(\\hat{\\sigma}^2\\) is unbiased for the variance of the population errror \\(\\sigma^2\\)\n\\(\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\)\n\nAnd we learnt a lot of tricks and pattern recognition in the process\nAnd some stuff about how to work with data"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#the-four-types",
@@ -1155,101 +1239,10 @@
     "text": "Non-Linear Relationships\n\nNot all relationships are linear\nCan add polynomial terms: \\(y_i = \\beta_0 + \\beta_1x_i^2 + u_i\\)\nVisual inspection is crucial\nAlways plot your data first!\n\n\n\n\n\n\n\nNote\n\n\nLinear in linear regression means linear in parameters not variables"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Overview",
-    "text": "Overview\n\nFor any estimator we want to know two important things\n\nWhether we are getting unbiased estimates\nIf yes, how precisely can we obtain those estimates\n\nWill require assumptions\nFor OLS, we have 5 of them, which will constitute the Gauss-Markov assumptions"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#unbiasedness-of-an-estimator",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Unbiasedness of an estimator",
-    "text": "Unbiasedness of an estimator\nAn estimator is unbiased if, on average, it produces estimates that are equal to the true value of the parameter being estimated.\n\n\n\nDefinition\n\n\nAn estimator producing an estimate \\(\\hat{\\theta}\\) for a parameter \\(\\theta\\) is considered unbiased if: \\[\n\\mathbb{E}(\\widehat{\\theta}) = \\theta\n\\]\n\n\n\nBasically means that the sampling distribution of \\(\\hat{\\theta}\\) is centered around the true \\(\\theta\\) on average\nWe will now show that the OLS estimator for a SLR model’s parameters \\((\\beta_0, \\beta_1)\\) is unbiased"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#assumptions-to-prove-unbiasedness-of-ols",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Assumptions to prove unbiasedness of OLS",
-    "text": "Assumptions to prove unbiasedness of OLS\n\nSLR 1 - 4SLR1SLR2SLR3SLR4\n\n\n\nLinear in parameters\nRandom sampling\nSample Variation in X\nZero Conditional mean\n\n\n\n\nLinear in parameters:\nIn the population model, the dependent variable, \\(y\\), is related to the independent variable, \\(x\\), and the error (or disturbance), \\(u\\), as: \\[\ny=\\beta_0+\\beta_1 x+u\n\\] where \\(\\beta_0\\) and \\(\\beta_1\\) are the population intercept and slope parameters, respectively.\n\n\n\n\nRandom Sampling\nWe have a random sample of size n,\\(\\left\\{\\left(x_i, y_i\\right): i=1,2, \\ldots, n\\right\\}\\) in the population model\n\n\n\n\nSample variation in X\nThe sample explanatory x variable, namely, \\(x_i\\) , \\(i \\in \\{1, \\cdots, n\\}\\) , are not all the same value \\[\\widehat{Var}(x_i) &gt; 0\\]\n\n\n\n\nZero conditional mean\n\nThe error \\(u\\) has an expected value of zero given any value of the explanatory variable. In other words, \\[E(u \\mid x)=0\\] ."
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Theorem",
-    "text": "Theorem\n\n\n\nTheorem: Unbiasedness of the OLS estimator\n\n\nUsing Assumptions SLR. 1 through SLR.4,\n\\[\n\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0 \\text { and } \\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\n\\]\n\n\n\n\nIn other words, \\(\\hat{\\beta}_0\\) is unbiased for \\(\\beta_0\\), and \\(\\hat{\\beta}_1\\) is unbiased for \\(\\beta_1\\).\nLet us prove it using our assumptions!\nIn doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof."
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#please-make-sure-you-go-through-all-of-math-refresher-a-and-b",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#please-make-sure-you-go-through-all-of-math-refresher-a-and-b",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Please make sure you go through all of Math Refresher A and B",
-    "text": "Please make sure you go through all of Math Refresher A and B\nB-4f Properties of Conditional Expectation\n\n\\(\\text {CE.1: } \\mathrm{E}[c(X) \\mid X]=c(X) \\text {, for any function } c(X)\\)\n\\(\\text {CE.2: For functions } a(X) \\text { and } b(X) \\text {, } \\mathrm{E}[a(X) Y+b(X) \\mid X]=a(X) \\mathrm{E}(Y \\mid X)+b(X)\\)\n\\(\\text {CE. 3: If } X \\text { and } Y \\text { are independent, then } \\mathrm{E}(Y \\mid X)=\\mathrm{E}(Y)\\)\n\\(\\text {CE. 4:} \\mathrm{E}[\\mathrm{E}(Y \\mid X)]=\\mathrm{E}(Y)\\) [Law of Iterated Expectations]\n\\(\\text {CE. } 4^{\\prime}: \\mathrm{E}(Y \\mid X)=\\mathrm{E}[\\mathrm{E}(Y \\mid X, Z) \\mid X]\\) [Generalized Law of Iterated Expectations]\n\\(\\text {CE. } 5: \\mathrm{E}(Y \\mid X)=\\mathrm{E}(Y)\\) then \\(cov(X, Y)=0\\)"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#key-patterns-in-the-proof",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Key patterns in the proof",
-    "text": "Key patterns in the proof\n\nStart with the OLS estimate \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) and \\(\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1\\bar{x}\\)\nWrite the OLS estimator in terms of the population parameters\n\nTo do this we have to bring in \\(y_i\\) (population model) and not \\(\\hat{y_i}\\)\n\nThis is what brings in the population parameters \\(\\beta_0\\) and \\(\\beta_1\\) on the RHS\n\nTricks to bring in \\(y_i\\) in the OLS estimator:\n\nWithout any assumptions we showed and used:\n\\(\\sum_{i=1}^n(x_i - \\bar{x})(y_i - \\bar{y}) = \\sum_{i=1}^n(x_i - \\bar{x})y_i\\)\n\nCould have written this as \\(\\sum_{i=1}^n(y_i - \\bar{y})x_i\\) but did not to bring in \\(y_i\\)\n\n\nOther tricks: Without any assumptions\n\n\\(\\sum_{i=1}^n(x_i - \\bar{x}) = 0\\)\n\\(\\sum_{i=1}^n(x_i - \\bar{x})x_i = \\sum_{i=1}^n(x_i - \\bar{x})^2\\)\n\n\nTake the expectation conditional on \\(x_i\\)\n\nimpose the SLR assumptions on zero mean and zero conditional mean\nuse LIE"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "SLR 5: Homoskedasticity assumption",
-    "text": "SLR 5: Homoskedasticity assumption\nThe population error \\(u_i\\) has the same variance given any value of \\(x_i\\), i.e.,\n\\[\nVar(u \\mid x) = \\sigma^2\n\\]\nSLR 5 further implies that \\(\\sigma^2\\) is also the unconditional variance of \\(u\\).\n\\[\\operatorname{Var}(u \\mid x)=\\mathrm{E}\\left(u^2 \\mid x\\right)-[\\mathrm{E}(u \\mid x)]^2\\]\n\\[ \\text { and since } \\mathrm{E}(u \\mid x)=0, \\sigma^2=\\mathrm{E}\\left(u^2 \\mid x\\right)\\]"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#now-we-have-var-y-mid-x",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Now we have \\(Var( y \\mid x)\\)",
-    "text": "Now we have \\(Var( y \\mid x)\\)\n\n\nusing Assumptions SLR. 4 and SLR. 5 we can derive the conditional variance of \\(y\\) :\n\\[\n\\begin{gathered}\n\\mathrm{E}(y \\mid x)=\\beta_0+\\beta_1 x \\\\\n\\operatorname{Var}(y \\mid x)=\\sigma^2\n\\end{gathered}\n\\]\nFrom here we can get \\(Var(u \\mid x)\\)\n\n\n\n\nHomoskedasticity"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-1",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Theorem",
-    "text": "Theorem\n\n\n\nSampling variance of OLS estimators\n\n\nUnder Assumptions SLR. 1 through SLR.5,\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x},\n\\]\nand\n\\[\n\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\n\\]\nwhere these are conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\). :::\n\nLet us prove this!\n\n\nProof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\nLet us work with \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) \\(\\implies\\) \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})u_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nDenote \\((x_i - \\bar{x})\\) as \\(d_i\\). So \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nNow take the variance of \\(\\hat{\\beta}_1\\) conditional on the sample values \\(x_i\\)\n\n\\[\\begin{align*}\n    \\operatorname{Var}\\left(\\hat{\\beta}_1\\right) & = \\operatorname{Var}\\left(\\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\\\\n    & = \\operatorname{Var}\\left(\\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\quad \\text{skipping 2 steps} \\\\\n    & = \\frac{1}{\\left(SST_x\\right)^2} \\sum_{i=1}^{n} d_i^2 \\operatorname{Var}(u_i) \\quad \\text{skipping 3 steps} \\\\\n    & = \\frac{\\sigma^2}{SST_x}\n\\end{align*}\\]\n\n\nMeasure of precision of \\(\\hat{\\beta_1}\\)\n\n\n\\(sd(\\hat{\\beta}_1) = \\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)}\\) gives a measure of the precision of \\(\\hat{\\beta}_1\\)\nBut we do not know \\(\\sigma^2\\) so we do not know \\(sd(\\hat{\\beta}_1)\\)\nSo we have to estimate \\(\\sigma^2\\) to get an estimate of \\(sd(\\hat{\\beta}_1)\\)\nThe estimate of the \\(sd(\\hat{\\beta}_1)\\) is called the standard error of \\(\\hat{\\beta}_1\\)\n\n\n\n\n\nTheorem\n\n\n\nUnbiased estimation of \\(\\sigma^2\\)\n\n\nUnder Assumptions SLR. through SLR.5,\n\\[\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\]\nwhere \\(\\hat{\\sigma}^2=\\frac{1}{n-2} \\sum_{i=1}^n \\hat{u}_i^2\\), where \\(\\hat{u}_i=y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_i\\)\n\n\n\n\nStudy the proof from 2-5c\nTry to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates\n\n\n\nIn essence we have shown\n\nAssuming SLR 1-5, and conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\), we have shown that:\n\nThe OLS estimators are unbiased\n\n\\(\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0\\) and \\(\\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\\)\n\nWe can obtain the variance of the OLS estimators\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x}\\)\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\\)\n\nBut we do not know \\(\\sigma^2\\)\n\nThe residual variance \\(\\hat{\\sigma}^2\\) is unbiased for the variance of the population errror \\(\\sigma^2\\)\n\\(\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\)\n\nAnd we learnt a lot of tricks and pattern recognition in the process\nAnd some stuff about how to work with data\n\n\n\n\nRemaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\nAgain: Make sure you go through all of Math Refresher A and B\n\nnext class we will start chapter 3"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#proof-of-operatornamevarlefthatbeta_1right",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)",
-    "text": "Proof of \\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)\\)\n\nLet us work with \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) \\(\\implies\\) \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})u_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nDenote \\((x_i - \\bar{x})\\) as \\(d_i\\). So \\(\\hat{\\beta}_1 = \\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\)\nNow take the variance of \\(\\hat{\\beta}_1\\) conditional on the sample values \\(x_i\\)\n\n\\[\\begin{align*}\n    \\operatorname{Var}\\left(\\hat{\\beta}_1\\right) & = \\operatorname{Var}\\left(\\beta_1 + \\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\\\\n    & = \\operatorname{Var}\\left(\\frac{\\sum_{i=1}^{n} d_iu_i}{SST_x}\\right) \\quad \\text{skipping 2 steps} \\\\\n    & = \\frac{1}{\\left(SST_x\\right)^2} \\sum_{i=1}^{n} d_i^2 \\operatorname{Var}(u_i) \\quad \\text{skipping 3 steps} \\\\\n    & = \\frac{\\sigma^2}{SST_x}\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#measure-of-precision-of-hatbeta_1",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Measure of precision of \\(\\hat{\\beta_1}\\)",
-    "text": "Measure of precision of \\(\\hat{\\beta_1}\\)\n\n\n\\(sd(\\hat{\\beta}_1) = \\sqrt{\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)}\\) gives a measure of the precision of \\(\\hat{\\beta}_1\\)\nBut we do not know \\(\\sigma^2\\) so we do not know \\(sd(\\hat{\\beta}_1)\\)\nSo we have to estimate \\(\\sigma^2\\) to get an estimate of \\(sd(\\hat{\\beta}_1)\\)\nThe estimate of the \\(sd(\\hat{\\beta}_1)\\) is called the standard error of \\(\\hat{\\beta}_1\\)"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#theorem-2",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "Theorem",
-    "text": "Theorem\n\n\n\nUnbiased estimation of \\(\\sigma^2\\)\n\n\nUnder Assumptions SLR. through SLR.5,\n\\[\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\]\nwhere \\(\\hat{\\sigma}^2=\\frac{1}{n-2} \\sum_{i=1}^n \\hat{u}_i^2\\), where \\(\\hat{u}_i=y_i-\\hat{\\beta}_0-\\hat{\\beta}_1 x_i\\)\n\n\n\n\nStudy the proof from 2-5c\nTry to observe the patterns in the proof similar to the unbiasedness proof of the OLS estimates"
-  },
-  {
-    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
-    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#in-essence-we-have-shown",
-    "title": "Econ 265: Introduction to Econometrics",
-    "section": "In essence we have shown",
-    "text": "In essence we have shown\n\nAssuming SLR 1-5, and conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\), we have shown that:\n\nThe OLS estimators are unbiased\n\n\\(\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0\\) and \\(\\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\\)\n\nWe can obtain the variance of the OLS estimators\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x}\\)\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\\)\n\nBut we do not know \\(\\sigma^2\\)\n\nThe residual variance \\(\\hat{\\sigma}^2\\) is unbiased for the variance of the population errror \\(\\sigma^2\\)\n\\(\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\)\n\nAnd we learnt a lot of tricks and pattern recognition in the process\nAnd some stuff about how to work with data"
-  },
-  {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#remaining-things-for-you-to-sudy",
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#remaining-things-for-you-to-sudy",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Remaining things for you to sudy",
-    "text": "Remaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\nAgain: Make sure you go through all of Math Refresher A and B\n\nnext class we will start chapter 3"
+    "text": "Remaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\n\nnext class we will start chapter 3"
   }
 ]

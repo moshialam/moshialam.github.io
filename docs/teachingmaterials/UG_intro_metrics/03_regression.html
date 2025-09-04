@@ -569,10 +569,10 @@ Moshi Alam
 <section id="properties" class="slide level2 smaller">
 <h2>Properties</h2>
 <ul>
-<li>Mean of residuals is zero</li>
-<li>Sample mean of x and y, i.e., the point <span class="math inline">\((\bar{x}, \bar{y})\)</span> lies on the regression line</li>
-<li>The sample covariance between the regressors and the OLS residuals is zero</li>
-<li>Predictions and residuals are uncorrelated</li>
+<li>Sample mean of residuals is zero <span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \hat{u}_i = 0\)</span></li>
+<li>Sample mean of x and y <span class="math inline">\((\bar{x}, \bar{y})\)</span> lies on the regression line</li>
+<li>The sample covariance between the regressors (<span class="math inline">\(x\)</span>) and the OLS residuals is zero <span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})\hat{u}_i = 0\)</span></li>
+<li>Predictions and residuals are uncorrelated <span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - \bar{y})\hat{u}_i = 0\)</span></li>
 </ul>
 <p>Try testing these out with this generated data:</p>
 <div class="cell">
@@ -639,97 +639,6 @@ x          1 42.639  42.639  6.7893 0.03514 *
 Residuals  7 43.962   6.280                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="scaling-and-transformations" class="title-slide slide level1 center" data-background-color="#1c5253">
-<h1>Scaling and Transformations</h1>
-
-</section>
-<section id="the-four-types" class="slide level2 smaller">
-<h2>The Four Types</h2>
-<ol type="1">
-<li>Level-level: <span class="math inline">\(y = b_0 + b_1x\)</span></li>
-<li>Level-log: <span class="math inline">\(y = b_0 + b_1\log(x)\)</span></li>
-<li>Log-level: <span class="math inline">\(\log(y) = b_0 + b_1x\)</span></li>
-<li>Log-log: <span class="math inline">\(\log(y) = b_0 + b_1\log(x)\)</span></li>
-</ol>
-</section>
-<section id="interpreting-log-specifications" class="slide level2 smaller">
-<h2>Interpreting Log Specifications</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Specification</th>
-<th>Change in x</th>
-<th>Effect on y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Level-level</td>
-<td>+1 unit</td>
-<td>+<span class="math inline">\(b_1\)</span> units</td>
-</tr>
-<tr class="even">
-<td>Level-log</td>
-<td>+1%</td>
-<td>+<span class="math inline">\(\frac{b_1}{100}\)</span> units</td>
-</tr>
-<tr class="odd">
-<td>Log-level</td>
-<td>+1 unit</td>
-<td>+<span class="math inline">\((100 \times b_1)\%\)</span></td>
-</tr>
-<tr class="even">
-<td>Log-log</td>
-<td>+1%</td>
-<td>+<span class="math inline">\(b_1\%\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="why-use-logs" class="slide level2 smaller">
-<h2>Why Use Logs?</h2>
-<ol type="1">
-<li>Normalize skewed distributions</li>
-<li>Reduce impact of outliers</li>
-<li>Interpret coefficients as elasticities</li>
-<li>Transform multiplicative relationships to additive</li>
-</ol>
-</section>
-<section id="example-ceo-salaries" class="slide level2 smaller">
-<h2>Example: CEO Salaries</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">data</span>(<span class="st">"ceosal1"</span>, <span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
-<span id="cb7-2"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb7-3"><a></a><span class="fu">plot</span>(salary <span class="sc">~</span> sales, <span class="at">data =</span> ceosal1, </span>
-<span id="cb7-4"><a></a>     <span class="at">main =</span> <span class="st">"Raw Values"</span>)</span>
-<span id="cb7-5"><a></a><span class="fu">plot</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">log</span>(sales), <span class="at">data =</span> ceosal1, </span>
-<span id="cb7-6"><a></a>     <span class="at">main =</span> <span class="st">"Log Transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="non-linear-relationships" class="slide level2 smaller">
-<h2>Non-Linear Relationships</h2>
-<ul>
-<li>Not all relationships are linear</li>
-<li>Can add polynomial terms: <span class="math inline">\(y_i = \beta_0 + \beta_1x_i^2 + u_i\)</span></li>
-<li>Visual inspection is crucial</li>
-<li>Always plot your data first!</li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Linear in linear regression means linear in parameters not variables</p>
-</div>
 </div>
 </div>
 </section></section>
@@ -836,18 +745,6 @@ y=\beta_0+\beta_1 x+u
 <li>In doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof.</li>
 </ul>
 </section>
-<section id="please-make-sure-you-go-through-all-of-math-refresher-a-and-b" class="slide level2 smaller">
-<h2>Please make sure you go through all of Math Refresher A and B</h2>
-<h3 id="b-4f-properties-of-conditional-expectation">B-4f Properties of Conditional Expectation</h3>
-<ul>
-<li><span class="math inline">\(\text {CE.1: } \mathrm{E}[c(X) \mid X]=c(X) \text {, for any function } c(X)\)</span></li>
-<li><span class="math inline">\(\text {CE.2: For functions } a(X) \text { and } b(X) \text {, } \mathrm{E}[a(X) Y+b(X) \mid X]=a(X) \mathrm{E}(Y \mid X)+b(X)\)</span></li>
-<li><span class="math inline">\(\text {CE. 3: If } X \text { and } Y \text { are independent, then } \mathrm{E}(Y \mid X)=\mathrm{E}(Y)\)</span></li>
-<li><span class="math inline">\(\text {CE. 4:} \mathrm{E}[\mathrm{E}(Y \mid X)]=\mathrm{E}(Y)\)</span> <em>[Law of Iterated Expectations]</em></li>
-<li><span class="math inline">\(\text {CE. } 4^{\prime}: \mathrm{E}(Y \mid X)=\mathrm{E}[\mathrm{E}(Y \mid X, Z) \mid X]\)</span> <em>[Generalized Law of Iterated Expectations]</em></li>
-<li><span class="math inline">\(\text {CE. } 5: \mathrm{E}(Y \mid X)=\mathrm{E}(Y)\)</span> then <span class="math inline">\(cov(X, Y)=0\)</span></li>
-</ul>
-</section>
 <section id="key-patterns-in-the-proof" class="slide level2 smaller">
 <h2>Key patterns in the proof</h2>
 <ul>
@@ -931,10 +828,14 @@ Var(u \mid x) = \sigma^2
 <p><span class="math display">\[
 \operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}
 \]</span></p>
-<p>where these are conditional on the sample values <span class="math inline">\(\left\{x_1, \ldots, x_n\right\}\)</span>. :::</p>
+<p>where these are conditional on the sample values <span class="math inline">\(\left\{x_1, \ldots, x_n\right\}\)</span>.</p>
+</div>
+</div>
+</div>
 <ul>
 <li>Let us prove this!</li>
 </ul>
+</section>
 <section id="proof-of-operatornamevarlefthatbeta_1right" class="slide level2 smaller">
 <h2>Proof of <span class="math inline">\(\operatorname{Var}\left(\hat{\beta}_1\right)\)</span></h2>
 <ul>
@@ -1014,6 +915,97 @@ Var(u \mid x) = \sigma^2
 <li class="fragment">And some stuff about how to work with data</li>
 </ul>
 </div>
+</section></section>
+<section>
+<section id="scaling-and-transformations" class="title-slide slide level1 center" data-background-color="#1c5253">
+<h1>Scaling and Transformations</h1>
+
+</section>
+<section id="the-four-types" class="slide level2 smaller">
+<h2>The Four Types</h2>
+<ol type="1">
+<li>Level-level: <span class="math inline">\(y = b_0 + b_1x\)</span></li>
+<li>Level-log: <span class="math inline">\(y = b_0 + b_1\log(x)\)</span></li>
+<li>Log-level: <span class="math inline">\(\log(y) = b_0 + b_1x\)</span></li>
+<li>Log-log: <span class="math inline">\(\log(y) = b_0 + b_1\log(x)\)</span></li>
+</ol>
+</section>
+<section id="interpreting-log-specifications" class="slide level2 smaller">
+<h2>Interpreting Log Specifications</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Change in x</th>
+<th>Effect on y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Level-level</td>
+<td>+1 unit</td>
+<td>+<span class="math inline">\(b_1\)</span> units</td>
+</tr>
+<tr class="even">
+<td>Level-log</td>
+<td>+1%</td>
+<td>+<span class="math inline">\(\frac{b_1}{100}\)</span> units</td>
+</tr>
+<tr class="odd">
+<td>Log-level</td>
+<td>+1 unit</td>
+<td>+<span class="math inline">\((100 \times b_1)\%\)</span></td>
+</tr>
+<tr class="even">
+<td>Log-log</td>
+<td>+1%</td>
+<td>+<span class="math inline">\(b_1\%\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-use-logs" class="slide level2 smaller">
+<h2>Why Use Logs?</h2>
+<ol type="1">
+<li>Normalize skewed distributions</li>
+<li>Reduce impact of outliers</li>
+<li>Interpret coefficients as elasticities</li>
+<li>Transform multiplicative relationships to additive</li>
+</ol>
+</section>
+<section id="example-ceo-salaries" class="slide level2 smaller">
+<h2>Example: CEO Salaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">data</span>(<span class="st">"ceosal1"</span>, <span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
+<span id="cb7-2"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb7-3"><a></a><span class="fu">plot</span>(salary <span class="sc">~</span> sales, <span class="at">data =</span> ceosal1, </span>
+<span id="cb7-4"><a></a>     <span class="at">main =</span> <span class="st">"Raw Values"</span>)</span>
+<span id="cb7-5"><a></a><span class="fu">plot</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">log</span>(sales), <span class="at">data =</span> ceosal1, </span>
+<span id="cb7-6"><a></a>     <span class="at">main =</span> <span class="st">"Log Transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="non-linear-relationships" class="slide level2 smaller">
+<h2>Non-Linear Relationships</h2>
+<ul>
+<li>Not all relationships are linear</li>
+<li>Can add polynomial terms: <span class="math inline">\(y_i = \beta_0 + \beta_1x_i^2 + u_i\)</span></li>
+<li>Visual inspection is crucial</li>
+<li>Always plot your data first!</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Linear in linear regression means linear in parameters not variables</p>
+</div>
+</div>
+</div>
 </section>
 <section id="remaining-things-for-you-to-sudy" class="slide level2 smaller">
 <h2>Remaining things for you to sudy</h2>
@@ -1024,7 +1016,6 @@ Var(u \mid x) = \sigma^2
 <li>2-6: Regression through the Origin and Regression on a Constant</li>
 <li>2-7: Regression on a Binary Explanatory Variable</li>
 </ul></li>
-<li>Again: Make sure you go through all of Math Refresher A and B</li>
 </ul>
 <p>next class we will start chapter 3</p>
 <!--
@@ -1630,10 +1621,6 @@ n = 10000: 55103.38 (diff:  58.25)
 -->
 
 
-</section>
-</div>
-</div>
-</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

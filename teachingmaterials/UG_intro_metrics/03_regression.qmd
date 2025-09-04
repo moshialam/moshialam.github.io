@@ -394,10 +394,10 @@ grid(nx = NULL, ny = NULL, col = "lightgray", lty = "dotted")
 
 ## Properties {.smaller}
 
--   Mean of residuals is zero
--   Sample mean of x and y, i.e., the point $(\bar{x}, \bar{y})$ lies on the regression line
--   The sample covariance between the regressors and the OLS residuals is zero
--   Predictions and residuals are uncorrelated
+-   Sample mean of residuals is zero $\frac{1}{n} \sum_{i=1}^{n} \hat{u}_i = 0$
+-   Sample mean of x and y $(\bar{x}, \bar{y})$ lies on the regression line
+-   The sample covariance between the regressors ($x$) and the OLS residuals is zero $\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})\hat{u}_i = 0$
+-   Predictions and residuals are uncorrelated $\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - \bar{y})\hat{u}_i = 0$
 
 Try testing these out with this generated data:
 
@@ -462,54 +462,6 @@ summary(model)$r.squared
 anova(model)
 ```
 
-# Scaling and Transformations {background-color="#1c5253"}
-
-## The Four Types {.smaller}
-
-1.  Level-level: $y = b_0 + b_1x$
-2.  Level-log: $y = b_0 + b_1\log(x)$
-3.  Log-level: $\log(y) = b_0 + b_1x$
-4.  Log-log: $\log(y) = b_0 + b_1\log(x)$
-
-## Interpreting Log Specifications {.smaller}
-
-| Specification | Change in x | Effect on y               |
-|---------------|-------------|---------------------------|
-| Level-level   | +1 unit     | \+$b_1$ units             |
-| Level-log     | +1%         | \+$\frac{b_1}{100}$ units |
-| Log-level     | +1 unit     | \+$(100 \times b_1)\%$    |
-| Log-log       | +1%         | \+$b_1\%$                 |
-
-## Why Use Logs? {.smaller}
-
-1.  Normalize skewed distributions
-2.  Reduce impact of outliers
-3.  Interpret coefficients as elasticities
-4.  Transform multiplicative relationships to additive
-
-## Example: CEO Salaries {.smaller}
-
-```{r}
-#| echo: true
-data("ceosal1", package = "wooldridge")
-par(mfrow=c(1,2))
-plot(salary ~ sales, data = ceosal1, 
-     main = "Raw Values")
-plot(log(salary) ~ log(sales), data = ceosal1, 
-     main = "Log Transformed")
-```
-
-## Non-Linear Relationships {.smaller}
-
--   Not all relationships are linear
--   Can add polynomial terms: $y_i = \beta_0 + \beta_1x_i^2 + u_i$
--   Visual inspection is crucial
--   Always plot your data first!
-
-::: callout-note
-Linear in linear regression means linear in parameters not variables
-:::
-
 # Expected Values and Variances of the OLS Estimator {background-color="#1c5253"}
 
 ## Overview
@@ -519,6 +471,8 @@ Linear in linear regression means linear in parameters not variables
     -   If yes, how precisely can we obtain those estimates
 -   Will require assumptions
 -   For OLS, we have 5 of them, which will constitute the Gauss-Markov assumptions
+
+
 
 # Expected Value of the OLS Estimator
 
@@ -591,16 +545,6 @@ $$
 -   Let us prove it using our assumptions!
 -   In doing so, we will learn some tricks, and I want you to learn the tricks and observe the patterns in the art of going about an econoemtric proof.
 
-## Please make sure you go through all of Math Refresher A and B {.smaller}
-
-### B-4f Properties of Conditional Expectation
-
--   $\text {CE.1: } \mathrm{E}[c(X) \mid X]=c(X) \text {, for any function } c(X)$
--   $\text {CE.2: For functions } a(X) \text { and } b(X) \text {, } \mathrm{E}[a(X) Y+b(X) \mid X]=a(X) \mathrm{E}(Y \mid X)+b(X)$
--   $\text {CE. 3: If } X \text { and } Y \text { are independent, then } \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$
--   $\text {CE. 4:} \mathrm{E}[\mathrm{E}(Y \mid X)]=\mathrm{E}(Y)$ *\[Law of Iterated Expectations\]*
--   $\text {CE. } 4^{\prime}: \mathrm{E}(Y \mid X)=\mathrm{E}[\mathrm{E}(Y \mid X, Z) \mid X]$ *\[Generalized Law of Iterated Expectations\]*
--   $\text {CE. } 5: \mathrm{E}(Y \mid X)=\mathrm{E}(Y)$ then $cov(X, Y)=0$
 
 ## Key patterns in the proof {.smaller}
 
@@ -674,7 +618,8 @@ $$
 \operatorname{Var}\left(\hat{\beta}_0\right)=\frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} = \frac{\sigma^2 \frac{1}{n} \sum_{i=1}^n x_i^2}{\mathrm{SST}_x}
 $$
 
-where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$. :::
+where these are conditional on the sample values $\left\{x_1, \ldots, x_n\right\}$. 
+:::
 
 -   Let us prove this!
 
@@ -749,13 +694,63 @@ Assuming SLR 1-5, and conditional on the sample values $\left\{x_1, \ldots, x_n\
 -   And some stuff about how to work with data
 :::
 
+
+
+# Scaling and Transformations {background-color="#1c5253"}
+
+## The Four Types {.smaller}
+
+1.  Level-level: $y = b_0 + b_1x$
+2.  Level-log: $y = b_0 + b_1\log(x)$
+3.  Log-level: $\log(y) = b_0 + b_1x$
+4.  Log-log: $\log(y) = b_0 + b_1\log(x)$
+
+## Interpreting Log Specifications {.smaller}
+
+| Specification | Change in x | Effect on y               |
+|---------------|-------------|---------------------------|
+| Level-level   | +1 unit     | \+$b_1$ units             |
+| Level-log     | +1%         | \+$\frac{b_1}{100}$ units |
+| Log-level     | +1 unit     | \+$(100 \times b_1)\%$    |
+| Log-log       | +1%         | \+$b_1\%$                 |
+
+## Why Use Logs? {.smaller}
+
+1.  Normalize skewed distributions
+2.  Reduce impact of outliers
+3.  Interpret coefficients as elasticities
+4.  Transform multiplicative relationships to additive
+
+## Example: CEO Salaries {.smaller}
+
+```{r}
+#| echo: true
+data("ceosal1", package = "wooldridge")
+par(mfrow=c(1,2))
+plot(salary ~ sales, data = ceosal1, 
+     main = "Raw Values")
+plot(log(salary) ~ log(sales), data = ceosal1, 
+     main = "Log Transformed")
+```
+
+## Non-Linear Relationships {.smaller}
+
+-   Not all relationships are linear
+-   Can add polynomial terms: $y_i = \beta_0 + \beta_1x_i^2 + u_i$
+-   Visual inspection is crucial
+-   Always plot your data first!
+
+::: callout-note
+Linear in linear regression means linear in parameters not variables
+:::
+
+
 ## Remaining things for you to sudy {.smaller}
 
 -   Read up on the properties of the conditional expectation in Math Refresher B
 -   Read up:
     -   2-6: Regression through the Origin and Regression on a Constant
     -   2-7: Regression on a Binary Explanatory Variable
--   Again: Make sure you go through all of Math Refresher A and B
 
 next class we will start chapter 3
 
