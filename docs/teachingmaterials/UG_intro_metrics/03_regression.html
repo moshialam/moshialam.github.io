@@ -439,13 +439,34 @@ Moshi Alam
 </div>
 </div>
 </div>
-</section></section>
+</section>
+<section id="section-1" class="slide level2 smaller">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2"><a></a>n <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb2-3"><a></a>u1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="fl">0.0</span>, <span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb2-4"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out=</span>n))</span>
+<span id="cb2-5"><a></a>u2 <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb2-6"><a></a><span class="fu">cat</span>(<span class="st">"Mean of u1:"</span>, <span class="fu">mean</span>(u1), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"Mean of u2:"</span>, <span class="fu">mean</span>(u2), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean of u1: 9.767488e-05 
+ Mean of u2: 0.0005215476 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb4-2"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">plot</span>(x, u1, <span class="at">main=</span><span class="st">"E(u)=0 and E(u|x)=0"</span>)</span>
+<span id="cb4-3"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(u1<span class="sc">~</span>x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">plot</span>(u2, x, <span class="at">main=</span><span class="st">"E(u)=0 but E(u|x)!=0"</span>)</span>
+<span id="cb4-5"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(u2<span class="sc">~</span>x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section id="deriving-the-ols-estimator" class="title-slide slide level1 center" data-background-color="#1c5253">
 <h1>Deriving the OLS estimator</h1>
 
 </section>
-<section id="section-1" class="slide level2 smaller">
+<section id="section-2" class="slide level2 smaller">
 <h2></h2>
 <h3 id="starting-assumption-to-deriving-ols-estimators">Starting assumption to deriving OLS estimators</h3>
 <div>
@@ -505,7 +526,7 @@ Moshi Alam
 </ul>
 </div></div>
 </section>
-<section id="section-2" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <p>Now, <span class="math inline">\(\frac{1}{n}  \sum_{i=1}^{n}(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0\)</span>, simplifies to</p>
 <p><span class="math display">\[\bar{y_i} = \hat{\beta_0} + \hat{\beta_1}\bar{x_i}\]</span></p>
@@ -516,7 +537,7 @@ Moshi Alam
 <p><span class="math display">\[\hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}\]</span></p>
 <p>provided, <span class="math inline">\(\sum_{i=1}^{n}(x_i - \bar{x})^2 &gt; 0\)</span>. What’s this?</p>
 </section>
-<section id="section-3" class="slide level2 smaller">
+<section id="section-4" class="slide level2 smaller">
 <h2></h2>
 <p>Note that <span class="math inline">\(\hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}\)</span> is nothing but</p>
 <p>the <em>sample covariance</em> divided by the <em>sample variance</em>,</p>
@@ -529,15 +550,6 @@ Moshi Alam
 <li>sample variance <span class="math inline">\(= \hat{\sigma_x}^2\)</span></li>
 </ul>
 </section>
-<section id="fitted-values-and-residual" class="slide level2 smaller">
-<h2>Fitted values and residual</h2>
-<ul>
-<li>The estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> thus obtained are called OLS</li>
-<li>Can obtain “fitted values” of <span class="math inline">\(y_i\)</span>: <span class="math display">\[\hat{y_i} = \beta_0 + \beta_1 x_i\]</span></li>
-<li>Obtain residuals: <span class="math inline">\(\hat{u_i} = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i\)</span></li>
-</ul>
-
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="interestingly" class="slide level2 smaller">
 <h2>Interestingly</h2>
 <ul>
@@ -560,12 +572,29 @@ Moshi Alam
 :::
 :::
 -->
+</section>
+<section id="quick-recap" class="slide level2 smaller">
+<h2>Quick recap</h2>
+<ul>
+<li>Main assumptions on the population: <span class="math inline">\(E(u) = 0\)</span> and <span class="math inline">\(E(u \mid x) = 0\)</span></li>
+<li>Gives us moment conditions which we can convert to sample counterparts invoking LLN</li>
+<li>Solving the sample counterparts gives us the OLS estimates</li>
+</ul>
 </section></section>
 <section>
 <section id="statistical-properties-of-ols" class="title-slide slide level1 center" data-background-color="#1c5253">
 <h1>Statistical properties of OLS</h1>
 
 </section>
+<section id="fitted-values-and-residual" class="slide level2 smaller">
+<h2>Fitted values and residual</h2>
+<ul>
+<li>The estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> thus obtained are called OLS</li>
+<li>Can obtain “fitted values” of <span class="math inline">\(y_i\)</span>: <span class="math display">\[\hat{y_i} = \hat{\beta_0} + \hat{\beta_1} x_i\]</span></li>
+<li>Obtain residuals: <span class="math inline">\(\hat{u_i} = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i\)</span></li>
+</ul>
+
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="properties" class="slide level2 smaller">
 <h2>Properties</h2>
 <ul>
@@ -576,14 +605,14 @@ Moshi Alam
 </ul>
 <p>Try testing these out with this generated data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="at">length.out =</span> <span class="dv">50</span>)</span>
-<span id="cb2-3"><a></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">0</span>, <span class="dv">20</span>) <span class="co">#DGP</span></span>
-<span id="cb2-4"><a></a><span class="fu">plot</span>(x, y, <span class="at">main=</span><span class="st">"Linear Relationship Example"</span>)</span>
-<span id="cb2-5"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="at">length.out =</span> <span class="dv">50</span>)</span>
+<span id="cb5-3"><a></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">0</span>, <span class="dv">20</span>) <span class="co">#DGP</span></span>
+<span id="cb5-4"><a></a><span class="fu">plot</span>(x, y, <span class="at">main=</span><span class="st">"Linear Relationship Example"</span>)</span>
+<span id="cb5-5"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="decomposition" class="slide level2 smaller">
 <h2>Decomposition</h2>
 <div class="columns">
@@ -623,20 +652,20 @@ Moshi Alam
 <li>Interpretation: Proportion of variance explained by model</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Calculate R-squared</span></span>
-<span id="cb3-2"><a></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Calculate R-squared</span></span>
+<span id="cb6-2"><a></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4923586</code></pre>
+<pre><code>[1] 0.6510794</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Decomposition of variance</span></span>
-<span id="cb5-2"><a></a><span class="fu">anova</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Decomposition of variance</span></span>
+<span id="cb8-2"><a></a><span class="fu">anova</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
-Response: y
-          Df Sum Sq Mean Sq F value  Pr(&gt;F)  
-x          1 42.639  42.639  6.7893 0.03514 *
-Residuals  7 43.962   6.280                  
+Response: dist
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+speed      1  21186 21185.5  89.567 1.49e-12 ***
+Residuals 48  11354   236.5                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -976,15 +1005,15 @@ Var(u \mid x) = \sigma^2
 <section id="example-ceo-salaries" class="slide level2 smaller">
 <h2>Example: CEO Salaries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">data</span>(<span class="st">"ceosal1"</span>, <span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
-<span id="cb7-2"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb7-3"><a></a><span class="fu">plot</span>(salary <span class="sc">~</span> sales, <span class="at">data =</span> ceosal1, </span>
-<span id="cb7-4"><a></a>     <span class="at">main =</span> <span class="st">"Raw Values"</span>)</span>
-<span id="cb7-5"><a></a><span class="fu">plot</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">log</span>(sales), <span class="at">data =</span> ceosal1, </span>
-<span id="cb7-6"><a></a>     <span class="at">main =</span> <span class="st">"Log Transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">data</span>(<span class="st">"ceosal1"</span>, <span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
+<span id="cb10-2"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb10-3"><a></a><span class="fu">plot</span>(salary <span class="sc">~</span> sales, <span class="at">data =</span> ceosal1, </span>
+<span id="cb10-4"><a></a>     <span class="at">main =</span> <span class="st">"Raw Values"</span>)</span>
+<span id="cb10-5"><a></a><span class="fu">plot</span>(<span class="fu">log</span>(salary) <span class="sc">~</span> <span class="fu">log</span>(sales), <span class="at">data =</span> ceosal1, </span>
+<span id="cb10-6"><a></a>     <span class="at">main =</span> <span class="st">"Log Transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="non-linear-relationships" class="slide level2 smaller">
 <h2>Non-Linear Relationships</h2>
 <ul>
@@ -1046,7 +1075,7 @@ abline(lm(y ~ x), col="red", lwd=2)
 ```
 
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-7-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-8-1.png){width=960}
 :::
 :::
 :::
@@ -1089,7 +1118,7 @@ abline(h=0, col="red", lty=2)
 ```
 
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-8-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-9-1.png){width=960}
 :::
 :::
 
@@ -1351,7 +1380,7 @@ abline(wage_model, col="blue", lwd=2)
 ```
 
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-14-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-15-1.png){width=960}
 :::
 :::
 
@@ -1448,7 +1477,7 @@ plot(wage_model)
 ```
 
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-17-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-18-1.png){width=960}
 :::
 :::
 
@@ -1543,7 +1572,7 @@ for(n in sample_sizes) {
 ```
 
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-19-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-20-1.png){width=960}
 :::
 
 ```{.r .cell-code}
@@ -1604,7 +1633,7 @@ n = 10000: 55103.38 (diff:  58.25)
 ::: {.column width="50%"}
 ::: {.cell}
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-20-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-21-1.png){width=960}
 :::
 :::
 :::
@@ -1612,7 +1641,7 @@ n = 10000: 55103.38 (diff:  58.25)
 ::: {.column width="50%"}
 ::: {.cell}
 ::: {.cell-output-display}
-![](03_regression_files/figure-revealjs/unnamed-chunk-21-1.png){width=960}
+![](03_regression_files/figure-revealjs/unnamed-chunk-22-1.png){width=960}
 :::
 :::
 :::

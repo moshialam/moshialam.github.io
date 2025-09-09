@@ -1061,7 +1061,7 @@
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-1",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "",
-    "text": "Starting assumption to deriving OLS estimators\n\nWe start with two key assumptions:\n\n\\(E(u) = 0\\)\n\\(E(u \\mid x) = 0\\) (zero conditional mean)\n\nUsing this we can show that:\n\n\\(Cov(x,u) = E(xu) - E(x)E(u)\\)\nSince \\(E(u) = 0\\):\n\n\\(Cov(x,u) = E(xu) - E(x) \\cdot 0 = E(xu)\\)\n\nTherefore: \\(Cov(x,u) = 0 \\iff E(xu) = 0\\)"
+    "text": "set.seed(123)\nn &lt;- 1e5\nu1 &lt;- rnorm(n, mean=0.0, sd=0.1)\nx &lt;- sin(seq(-5, 5, length.out=n))\nu2 &lt;- x + rnorm(n, mean=0, sd=0.1)\ncat(\"Mean of u1:\", mean(u1), \"\\n\", \"Mean of u2:\", mean(u2), \"\\n\")\n\nMean of u1: 9.767488e-05 \n Mean of u2: 0.0005215476 \n\npar(mfrow=c(1,2))\np1 &lt;- plot(x, u1, main=\"E(u)=0 and E(u|x)=0\")\nabline(lm(u1~x), col=\"red\", lwd=2)\np2 &lt;- plot(u2, x, main=\"E(u)=0 but E(u|x)!=0\")\nabline(lm(u2~x), col=\"red\", lwd=2)"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#derivation",
@@ -1075,21 +1075,21 @@
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-2",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "",
-    "text": "Now, \\(\\frac{1}{n}  \\sum_{i=1}^{n}(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\), simplifies to\n\\[\\bar{y_i} = \\hat{\\beta_0} + \\hat{\\beta_1}\\bar{x_i}\\]\nWhere \\(\\bar{y_i} = \\frac{1}{n}  \\sum_{i=1}^{n}y_i\\) is the sample average of the \\(y_i\\).\nThus,\n\\[\\hat{\\beta_0} = \\bar{y_i}  - \\hat{\\beta_1}\\bar{x_i}\\]\nPlug in \\(\\hat{\\beta_0}\\) into: \\(\\frac{1}{n}  \\sum_{i=1}^{n}x_i(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\) and simplifying gives us the slope coefficient \\(\\hat{\\beta_1}\\):\n\\[\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\]\nprovided, \\(\\sum_{i=1}^{n}(x_i - \\bar{x})^2 &gt; 0\\). What’s this?"
+    "text": "Starting assumption to deriving OLS estimators\n\nWe start with two key assumptions:\n\n\\(E(u) = 0\\)\n\\(E(u \\mid x) = 0\\) (zero conditional mean)\n\nUsing this we can show that:\n\n\\(Cov(x,u) = E(xu) - E(x)E(u)\\)\nSince \\(E(u) = 0\\):\n\n\\(Cov(x,u) = E(xu) - E(x) \\cdot 0 = E(xu)\\)\n\nTherefore: \\(Cov(x,u) = 0 \\iff E(xu) = 0\\)"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-3",
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-3",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "",
-    "text": "Note that \\(\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) is nothing but\nthe sample covariance divided by the sample variance,\nwhich can be written as,\n\\[\\hat{\\beta}_1=\\hat{\\rho}_{x y} \\cdot\\left(\\frac{\\hat{\\sigma_y}}{\\hat{\\sigma_x}}\\right)\\]\nsince,\n\nsample covariance \\(= \\hat{\\rho}_{x y} \\cdot \\hat{\\sigma_y}\\hat{\\sigma_x}\\)\ncorrelation coeff: \\(\\hat{\\rho}_{x y}\\)\nsample variance \\(= \\hat{\\sigma_x}^2\\)"
+    "text": "Now, \\(\\frac{1}{n}  \\sum_{i=1}^{n}(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\), simplifies to\n\\[\\bar{y_i} = \\hat{\\beta_0} + \\hat{\\beta_1}\\bar{x_i}\\]\nWhere \\(\\bar{y_i} = \\frac{1}{n}  \\sum_{i=1}^{n}y_i\\) is the sample average of the \\(y_i\\).\nThus,\n\\[\\hat{\\beta_0} = \\bar{y_i}  - \\hat{\\beta_1}\\bar{x_i}\\]\nPlug in \\(\\hat{\\beta_0}\\) into: \\(\\frac{1}{n}  \\sum_{i=1}^{n}x_i(y_i - \\hat{\\beta_0} - \\hat{\\beta_1}x_i) = 0\\) and simplifying gives us the slope coefficient \\(\\hat{\\beta_1}\\):\n\\[\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\]\nprovided, \\(\\sum_{i=1}^{n}(x_i - \\bar{x})^2 &gt; 0\\). What’s this?"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#fitted-values-and-residual",
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#fitted-values-and-residual",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Fitted values and residual",
-    "text": "Fitted values and residual\n\nThe estimates of \\(\\beta_0\\) and \\(\\beta_1\\) thus obtained are called OLS\nCan obtain “fitted values” of \\(y_i\\): \\[\\hat{y_i} = \\beta_0 + \\beta_1 x_i\\]\nObtain residuals: \\(\\hat{u_i} = y_i - \\hat{y_i} = y_i - \\hat{\\beta_0} - \\hat{\\beta_1} x_i\\)"
+    "text": "Fitted values and residual\n\nThe estimates of \\(\\beta_0\\) and \\(\\beta_1\\) thus obtained are called OLS\nCan obtain “fitted values” of \\(y_i\\): \\[\\hat{y_i} = \\hat{\\beta_0} + \\hat{\\beta_1} x_i\\]\nObtain residuals: \\(\\hat{u_i} = y_i - \\hat{y_i} = y_i - \\hat{\\beta_0} - \\hat{\\beta_1} x_i\\)"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#interestingly",
@@ -1117,7 +1117,7 @@
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#r-squared",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "R-squared",
-    "text": "R-squared\n\nMeasures goodness of fit \\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\]\nRanges from 0 to 1\nInterpretation: Proportion of variance explained by model\n\n\n# Calculate R-squared\nsummary(model)$r.squared\n\n[1] 0.4923586\n\n# Decomposition of variance\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: y\n          Df Sum Sq Mean Sq F value  Pr(&gt;F)  \nx          1 42.639  42.639  6.7893 0.03514 *\nResiduals  7 43.962   6.280                  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+    "text": "R-squared\n\nMeasures goodness of fit \\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\]\nRanges from 0 to 1\nInterpretation: Proportion of variance explained by model\n\n\n# Calculate R-squared\nsummary(model)$r.squared\n\n[1] 0.6510794\n\n# Decomposition of variance\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: dist\n          Df Sum Sq Mean Sq F value   Pr(&gt;F)    \nspeed      1  21186 21185.5  89.567 1.49e-12 ***\nResiduals 48  11354   236.5                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#overview",
@@ -1244,5 +1244,19 @@
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Remaining things for you to sudy",
     "text": "Remaining things for you to sudy\n\nRead up on the properties of the conditional expectation in Math Refresher B\nRead up:\n\n2-6: Regression through the Origin and Regression on a Constant\n2-7: Regression on a Binary Explanatory Variable\n\n\nnext class we will start chapter 3"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-4",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-4",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "Note that \\(\\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) is nothing but\nthe sample covariance divided by the sample variance,\nwhich can be written as,\n\\[\\hat{\\beta}_1=\\hat{\\rho}_{x y} \\cdot\\left(\\frac{\\hat{\\sigma_y}}{\\hat{\\sigma_x}}\\right)\\]\nsince,\n\nsample covariance \\(= \\hat{\\rho}_{x y} \\cdot \\hat{\\sigma_y}\\hat{\\sigma_x}\\)\ncorrelation coeff: \\(\\hat{\\rho}_{x y}\\)\nsample variance \\(= \\hat{\\sigma_x}^2\\)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#quick-recap",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#quick-recap",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Quick recap",
+    "text": "Quick recap\n\nMain assumptions on the population: \\(E(u) = 0\\) and \\(E(u \\mid x) = 0\\)\nGives us moment conditions which we can convert to sample counterparts invoking LLN\nSolving the sample counterparts gives us the OLS estimates"
   }
 ]

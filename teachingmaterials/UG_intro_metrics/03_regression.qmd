@@ -222,6 +222,25 @@ abline(lm(gpa1$colGPA ~ gpa1$hsGPA), col = "blue")
 :::::
 :::::::::
 
+## {.smaller}
+
+```{r}
+#| echo: true
+#| fig.height: 5
+set.seed(123)
+n <- 1e5
+u1 <- rnorm(n, mean=0.0, sd=0.1)
+x <- sin(seq(-5, 5, length.out=n))
+u2 <- x + rnorm(n, mean=0, sd=0.1)
+cat("Mean of u1:", mean(u1), "\n", "Mean of u2:", mean(u2), "\n")
+
+par(mfrow=c(1,2))
+p1 <- plot(x, u1, main="E(u)=0 and E(u|x)=0")
+abline(lm(u1~x), col="red", lwd=2)
+p2 <- plot(u2, x, main="E(u)=0 but E(u|x)!=0")
+abline(lm(u2~x), col="red", lwd=2)
+```
+
 # Deriving the OLS estimator {background-color="#1c5253"}
 
 ##  {.smaller}
@@ -308,29 +327,6 @@ since,
 -   correlation coeff: $\hat{\rho}_{x y}$
 -   sample variance $= \hat{\sigma_x}^2$
 
-## Fitted values and residual {.smaller}
-
--   The estimates of $\beta_0$ and $\beta_1$ thus obtained are called OLS
--   Can obtain "fitted values" of $y_i$: $$\hat{y_i} = \beta_0 + \beta_1 x_i$$
--   Obtain residuals: $\hat{u_i} = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i$
-
-```{r}
-#| echo: false
-# Example visualization of errors
-plot(dist ~ speed, data = cars,
-     xlab = "Speed (MPH)",
-     ylab = "Stopping Distance (ft)",
-     main = "Errors/Residuals Visualization",
-     pch = 20,
-     cex = 1.5,
-     col = "red")
-abline(lm(dist ~ speed, data = cars), col = "blue", lwd = 2)
-# Add arrows for residuals
-model <- lm(dist ~ speed, data = cars)
-arrows(cars$speed, cars$dist, 
-       cars$speed, fitted(model), 
-       col = "darkgray", length = 0.1)
-```
 
 ## Interestingly {.smaller}
 
@@ -390,7 +386,39 @@ grid(nx = NULL, ny = NULL, col = "lightgray", lty = "dotted")
 -->
 ````
 
+## Quick recap {.smaller}
+
+-  Main assumptions on the population: $E(u) = 0$ and $E(u \mid x) = 0$
+-  Gives us moment conditions which we can convert to sample counterparts invoking LLN
+-  Solving the sample counterparts gives us the OLS estimates
+
 # Statistical properties of OLS {background-color="#1c5253"}
+
+
+
+## Fitted values and residual {.smaller}
+
+-   The estimates of $\beta_0$ and $\beta_1$ thus obtained are called OLS
+-   Can obtain "fitted values" of $y_i$: $$\hat{y_i} = \hat{\beta_0} + \hat{\beta_1} x_i$$
+-   Obtain residuals: $\hat{u_i} = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i$
+
+```{r}
+#| echo: false
+# Example visualization of errors
+plot(dist ~ speed, data = cars,
+     xlab = "Speed (MPH)",
+     ylab = "Stopping Distance (ft)",
+     main = "Errors/Residuals Visualization",
+     pch = 20,
+     cex = 1.5,
+     col = "red")
+abline(lm(dist ~ speed, data = cars), col = "blue", lwd = 2)
+# Add arrows for residuals
+model <- lm(dist ~ speed, data = cars)
+arrows(cars$speed, cars$dist, 
+       cars$speed, fitted(model), 
+       col = "darkgray", length = 0.1)
+```
 
 ## Properties {.smaller}
 
