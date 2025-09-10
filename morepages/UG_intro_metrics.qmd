@@ -27,3 +27,6 @@ Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
 - Non-linear models
 - Estimators for repeated cross-section and panel data
 - Difference-in-differences -->
+
+# Problem sets
+- [Problem Set 1 (due Sep 18)](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd)

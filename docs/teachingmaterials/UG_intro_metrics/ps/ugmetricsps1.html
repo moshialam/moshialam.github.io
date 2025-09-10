@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Introduction to Econometrics – Moshi Alam</title>
+<meta name="author" content="Prof Alam">
+<title>Econometrics PS 1 – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +18,57 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a87b88e306ce88021c72f8c9bcf2be2d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-a87b88e306ce88021c72f8c9bcf2be2d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,21 +94,54 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../../../styles.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Moshi Alam</span>
     </a>
   </div>
@@ -88,16 +151,16 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+<li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="../../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -106,36 +169,34 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#syllabus" id="toc-syllabus" class="nav-link active" data-scroll-target="#syllabus">Syllabus</a></li>
-  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture slides:</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
+<li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li>
+<a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a>
+  <ul class="collapse">
+<li><a href="#q-3.1" id="toc-q-3.1" class="nav-link" data-scroll-target="#q-3.1">Q 3.1</a></li>
+  <li><a href="#q-3.2" id="toc-q-3.2" class="nav-link" data-scroll-target="#q-3.2">Q 3.2</a></li>
+  <li><a href="#q-3.3" id="toc-q-3.3" class="nav-link" data-scroll-target="#q-3.3">Q 3.3</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-<div class="profile-header" style="display: flex; align-items: center; margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
-  <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image" style="width: 180px; height: 180px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
-  <div class="profile-info">
+<main class="content column-page-left" id="quarto-document-content"><div class="profile-header" style="display: flex; align-items: center; margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+  <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image" style="width: 180px; height: 180px; border-radius: 50%; margin-right: 15px; object-fit: cover;"><div class="profile-info">
     <strong>Md Moshi Ul Alam</strong><br>
-    Assistant Professor of Economics<br>
-    <a href="https://www.clarku.edu/departments/economics/">Clark University</a><br>
-    <a href="mailto:mdalam@clarku.edu" class="btn btn-info btn-sm"> <i class="bi bi-envelope-at"></i> Email </a> 
+    Assistant Professor of Economics<br><a href="https://www.clarku.edu/departments/economics/">Clark University</a><br><a href="mailto:mdalam@clarku.edu" class="btn btn-info btn-sm"> <i class="bi bi-envelope-at"></i> Email </a> 
     <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-info btn-sm"> <i class="bi bi-filetype-pdf"></i> CV </a> 
     <!-- <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-info btn-sm"> <i class="bi bi-google"></i> Scholar </a>  -->
     <a href="https://twitter.com/MoshiAlam" class="btn btn-dark btn-sm"> <i class="bi bi-twitter-x"></i> </a> 
@@ -143,66 +204,110 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introduction to Econometrics</h1>
+<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Econometrics PS 1</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
-    
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 9, 2025</p>
-    </div>
+             <p>Prof Alam </p>
+          </div>
   </div>
+    
+  
     
   </div>
   
 
 
-</header>
-
-
-<section id="syllabus" class="level1">
-<h1>Syllabus</h1>
-<p><a href="../teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf">Syllabus</a></p>
-<p>Also see <a href="../morepages/resourcesforugstudents.html">resources page for students</a></p>
-</section>
-<section id="lecture-slides" class="level1">
-<h1>Lecture slides:</h1>
+</header><p><strong>Follow the instructions of completing your problem set detailed in the syllabus</strong></p>
+<section id="question-1" class="level1"><h1>Question 1</h1>
+<p>Observe the following population regression models of <span class="math inline">y_1</span> on <span class="math inline">x</span> and <span class="math inline">y_2</span> on <span class="math inline">x</span> where <span class="math inline">y_1 = 2 + 3x + u_1</span> and <span class="math inline">y_2 = 2 + 3x + u_2</span>. Observe how the error terms <span class="math inline">u_1</span> and <span class="math inline">u_2</span> are generated for 10000 observations.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, length.out<span class="op">=</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">u1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean<span class="op">=</span><span class="fl">0.0</span>, sd<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span></span>
+<span><span class="va">u2</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean<span class="op">=</span><span class="fl">0</span>, sd<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">y1</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="va">x</span> <span class="op">+</span> <span class="va">u1</span></span>
+<span><span class="va">y2</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="va">x</span> <span class="op">+</span> <span class="va">u2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li>Plot the error terms <span class="math inline">u_1</span> and <span class="math inline">u_2</span> against <span class="math inline">x</span>. What do you observe?</li>
+<li>Before running the regressions, which OLS estimates will produce unbiased estimates? Prove your answer.</li>
+<li>Use the code above to generate the data <span class="math inline">y_1</span>, <span class="math inline">y_2</span> and <span class="math inline">x</span>. Then run the two regressions and explain the results.</li>
+<li>Now consider a wage equation: <span class="math inline">wage_i= β_0+ β_1 education_i + u_i</span>. Suppose unobserved ability is positively correlated with education and affects wages positively. Explain intuitively why <span class="math inline">E(u | education) \ne 0</span> in this case. Will OLS overestimate or ̸ underestimate the true return to education? Justify your answer.</li>
+</ol>
+<hr></section><section id="question-2" class="level1"><h1>Question 2</h1>
+<p>Consider two researchers studying the same population and estimating the population model <span class="math inline">y = \beta_0 + \beta_1 x + u</span> with <span class="math inline">\sigma^2 = 1</span>. Assume SLR.1-4 hold. The two researchers collect different samples:</p>
 <ul>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/01_introRv2.html">Introduction to R</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/02_stat_review.pdf">Stat review and population concepts</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/03_regression.html">Simple Linear Regressions</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/04_mlr.html">Multiple Linear Regressions</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/05_inference.html">Inference in regression models</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">Variants on MLR</a></p></li>
-<li><p>Heteroskedasticity and serial correlation [covered by Zeyi in discussion section] <!-- - Mis-specification --></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf">Potential outcomes</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/08_RCT.pdf">RCTs</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf">IV, 2SLS and HTE</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/summary.pdf">Summary</a> <!-- - Regression discontinuity
-- Non-linear models
-- Estimators for repeated cross-section and panel data
-- Difference-in-differences --></p></li>
+<li>Researcher A collects a random sample with 100 observations where it turns out that <span class="math inline">x_i \in [45, 55]</span> uniformly distributed</li>
+<li>Researcher B collects a random sample with 100 observations where it turns out that <span class="math inline">x_i \in [0, 100]</span> uniformly distributed</li>
 </ul>
-</section>
-<section id="problem-sets" class="level1">
-<h1>Problem sets</h1>
+<p>Without doing exact calculations, explain which researcher will likely obtain a more precise estimate of <span class="math inline">\beta_1</span>.</p>
+<hr></section><section id="question-3" class="level1"><h1>Question 3</h1>
+<p>For this problem, you will use the <code>wage2</code> dataset from the <code>wooldridge</code> package. This dataset contains information on monthly earnings and various characteristics of workers.</p>
+<section id="q-3.1" class="level2"><h2 class="anchored" data-anchor-id="q-3.1">Q 3.1</h2>
+<ol type="a">
+<li><p>Load the data and create a scatter plot of monthly wages (<code>wage</code>) against years of education (<code>educ</code>). What do you observe about the relationship? Are there any concerning patterns?</p></li>
+<li><p>Calculate and report the sample correlation between wages and education. Then manually calculate <span class="math inline">\hat{\beta}_1</span> using the formula: <span class="math inline">\hat{\beta}_1 = \hat{\rho}_{xy} \cdot \left(\frac{\hat{\sigma}_y}{\hat{\sigma}_x}\right)</span> by computing each component separately. Show that this matches the OLS estimate from <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>.</p></li>
+<li><p>Estimate the simple linear regression:</p></li>
+</ol>
+<p><span class="math display">
+wage_i = \beta_0 + \beta_1 \, educ_i + u_i
+</span></p>
+<p>Report and interpret both coefficients. Is the intercept meaningful in this context?</p>
+<ol start="4" type="a">
+<li>Calculate the fitted values and residuals manually (without using <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code> or <code><a href="https://rdrr.io/r/stats/residuals.html">residuals()</a></code>). Verify that:</li>
+</ol>
 <ul>
-<li><a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.html">Problem Set 1 (due Sep 18)</a></li>
+<li>The mean of residuals equals zero<br>
+</li>
+<li>The point <span class="math inline">(\bar{educ}, \bar{wage})</span> lies on the regression line<br>
+</li>
+<li>The sample covariance between education and residuals is zero</li>
+</ul></section><section id="q-3.2" class="level2"><h2 class="anchored" data-anchor-id="q-3.2">Q 3.2</h2>
+<ol type="a">
+<li>Estimate:</li>
+</ol>
+<p><span class="math display">
+\log(wage_i) = \beta_0 + \beta_1 \, educ_i + u_i
+</span></p>
+<ol start="2" type="a">
+<li>Using the log-level specification:</li>
+</ol>
+<ul>
+<li>Calculate the exact percentage return to one additional year of education<br>
+</li>
+<li>Predict the percentage wage difference between workers with 12 and 16 years of education<br><!-- - Test whether the return to education is significantly different from 10% at the 5% level   -->
+</li>
 </ul>
+<ol start="3" type="a">
+<li>Create histograms of <code>wage</code> and <code>log(wage)</code>. Which estimation would you prefer to run: level-level or log-level? Justify your choice.</li>
+</ol></section><section id="q-3.3" class="level2"><h2 class="anchored" data-anchor-id="q-3.3">Q 3.3</h2>
+<ol type="a">
+<li><p>Create a residual plot (residuals vs.&nbsp;fitted values) for your log-level specification. Do you see evidence of heteroskedasticity? Explain what pattern you would look for.</p></li>
+<li><p>Group the data into three education categories: low (<span class="math inline">educ &lt; 12</span>), medium (<span class="math inline">12 \leq educ &lt; 16</span>), and high (<span class="math inline">educ \geq 16</span>).</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wage2</span><span class="op">$</span><span class="va">educ_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">wage2</span><span class="op">$</span><span class="va">educ</span>, </span>
+<span>                        breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>, <span class="fl">12</span>, <span class="fl">16</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Low (&lt;12)"</span>, <span class="st">"Medium (12-16)"</span>, <span class="st">"High (≥16)"</span><span class="op">)</span>,</span>
+<span>                        right <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate the variance of residuals within each group. What do these variances suggest about the homoskedasticity assumption?</p>
+<ol start="3" type="a">
+<li>If heteroskedasticity is present, what are the consequences for the unbiasedness of <span class="math inline">\hat{\beta}_1</span>?</li>
+</ol>
+<!-- --- --><!-- ## (10 points) --><!-- a. (5 points) Now include experience (`exper`) in your analysis. First, examine the correlation between education and experience. What does this suggest about potential omitted variable bias in your simple regression? --><!-- b. (5 points) Consider the thought experiment: If you could randomly assign education levels to workers (holding everything else constant), would you expect to get the same estimate of $\beta_1$ as in your simple regression? Explain your reasoning, relating it to the zero conditional mean assumption. -->
 
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -620,15 +725,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
  Copyright 2021, Md Moshi Ul Alam. Website created using Quarto.
   </li>  
 </ul>
-    </div>   
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -639,7 +743,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
-
-
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
