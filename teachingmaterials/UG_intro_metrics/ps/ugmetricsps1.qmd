@@ -42,7 +42,7 @@ y2 <- 2 + 3*x + u2
 
 # Question 2
 
-Consider two researchers studying the same population and estimating the population model $y = \beta_0 + \beta_1 x + u$ with $\sigma^2 = 1$. Assume SLR.1-4 hold. The two researchers collect different samples:
+Consider two researchers studying the same population and estimating the population model $y = \beta_0 + \beta_1 x + u$ with $Var(u) = 1$. Assume SLR.1-4 hold. The two researchers collect different samples:
 
 -   Researcher A collects a random sample with 100 observations where it turns out that $x_i \in [45, 55]$ uniformly distributed
 -   Researcher B collects a random sample with 100 observations where it turns out that $x_i \in [0, 100]$ uniformly distributed
