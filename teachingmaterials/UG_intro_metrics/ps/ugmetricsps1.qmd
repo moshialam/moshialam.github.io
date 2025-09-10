@@ -14,8 +14,9 @@ library(wooldridge)
 library(ggplot2)
 library(knitr)
 ```
-
-**Follow the instructions of completing your problem set detailed in the syllabus**
+::: {.callout-note}
+*Follow the instructions of completing your problem set detailed in the syllabus.*
+:::
 
 # Question 1
 
