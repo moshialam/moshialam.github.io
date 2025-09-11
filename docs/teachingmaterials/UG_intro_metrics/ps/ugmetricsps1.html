@@ -239,7 +239,7 @@ Note
 </div>
 </div>
 <section id="question-1" class="level1"><h1>Question 1</h1>
-<p>Observe the following population regression models of <span class="math inline">y_1</span> on <span class="math inline">x</span> and <span class="math inline">y_2</span> on <span class="math inline">x</span> where <span class="math inline">y_1 = 2 + 3x + u_1</span> and <span class="math inline">y_2 = 2 + 3x + u_2</span>. Observe how the error terms <span class="math inline">u_1</span> and <span class="math inline">u_2</span> are generated for 10000 observations.</p>
+<p>Observe the following population regression models of <span class="math inline">y_1</span> on <span class="math inline">x</span> and <span class="math inline">y_2</span> on <span class="math inline">x</span> where <span class="math inline">y_{1i} = 2 + 3x_{i} + u_{1i}</span> and <span class="math inline">y_{2i} = 2 + 3x_{i} + u_{2i}</span>. Observe how the error terms <span class="math inline">u_{1i}</span> and <span class="math inline">u_{2i}</span> are generated for 10000 observations.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span>
@@ -251,13 +251,13 @@ Note
 <span><span class="va">y2</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="va">x</span> <span class="op">+</span> <span class="va">u2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
-<li>Plot the error terms <span class="math inline">u_1</span> and <span class="math inline">u_2</span> against <span class="math inline">x</span>. What do you observe?</li>
+<li>Plot the error terms <span class="math inline">u_{1i}</span> and <span class="math inline">u_{2i}</span> against <span class="math inline">x_i</span>. What do you observe?</li>
 <li>Before running the regressions, which OLS estimates will produce unbiased estimates? Prove your answer.</li>
 <li>Use the code above to generate the data <span class="math inline">y_1</span>, <span class="math inline">y_2</span> and <span class="math inline">x</span>. Then run the two regressions and explain the results.</li>
 <li>Now consider a wage equation: <span class="math inline">wage_i= β_0+ β_1 education_i + u_i</span>. Suppose unobserved ability is positively correlated with education and affects wages positively. Explain intuitively why <span class="math inline">E(u | education) \ne 0</span> in this case. Will OLS overestimate or ̸ underestimate the true return to education? Justify your answer.</li>
 </ol>
 <hr></section><section id="question-2" class="level1"><h1>Question 2</h1>
-<p>Consider two researchers studying the same population and estimating the population model <span class="math inline">y = \beta_0 + \beta_1 x + u</span> with <span class="math inline">Var(u) = 1</span>. Assume SLR.1-4 hold. The two researchers collect different samples:</p>
+<p>Consider two researchers studying the same population and estimating the population model <span class="math inline">y_i = \beta_0 + \beta_1 x_i + u_i</span> with <span class="math inline">Var(u_i) = 1</span>. Assume SLR.1-4 hold. The two researchers collect different samples:</p>
 <ul>
 <li>Researcher A collects a random sample with 100 observations where it turns out that <span class="math inline">x_i \in [45, 55]</span> uniformly distributed</li>
 <li>Researcher B collects a random sample with 100 observations where it turns out that <span class="math inline">x_i \in [0, 100]</span> uniformly distributed</li>

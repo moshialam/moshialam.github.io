@@ -20,7 +20,7 @@ library(knitr)
 
 # Question 1
 
-Observe the following population regression models of $y_1$ on $x$ and $y_2$ on $x$ where $y_1 = 2 + 3x + u_1$ and $y_2 = 2 + 3x + u_2$. Observe how the error terms $u_1$ and $u_2$ are generated for 10000 observations.
+Observe the following population regression models of $y_1$ on $x$ and $y_2$ on $x$ where $y_{1i} = 2 + 3x_{i} + u_{1i}$ and $y_{2i} = 2 + 3x_{i} + u_{2i}$. Observe how the error terms $u_{1i}$ and $u_{2i}$ are generated for 10000 observations.
 
 ```{r}
 set.seed(123)
@@ -34,7 +34,7 @@ y2 <- 2 + 3*x + u2
 
 ```
 
-(a) Plot the error terms $u_1$ and $u_2$ against $x$. What do you observe?
+(a) Plot the error terms $u_{1i}$ and $u_{2i}$ against $x_i$. What do you observe?
 (b) Before running the regressions, which OLS estimates will produce unbiased estimates? Prove your answer.
 (c) Use the code above to generate the data $y_1$, $y_2$ and $x$. Then run the two regressions and explain the results.
 (d) Now consider a wage equation: $wage_i= β_0+ β_1 education_i + u_i$. Suppose unobserved ability is positively correlated with education and affects wages positively. Explain intuitively why $E(u | education) \ne 0$ in this case. Will OLS overestimate or ̸ underestimate the true return to education? Justify your answer.
@@ -43,7 +43,7 @@ y2 <- 2 + 3*x + u2
 
 # Question 2
 
-Consider two researchers studying the same population and estimating the population model $y = \beta_0 + \beta_1 x + u$ with $Var(u) = 1$. Assume SLR.1-4 hold. The two researchers collect different samples:
+Consider two researchers studying the same population and estimating the population model $y_i = \beta_0 + \beta_1 x_i + u_i$ with $Var(u_i) = 1$. Assume SLR.1-4 hold. The two researchers collect different samples:
 
 -   Researcher A collects a random sample with 100 observations where it turns out that $x_i \in [45, 55]$ uniformly distributed
 -   Researcher B collects a random sample with 100 observations where it turns out that $x_i \in [0, 100]$ uniformly distributed
