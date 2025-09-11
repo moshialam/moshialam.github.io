@@ -224,7 +224,7 @@ summary(reg_resid_logwage)
 
 ---
 
-## Key Insight {.smaller}
+##  {.smaller}
 
 1. **Confounding term**:
    - $\hat{\beta}_2 \delta_1$: The partial effect of $x_{2i}$ on $\hat{y}$ scaled by the relationship between $x_{2i}$ and $x_{1i}$.

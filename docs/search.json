@@ -945,11 +945,11 @@
     "text": "Comparison of Simple and Multiple Regression Estimates\n\n\nThe estimated multiple regression can be written as: \\[\\hat{y_i} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_{1i} + \\hat{\\beta}_2 x_{2i}\\]\nSuppose we only ran the simple regression of \\(y\\) on \\(x_{1i}\\): \\[\\tilde{y_i} = \\tilde{\\beta}_0 + \\tilde{\\beta}_1 x_{1i}\\]\nSimple regression coefficient \\(\\tilde{\\beta}_1\\) relates to the multiple regression coefficient \\(\\hat{\\beta}_1\\) via: \\[\\tilde{\\beta}_1 = \\hat{\\beta}_1 + \\hat{\\beta}_2 \\delta_1\\] where \\(\\delta_1\\) is the slope from the regression of \\(x_{2i}\\) on \\(x_{1i}\\) from estimating: \\[x_{2i} = \\delta_0 + \\delta_1 x_{1i} + \\epsilon\\]"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#key-insight",
-    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#key-insight",
+    "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-3",
+    "href": "teachingmaterials/UG_intro_metrics/04_mlr.html#section-3",
     "title": "Econ 265: Introduction to Econometrics",
-    "section": "Key Insight",
-    "text": "Key Insight\n\nConfounding term:\n\n\\(\\hat{\\beta}_2 \\delta_1\\): The partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) scaled by the relationship between \\(x_{2i}\\) and \\(x_{1i}\\).\n\nTwo distinct cases where \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\):\n\nThe partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) is zero: \\(\\hat{\\beta}_2 = 0\\).\n\\(x_{1i}\\) and \\(x_{2i}\\) are uncorrelated: \\(\\delta_1 = 0\\).\n\nThus generically in a MLR of \\(y_i\\) on \\(x_{1i}, \\cdots, x_{ki}\\),\n\nthe OLS estimate on the coefficient on \\(x_{1i}\\)\nwill be identical to one obtained from a simple regression of \\(y_i\\) on \\(x_{1i}\\)\niff \\(x_{1i}\\) and \\(x_{2i}, \\cdots, x_{ki}\\) are uncorrelated.\n\nExample of ability bias in wage regressions"
+    "section": "",
+    "text": "Confounding term:\n\n\\(\\hat{\\beta}_2 \\delta_1\\): The partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) scaled by the relationship between \\(x_{2i}\\) and \\(x_{1i}\\).\n\nTwo distinct cases where \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\):\n\nThe partial effect of \\(x_{2i}\\) on \\(\\hat{y}\\) is zero: \\(\\hat{\\beta}_2 = 0\\).\n\\(x_{1i}\\) and \\(x_{2i}\\) are uncorrelated: \\(\\delta_1 = 0\\).\n\nThus generically in a MLR of \\(y_i\\) on \\(x_{1i}, \\cdots, x_{ki}\\),\n\nthe OLS estimate on the coefficient on \\(x_{1i}\\)\nwill be identical to one obtained from a simple regression of \\(y_i\\) on \\(x_{1i}\\)\niff \\(x_{1i}\\) and \\(x_{2i}, \\cdots, x_{ki}\\) are uncorrelated.\n\nExample of ability bias in wage regressions"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/04_mlr.html#goodness-of-fit",
@@ -1244,6 +1244,34 @@
     "title": "Econ 265: Introduction to Econometrics",
     "section": "In essence we have shown",
     "text": "In essence we have shown\n\nAssuming SLR 1-5, and conditional on the sample values \\(\\left\\{x_1, \\ldots, x_n\\right\\}\\), we have shown that:\n\nThe OLS estimators are unbiased\n\n\\(\\mathrm{E}\\left(\\hat{\\beta}_0\\right)=\\beta_0\\) and \\(\\mathrm{E}\\left(\\hat{\\beta}_1\\right)=\\beta_1\\)\n\nWe can obtain the variance of the OLS estimators\n\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_1\\right)=\\frac{\\sigma^2}{\\sum_{i=1}^n\\left(x_i-\\bar{x}\\right)^2} = \\frac{\\sigma^2}{\\mathrm{SST}_x}\\)\n\\(\\operatorname{Var}\\left(\\hat{\\beta}_0\\right)=\\frac{\\sigma^2 \\frac{1}{n} \\sum_{i=1}^n x_i^2}{\\mathrm{SST}_x}\\)\n\nBut we do not know \\(\\sigma^2\\)\n\nThe residual variance \\(\\hat{\\sigma}^2\\) is unbiased for the variance of the population errror \\(\\sigma^2\\)\n\\(\\mathrm{E}\\left(\\hat{\\sigma}^2\\right)=\\sigma^2\\)\n\nAnd we learnt a lot of tricks and pattern recognition in the process\nAnd some stuff about how to work with data"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#heteroskedasticity-in-slr",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#heteroskedasticity-in-slr",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Heteroskedasticity in SLR",
+    "text": "Heteroskedasticity in SLR\n\nHeteroskedasticity: \\[Var(u_i \\mid x_i)=\\sigma^2(x_i) \\quad \\text{(not constant)}\\]\nUnder SLR1–SLR4 (but not SLR5):\n\nOLS remains unbiased for \\((\\beta_0,\\beta_1)\\)\nUsual variance formulae and standard errors are invalid\nOLS is no longer efficient among linear unbiased estimators\n\nLarge-sample variance (idea): weights depend on \\(u_i^2\\) \nFix (inference): use heteroskedasticity-robust (White/Eicker–Huber) SEs\n\nSame point estimates, different (robust) standard errors\n\n\n\n\n\n\n\n\nWarning\n\n\nHeteroskedasticity is common in cross-sectional data (wages, firm sizes, housing prices)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-5",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-5",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "library(lmtest)  # for BP test\nlibrary(sandwich)  # for robust SEs\n\n# Generate data with heteroskedasticity\nset.seed(456)\nn &lt;- 1000\neduc &lt;- rnorm(n, 12, 3)\nexper &lt;- runif(n, 0, 20)\nu &lt;- rnorm(n, 0, sd = 0.5 + 3*educ^2)\nwage &lt;- 10 + 2*educ + u\n\nmodel &lt;- lm(wage ~ educ)\n\n# Breusch-Pagan test for heteroskedasticity\nbptest(model)\n\n\n    studentized Breusch-Pagan test\n\ndata:  model\nBP = 184.4, df = 1, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#section-6",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-6",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "",
+    "text": "par(mfrow=c(1,2))\nplot(fitted(model), residuals(model), \n     main=\"Residuals vs Fitted\", xlab=\"Fitted values\", \n     ylab=\"Residuals\", pch=20, col=\"darkblue\")\nabline(h=0, col=\"red\", lty=2)\nplot(fitted(model), abs(residuals(model)), \n     main=\"Absolute Residuals vs Fitted\", \n     xlab=\"Fitted values\", ylab=\"|Residuals|\", \n     pch=20, col=\"darkblue\")\nabline(lm(abs(residuals(model)) ~ fitted(model)), \n       col=\"red\", lty=2)"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#recommendation-to-get-robust-ses",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#recommendation-to-get-robust-ses",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Recommendation to get robust SEs",
+    "text": "Recommendation to get robust SEs\nIn the lm function, use:\n\nlibrary(sandwich)\nlibrary(lmtest)\n\nmodel &lt;- lm(wage ~ educ)\ncoeftest(model, vcov = vcovHC(model, type = \"HC1\"))\n\n\nt test of coefficients:\n\n            Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)   9.4847    76.1247  0.1246   0.9009\neduc          2.3196     7.1087  0.3263   0.7443\n\n# instead of\nsummary(model)\n\n\nCall:\nlm(formula = wage ~ educ)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2058.77  -251.34    -4.47   264.48  2258.63 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)    9.485     69.421   0.137    0.891\neduc           2.320      5.545   0.418    0.676\n\nResidual standard error: 515.7 on 998 degrees of freedom\nMultiple R-squared:  0.0001753, Adjusted R-squared:  -0.0008265 \nF-statistic: 0.175 on 1 and 998 DF,  p-value: 0.6758"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#the-four-types",
