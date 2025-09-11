@@ -810,6 +810,14 @@ y=\beta_0+\beta_1 x+u
 <h1>Variance of the OLS Estimators</h1>
 
 </section>
+<section id="sampling-distribution-of-the-ols-estimators" class="slide level2 smaller">
+<h2>Sampling distribution of the OLS estimators</h2>
+<ul>
+<li>population model: <span class="math inline">\(y_i = \beta_0 + \beta_1 x_i + u_i\)</span></li>
+<li>The OLS estimates <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are random variables because they depend on the random sample <span class="math inline">\(\left\{\left(x_i, y_i\right): i=1,2, \ldots, n\right\}\)</span></li>
+</ul>
+
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="slr-5-homoskedasticity-assumption" class="slide level2 smaller">
 <h2>SLR 5: Homoskedasticity assumption</h2>
 <p>The population error <span class="math inline">\(u_i\)</span> has the same variance given any value of <span class="math inline">\(x_i\)</span>, i.e.,</p>
@@ -1005,20 +1013,13 @@ BP = 184.4, df = 1, p-value &lt; 2.2e-16</code></pre>
 <section id="section-6" class="slide level2 smaller">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb12-2"><a></a><span class="fu">plot</span>(<span class="fu">fitted</span>(model), <span class="fu">residuals</span>(model), </span>
-<span id="cb12-3"><a></a>     <span class="at">main=</span><span class="st">"Residuals vs Fitted"</span>, <span class="at">xlab=</span><span class="st">"Fitted values"</span>, </span>
-<span id="cb12-4"><a></a>     <span class="at">ylab=</span><span class="st">"Residuals"</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"darkblue"</span>)</span>
-<span id="cb12-5"><a></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb12-6"><a></a><span class="fu">plot</span>(<span class="fu">fitted</span>(model), <span class="fu">abs</span>(<span class="fu">residuals</span>(model)), </span>
-<span id="cb12-7"><a></a>     <span class="at">main=</span><span class="st">"Absolute Residuals vs Fitted"</span>, </span>
-<span id="cb12-8"><a></a>     <span class="at">xlab=</span><span class="st">"Fitted values"</span>, <span class="at">ylab=</span><span class="st">"|Residuals|"</span>, </span>
-<span id="cb12-9"><a></a>     <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"darkblue"</span>)</span>
-<span id="cb12-10"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">abs</span>(<span class="fu">residuals</span>(model)) <span class="sc">~</span> <span class="fu">fitted</span>(model)), </span>
-<span id="cb12-11"><a></a>       <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">plot</span>(<span class="fu">fitted</span>(model), <span class="fu">residuals</span>(model), </span>
+<span id="cb12-2"><a></a>     <span class="at">main=</span><span class="st">"Residuals vs Fitted"</span>, <span class="at">xlab=</span><span class="st">"Fitted values"</span>, </span>
+<span id="cb12-3"><a></a>     <span class="at">ylab=</span><span class="st">"Residuals"</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"darkblue"</span>)</span>
+<span id="cb12-4"><a></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="recommendation-to-get-robust-ses" class="slide level2 smaller">
 <h2>Recommendation to get robust SEs</h2>
 <p>In the <code>lm</code> function, use:</p>
@@ -1126,7 +1127,7 @@ F-statistic: 0.175 on 1 and 998 DF,  p-value: 0.6758</code></pre>
 <span id="cb17-6"><a></a>     <span class="at">main =</span> <span class="st">"Log Transformed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="03_regression_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="non-linear-relationships" class="slide level2 smaller">
 <h2>Non-Linear Relationships</h2>
 <ul>

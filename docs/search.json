@@ -1197,6 +1197,13 @@
     "text": "Key patterns in the proof\n\nStart with the OLS estimate \\(\\hat{\\beta}_1 = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\) and \\(\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1\\bar{x}\\)\nWrite the OLS estimator in terms of the population parameters\n\nTo do this we have to bring in \\(y_i\\) (population model) and not \\(\\hat{y_i}\\)\n\nThis is what brings in the population parameters \\(\\beta_0\\) and \\(\\beta_1\\) on the RHS\n\nTricks to bring in \\(y_i\\) in the OLS estimator:\n\nWithout any assumptions we showed and used:\n\\(\\sum_{i=1}^n(x_i - \\bar{x})(y_i - \\bar{y}) = \\sum_{i=1}^n(x_i - \\bar{x})y_i\\)\n\nCould have written this as \\(\\sum_{i=1}^n(y_i - \\bar{y})x_i\\) but did not to bring in \\(y_i\\)\n\n\nOther tricks: Without any assumptions\n\n\\(\\sum_{i=1}^n(x_i - \\bar{x}) = 0\\)\n\\(\\sum_{i=1}^n(x_i - \\bar{x})x_i = \\sum_{i=1}^n(x_i - \\bar{x})^2\\)\n\n\nTake the expectation conditional on \\(x_i\\)\n\nimpose the SLR assumptions on zero mean and zero conditional mean\nuse LIE"
   },
   {
+    "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#sampling-distribution-of-the-ols-estimators",
+    "href": "teachingmaterials/UG_intro_metrics/03_regression.html#sampling-distribution-of-the-ols-estimators",
+    "title": "Econ 265: Introduction to Econometrics",
+    "section": "Sampling distribution of the OLS estimators",
+    "text": "Sampling distribution of the OLS estimators\n\npopulation model: \\(y_i = \\beta_0 + \\beta_1 x_i + u_i\\)\nThe OLS estimates \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are random variables because they depend on the random sample \\(\\left\\{\\left(x_i, y_i\\right): i=1,2, \\ldots, n\\right\\}\\)"
+  },
+  {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#slr-5-homoskedasticity-assumption",
     "title": "Econ 265: Introduction to Econometrics",
@@ -1264,7 +1271,7 @@
     "href": "teachingmaterials/UG_intro_metrics/03_regression.html#section-6",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "",
-    "text": "par(mfrow=c(1,2))\nplot(fitted(model), residuals(model), \n     main=\"Residuals vs Fitted\", xlab=\"Fitted values\", \n     ylab=\"Residuals\", pch=20, col=\"darkblue\")\nabline(h=0, col=\"red\", lty=2)\nplot(fitted(model), abs(residuals(model)), \n     main=\"Absolute Residuals vs Fitted\", \n     xlab=\"Fitted values\", ylab=\"|Residuals|\", \n     pch=20, col=\"darkblue\")\nabline(lm(abs(residuals(model)) ~ fitted(model)), \n       col=\"red\", lty=2)"
+    "text": "plot(fitted(model), residuals(model), \n     main=\"Residuals vs Fitted\", xlab=\"Fitted values\", \n     ylab=\"Residuals\", pch=20, col=\"darkblue\")\nabline(h=0, col=\"red\", lty=2)"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/03_regression.html#recommendation-to-get-robust-ses",

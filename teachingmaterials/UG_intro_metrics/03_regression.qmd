@@ -584,6 +584,29 @@ $$
 
 # Variance of the OLS Estimators {background-color="#1c5253"}
 
+
+## Sampling distribution of the OLS estimators {.smaller}
+
+- population model: $y_i = \beta_0 + \beta_1 x_i + u_i$
+-   The OLS estimates $\hat{\beta}_0$ and $\hat{\beta}_1$ are random variables because they depend on the random sample $\left\{\left(x_i, y_i\right): i=1,2, \ldots, n\right\}$
+
+
+```{r}
+#| echo: false
+set.seed(123)
+par(mfrow=c(1,2))
+xlim <- c(-1, 1)
+ylim <- c(0, 5)
+hist(rnorm(1000, 0, 0.1), breaks=30, probability=TRUE,
+     col=rgb(1,0,0,0.5), main="Sampling Distribution",
+     xlab=expression(hat(beta)[1]), xlim=xlim, ylim=ylim)
+curve(dnorm(x, mean=0, sd=0.1), col="red", lwd=2, add=TRUE)
+hist(rnorm(1000, 0, 0.3), breaks=30, probability=TRUE,
+     col=rgb(0,0,1,0.5), main="Sampling Distribution",
+     xlab=expression(hat(beta)[1]), xlim=xlim, ylim=ylim)
+curve(dnorm(x, mean=0, sd=0.3), col="blue", lwd=2, add=TRUE)
+```
+
 ## SLR 5: Homoskedasticity assumption {.smaller}
 
 The population error $u_i$ has the same variance given any value of $x_i$, i.e.,
@@ -754,17 +777,11 @@ bptest(model)
 ## {.smaller}
 
 ```{r}
-par(mfrow=c(1,2))
+
 plot(fitted(model), residuals(model), 
      main="Residuals vs Fitted", xlab="Fitted values", 
      ylab="Residuals", pch=20, col="darkblue")
 abline(h=0, col="red", lty=2)
-plot(fitted(model), abs(residuals(model)), 
-     main="Absolute Residuals vs Fitted", 
-     xlab="Fitted values", ylab="|Residuals|", 
-     pch=20, col="darkblue")
-abline(lm(abs(residuals(model)) ~ fitted(model)), 
-       col="red", lty=2)
 ```
 
 ## Recommendation to get robust SEs {.smaller}
