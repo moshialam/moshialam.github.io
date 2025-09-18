@@ -27,23 +27,21 @@ editor: visual
 ## Multiple Linear Regression {.smaller}
 
 ::: {.incremental}
--   The multiple linear regression model is given by:   $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$$
+-   Population model: $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i$
 
     -   $i = 1, 2, \ldots, n$ indexes the observations
     -   $y_i$ is the dependent variable, 
-    -   $x_{1i}, x_{2i}, \ldots, x_{ki}$ are the independent variables, 
+    -   $x_{1i}, x_{2i}, \ldots, x_{ki}$ are the independent variables, $u_i$ is the error term
     -   $\beta_0, \beta_1, \ldots, \beta_k$ are the parameters 
-    -   $u_i$ is the error term
 - The key assumption will be a generalized versions in SLR $$E(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = 0$$  $$E(u_i) = 0$$
-- These imply: $E(x_{1i}u_i) = E(x_{2i}u_i) = \ldots = E(x_{ki}u_i) = 0$
+- These together imply: $E(x_{1i}u_i) = E(x_{2i}u_i) = \ldots = E(x_{ki}u_i) = 0$
 :::
 
 
 
 
 ## Obtaining the OLS estimates {.smaller}
-- Once again we will minimize the sum of squared residuals to estimate the parameters as $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$
-- Specifically, we will choose $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$ to minimize the following: $$\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki})^2$$
+- Once again, we will choose $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k$ to minimize the sum of squared residuals : $$\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki})^2$$
 
 This minimization problem leads to $k+1$ linear equations (F.O.C.s) in $k+1$ unknowns $\hat{\boldsymbol{\beta}}_0, \hat{\boldsymbol{\beta}}_1, \ldots, \hat{\boldsymbol{\beta}}_k$ :
 
@@ -51,7 +49,7 @@ $$
 \begin{aligned}
 & \sum_{i=1}^n\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
 & \sum_{i=1}^n x_{i 1}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
-& \sum_{i=1}^n x_{i 2}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
+% & \sum_{i=1}^n x_{i 2}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
 & \vdots \\
 & \sum_{i=1}^n x_{i k}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0
 \end{aligned}
@@ -144,13 +142,16 @@ Immediate extension of SLR and implications from the moment conditions:
 - Sample average of residuals is zero: $\sum_{i=1}^n \hat{u}_i = 0$
 - Sample covariance between residuals and each of the independent variables is zero: $\sum_{i=1}^n x_{1i} \hat{u}_i = 0$ $\sum_{i=1}^n x_{2i} \hat{u}_i = 0$ $\vdots$ $\sum_{i=1}^n x_{ki} \hat{u}_i = 0$ 
 - The point $(\bar{x}_1, \bar{x}_2, \ldots, \bar{x}_k, \bar{y})$ lies on the regression plane $$\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}_1 + \hat{\beta}_2 \bar{x}_2 + \ldots + \hat{\beta}_k \bar{x}_k$$
+- Try them out in R
 :::
+
+# Partialing out {background-color="#1c5253"}
 
 ## Partialing out interpretation {.smaller}
 
-Consider a case with k=2, i.e., two independent variables. 
+Consider a population model with k=2, i.e., two independent variables. 
 
-The population model is given by: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$
+ $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$
 
 Let us focus on $\beta_1$ 
 
@@ -211,13 +212,12 @@ summary(reg_resid_logwage)
 
 <!-- - In two special cases, the simple regression of $y$ on $x_1$ will produce the **same OLS estimate** as the regression of $y$ on $x_1$ and $x_2$. -->
 
-- The estimated  multiple regression can be written as:
-  $$\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}$$
+- The population model is given by: $$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i$$
 
-- Suppose we only ran the simple regression of $y$ on $x_{1i}$:
+- Suppose instead we only estimate the SLR of $y$ on $x_{1i}$:
   $$\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}$$
 
-- Simple regression coefficient $\tilde{\beta}_1$ relates to the multiple regression coefficient $\hat{\beta}_1$ via:
+- SLR estimate $\tilde{\beta}_1$ relates to the MLR estimate $\hat{\beta}_1$ via:
   $$\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1$$
   where $\delta_1$ is the slope from the regression of $x_{2i}$ on $x_{1i}$ from estimating:
   $$x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon$$
@@ -233,10 +233,9 @@ summary(reg_resid_logwage)
    - The partial effect of $x_{2i}$ on $\hat{y}$ is zero: $\hat{\beta}_2 = 0$.
    - $x_{1i}$ and $x_{2i}$ are uncorrelated: $\delta_1 = 0$.
 
-3. Thus generically in a MLR of $y_i$ on $x_{1i}, \cdots, x_{ki}$, 
-    - the OLS estimate on the coefficient on $x_{1i}$ 
-    - will be identical to one obtained from a simple regression of $y_i$ on $x_{1i}$ 
-    - iff $x_{1i}$ and $x_{2i}, \cdots, x_{ki}$ are uncorrelated.
+3. Thus generically in a MLR of $y_i$ on $x_{1i}, \cdots, x_{ki}$, the OLS estimate on the coefficient on $x_{1i}$ 
+      - will be identical to one obtained from a simple regression of $y_i$ on $x_{1i}$ 
+        - iff $x_{1i}$ and $x_{2i}, \cdots, x_{ki}$ are uncorrelated.
 
 4. Example of ability bias in wage regressions
 
@@ -276,6 +275,14 @@ Under Assumptions MLR.1-MLR.4, the OLS estimator is unbiased. That is, $E(\hat{\
 
 # Variance of the OLS estimator {background-color="#1c5253"}
 
+
+## {.smaller}
+
+- We will start with the homoskedasticity assumption since it helps set some fundamental intuition.
+- This extends to heteroskedasticity as well. 
+- But the math of homoskedasticity is much more straightforward and easier to follow.
+- So here we will focus on homoskedasticity. 
+- Implementation in practice should be heteroskedastic
 
 
 ## Homoskedasticity assumption {.smaller}
@@ -341,8 +348,8 @@ Under assumptions MLR.1-MLR.5, the sampling variance of the OLS estimate on the 
 - The OLS estimator will still be unbiased because MLR1-MLR4 are satisfied
 - However, the variance of the OLS estimates of $\beta_2$ and $\beta_3$ will be very high
 - This is because the $R^2$ from 
-  - regressing $x_{2i}$ on $x_{3i}$  will be very high
-  - regressing $x_{3i}$ on $x_{2i}$  will be very high
+  - regressing $x_{2i}$ on $x_{3i}$ and $x_{1i}$ will be very high
+  - regressing $x_{3i}$ on $x_{2i}$ and $x_{1i}$ will be very high
 - But the var of $\hat{\beta}_1$ will be unaffected. Why?
 - Observe that $Var(\hat{\beta}_1) = \frac{\sigma^2}{(1 - R_1^2)\sum_{i=1}^n (x_{1i} - \bar{x}_1)^2}$ 
   - what is $R_1^2$ based on the information you have?
@@ -371,9 +378,6 @@ Under assumptions MLR.1-MLR.5, the sampling variance of the OLS estimate on the 
 ### Theorem: 
 Under assumptions MLR.1-MLR.5, $E(\hat{\sigma}^2) = \sigma^2$
 :::
-
-- $\hat{\sigma}$ is the standard error of the regression (SER) 
-
 
 ---
 

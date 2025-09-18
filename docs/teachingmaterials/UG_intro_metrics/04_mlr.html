@@ -222,31 +222,29 @@ Moshi Alam
 <h2>Multiple Linear Regression</h2>
 <div>
 <ul>
-<li class="fragment"><p>The multiple linear regression model is given by: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i\]</span></p>
+<li class="fragment"><p>Population model: <span class="math inline">\(y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \beta_k x_{ki} + u_i\)</span></p>
 <ul>
 <li class="fragment"><span class="math inline">\(i = 1, 2, \ldots, n\)</span> indexes the observations</li>
 <li class="fragment"><span class="math inline">\(y_i\)</span> is the dependent variable,</li>
-<li class="fragment"><span class="math inline">\(x_{1i}, x_{2i}, \ldots, x_{ki}\)</span> are the independent variables,</li>
+<li class="fragment"><span class="math inline">\(x_{1i}, x_{2i}, \ldots, x_{ki}\)</span> are the independent variables, <span class="math inline">\(u_i\)</span> is the error term</li>
 <li class="fragment"><span class="math inline">\(\beta_0, \beta_1, \ldots, \beta_k\)</span> are the parameters</li>
-<li class="fragment"><span class="math inline">\(u_i\)</span> is the error term</li>
 </ul></li>
 <li class="fragment"><p>The key assumption will be a generalized versions in SLR <span class="math display">\[E(u_i|x_{1i}, x_{2i}, \ldots, x_{ki}) = 0\]</span> <span class="math display">\[E(u_i) = 0\]</span></p></li>
-<li class="fragment"><p>These imply: <span class="math inline">\(E(x_{1i}u_i) = E(x_{2i}u_i) = \ldots = E(x_{ki}u_i) = 0\)</span></p></li>
+<li class="fragment"><p>These together imply: <span class="math inline">\(E(x_{1i}u_i) = E(x_{2i}u_i) = \ldots = E(x_{ki}u_i) = 0\)</span></p></li>
 </ul>
 </div>
 </section>
 <section id="obtaining-the-ols-estimates" class="slide level2 smaller">
 <h2>Obtaining the OLS estimates</h2>
 <ul>
-<li>Once again we will minimize the sum of squared residuals to estimate the parameters as <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k\)</span></li>
-<li>Specifically, we will choose <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k\)</span> to minimize the following: <span class="math display">\[\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki})^2\]</span></li>
+<li>Once again, we will choose <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_k\)</span> to minimize the sum of squared residuals : <span class="math display">\[\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{1i} - \hat{\beta}_2 x_{2i} - \ldots - \hat{\beta}_k x_{ki})^2\]</span></li>
 </ul>
 <p>This minimization problem leads to <span class="math inline">\(k+1\)</span> linear equations (F.O.C.s) in <span class="math inline">\(k+1\)</span> unknowns <span class="math inline">\(\hat{\boldsymbol{\beta}}_0, \hat{\boldsymbol{\beta}}_1, \ldots, \hat{\boldsymbol{\beta}}_k\)</span> :</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp; \sum_{i=1}^n\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
 &amp; \sum_{i=1}^n x_{i 1}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
-&amp; \sum_{i=1}^n x_{i 2}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
+% &amp; \sum_{i=1}^n x_{i 2}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0 \\
 &amp; \vdots \\
 &amp; \sum_{i=1}^n x_{i k}\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_{i 1}-\cdots-\hat{\beta}_k x_{i k}\right)=0
 \end{aligned}
@@ -381,13 +379,19 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li class="fragment">Sample average of residuals is zero: <span class="math inline">\(\sum_{i=1}^n \hat{u}_i = 0\)</span></li>
 <li class="fragment">Sample covariance between residuals and each of the independent variables is zero: <span class="math inline">\(\sum_{i=1}^n x_{1i} \hat{u}_i = 0\)</span> <span class="math inline">\(\sum_{i=1}^n x_{2i} \hat{u}_i = 0\)</span> <span class="math inline">\(\vdots\)</span> <span class="math inline">\(\sum_{i=1}^n x_{ki} \hat{u}_i = 0\)</span></li>
 <li class="fragment">The point <span class="math inline">\((\bar{x}_1, \bar{x}_2, \ldots, \bar{x}_k, \bar{y})\)</span> lies on the regression plane <span class="math display">\[\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}_1 + \hat{\beta}_2 \bar{x}_2 + \ldots + \hat{\beta}_k \bar{x}_k\]</span></li>
+<li class="fragment">Try them out in R</li>
 </ul>
 </div>
 </section>
+<section>
+<section id="partialing-out" class="title-slide slide level1 center" data-background-color="#1c5253">
+<h1>Partialing out</h1>
+
+</section>
 <section id="partialing-out-interpretation" class="slide level2 smaller">
 <h2>Partialing out interpretation</h2>
-<p>Consider a case with k=2, i.e., two independent variables.</p>
-<p>The population model is given by: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i\]</span></p>
+<p>Consider a population model with k=2, i.e., two independent variables.</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i\]</span></p>
 <p>Let us focus on <span class="math inline">\(\beta_1\)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># run a regression of log(wage) on educ, exper</span></span>
@@ -496,9 +500,9 @@ summary(reg_resid_logwage)
 <h2>Comparison of Simple and Multiple Regression Estimates</h2>
 <!-- - In two special cases, the simple regression of $y$ on $x_1$ will produce the **same OLS estimate** as the regression of $y$ on $x_1$ and $x_2$. -->
 <ul>
-<li><p>The estimated multiple regression can be written as: <span class="math display">\[\hat{y_i} = \hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \hat{\beta}_2 x_{2i}\]</span></p></li>
-<li><p>Suppose we only ran the simple regression of <span class="math inline">\(y\)</span> on <span class="math inline">\(x_{1i}\)</span>: <span class="math display">\[\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}\]</span></p></li>
-<li><p>Simple regression coefficient <span class="math inline">\(\tilde{\beta}_1\)</span> relates to the multiple regression coefficient <span class="math inline">\(\hat{\beta}_1\)</span> via: <span class="math display">\[\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1\]</span> where <span class="math inline">\(\delta_1\)</span> is the slope from the regression of <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(x_{1i}\)</span> from estimating: <span class="math display">\[x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon\]</span></p></li>
+<li><p>The population model is given by: <span class="math display">\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + u_i\]</span></p></li>
+<li><p>Suppose instead we only estimate the SLR of <span class="math inline">\(y\)</span> on <span class="math inline">\(x_{1i}\)</span>: <span class="math display">\[\tilde{y_i} = \tilde{\beta}_0 + \tilde{\beta}_1 x_{1i}\]</span></p></li>
+<li><p>SLR estimate <span class="math inline">\(\tilde{\beta}_1\)</span> relates to the MLR estimate <span class="math inline">\(\hat{\beta}_1\)</span> via: <span class="math display">\[\tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \delta_1\]</span> where <span class="math inline">\(\delta_1\)</span> is the slope from the regression of <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(x_{1i}\)</span> from estimating: <span class="math display">\[x_{2i} = \delta_0 + \delta_1 x_{1i} + \epsilon\]</span></p></li>
 </ul>
 </section>
 <section id="section-3" class="slide level2 smaller">
@@ -513,11 +517,12 @@ summary(reg_resid_logwage)
 <li>The partial effect of <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(\hat{y}\)</span> is zero: <span class="math inline">\(\hat{\beta}_2 = 0\)</span>.</li>
 <li><span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}\)</span> are uncorrelated: <span class="math inline">\(\delta_1 = 0\)</span>.</li>
 </ul></li>
-<li>Thus generically in a MLR of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}, \cdots, x_{ki}\)</span>,
+<li>Thus generically in a MLR of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}, \cdots, x_{ki}\)</span>, the OLS estimate on the coefficient on <span class="math inline">\(x_{1i}\)</span>
 <ul>
-<li>the OLS estimate on the coefficient on <span class="math inline">\(x_{1i}\)</span></li>
-<li>will be identical to one obtained from a simple regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span></li>
+<li>will be identical to one obtained from a simple regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_{1i}\)</span>
+<ul>
 <li>iff <span class="math inline">\(x_{1i}\)</span> and <span class="math inline">\(x_{2i}, \cdots, x_{ki}\)</span> are uncorrelated.</li>
+</ul></li>
 </ul></li>
 <li>Example of ability bias in wage regressions</li>
 </ol>
@@ -564,11 +569,21 @@ summary(reg_resid_logwage)
 </div>
 </div>
 </div>
-</section>
+</section></section>
 <section>
 <section id="variance-of-the-ols-estimator" class="title-slide slide level1 center" data-background-color="#1c5253">
 <h1>Variance of the OLS estimator</h1>
 
+</section>
+<section id="section-4" class="slide level2 smaller">
+<h2></h2>
+<ul>
+<li>We will start with the homoskedasticity assumption since it helps set some fundamental intuition.</li>
+<li>This extends to heteroskedasticity as well.</li>
+<li>But the math of homoskedasticity is much more straightforward and easier to follow.</li>
+<li>So here we will focus on homoskedasticity.</li>
+<li>Implementation in practice should be heteroskedastic</li>
+</ul>
 </section>
 <section id="homoskedasticity-assumption" class="slide level2 smaller">
 <h2>Homoskedasticity assumption</h2>
@@ -650,8 +665,8 @@ summary(reg_resid_logwage)
 <li class="fragment">However, the variance of the OLS estimates of <span class="math inline">\(\beta_2\)</span> and <span class="math inline">\(\beta_3\)</span> will be very high</li>
 <li class="fragment">This is because the <span class="math inline">\(R^2\)</span> from
 <ul>
-<li class="fragment">regressing <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(x_{3i}\)</span> will be very high</li>
-<li class="fragment">regressing <span class="math inline">\(x_{3i}\)</span> on <span class="math inline">\(x_{2i}\)</span> will be very high</li>
+<li class="fragment">regressing <span class="math inline">\(x_{2i}\)</span> on <span class="math inline">\(x_{3i}\)</span> and <span class="math inline">\(x_{1i}\)</span> will be very high</li>
+<li class="fragment">regressing <span class="math inline">\(x_{3i}\)</span> on <span class="math inline">\(x_{2i}\)</span> and <span class="math inline">\(x_{1i}\)</span> will be very high</li>
 </ul></li>
 <li class="fragment">But the var of <span class="math inline">\(\hat{\beta}_1\)</span> will be unaffected. Why?</li>
 <li class="fragment">Observe that <span class="math inline">\(Var(\hat{\beta}_1) = \frac{\sigma^2}{(1 - R_1^2)\sum_{i=1}^n (x_{1i} - \bar{x}_1)^2}\)</span>
@@ -693,9 +708,6 @@ summary(reg_resid_logwage)
 </div>
 </div>
 </div>
-<ul>
-<li><span class="math inline">\(\hat{\sigma}\)</span> is the standard error of the regression (SER)</li>
-</ul>
 </section>
 <section id="gauss-markov-theorem" class="slide level2 smaller">
 <h2>Gauss-Markov Theorem</h2>
