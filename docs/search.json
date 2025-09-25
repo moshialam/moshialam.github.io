@@ -67,7 +67,7 @@
     "href": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#adjusted-r-squared",
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Adjusted R-squared",
-    "text": "Adjusted R-squared\n\nRecall Econ 160\nAdjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.\nCompare goodness of fit of models with different numbers of X’s. \\[\\text{Adjusted-}R^2 = 1 - \\left( \\frac{(1 - R^2)(n - 1)}{n - k - 1} \\right)\\] \\(R^2\\) is the R-squared value, \\(n\\) is the # observations and \\(k\\) is the number of X’s\n\nPenalizes the addition of unnecessary predictors\n\nThe F-test could be related to the adjusted R-squared.\n\nThink abour \\(UR\\) and \\(R\\) models in the context of the F-test\nF-test is useful when models are nested"
+    "text": "Adjusted R-squared\n\nRecall Econ 160\nAdjusted R-squared is a modified version of R-squared that adjusts for the number of predictors in the model.\nCompare goodness of fit of models with different numbers of X’s. \\[\\text{Adjusted-}R^2 = 1 - \\left( \\frac{(1 - R^2)(n - 1)}{n - k - 1} \\right)\\] \\(R^2\\) is the R-squared value, \\(n\\) is the # observations and \\(k\\) is the number of X’s\n\nPenalizes the addition of unnecessary predictors\n\nThe F-test could be related to the adjusted R-squared. (next topic)\n\nCan be written into \\(UR\\) and \\(R\\) models for the F-test\nF-test is useful when models are nested"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/06_mlrvariants.html#overfittingovercontrolling",
@@ -466,7 +466,7 @@
     "href": "morepages/UG_intro_metrics.html",
     "title": "Introduction to Econometrics",
     "section": "",
-    "text": "Md Moshi Ul Alam\n    Assistant Professor of Economics\n    Clark University\n      Email  \n      CV  \n    \n       \n     BlueSky \n  \n\n\n\n\n\n\nSyllabus\nSyllabus\nAlso see resources page for students\n\n\nLecture slides:\n\nIntroduction to R\nStat review and population concepts\nSimple Linear Regressions\nMultiple Linear Regressions\nInference in regression models\nVariants on MLR\nHeteroskedasticity and serial correlation [covered by Zeyi in discussion section] \nPotential outcomes\nRCTs\nIV, 2SLS and HTE\nSummary \n\n\n\nProblem sets\n\nProblem Set 1 (due Sep 18)"
+    "text": "Md Moshi Ul Alam\n    Assistant Professor of Economics\n    Clark University\n      Email  \n      CV  \n    \n       \n     BlueSky \n  \n\n\n\n\n\n\nSyllabus\nSyllabus\nAlso see resources page for students\n\n\nLecture slides:\n\nIntroduction to R\nStat review and population concepts\nSimple Linear Regressions\nMultiple Linear Regressions\nMore on MLR\nInference in regression models\nHeteroskedasticity and serial correlation [covered by Zeyi in discussion section] \nPotential outcomes\nRCTs\nIV, 2SLS and HTE\nSummary \n\n\n\nProblem sets\n\nProblem Set 1 (due Sep 18)"
   },
   {
     "objectID": "teaching.html",

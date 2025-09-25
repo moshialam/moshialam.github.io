@@ -170,8 +170,8 @@ model <-  lm(price ~ sqrft + bdrms + I(sqrft * bdrms), data = hprice1)
 $$\text{Adjusted-}R^2 = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)$$
     $R^2$ is the R-squared value, $n$ is the \# observations and $k$ is the number of X's
     -   Penalizes the addition of unnecessary predictors
--   The F-test could be related to the adjusted R-squared.
-    -   Think abour $UR$ and $R$ models in the context of the F-test
+-   The F-test could be related to the adjusted R-squared. (next topic)
+    -   Can be written into $UR$ and $R$ models for the F-test
     -   F-test is useful when models are *nested*
 
 
