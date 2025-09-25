@@ -1,0 +1,475 @@
+---
+title: "Research"
+---
+
+<style>
+/* Ensure vertical layout */
+.papers-list {
+  display: block !important;
+  width: 100%;
+}
+
+.paper-item {
+  display: block;
+  background: white;
+  border-left: 3px solid #9158A2;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.paper-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  transform: translateX(3px);
+}
+
+.paper-title-line {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.paper-title-line a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.paper-title-line a:hover {
+  color: #9158A2;
+  text-decoration: underline;
+}
+
+.paper-meta {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 0.15rem;
+  font-size: 0.95rem;
+}
+
+.paper-links {
+  margin: 0.75rem 0;
+}
+
+.btn-abstract {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #9158A2;
+  color: white !important;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.btn-abstract:hover {
+  background: #7a4691;
+  color: white !important;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  background: white;
+  border: 1px solid #9158A2;
+  color: #9158A2 !important;
+  border-radius: 20px;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+  background: rgba(145, 88, 162, 0.08);
+}
+
+.btn-link.ssrn {
+  border-color: #dc3545;
+  color: #dc3545 !important;
+}
+
+.paper-status {
+  margin-top: 0.5rem;
+}
+
+.badge-status {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.badge-rr {
+  background: #d1f2eb;
+  color: #00695c;
+}
+
+.badge-review {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.badge-coming {
+  background: #e8eaf6;
+  color: #4527a0;
+}
+
+.badge-update {
+  background: #17a2b8;
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.badge-jmp {
+  background: rgba(145, 88, 162, 0.1);
+  color: #9158A2;
+  border: 1px solid #9158A2;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
+}
+
+.badge-choice {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: #ad7237;
+  border: 1px solid #ad7237;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.section-heading {
+  margin: 2.5rem 0 1.5rem 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, rgba(145, 88, 162, 0.08), transparent);
+  border-left: 4px solid #9158A2;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.section-heading.published {
+  background: linear-gradient(to right, rgba(173, 114, 55, 0.08), transparent);
+  border-left-color: #ad7237;
+}
+
+.section-heading.progress {
+  background: linear-gradient(to right, rgba(23, 162, 184, 0.08), transparent);
+  border-left-color: #17a2b8;
+}
+
+.paper-item.published {
+  border-left-color: #ad7237;
+  background: linear-gradient(to right, white, #FDFBF7);
+}
+
+.paper-item.in-progress {
+  border-left-color: #17a2b8;
+  opacity: 0.95;
+  background: #f9f9f9;
+}
+
+.paper-item.in-progress .paper-title-line {
+  font-style: italic;
+}
+
+.journal-info {
+  margin-top: 0.5rem;
+  color: #64605f;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.dormant-summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 0 8px 8px 0;
+  font-weight: 600;
+  color: #6c757d;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dormant-summary:hover {
+  background: #e9ecef;
+}
+
+.paper-item.dormant {
+  opacity: 0.7;
+  background: #f8f9fa;
+  border-left-color: #6c757d;
+}
+
+/* Ensure no floating or grid issues */
+.papers-list::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<!-- <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; line-height: 2;">
+  <span style="white-space: nowrap;">
+    <a href="#working-papers" style="color: #9158A2; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Working (4)</a>
+  </span>
+  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
+  <span style="white-space: nowrap;">
+    <a href="#publications" style="color: #ad7237; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Published (1)</a>
+  </span>
+  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
+  <span style="white-space: nowrap;">
+    <a href="#research-in-progress" style="color: #17a2b8; text-decoration: none; padding: 0.25rem 0.5rem;">▼ In Progress (3)</a>
+  </span>
+  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
+  <span style="white-space: nowrap;">
+    <a href="#dormant-papers" style="color: #6c757d; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Dormant (1)</a>
+  </span>
+</div> -->
+
+#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers}
+
+<div class="papers-list">
+
+<div class="paper-item">
+<div class="paper-title-line">
+<strong>1.</strong> <a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
+<span class="badge-jmp">PhD JMP</span>
+</div>
+<div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
+<div class="paper-links">
+<a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a>
+<a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a>
+</div>
+<div class="paper-status">
+<span class="badge-status badge-rr">R&R at Quantitative Economics</span>
+<span class="badge-update">Updated July '25</span>
+</div>
+</div>
+
+<div class="paper-item">
+<div class="paper-title-line">
+<strong>2.</strong> <a href="papers/Agarwal_Alam_sanitation.pdf">The Unintended Benefits of Women's Empowerment on Household Sanitation</a>
+</div>
+<div class="paper-meta">with Monica Agarwal</div>
+<div class="paper-links">
+<a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link ssrn">SSRN</a>
+</div>
+<div class="paper-status">
+<span class="badge-status badge-rr">R&R at Journal of Human Resources</span>
+<span class="badge-update">Updated April '25</span>
+</div>
+</div>
+
+<div class="paper-item">
+<div class="paper-title-line">
+<strong>3.</strong> <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
+<span class="badge-jmp">Post-doc JMP</span>
+</div>
+<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
+<div class="paper-links">
+<a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
+</div>
+<div class="paper-status">
+<span class="badge-status badge-review">Under Review</span>
+<span class="badge-update">Updated Aug '25</span>
+</div>
+</div>
+
+<div class="paper-item">
+<div class="paper-title-line">
+<strong>4.</strong> Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption
+</div>
+<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
+<div class="paper-status">
+<span class="badge-status badge-coming">Draft Coming Soon</span>
+</div>
+</div>
+
+</div>
+
+#### <i class="bi bi-bookmark-check-fill"></i> Publications {#publications}
+
+<div class="papers-list">
+
+<div class="paper-item published">
+<div class="paper-title-line">
+<a href="https://www.demographic-research.org/volumes/vol46/38/default.htm">Increases in shared custody after divorce in the United States</a>
+</div>
+<div class="paper-meta">with Daniel Meyer and Marcia Carlson</div>
+<div class="paper-links">
+<a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a>
+<a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a>
+</div>
+<div class="journal-info">
+<i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor's Choice Article</span>
+</div>
+</div>
+
+</div>
+
+#### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress}
+
+<div class="papers-list">
+
+<div class="paper-item in-progress">
+<div class="paper-title-line">
+<strong>Spatial Inequality and School Choice Mechanisms</strong>
+</div>
+<div class="paper-meta">with Monica Agarwal, Chao Fu, and YingHua He</div>
+</div>
+
+<div class="paper-item in-progress">
+<div class="paper-title-line">
+<strong>Labor Market Inequality and Collective Bargaining</strong>
+</div>
+<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
+</div>
+
+<div class="paper-item in-progress">
+<div class="paper-title-line">
+<strong>Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions</strong>
+</div>
+<div class="paper-meta"></div>
+</div>
+
+</div>
+
+#### Dormant Papers
+
+<details>
+<summary class="dormant-summary">
+<i class="bi bi-archive"></i> Click to view dormant papers
+</summary>
+
+<div class="papers-list" style="margin-top: 1rem;">
+
+<div class="paper-item dormant">
+<div class="paper-title-line">
+<strong>Identification in Models of Discrimination</strong>
+</div>
+<div class="paper-meta">
+[Subsumed in PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- ============================================================= -->
+<!-- MODAL/POPUP DEFINITIONS SECTION -->
+<!-- ============================================================= -->
+
+```{ojs}
+//| echo: false
+//| include: false
+
+// Initialize micromodal for popup abstracts
+micro = require("micromodal@0.4.10");
+
+micro.init({
+  awaitOpenAnimation: true,
+  awaitCloseAnimation: true
+});
+```
+
+<!-- Abstract Modal: Divorce -->
+:::::: {#abs_divorce .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="-1" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_divorce-title"}
+
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+::: {.modal__header}
+### Increases in shared custody after divorce in the United States {#abs_divorce-title}
+*with Daniel Meyer and Marcia Carlson*
+:::
+
+::: {.modal__content}
+This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children's living arrangements and for the parental investments that children receive after their parents' divorce.
+:::
+
+::::
+:::::
+::::::
+
+<!-- Abstract Modal: Pay Equity -->
+:::::: {#abs_payequity .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title"}
+
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+::: {.modal__header}
+### Labor Market Consequences of Pay-Equity Laws {#abs_payequity-title}
+*with Steven Lehrer and Nuno Souso Pereira*
+:::
+
+::: {.modal__content}
+Limited policy variation, data constraints in defining 'equal work', and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal's 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving "equal pay for equal work".
+:::
+
+::::
+:::::
+::::::
+
+<!-- Abstract Modal: Worker Discrimination -->
+:::::: {#abs_workerdisc .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_workerdisc-title"}
+
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+::: {.modal__header}
+### Employee-Side Discrimination: Beliefs and Preferences {#abs_workerdisc-title}
+*with Mehreen Mookerjee and Sanket Roy*
+:::
+
+::: {.modal__content}
+Workers' preferences and beliefs shape labor market outcomes, yet remain understudied. We develop a theory-driven novel identification strategy for information experiments that separates preferences from beliefs. We apply this to provide the first evidence on the distribution of workers' preferences on manager gender and their beliefs on managers' mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers—willing to forgo 1.3–2.2% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are likely biased, highlighting scope for information-based policy interventions that could reduce suboptimal matching and gender gaps in management levels. Our identification-driven design provides a general framework for information experiments to study beliefs.
+:::
+
+::::
+:::::
+::::::
+
+<!-- Abstract Modal: Sanitation -->
+:::::: {#abs_sanitation .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_sanitation-title"}
+
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+::: {.modal__header}
+### The Unintended Benefits of Women's Empowerment on Household Sanitation {#abs_sanitation-title}
+*with Monica Agarwal*
+:::
+
+::: {.modal__content}
+Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women's decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women's property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women's inheritance, but shows that the policy had significant indirect effects, such as improving women's education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces policy-relevant complementarity between women's education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women's education—plausibly reducing misperceptions about the benefits of toilets—and increased women's decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope---while we document improvements in toilet coverage, the implications extend to other household investments where women's preferences are stronger, but various frictions limit adoption.
+:::
+
+::::
+:::::
+::::::
+
+<!-- Load Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

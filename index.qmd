@@ -35,7 +35,7 @@ output:
 Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either reduced form, or structural models, or both,--and at times I design surveys to collect data with identifying variation. I received my PhD  in Economics, from the [University of Wisconsin-Madison](https://econ.wisc.edu/). 
 
 
-{{< include papers.qmd >}}
+{{< include papers_complete.qmd >}}
 
 
 

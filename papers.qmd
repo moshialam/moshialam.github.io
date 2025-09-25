@@ -1,77 +1,73 @@
+---
+title: "Research"
+---
+
+<!-- Working Papers Section -->
 #### <i class="bi bi-bookmark-check"></i> Working papers
-- [**Employee-Side Discrimination: Beliefs and Preferences**](papers/Alam_JMP_Oct21.pdf) (PhD JMP)  <p>with Mehreen Mookerjee and Sanket Roy **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">
-  [+Abstract] </a>** [Online Appendix A-C](papers/OA_Alam_JMP_QE.pdf) <p class="text-info"> _R&R at Quantitative Economics_   <span class="badge bg-primary">_Updated July '25_</span></p> </p> 
-- [**The Unintended Benefits of Women’s Empowerment on Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf) <p>with Monica Agarwal  **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">
-  [+Abstract]
-</a>** 
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="text-info"> [<i class="fas fa-file-pdf" style="color: #ec0909;"></i> SSRN]</a> <p class="text-info"> _R&R at Journal of Human Resources_  <span class="badge bg-primary">_Updated April '25_</span> </p>
-- [**Labor Market Consequences of Pay-Equity Laws**](papers/Alam_JMP_payequity.pdf) (Post-doc JMP) <p>with Steven Lehrer and Nuno Souso Pereira **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">
-  [+Abstract]
-</a>** 
-<p><span class="badge bg-primary">_Updated Aug '25_</span>  <small><small> [_Under review_] </small></small> </p>
-- **Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption**
-<!-- - **Location Choice and the Marginal Utility of Consumption** -->
-<p> with Morris Davis and Jesse Gregory </p> <p><span class="badge bg-primary">_Draft coming soon!_</span> 
+
+1. [**Employee-Side Discrimination: Beliefs and Preferences**](papers/Alam_JMP_Oct21.pdf) (PhD JMP)  
+   with Mehreen Mookerjee and Sanket Roy  
+   **<a href="#" data-micromodal-trigger="abs_workerdisc" tabindex="0" class="text-info">[+Abstract]</a>** 
+   [Online Appendix A-C](papers/OA_Alam_JMP_QE.pdf)  
+   <p class="text-info">_R&R at Quantitative Economics_ <span class="badge bg-primary">_Updated July '25_</span></p>
+
+2. [**The Unintended Benefits of Women's Empowerment on Household Sanitation**](papers/Agarwal_Alam_sanitation.pdf)  
+   with Monica Agarwal  
+   **<a href="#" data-micromodal-trigger="abs_sanitation" tabindex="0" class="text-info">[+Abstract]</a>** 
+   <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="text-info">[<i class="fas fa-file-pdf" style="color: #ec0909;"></i> SSRN]</a>  
+   <p class="text-info">_R&R at Journal of Human Resources_ <span class="badge bg-primary">_Updated April '25_</span></p>
+
+3. [**Labor Market Consequences of Pay-Equity Laws**](papers/Alam_JMP_payequity.pdf) (Post-doc JMP)  
+   with Steven Lehrer and Nuno Souso Pereira  
+   **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">[+Abstract]</a>**  
+   <p><span class="badge bg-primary">_Updated Aug '25_</span> <small><small>[_Under review_]</small></small></p>
+
+4. **Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption**  
+   with Morris Davis and Jesse Gregory  
+   <p><span class="badge bg-primary">_Draft coming soon!_</span></p>
+
 ---
 
+<!-- Publications/Accepted Section -->
 #### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted 
-- ["**Increases in shared custody after divorce in the United States.**"](https://www.demographic-research.org/volumes/vol46/38/default.htm) 
-<p>with Daniel Meyer and Marcia Carlson. 
-**<a href="#" data-micromodal-trigger="abs_divorce" tabindex="0" class="text-info">
-  [+Abstract]
-</a>** 
-<a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="text-info"> [{{< fa code >}} Replication]</a>
- <p class="text-info"> *Demographic Research* 46 (2022): 1137-1162. <a class="text-info"> *"Editor's Choice"* article</a></p> 
+
+- ["**Increases in shared custody after divorce in the United States.**"](https://www.demographic-research.org/volumes/vol46/38/default.htm)  
+  with Daniel Meyer and Marcia Carlson.  
+  **<a href="#" data-micromodal-trigger="abs_divorce" tabindex="0" class="text-info">[+Abstract]</a>** 
+  <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="text-info">[{{< fa code >}} Replication]</a>  
+  <p class="text-info">*Demographic Research* 46 (2022): 1137-1162. <a class="text-info">*"Editor's Choice"* article</a></p>
 
 ---
 
+<!-- Research in Progress Section -->
 #### <i class="bi bi-bookmark"></i> Research in progress
-- **Spatial Inequality and School Choice Mechanisms**
-<p> with Monica Agarwal, Chao Fu, YingHua He </p>
-- **Labor Market Inequality and Collective Bargaining**
-<p> with Steven Lehrer and Nuno Souso Pereira</p>
-- **Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions**<p></p>
+
+- **Spatial Inequality and School Choice Mechanisms**  
+  with Monica Agarwal, Chao Fu, YingHua He
+
+- **Labor Market Inequality and Collective Bargaining**  
+  with Steven Lehrer and Nuno Souso Pereira
+
+- **Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions**
 
 ---
 
+<!-- Dormant Papers Section -->
 #### Dormant papers
-- **Identification in Models of Discrimination** <p>[subsumed in my PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]</p>
+
+- **Identification in Models of Discrimination**  
+  [subsumed in my PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- the rest of this stuff is for the popup! -->
+<!-- ============================================================= -->
+<!-- MODAL/POPUP DEFINITIONS SECTION -->
+<!-- ============================================================= -->
 
 ```{ojs}
 //| echo: false
 //| include: false
 
+// Initialize micromodal for popup abstracts
 micro = require("micromodal@0.4.10");
 
 micro.init({
@@ -80,8 +76,7 @@ micro.init({
 });
 ```
 
-<!-- abs_divorce -->
-
+<!-- Abstract Modal: Divorce -->
 :::::: {#abs_divorce .modal .micromodal-slide aria-hidden="true"}
 ::::: {.modal__overlay tabindex="-1" data-micromodal-close="true"}
 :::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_divorce-title"}
@@ -91,16 +86,16 @@ micro.init({
 <header>
 #### Increases in shared custody after divorce in the United States {#abs_divorce-title}
 </header>
+
 ::: {#modal-1-content}
-This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.
+This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children's living arrangements and for the parental investments that children receive after their parents' divorce.
 :::
 
 ::::
 :::::
 ::::::
 
-<!-- abs_payequity -->
-
+<!-- Abstract Modal: Pay Equity -->
 :::::: {#abs_payequity .modal .micromodal-slide aria-hidden="true"}
 ::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
 :::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title"}
@@ -110,17 +105,16 @@ This paper provides new evidence on the time trend in shared physical custody af
 <header>
 #### Labor Market Consequences of Pay-Equity Laws {#abs_payequity-title}
 </header>
+
 ::: {#modal-1-content}
-Limited policy variation, data constraints in defining ’equal work’, and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal’s 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving "equal pay for equal work".
+Limited policy variation, data constraints in defining 'equal work', and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal's 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving "equal pay for equal work".
 :::
 
 ::::
 :::::
 ::::::
 
-
-
-<!-- abs_workerdisc -->
+<!-- Abstract Modal: Worker Discrimination -->
 :::::: {#abs_workerdisc .modal .micromodal-slide aria-hidden="true"}
 ::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
 :::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_workerdisc-title"}
@@ -130,18 +124,16 @@ Limited policy variation, data constraints in defining ’equal work’, and com
 <header>
 #### Employee-Side Discrimination: Beliefs and Preferences {#abs_workerdisc-title}
 </header>
+
 ::: {#modal-1-content}
-Workers' preferences and beliefs shape labor market outcomes, yet remain understudied. We develop a theory-driven novel identification strategy for information experiments that separates preferences from beliefs. We apply this to provide the first evidence on the distribution of workers' preferences on manager gender and their beliefs on managers' mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers—willing to forgo 1.3–2.2\% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6\% wage equivalent). Non-parametric estimates of the distributions reveal that 75\% prefer female managers with mentoring information, and 67\% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are likely biased, highlighting scope for information-based policy  interventions that could reduce suboptimal matching and gender gaps in management levels. Our identification-driven design provides a general framework for information experiments to study beliefs.
+Workers' preferences and beliefs shape labor market outcomes, yet remain understudied. We develop a theory-driven novel identification strategy for information experiments that separates preferences from beliefs. We apply this to provide the first evidence on the distribution of workers' preferences on manager gender and their beliefs on managers' mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers—willing to forgo 1.3–2.2% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are likely biased, highlighting scope for information-based policy interventions that could reduce suboptimal matching and gender gaps in management levels. Our identification-driven design provides a general framework for information experiments to study beliefs.
 :::
 
 ::::
 :::::
 ::::::
 
-
-
-
-<!-- abs_sanitation -->
+<!-- Abstract Modal: Sanitation -->
 :::::: {#abs_sanitation .modal .micromodal-slide aria-hidden="true"}
 ::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
 :::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_sanitation-title"}
@@ -149,22 +141,16 @@ Workers' preferences and beliefs shape labor market outcomes, yet remain underst
 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 
 <header>
-#### The Unintended Benefits of Women’s Empowerment on Household Sanitation {#abs_sanitation-title}
+#### The Unintended Benefits of Women's Empowerment on Household Sanitation {#abs_sanitation-title}
 </header>
+
 ::: {#modal-1-content}
-Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women's decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women's property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women’s inheritance, but shows that the policy had significant indirect effects, such as improving women’s education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces  policy-relevant complementarity between women's education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women’s education—plausibly reducing misperceptions about the benefits of toilets—and increased women’s decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope---while we document improvements in toilet coverage, the implications extend to other household investments where women's preferences are stronger, but various frictions limit adoption.
+Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women's decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women's property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women's inheritance, but shows that the policy had significant indirect effects, such as improving women's education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces policy-relevant complementarity between women's education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women's education—plausibly reducing misperceptions about the benefits of toilets—and increased women's decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope---while we document improvements in toilet coverage, the implications extend to other household investments where women's preferences are stronger, but various frictions limit adoption.
 :::
 
 ::::
 :::::
 ::::::
 
-
-
-
-
-
-
-
-
+<!-- Load Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

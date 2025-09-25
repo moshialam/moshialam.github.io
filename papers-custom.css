@@ -1,0 +1,553 @@
+/* ============================================
+   CUSTOM STYLES FOR RESEARCH/PAPERS PAGE
+   ============================================ */
+
+/* Import colors from main theme */
+:root {
+  --dark-green: #858E79;
+  --light-green: #D1D9CE;
+  --cream: #FDFBF7;
+  --gray: #64605f;
+  --purple: #9158A2;
+  --orange: #ad7237;
+  --light-purple: #9158A215;
+  --light-orange: #ad723715;
+  --success-green: #28a745;
+  --info-blue: #17a2b8;
+  --warning-yellow: #ffc107;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+
+.research-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, var(--light-purple), transparent);
+  border-left: 4px solid var(--purple);
+  border-radius: 0 8px 8px 0;
+}
+
+.section-header h4 {
+  margin: 0;
+  color: var(--dark-green);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.section-header i {
+  font-size: 1.5rem;
+  color: var(--purple);
+}
+
+.section-header.published {
+  background: linear-gradient(to right, var(--light-orange), transparent);
+  border-left-color: var(--orange);
+}
+
+.section-header.published i {
+  color: var(--orange);
+}
+
+.section-header.progress {
+  background: linear-gradient(to right, rgba(23, 162, 184, 0.1), transparent);
+  border-left-color: var(--info-blue);
+}
+
+.section-header.progress i {
+  color: var(--info-blue);
+}
+
+/* ============================================
+   PAPER CARDS
+   ============================================ */
+
+.papers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paper-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--purple);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.paper-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.paper-card:hover::before {
+  transform: scaleY(1);
+}
+
+.paper-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.paper-content {
+  flex: 1;
+}
+
+.published-paper {
+  background: linear-gradient(to right, white, var(--cream));
+  border: 1px solid var(--light-green);
+}
+
+.published-paper .paper-number {
+  background: var(--orange);
+}
+
+.progress-paper {
+  opacity: 0.95;
+  background: var(--cream);
+}
+
+.progress-paper .paper-content {
+  padding-left: 1rem;
+}
+
+.dormant-paper {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+/* ============================================
+   PAPER TITLES & CONTENT
+   ============================================ */
+
+.paper-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.paper-title a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  flex: 1;
+}
+
+.paper-title a:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.paper-title.in-progress {
+  font-style: italic;
+  color: var(--gray);
+  opacity: 0.9;
+}
+
+.pdf-icon {
+  color: #dc3545;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+.paper-authors {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.paper-note {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   TAGS AND BADGES
+   ============================================ */
+
+.paper-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.paper-tag.jmp {
+  background: var(--light-purple);
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.paper-tag.editors-choice {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
+.paper-tag.editors-choice i {
+  margin-right: 0.25rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.status-badge.rr {
+  background: #d1f2eb;
+  color: #00695c;
+  border: 1px solid #4db6ac;
+}
+
+.status-badge.review {
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffb74d;
+}
+
+.status-badge.coming {
+  background: #e8eaf6;
+  color: #4527a0;
+  border: 1px solid #7e57c2;
+}
+
+.update-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: var(--info-blue);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   LINKS AND BUTTONS
+   ============================================ */
+
+.paper-links {
+  margin: 0.75rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.abstract-btn {
+  padding: 0.4rem 0.8rem;
+  background: var(--purple);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.abstract-btn:hover {
+  background: #7a4691;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.abstract-btn i {
+  font-size: 0.85rem;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  background: white;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.link-pill:hover {
+  background: var(--light-purple);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--purple);
+}
+
+.link-pill.ssrn {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.link-pill.ssrn:hover {
+  background: #dc354515;
+}
+
+/* ============================================
+   JOURNAL INFO
+   ============================================ */
+
+.journal-info {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e9ecef;
+  color: var(--gray);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.journal-info i {
+  color: var(--orange);
+}
+
+/* ============================================
+   DORMANT SECTION
+   ============================================ */
+
+.dormant-section {
+  margin-top: 2rem;
+}
+
+.dormant-header {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 0 8px 8px 0;
+  transition: background 0.2s ease;
+}
+
+.dormant-header:hover {
+  background: #e9ecef;
+}
+
+.dormant-header i {
+  color: #6c757d;
+  font-size: 1.3rem;
+}
+
+.dormant-header span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+details[open] .dormant-header {
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   ENHANCED MODALS
+   ============================================ */
+
+.modal__container {
+  max-width: 800px;
+  width: 95%;
+  backdrop-filter: blur(5px);
+}
+
+.modal__header {
+  border-bottom: 2px solid var(--light-purple);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal__header h3 {
+  color: var(--purple);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal__authors {
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+.modal__content {
+  line-height: 1.7;
+  color: var(--gray);
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.2s ease;
+}
+
+.modal__close:hover {
+  color: var(--purple);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .paper-card {
+    padding: 1rem;
+  }
+  
+  .paper-number {
+    display: none;
+  }
+  
+  .paper-title {
+    font-size: 1.05rem;
+  }
+  
+  .section-header h4 {
+    font-size: 1.2rem;
+  }
+  
+  .paper-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .abstract-btn,
+  .link-pill {
+    width: fit-content;
+  }
+  
+  .modal__container {
+    width: 100%;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .paper-tag {
+    display: block;
+    margin-top: 0.5rem;
+    width: fit-content;
+  }
+  
+  .status-badge,
+  .update-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .paper-title {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .abstract-btn,
+  .modal {
+    display: none;
+  }
+  
+  .paper-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+  }
+  
+  .section-header {
+    background: none;
+    border-left-width: 2px;
+  }
+}

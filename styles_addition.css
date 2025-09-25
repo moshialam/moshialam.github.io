@@ -1,0 +1,283 @@
+/* ============================================
+   ADD THESE STYLES TO YOUR EXISTING styles.css
+   FOR ENHANCED RESEARCH/PAPERS PAGE
+   ============================================ */
+
+/* Research Section Styling */
+.research-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, rgba(145, 88, 162, 0.08), transparent);
+  border-left: 4px solid #9158A2;
+  border-radius: 0 8px 8px 0;
+}
+
+.section-header.published {
+  background: linear-gradient(to right, rgba(173, 114, 55, 0.08), transparent);
+  border-left-color: #ad7237;
+}
+
+.section-header.progress {
+  background: linear-gradient(to right, rgba(23, 162, 184, 0.08), transparent);
+  border-left-color: #17a2b8;
+}
+
+/* Paper Cards */
+.paper-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.paper-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  border-left-color: #9158A2;
+}
+
+.published-paper {
+  background: linear-gradient(to right, white, #FDFBF7);
+}
+
+.progress-paper {
+  background: #FDFBF7;
+  opacity: 0.95;
+}
+
+.dormant-paper {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+/* Paper Elements */
+.paper-title {
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.paper-title.in-progress {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.paper-authors {
+  color: #6c757d;
+  font-size: 0.95rem;
+  font-style: italic;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Tags and Badges */
+.paper-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 0.5rem;
+}
+
+.paper-tag.jmp {
+  background: rgba(145, 88, 162, 0.08);
+  color: #9158A2;
+  border: 1px solid #9158A2;
+}
+
+.paper-tag.editors-choice {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: #ad7237;
+  border: 1px solid #ad7237;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.status-badge.rr {
+  background: #d1f2eb;
+  color: #00695c;
+}
+
+.status-badge.review {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.status-badge.coming {
+  background: #e8eaf6;
+  color: #4527a0;
+}
+
+.update-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: #17a2b8;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Abstract Button Styling */
+.abstract-btn {
+  padding: 0.35rem 0.7rem;
+  background: #9158A2;
+  color: white !important;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+}
+
+.abstract-btn:hover {
+  background: #7a4691;
+  transform: translateY(-1px);
+  color: white !important;
+}
+
+/* Link Pills */
+.link-pill {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  background: white;
+  border: 1px solid #9158A2;
+  color: #9158A2 !important;
+  border-radius: 20px;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+}
+
+.link-pill:hover {
+  background: rgba(145, 88, 162, 0.08);
+  text-decoration: none !important;
+}
+
+.link-pill.ssrn {
+  border-color: #dc3545;
+  color: #dc3545 !important;
+}
+
+.link-pill.ssrn:hover {
+  background: rgba(220, 53, 69, 0.08);
+}
+
+/* Journal Info */
+.journal-info {
+  margin-top: 0.5rem;
+  color: #64605f;
+  font-size: 0.95rem;
+}
+
+/* Enhanced Modals */
+.modal__header {
+  border-bottom: 2px solid rgba(145, 88, 162, 0.2);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.modal__header h3 {
+  color: #9158A2;
+  margin-bottom: 0.25rem;
+}
+
+.modal__authors {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.modal__content {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Dormant Section */
+.dormant-section summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
+  list-style: none;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.dormant-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.dormant-section summary:hover {
+  background: #e9ecef;
+}
+
+.paper-note {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.paper-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .paper-card {
+    padding: 1rem;
+  }
+  
+  .paper-tag {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.25rem;
+    width: fit-content;
+  }
+  
+  .abstract-btn, .link-pill {
+    display: block;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+  }
+  
+  .status-badge, .update-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
