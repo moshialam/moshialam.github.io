@@ -168,6 +168,12 @@ ul.task-list li input[type="checkbox"] {
           <i class="bi bi-bluesky"></i>
         </a>
       </div>
+      <!-- Bio Section -->
+      <div class="profile-bio">
+        Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in
+        Labor and Public Economics. Depending on the question, I use either reduced form, or structural models, or both—and at
+        times I design surveys to collect data with identifying variation. I received my PhD in Economics from <a href="https://econ.wisc.edu/">University of Wisconsin-Madison</a>.
+      </div>
     </div>
   </div>
 </div>
@@ -187,9 +193,9 @@ ul.task-list li input[type="checkbox"] {
     gap: 1.5rem;
     padding: 1.5rem;
     /* background: #f8f9fa; */
-    background: linear-gradient(135deg, #FDFBF7 0%, rgba(209, 217, 206, 0.3) 100%);
+    /* background: linear-gradient(135deg, #FDFBF7 0%, rgba(209, 217, 206, 0.3) 100%); */
     border-radius: 8px;
-    border: 1px solid #e9ecef;
+    /* border: 1px solid #e9ecef; */
   }
 
   /* Profile Image */
@@ -397,6 +403,33 @@ ul.task-list li input[type="checkbox"] {
       margin: 0 auto;
     }
   }
+
+  /*for the bio*/
+.profile-bio {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #495057;
+  max-width: 700px;
+}
+
+.profile-bio a {
+  color: #c5050c;  /* Or your chosen accent color */
+  text-decoration: none;
+}
+
+.profile-bio a:hover {
+  text-decoration: underline;
+}
+
+/* Adjust mobile view */
+@media (max-width: 767px) {
+  .profile-bio {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
 </style>
 
 <header id="title-block-header" class="quarto-title-block default">
