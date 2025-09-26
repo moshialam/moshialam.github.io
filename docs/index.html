@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   transform: translateX(3px);
 }
 .paper-title-line {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -376,23 +376,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   clear: both;
 }
 </style>
-<!-- <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; line-height: 2;">
-  <span style="white-space: nowrap;">
-    <a href="#working-papers" style="color: #9158A2; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Working (4)</a>
-  </span>
-  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
-  <span style="white-space: nowrap;">
-    <a href="#publications" style="color: #ad7237; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Published (1)</a>
-  </span>
-  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
-  <span style="white-space: nowrap;">
-    <a href="#research-in-progress" style="color: #17a2b8; text-decoration: none; padding: 0.25rem 0.5rem;">▼ In Progress (3)</a>
-  </span>
-  <span style="white-space: nowrap; margin: 0 0.25rem;">|</span>
-  <span style="white-space: nowrap;">
-    <a href="#dormant-papers" style="color: #6c757d; text-decoration: none; padding: 0.25rem 0.5rem;">▼ Dormant (1)</a>
-  </span>
-</div> -->
+<style>
+/* Keep all your existing styles, then ADD these modifications */
+/* Two-column layout for desktop */
+@media (min-width: 992px) {
+  .papers-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  .paper-item {
+    margin-bottom: 0; /* Remove bottom margin since gap handles spacing */
+  }
+}
+/* Single column for tablets and mobile */
+@media (max-width: 991px) {
+  .papers-list {
+    display: block !important;
+  }
+  .paper-item {
+    margin-bottom: 0.5rem; /* Keep your original spacing */
+  }
+}
+/* Optional: Make section headers span both columns */
+@media (min-width: 992px) {
+  .section-heading {
+    grid-column: 1 / -1; /* Spans all columns */
+  }
+}
+/* Optional: Make the published paper stand out by spanning both columns */
+/* Uncomment if you want the published paper to be full width */
+/*
+@media (min-width: 992px) {
+  .paper-item.published {
+    grid-column: 1 / -1;
+  }
+}
+*/
+/* Optional: Balance the columns better for odd numbers of papers */
+@media (min-width: 992px) {
+  .paper-item:last-child:nth-child(odd) {
+    /* Centers the last item if it's alone in its row */
+    /* grid-column: 1 / -1; */
+    /* OR keeps it in left column: */
+    grid-column: 1;
+  }
+}
+/* Adjust for very wide screens - optional 3 column layout
+@media (min-width: 1400px) {
+  .papers-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+} */
+/* Ensure navigation and dormant sections remain full width */
+.section-nav,
+.dormant-summary,
+details {
+  grid-column: 1 / -1;
+}
+</style>
+<style>
+/* Keep all your existing styles, then ADD/MODIFY these */
+/* For paper titles that ARE links (clickable) */
+.paper-title-line a {
+  color: #9158A2;
+  /* color: #0066cc;  Classic link blue */
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration-thickness: 2px;
+}
+.paper-title-line a:hover {
+  /* color: #0052a3; */
+  color: #7a4691;
+  text-decoration: underline;
+  /* OR use border instead of underline: */
+  /* border-bottom: 1px solid #7a4691; */
+}
+/* For paper titles that are NOT links (plain text) */
+.paper-title-line {
+  color: #2c3e50;  /* Dark gray - indicates not clickable */
+}
+/* Alternative: Make non-linked titles even more distinct */
+.paper-title-line:not(:has(a)) {
+  color: #6c757d;  /* Lighter gray for non-linked titles */
+}
+/* Optional: Add a small icon after linked papers */
+.paper-title-line a::after {
+  content: " 🔗";  /* or use → ↗ 📄 */
+  font-size: 0.8em;
+  opacity: 0.5;
+  margin-left: 0.25rem;
+}
+</style>
 <section id="working-papers" class="level4">
 <h4 data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
 <div class="papers-list">
@@ -404,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 with Mehreen Mookerjee and Sanket Roy
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a></p>
+<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix A-C</a></p>
 </div>
 <div class="paper-status">
 <p><span class="badge-status badge-rr">R&amp;R at Quantitative Economics</span> <span class="badge-update">Updated July ’25</span></p>
