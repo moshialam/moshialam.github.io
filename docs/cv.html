@@ -121,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
-<div class="profile-header" style="display: flex; align-items: center; margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+<!-- <div class="profile-header" style="display: flex; align-items: center; margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
   <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image" style="width: 180px; height: 180px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
   <div class="profile-info">
     <strong>Md Moshi Ul Alam</strong><br>
@@ -129,11 +129,268 @@ ul.task-list li input[type="checkbox"] {
     <a href="https://www.clarku.edu/departments/economics/">Clark University</a><br>
     <a href="mailto:mdalam@clarku.edu" class="btn btn-info btn-sm"> <i class="bi bi-envelope-at"></i> Email </a> 
     <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-info btn-sm"> <i class="bi bi-filetype-pdf"></i> CV </a> 
-    <!-- <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-info btn-sm"> <i class="bi bi-google"></i> Scholar </a>  -->
+    <!-- <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-info btn-sm"> <i class="bi bi-google"></i> Scholar </a> 
     <a href="https://twitter.com/MoshiAlam" class="btn btn-dark btn-sm"> <i class="bi bi-twitter-x"></i> </a> 
     <a href="https://bsky.app/profile/moshialam.bsky.social" class="btn btn-info btn-sm"> BlueSky </a>
   </div>
+</div> -->
+<div class="profile-header-container">
+  <div class="profile-header">
+    <div class="profile-image-wrapper">
+      <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image">
+    </div>
+    <div class="profile-info">
+      <div class="profile-name">Md Moshi Ul Alam</div>
+      <div class="profile-title">Assistant Professor of Economics</div>
+      <div class="profile-affiliation">
+        <a href="https://www.clarku.edu/departments/economics/">Clark University</a>
+      </div>
+      <div class="profile-buttons">
+        <a href="mailto:mdalam@clarku.edu" class="btn-profile btn-email">
+          <i class="bi bi-envelope-at"></i>
+          <span>Email</span>
+        </a>
+        <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn-profile btn-cv">
+          <i class="bi bi-filetype-pdf"></i>
+          <span>CV</span>
+        </a>
+        <a href="https://twitter.com/MoshiAlam" class="btn-profile btn-social btn-twitter">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+        <a href="https://bsky.app/profile/moshialam.bsky.social" class="btn-profile btn-social btn-bluesky">
+          <span class="btn-text-only">BlueSky</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<style>
+  /* Profile Header Container */
+  .profile-header-container {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  /* Main Profile Header */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    /* background: #f8f9fa; */
+    background: linear-gradient(135deg, #FDFBF7 0%, rgba(209, 217, 206, 0.3) 100%);
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+
+  /* Profile Image */
+  .profile-image-wrapper {
+    flex-shrink: 0;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Profile Info */
+  .profile-info {
+    flex: 1;
+  }
+
+  /* Profile Name - Using div instead of h1 to avoid Quarto processing */
+  .profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.3;
+  }
+
+  .profile-title {
+    font-size: 1.05rem;
+    color: #495057;
+    margin: 0 0 0.25rem 0;
+    font-weight: 500;
+  }
+
+  .profile-affiliation {
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .profile-affiliation a {
+    color: #9158A2;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .profile-affiliation a:hover {
+    color: #7a4691;
+    text-decoration: underline;
+  }
+
+  /* Profile Buttons */
+  .profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .btn-profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .btn-profile i {
+    font-size: 0.9rem;
+  }
+
+  .btn-profile span {
+    font-size: 0.85rem;
+  }
+
+  /* Email Button */
+  .btn-email {
+    background: #9158A2;
+    color: white;
+  }
+
+  .btn-email:hover {
+    background: #7a4691;
+    transform: translateY(-1px);
+  }
+
+  /* CV Button */
+  .btn-cv {
+    background: #17a2b8;
+    color: white;
+  }
+
+  .btn-cv:hover {
+    background: #138496;
+    transform: translateY(-1px);
+  }
+
+  /* Social Buttons */
+  .btn-social {
+    padding: 0.4rem;
+    min-width: 32px;
+    justify-content: center;
+  }
+
+  .btn-twitter {
+    background: #1a1a1a;
+    color: white;
+  }
+
+  .btn-twitter:hover {
+    background: #000;
+  }
+
+  .btn-bluesky {
+    background: #00A8E8;
+    color: white;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .btn-bluesky:hover {
+    background: #0090c7;
+  }
+
+  .btn-text-only {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* Mobile View (less than 768px) */
+  @media (max-width: 767px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+
+    .profile-name {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .profile-title {
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .profile-affiliation {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .profile-buttons {
+      justify-content: center;
+    }
+
+    .btn-profile {
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+    }
+
+    /* Hide text on very small screens */
+    @media (max-width: 380px) {
+
+      .btn-email span,
+      .btn-cv span {
+        display: none;
+      }
+
+      .btn-email,
+      .btn-cv {
+        padding: 0.35rem;
+        min-width: 32px;
+        justify-content: center;
+      }
+    }
+  }
+
+  /* Small Mobile (less than 480px) */
+  @media (max-width: 479px) {
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+
+    .profile-name {
+      font-size: 1.2rem;
+    }
+
+    .profile-buttons {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+</style>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
