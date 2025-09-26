@@ -122,14 +122,25 @@ title: "Research"
   color: #4527a0;
 }
 
-.badge-update {
+/* .badge-update {
   background: #17a2b8;
   color: white;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
   font-size: 0.8rem;
+} */
+.badge-update {
+  background: transparent;
+  color: #6c757d;
+  padding: 0;
+  font-size: 0.75rem;
+  font-style: italic;
 }
 
+.badge-update i {
+  font-size: 0.8rem;
+  margin-right: 0.2rem;
+}
 .badge-jmp {
   background: rgba(145, 88, 162, 0.1);
   color: #9158A2;
@@ -353,7 +364,8 @@ details {
 </div>
 <div class="paper-status">
 <span class="badge-status badge-rr">R&R at Quantitative Economics</span>
-<span class="badge-update">Updated July '25</span>
+<!-- <span class="badge-update">Updated July '25</span> -->
+<span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span>
 </div>
 </div>
 
@@ -368,7 +380,8 @@ details {
 </div>
 <div class="paper-status">
 <span class="badge-status badge-rr">R&R at Journal of Human Resources</span>
-<span class="badge-update">Updated April '25</span>
+<span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span>
+<!-- <span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i></span> -->
 </div>
 </div>
 
@@ -383,7 +396,8 @@ details {
 </div>
 <div class="paper-status">
 <span class="badge-status badge-review">Under Review</span>
-<span class="badge-update">Updated Aug '25</span>
+<!-- <span class="badge-update">Updated Aug '25</span> -->
+<span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span>
 </div>
 </div>
 
