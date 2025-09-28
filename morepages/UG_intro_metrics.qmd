@@ -3,31 +3,133 @@ title: "Introduction to Econometrics"
 date-modified: last-modified
 ---
 
-# Syllabus
+::: {.course-section}
+## <i class="bi bi-journal-text"></i> Course Information {.section-header}
 
-[Syllabus](/teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf)
+::: {.resource-card}
+<a href="/teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf" class="btn btn-primary">
+<i class="bi bi-filetype-pdf"></i> Download Syllabus
+</a>
 
-Also see [resources page for students](/morepages/resourcesforugstudents.qmd)
+Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/morepages/resourcesforugstudents.qmd)
+:::
+:::
 
-# Lecture slides:
-- [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
-- [Stat review and population concepts](/teachingmaterials/UG_intro_metrics/02_stat_review.pdf)
-- [Simple Linear Regressions](/teachingmaterials/UG_intro_metrics/03_regression.qmd)
-- [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
-- [More on MLR](/teachingmaterials/UG_intro_metrics/06_mlrvariants.qmd)
-- [Inference in regression models](/teachingmaterials/UG_intro_metrics/05_inference.qmd)
-- Heteroskedasticity and serial correlation [covered by Zeyi in discussion section]
-<!-- - Mis-specification -->
-- [Potential outcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)
-- [RCTs](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
-- [IV, 2SLS and HTE](/teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf)
+::: {.course-section}
+## <i class="bi bi-easel2"></i> Lecture Slides {.section-header}
 
-- [Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
-<!-- - Regression discontinuity
-- Non-linear models
-- Estimators for repeated cross-section and panel data
-- Difference-in-differences -->
+::: {.resource-card}
+1. [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
+2. [Statistical Review & Population Concepts](/teachingmaterials/UG_intro_metrics/02_stat_review.pdf)
+3. [Simple Linear Regressions](/teachingmaterials/UG_intro_metrics/03_regression.qmd)
+4. [Multiple Linear Regressions](/teachingmaterials/UG_intro_metrics/04_mlr.qmd)
+5. [More on MLR](/teachingmaterials/UG_intro_metrics/06_mlrvariants.qmd)
+6. [Inference in Regression Models](/teachingmaterials/UG_intro_metrics/05_inference.qmd)
+7. Heteroskedasticity & Serial Correlation *[Discussion section]*
+8. [Potential Outcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)
+9. [Randomized Controlled Trials](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
+10. [Instrumental Variables, 2SLS & HTE](/teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf)
+11. [Course Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
+:::
+:::
 
-# Problem sets
-- [Problem Set 1 (due Sep 18)](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd) |  [Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps1sol.qmd)
-- [Problem Set 2 (due Oct 5)](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.qmd) 
+::: {.course-section}
+## <i class="bi bi-pencil-square"></i> Problem Sets {.section-header}
+
+::: {.resource-card}
+**Problem Set 1** *(Due Sep 18)*  
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd) | 
+[<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps1sol.qmd)
+
+**Problem Set 2** *(Due Oct 5)*  
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.qmd)
+:::
+:::
+
+<style>
+.course-section {
+  margin-bottom: 1.25rem; /* Reduced from 2rem */
+}
+
+.section-header {
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  background: linear-gradient(to right, rgba(145, 88, 162, 0.08), transparent);
+  border-left: 4px solid #9158A2;
+  border-radius: 0 8px 8px 0;
+  color: #2c3e50;
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
+  margin-top: 0; /* Ensure no extra top margin */
+  font-size: 1.1rem; /* Slightly smaller font */
+}
+
+.resource-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem; /* Reduced from 1.25rem */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border-left: 3px solid #D1D9CE;
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+  border-left-color: #9158A2;
+}
+
+.resource-card ol, .resource-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  line-height: 1.6; /* Tighter line spacing */
+}
+
+.resource-card li {
+  padding: 0.25rem 0; /* Reduced from 0.4rem */
+}
+
+.resource-card a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.resource-card a:hover {
+  color: #9158A2;
+  text-decoration: underline;
+}
+
+/* Button styling */
+.btn-primary {
+  background: #9158A2 !important;
+  border-color: #9158A2 !important;
+  color: white !important;
+  padding: 0.4rem 0.9rem; /* Slightly smaller */
+  text-decoration: none !important;
+  display: inline-block;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem; /* Slightly smaller font */
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #7a4691 !important;
+  border-color: #7a4691 !important;
+  color: white !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-primary i {
+  margin-right: 0.4rem;
+  color: white !important;
+}
+
+/* Remove any default h2 margins that Quarto might add */
+h2 {
+  margin-top: 0 !important;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
