@@ -84,7 +84,7 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 
 .resource-card li {
   padding: 0.25rem 0; 
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .resource-card a {
