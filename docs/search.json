@@ -427,25 +427,25 @@
     "text": "Question 2\nDifferent states have different minimum wages. For example:\n\nAlabama, Georgia, Mississippi: $7.25/hour (federal minimum)\nFlorida: $12.00/hour\n\nNew York: $15.00/hour\nCalifornia: $15.50/hour\n\nYou want to estimate the effect of minimum wage on employment rates using data from different counties in the US indexed by c. You consider two regression specifications:\n\\text{employment rate}_c = \\beta_0 + \\beta_1 \\text{min\\_wage}_c + u_c \\quad (1)\n\\text{employment rate}_c = \\beta_0 + \\beta_1 \\text{min\\_wage}_c + \\beta_2 \\text{avg\\_wage}_c + u_c \\quad (2)\nwhere avg_wage is the average wage in the county and min_wage is the minimum wage in the county (which is the same as the state minimum wage for all counties in that state).\nWhich model correctly estimates the effect of minimum wage on employment and why?"
   },
   {
-    "objectID": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#q3",
-    "href": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#q3",
-    "title": "Econometrics PS 2",
-    "section": "Q3",
-    "text": "Q3\nLoad the wooldridge library and using the wage1 dataset, youa re interested in documenting the gender wage gap.\n\nStart with running the following regression: log(wage_i) = \\beta_0 + \\beta_1 \\, female_i + u_i where female is a binary variable that takes the value 1 if the worker is female and 0 otherwise. Interpret the coefficient on female.\nIn estimating the average gender wage gap, why did we not include a dummy variable for male in the regression above?\nNow include educ (years of education), exper (years of experience), and tenure (years with current employer) in your analysis. How and why does the inclusion of these variables affect the coefficient on female? (Report the estimates side by side using the stargazer or modelsummary package).\nNow suppose someone asks you does an additional year of education effects wages differently for male and female workers. How would you modify your regression to answer this question? Run the regression and interpret the relevant coefficients.\nDo you think adding any other variables non-linearly will be helpful? If so, which ones and do your best to show data patterns to support your argument? (You do not need to run any regressions for this part)."
-  },
-  {
     "objectID": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-3",
     "href": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-3",
     "title": "Econometrics PS 2",
     "section": "Question 3",
-    "text": "Question 3\n\nProblem C6 Wooldridge Chapter 3.\nHow is this different from the partialling out analysis we did in class? Explain briefly."
+    "text": "Question 3\nLoad the wooldridge library and using the wage1 dataset, youa re interested in documenting the gender wage gap.\n\nStart with running the following regression: log(wage_i) = \\beta_0 + \\beta_1 \\, female_i + u_i where female is a binary variable that takes the value 1 if the worker is female and 0 otherwise. Interpret the coefficient on female.\nIn estimating the average gender wage gap, why did we not include a dummy variable for male in the regression above?\nNow include educ (years of education), exper (years of experience), and tenure (years with current employer) in your analysis. How and why does the inclusion of these variables affect the coefficient on female? (Report the estimates side by side using the stargazer or modelsummary package).\nNow suppose someone asks you does an additional year of education effects wages differently for male and female workers. How would you modify your regression to answer this question? Run the regression and interpret the relevant coefficients.\nDo you think adding any other variables non-linearly will be helpful? If so, which ones and do your best to show data patterns to support your argument? (You do not need to run any regressions for this part)."
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-4",
     "href": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-4",
     "title": "Econometrics PS 2",
     "section": "Question 4",
-    "text": "Question 4\n\nProblem C13 Wooldridge Chapter 3."
+    "text": "Question 4\n\nProblem C6 Wooldridge Chapter 3.\nHow is this different from the partialling out analysis we did in class? Explain briefly."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-5",
+    "href": "teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html#question-5",
+    "title": "Econometrics PS 2",
+    "section": "Question 5",
+    "text": "Question 5\n\nProblem C13 Wooldridge Chapter 3."
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/05_inference.html#introduction",

@@ -62,7 +62,7 @@ Which model correctly estimates the effect of minimum wage on employment and why
 
 
 
-## Q3
+## Question 3
 
 Load the `wooldridge` library and using the `wage1` dataset, youa re interested in documenting the gender wage gap. 
 
@@ -74,13 +74,13 @@ e. Do you think adding any other variables *non-linearly* will be helpful? If so
 
 -----------------------------------------------
 
-## Question 3
+## Question 4
 
 a. Problem C6 Wooldridge Chapter 3. 
 b. How is this different from the partialling out analysis we did in class? Explain briefly.
 
 -----------------------------------------------
 
-## Question 4
+## Question 5
 
 a. Problem C13 Wooldridge Chapter 3.
