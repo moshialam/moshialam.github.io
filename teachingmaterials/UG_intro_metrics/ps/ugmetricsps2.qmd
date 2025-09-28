@@ -1,0 +1,86 @@
+---
+title: "Econometrics PS 2"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+```
+::: {.callout-note}
+*Follow the instructions of completing your problem set detailed in the syllabus.*
+:::
+
+# Question 1
+
+*Adapted from wooldridge*
+
+Explore the `lawsch85` dataset from the `wooldridge` package after loading it in R. This dataset contains information on the number of law school admissions and various characteristics of law schools in 1985. 
+
+a. Estimate the following regression models using OLS. Report the estimates side by side (using the `stargazer` package or `modelsummary` package). Interpret the coefficients in each of the models. How does the inclusion of `age` and `clsize` affect the coefficients of `GPA` and `rank`? 
+
+model 1: `lsalary` on `GPA` and `rank`
+
+model 2: `lsalary` on `GPA`, `rank`, and `age`
+
+model 3: `lsalary` on `GPA`, `rank`, and `clsize`
+
+b. Examine the R-squared values of the models. How does the inclusion of `age` affect the R-squared and why does it not follow the usual pattern of always increasing with the addition of more variables ? 
+
+------------------------------------------------------------------------
+
+
+## Question 2
+
+Different states have different minimum wages. For example:
+
+- Alabama, Georgia, Mississippi: $7.25/hour (federal minimum)
+- Florida: $12.00/hour  
+- New York: $15.00/hour
+- California: $15.50/hour
+
+You want to estimate the effect of minimum wage on employment rates using data from different counties in the US indexed by $c$. You consider two regression specifications:
+
+$$\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + u_c \quad (1)$$
+
+$$\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + \beta_2 \text{avg\_wage}_c + u_c \quad (2)$$
+
+where `avg_wage` is the average wage in the county and `min_wage` is the minimum wage in the county (which is the same as the state minimum wage for all counties in that state).
+
+Which model correctly estimates the effect of minimum wage on employment and why?
+<!-- Scholarship → {More time to study, Less need to work} → Better grades → Graduation -->
+
+
+-----------------------------------------------
+
+
+
+## Q3
+
+Load the `wooldridge` library and using the `wage1` dataset, youa re interested in documenting the gender wage gap. 
+
+a. Start with running the following regression: $log(wage_i) = \beta_0 + \beta_1 \, female_i + u_i$ where `female` is a binary variable that takes the value 1 if the worker is female and 0 otherwise. Interpret the coefficient on `female`.
+b. In estimating the average gender wage gap, why did we not include a dummy variable for `male` in the regression above?
+c. Now include `educ` (years of education), `exper` (years of experience), and `tenure` (years with current employer) in your analysis. How and why does the inclusion of these variables affect the coefficient on `female`? (Report the estimates side by side using the `stargazer` or `modelsummary` package).
+d. Now suppose someone asks you does an additional year of education effects wages differently for male and female workers. How would you modify your regression to answer this question? Run the regression and interpret the relevant coefficients.
+e. Do you think adding any other variables *non-linearly* will be helpful? If so, which ones and do your best to show data patterns to support your argument? (You do not need to run any regressions for this part).
+
+-----------------------------------------------
+
+## Question 3
+
+a. Problem C6 Wooldridge Chapter 3. 
+b. How is this different from the partialling out analysis we did in class? Explain briefly.
+
+-----------------------------------------------
+
+## Question 4
+
+a. Problem C13 Wooldridge Chapter 3.

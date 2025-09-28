@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Introduction to Econometrics – Moshi Alam</title>
+<meta name="author" content="Prof Alam">
+<title>Econometrics PS 2 – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,23 +20,21 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5a718832dcfaff3176ef16ec28063a8b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-5a718832dcfaff3176ef16ec28063a8b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,22 +60,55 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-
-<link rel="stylesheet" href="../styles.css">
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../../../styles.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Moshi Alam</span>
     </a>
   </div>
@@ -89,16 +118,16 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+<li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="../../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -107,34 +136,34 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#syllabus" id="toc-syllabus" class="nav-link active" data-scroll-target="#syllabus">Syllabus</a></li>
-  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture slides:</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
+<li>
+<a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a>
+  <ul class="collapse">
+<li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#q3" id="toc-q3" class="nav-link" data-scroll-target="#q3">Q3</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-<div class="profile-header-container">
+<main class="content column-page-left" id="quarto-document-content"><div class="profile-header-container">
   <div class="profile-header">
     <div class="profile-image-wrapper">
       <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image">
-    </div>
+</div>
     <div class="profile-info">
       <div class="profile-name">Md Moshi Ul Alam</div>
       <div class="profile-title">Assistant Professor of Economics</div>
@@ -389,68 +418,88 @@ ul.task-list li input[type="checkbox"] {
   }
 
 </style>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introduction to Econometrics</h1>
+<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Econometrics PS 2</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
-    
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 28, 2025</p>
-    </div>
+             <p>Prof Alam </p>
+          </div>
   </div>
+    
+  
     
   </div>
   
 
 
-</header>
-
-
-<section id="syllabus" class="level1">
-<h1>Syllabus</h1>
-<p><a href="../teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf">Syllabus</a></p>
-<p>Also see <a href="../morepages/resourcesforugstudents.html">resources page for students</a></p>
-</section>
-<section id="lecture-slides" class="level1">
-<h1>Lecture slides:</h1>
+</header><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Follow the instructions of completing your problem set detailed in the syllabus.</em></p>
+</div>
+</div>
+<section id="question-1" class="level1"><h1>Question 1</h1>
+<p><em>Adapted from wooldridge</em></p>
+<p>Explore the <code>lawsch85</code> dataset from the <code>wooldridge</code> package after loading it in R. This dataset contains information on the number of law school admissions and various characteristics of law schools in 1985.</p>
+<ol type="a">
+<li>Estimate the following regression models using OLS. Report the estimates side by side (using the <code>stargazer</code> package or <code>modelsummary</code> package). Interpret the coefficients in each of the models. How does the inclusion of <code>age</code> and <code>clsize</code> affect the coefficients of <code>GPA</code> and <code>rank</code>?</li>
+</ol>
+<p>model 1: <code>lsalary</code> on <code>GPA</code> and <code>rank</code></p>
+<p>model 2: <code>lsalary</code> on <code>GPA</code>, <code>rank</code>, and <code>age</code></p>
+<p>model 3: <code>lsalary</code> on <code>GPA</code>, <code>rank</code>, and <code>clsize</code></p>
+<ol start="2" type="a">
+<li>Examine the R-squared values of the models. How does the inclusion of <code>age</code> affect the R-squared and why does it not follow the usual pattern of always increasing with the addition of more variables ?</li>
+</ol>
+<hr>
+<section id="question-2" class="level2"><h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p>Different states have different minimum wages. For example:</p>
 <ul>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/01_introRv2.html">Introduction to R</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/02_stat_review.pdf">Stat review and population concepts</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/03_regression.html">Simple Linear Regressions</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/04_mlr.html">Multiple Linear Regressions</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">More on MLR</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/05_inference.html">Inference in regression models</a></p></li>
-<li><p>Heteroskedasticity and serial correlation [covered by Zeyi in discussion section] <!-- - Mis-specification --></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf">Potential outcomes</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/08_RCT.pdf">RCTs</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf">IV, 2SLS and HTE</a></p></li>
-<li><p><a href="../teachingmaterials/UG_intro_metrics/summary.pdf">Summary</a> <!-- - Regression discontinuity
-- Non-linear models
-- Estimators for repeated cross-section and panel data
-- Difference-in-differences --></p></li>
+<li>Alabama, Georgia, Mississippi: $7.25/hour (federal minimum)</li>
+<li>Florida: $12.00/hour<br>
+</li>
+<li>New York: $15.00/hour</li>
+<li>California: $15.50/hour</li>
 </ul>
-</section>
-<section id="problem-sets" class="level1">
-<h1>Problem sets</h1>
-<ul>
-<li><a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.html">Problem Set 1 (due Sep 18)</a> | <a href="../teachingmaterials/UG_intro_metrics/pssol/ps1sol.html">Solutions</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html">Problem Set 2 (due Oct 5)</a></li>
-</ul>
+<p>You want to estimate the effect of minimum wage on employment rates using data from different counties in the US indexed by <span class="math inline">c</span>. You consider two regression specifications:</p>
+<p><span class="math display">\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + u_c \quad (1)</span></p>
+<p><span class="math display">\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + \beta_2 \text{avg\_wage}_c + u_c \quad (2)</span></p>
+<p>where <code>avg_wage</code> is the average wage in the county and <code>min_wage</code> is the minimum wage in the county (which is the same as the state minimum wage for all counties in that state).</p>
+<p>Which model correctly estimates the effect of minimum wage on employment and why? <!-- Scholarship → {More time to study, Less need to work} → Better grades → Graduation --></p>
+<hr></section><section id="q3" class="level2"><h2 class="anchored" data-anchor-id="q3">Q3</h2>
+<p>Load the <code>wooldridge</code> library and using the <code>wage1</code> dataset, youa re interested in documenting the gender wage gap.</p>
+<ol type="a">
+<li>Start with running the following regression: <span class="math inline">log(wage_i) = \beta_0 + \beta_1 \, female_i + u_i</span> where <code>female</code> is a binary variable that takes the value 1 if the worker is female and 0 otherwise. Interpret the coefficient on <code>female</code>.</li>
+<li>In estimating the average gender wage gap, why did we not include a dummy variable for <code>male</code> in the regression above?</li>
+<li>Now include <code>educ</code> (years of education), <code>exper</code> (years of experience), and <code>tenure</code> (years with current employer) in your analysis. How and why does the inclusion of these variables affect the coefficient on <code>female</code>? (Report the estimates side by side using the <code>stargazer</code> or <code>modelsummary</code> package).</li>
+<li>Now suppose someone asks you does an additional year of education effects wages differently for male and female workers. How would you modify your regression to answer this question? Run the regression and interpret the relevant coefficients.</li>
+<li>Do you think adding any other variables <em>non-linearly</em> will be helpful? If so, which ones and do your best to show data patterns to support your argument? (You do not need to run any regressions for this part).</li>
+</ol>
+<hr></section><section id="question-3" class="level2"><h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<ol type="a">
+<li>Problem C6 Wooldridge Chapter 3.</li>
+<li>How is this different from the partialling out analysis we did in class? Explain briefly.</li>
+</ol>
+<hr></section><section id="question-4" class="level2"><h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<ol type="a">
+<li>Problem C13 Wooldridge Chapter 3.</li>
+</ol>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -868,15 +917,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
  Copyright 2021, Md Moshi Ul Alam. Website created using Quarto.
   </li>  
 </ul>
-    </div>   
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -887,7 +935,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
-
-
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
