@@ -391,7 +391,7 @@ details {
 </div>
 <div class="paper-meta">with Daniel Meyer and Marcia Carlson</div>
 <div class="journal-info">
-<i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor's Choice Article</span>
+<i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice">⭐ Editor's Choice Article</span>
 </div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a>

@@ -165,6 +165,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     color: #3A3A3A;
     line-height: 1.6;
   }
+
+  /* Mobile navigation button (hamburger menu) */
+  .navbar-toggler {
+    border: 1px solid #A0522D !important;  /* Rust border */
+    background-color: #FFFDF8 !important;   /* Light background */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238B4513' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+
+   /* Make mobile nav more visible */
+  @media (max-width: 767px) {
+    .navbar {
+      border-bottom: 1px solid #E6D4B8 !important;  /* Add subtle border */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    }
+  }
 </style>
 
 
@@ -876,7 +894,7 @@ with Morris Davis and Jesse Gregory
 with Daniel Meyer and Marcia Carlson
 </div>
 <div class="journal-info">
-<p><i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor’s Choice Article</span></p>
+<p><i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice">⭐ Editor’s Choice Article</span></p>
 </div>
 <div class="paper-links">
 <p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a></p>

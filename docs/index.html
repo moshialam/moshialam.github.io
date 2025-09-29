@@ -166,6 +166,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     color: #3A3A3A;
     line-height: 1.6;
   }
+
+  /* Mobile navigation button (hamburger menu) */
+  .navbar-toggler {
+    border: 1px solid #A0522D !important;  /* Rust border */
+    background-color: #FFFDF8 !important;   /* Light background */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238B4513' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+
+   /* Make mobile nav more visible */
+  @media (max-width: 767px) {
+    .navbar {
+      border-bottom: 1px solid #E6D4B8 !important;  /* Add subtle border */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    }
+  }
 </style>
 
 
@@ -455,7 +473,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!--   -->
 <!-- Note that the icons and buttons are from bootstrap -->
 <p><!-- <a href="mailto:mdalam@clarku.edu" class="btn btn-info btn-sm"> <i class="bi bi-envelope-at"></i>  **Email** </a> <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn btn-info btn-sm"> <i class="bi bi-filetype-pdf"></i>  **CV** </a> <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=SWaFdk8AAAAJ" class="btn btn-info btn-sm"> <i class="bi bi-google"></i> **Scholar** </a> <a href="https://twitter.com/MoshiAlam" class="btn btn-dark btn-sm"> <i class="bi bi-twitter-x"></i> </a> <a href="https://bsky.app/profile/moshialam.bsky.social" class="btn btn-info btn-sm"> *BlueSky* </a> --></p>
-<p>Hi!😊 I am a labor economist. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics. Depending on the question, I use either reduced form, or structural models, or both,–and at times I design surveys to collect data with identifying variation. I received my PhD in Economics, from the <a href="https://econ.wisc.edu/" style="color: #A0522D; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">University of Wisconsin-Madison</a>.</p>
+<p>Hi!😊 I am a labor economist. My research fields are <em>Labor Economics, Public Economics</em> and <em>Applied Econometrics</em>. In my work, I use both design-based (<em>reduced form</em>) and model-based (<em>structural</em>) methods, and at times I <em>design surveys</em> to collect data with identifying variation. I received my PhD in Economics, from the <a href="https://econ.wisc.edu/" style="color: #A0522D; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">University of Wisconsin-Madison</a>.</p>
+<p><!-- Depending on the question, I use either *reduced form methods, or structural models, or both*,--and at times I *design surveys* to collect data with identifying variation. My research interests are in answering microeconomic questions on economic inequality in Labor and Public Economics.  --></p>
 <!-- ---
 title: "Research". purple theme: 9158A2
 --- -->
@@ -799,7 +818,7 @@ with Morris Davis and Jesse Gregory
 with Daniel Meyer and Marcia Carlson
 </div>
 <div class="journal-info">
-<p><i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor’s Choice Article</span></p>
+<p><i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice">⭐ Editor’s Choice Article</span></p>
 </div>
 <div class="paper-links">
 <p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a></p>
