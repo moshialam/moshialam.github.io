@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5a718832dcfaff3176ef16ec28063a8b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-391ac0ffccbb3bf0019dee70612ff9d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,6 +67,69 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+  :root {
+    --cream-bg: #FFFDF8;      /* Much lighter, almost white with hint of warmth */
+    --dark-text: #3A3A3A;     /* Softer dark gray, not harsh black */
+    --rust-link: #B8653A;     /* Warm rust/terracotta for links */
+    --rust-hover: #A0522D;    /* Darker rust on hover */
+    --nav-text: #8B5A3C;      /* Brown for navigation */
+  }
+  
+  body {
+    background-color: #FFFDF8 !important;  /* Very light cream */
+    color: #3A3A3A !important;              /* Soft dark gray */
+  }
+  
+  .navbar {
+    background-color: #FFFDF8 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0rem !important;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #8B5A3C !important;    /* Warm brown */
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 1.rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #B8653A !important;
+    text-decoration: none;
+  }
+  
+  /* Main content links */
+  a {
+    color: #A0522D;       /* Warm rust/terracotta */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #8B4513;       /* Darker rust on hover */
+    text-decoration: underline;
+  }
+  
+  /* Headers */
+  h1, h2, h3, h4, h5, h6 {
+    color: #2C3E50;       /* Slightly darker for headers */
+  }
+  
+  .page-footer {
+    background-color: #FAF5F0 !important;  /* Slightly darker than body */
+    border-top: 1px solid #F0E8DF;
+    color: #6B5D54;
+  }
+  
+  /* Make text more readable */
+  p, li {
+    color: #3A3A3A;
+    line-height: 1.6;
+  }
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -166,7 +229,8 @@ ul.task-list li input[type="checkbox"] {
   /* Profile Header Container */
   .profile-header-container {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: -2.5rem;
     padding: 0;
   }
 
@@ -224,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
   }
 
   .profile-affiliation a {
-    color: #9158A2;
+    color: #A0522D;
     text-decoration: none;
     font-weight: 500;
   }
@@ -265,24 +329,26 @@ ul.task-list li input[type="checkbox"] {
 
   /* Email Button */
   .btn-email {
-    background: #9158A2;
+    background: #A0522D;
     color: white;
   }
 
   .btn-email:hover {
-    background: #7a4691;
+    background: #8B4513;
     transform: translateY(-1px);
+    color: white;
   }
 
   /* CV Button */
   .btn-cv {
-    background: #17a2b8;
+    background: #A0522D;
     color: white;
   }
 
   .btn-cv:hover {
-    background: #138496;
+    background: #8B4513;
     transform: translateY(-1px);
+    color: white;
   }
 
   /* Social Buttons */
@@ -293,7 +359,8 @@ ul.task-list li input[type="checkbox"] {
   }
 
   .btn-twitter {
-    background: #1a1a1a;
+    /* background: #1a1a1a; */
+    background: #A0522D;
     color: white;
   }
 
@@ -302,13 +369,15 @@ ul.task-list li input[type="checkbox"] {
   }
 
   .btn-bluesky {
-    background: #00A8E8;
+    /* background: #00A8E8; */
+    background: #A0522D;
     color: white;
     padding: 0.4rem 0.8rem;
   }
 
   .btn-bluesky:hover {
     background: #0090c7;
+    color: white;
   }
 
   .btn-text-only {

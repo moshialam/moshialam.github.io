@@ -1,5 +1,5 @@
 <!-- ---
-title: "Research"
+title: "Research". purple theme: 9158A2
 --- -->
 
 <style>
@@ -11,11 +11,12 @@ title: "Research"
 
 .paper-item {
   display: block;
-  background: white;
-  border-left: 3px solid #9158A2;
+  background: #FFFDF8;
+  /* background: white; */
+  border-left: 3px solid #A0522D;
   border-radius: 8px;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   width: 100%;
@@ -30,7 +31,7 @@ title: "Research"
 .paper-title-line {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: -.5rem;
   line-height: 1.4;
 }
 
@@ -40,14 +41,15 @@ title: "Research"
 }
 
 .paper-title-line a:hover {
-  color: #9158A2;
+  color: #A0522D;
   text-decoration: underline;
 }
 
 .paper-meta {
   color: #6c757d;
+  /* color: black; */
   font-style: italic;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.1rem;
   font-size: 0.95rem;
 }
 
@@ -58,7 +60,7 @@ title: "Research"
 .btn-abstract {
   display: inline-block;
   padding: 0.35rem 0.75rem;
-  background: #9158A2;
+  background: #A0522D;
   color: white !important;
   border-radius: 6px;
   text-decoration: none !important;
@@ -68,7 +70,7 @@ title: "Research"
 }
 
 .btn-abstract:hover {
-  background: #7a4691;
+  background: #8B4513;
   color: white !important;
 }
 
@@ -76,8 +78,8 @@ title: "Research"
   display: inline-block;
   padding: 0.3rem 0.7rem;
   background: white;
-  border: 1px solid #9158A2;
-  color: #9158A2 !important;
+  border: 1px solid #A0522D;
+  color: #A0522D !important;
   border-radius: 20px;
   text-decoration: none !important;
   font-size: 0.85rem;
@@ -86,12 +88,9 @@ title: "Research"
 }
 
 .btn-link:hover {
-  background: rgba(145, 88, 162, 0.08);
-}
-
-.btn-link.ssrn {
-  border-color: #dc3545;
-  color: #dc3545 !important;
+  background: #8B4513;
+  color: white !important;
+  /* background: rgba(145, 88, 162, 0.08); */
 }
 
 .paper-status {
@@ -108,27 +107,11 @@ title: "Research"
 }
 
 .badge-rr {
-  background: #d1f2eb;
-  color: #00695c;
+  background: #fff3e0;                  /* Warm beige - positive */
+  color: #6B4423;                      /* Dark brown */
+  /* border: 1px solid #C4A57B;           Light brown border */
 }
 
-.badge-review {
-  background: #fff3e0;
-  color: #e65100;
-}
-
-.badge-coming {
-  background: #e8eaf6;
-  color: #4527a0;
-}
-
-/* .badge-update {
-  background: #17a2b8;
-  color: white;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-} */
 .badge-update {
   background: transparent;
   color: #6c757d;
@@ -141,34 +124,35 @@ title: "Research"
   font-size: 0.8rem;
   margin-right: 0.2rem;
 }
+
 .badge-jmp {
-  background: rgba(145, 88, 162, 0.1);
-  color: #9158A2;
-  border: 1px solid #9158A2;
+  background: rgba(160, 82, 45, 0.1);  /* Light rust background */
+  color: #8B4513;                      /* Rich brown text */
+  border: 1px solid #A0522D;           /* Rust border */
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
   margin-left: 0.5rem;
 }
 
+
 .badge-choice {
-  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-  color: #ad7237;
-  border: 1px solid #ad7237;
+  background: linear-gradient(135deg, #F4E4D1, #E8D0B3);  /* Warm champagne gradient */
+  color: #8B4513;                                         /* Rich brown text */
+  border: 1px solid #C19A6B;                             /* Camel/bronze border */
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   margin-left: 0.5rem;
+  box-shadow: 0 1px 3px rgba(139, 69, 19, 0.15);        /* Subtle shadow for prestige */
 }
 
 .section-heading {
   margin: 2.5rem 0 1.5rem 0;
   padding: 0.75rem 1rem;
   background: linear-gradient(to right, rgba(145, 88, 162, 0.08), transparent);
-  border-left: 4px solid #9158A2;
+  border-left: 4px solid #A0522D;
   border-radius: 0 8px 8px 0;
   font-size: 1.4rem;
   font-weight: 600;
@@ -191,13 +175,14 @@ title: "Research"
 }
 
 .paper-item.in-progress {
-  border-left-color: #17a2b8;
+  border-left-color: #C4A57B;
   opacity: 0.95;
-  background: #f9f9f9;
+  background: #FAF8F5;
 }
 
 .paper-item.in-progress .paper-title-line {
   font-style: italic;
+  color: #6c757d;
 }
 
 .journal-info {
@@ -271,16 +256,6 @@ title: "Research"
   }
 }
 
-/* Optional: Make the published paper stand out by spanning both columns */
-/* Uncomment if you want the published paper to be full width */
-/*
-@media (min-width: 992px) {
-  .paper-item.published {
-    grid-column: 1 / -1;
-  }
-}
-*/
-
 /* Optional: Balance the columns better for odd numbers of papers */
 @media (min-width: 992px) {
   .paper-item:last-child:nth-child(odd) {
@@ -311,8 +286,7 @@ details {
 
 /* For paper titles that ARE links (clickable) */
 .paper-title-line a {
-  color: #9158A2;
-  /* color: #0066cc;  Classic link blue */
+  color: #A0522D;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
@@ -320,11 +294,8 @@ details {
 }
 
 .paper-title-line a:hover {
-  /* color: #0052a3; */
-  color: #7a4691;
+  color: #8B4513;
   text-decoration: underline;
-  /* OR use border instead of underline: */
-  /* border-bottom: 1px solid #7a4691; */
 }
 
 /* For paper titles that are NOT links (plain text) */
@@ -355,12 +326,12 @@ details {
 <div class="paper-item">
 <div class="paper-title-line">
 <strong>1.</strong> <a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
-<span class="badge-jmp">PhD JMP</span>
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">R&R at Quantitative Economics</span>
-<span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span>
+<span class="badge-status badge-rr">R&R at *Quantitative Economics*</span>
+<span class="badge-jmp">PhD JMP</span>
+<!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> -->
 </div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a>
@@ -374,24 +345,24 @@ details {
 </div>
 <div class="paper-meta">with Monica Agarwal</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">R&R at Journal of Human Resources</span>
-<span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span>
+<span class="badge-status badge-rr">R&R at *Journal of Human Resources*</span>
+<!-- <span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span> -->
 </div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a>
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link ssrn">SSRN</a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a>
 </div>
 </div>
 
 <div class="paper-item">
 <div class="paper-title-line">
 <strong>3.</strong> <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
-<span class="badge-jmp">Post-doc JMP</span>
 </div>
 <div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
 <div class="paper-status">
-<span class="badge-status badge-review">Under Review</span>
-<span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span>
+<span class="badge-status badge-rr">Under Review</span>
+<!-- <span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span> -->
+<span class="badge-jmp">Post-doc JMP</span>
 </div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
@@ -404,7 +375,7 @@ details {
 </div>
 <div class="paper-meta">with Morris Davis and Jesse Gregory</div>
 <div class="paper-status">
-<span class="badge-status badge-coming">Draft Coming Soon</span>
+<span class="badge-status badge-rr">Draft Coming Soon</span>
 </div>
 </div>
 
@@ -419,12 +390,12 @@ details {
 <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm">Increases in shared custody after divorce in the United States</a>
 </div>
 <div class="paper-meta">with Daniel Meyer and Marcia Carlson</div>
+<div class="journal-info">
+<i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor's Choice Article</span>
+</div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a>
 <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a>
-</div>
-<div class="journal-info">
-<i class="bi bi-journal-text"></i> Demographic Research 46 (2022): 1137-1162 <span class="badge-choice">⭐ Editor's Choice Article</span>
 </div>
 </div>
 

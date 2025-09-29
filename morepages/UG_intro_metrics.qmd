@@ -48,32 +48,33 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 
 <style>
 .course-section {
-  margin-bottom: 1.25rem; /* Reduced from 2rem */
+  margin-bottom: 1.25rem;
 }
 
 .section-header {
-  padding: 0.5rem 0.75rem; /* Reduced padding */
-  background: linear-gradient(to right, rgba(145, 88, 162, 0.08), transparent);
-  border-left: 4px solid #9158A2;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(to right, rgba(160, 82, 45, 0.08), transparent);
+  border-left: 4px solid #A0522D;  /* Rust color */
   border-radius: 0 8px 8px 0;
-  color: #2c3e50;
-  margin-bottom: 0.75rem; /* Reduced from 1rem */
-  margin-top: 0; /* Ensure no extra top margin */
-  font-size: 1.0rem; /* Slightly smaller font */
+  color: #3A3A3A;  /* Soft dark gray */
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+  font-size: 1.0rem;
 }
 
 .resource-card {
-  background: white;
+  background: #FFFDF8;  /* Very light cream */
   border-radius: 8px;
-  padding: 1rem; /* Reduced from 1.25rem */
+  padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  border-left: 3px solid #D1D9CE;
+  border-left: 3px solid #E6D4B8;  /* Light tan */
   transition: all 0.3s ease;
 }
 
 .resource-card:hover {
   box-shadow: 0 4px 6px rgba(0,0,0,0.12);
-  border-left-color: #9158A2;
+  border-left-color: #A0522D;  /* Rust on hover */
+  transform: translateX(2px);
 }
 
 .resource-card ol, .resource-card ul {
@@ -85,23 +86,24 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 .resource-card li {
   padding: 0.25rem 0; 
   font-size: 0.9rem;
+  color: #3A3A3A;  /* Soft dark gray for text */
 }
 
 .resource-card a {
-  color: #2c3e50;
+  color: #A0522D;  /* Rust for links */
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .resource-card a:hover {
-  color: #9158A2;
+  color: #8B4513;  /* Darker brown on hover */
   text-decoration: underline;
 }
 
 /* Button styling */
 .btn-primary {
-  background: #9158A2 !important;
-  border-color: #9158A2 !important;
+  background: #A0522D !important;  /* Rust */
+  border-color: #A0522D !important;
   color: white !important;
   padding: 0.4rem 0.9rem; 
   text-decoration: none !important;
@@ -114,12 +116,12 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 }
 
 .btn-primary:hover {
-  background: #7a4691 !important;
-  border-color: #7a4691 !important;
+  background: #8B4513 !important;  /* Darker brown */
+  border-color: #8B4513 !important;
   color: white !important;
   text-decoration: none !important;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
 }
 
 .btn-primary i {
@@ -127,9 +129,10 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
   color: white !important;
 }
 
-/* Remove any default h2 margins that Quarto might add */
+/* Headers */
 h2 {
   margin-top: 0 !important;
+  color: #3A3A3A;
 }
 </style>
 
