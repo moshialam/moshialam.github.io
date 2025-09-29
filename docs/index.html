@@ -527,7 +527,21 @@ title: "Research". purple theme: 9158A2
 }
 .btn-abstract {
   display: inline-block;
+  padding: calc(0.35rem - 1px) 0.75rem;
+  background: white;
+  border: 1px solid #A0522D;
+  color: #A0522D !important;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+/* .btn-abstract {
+  display: inline-block;
   padding: 0.35rem 0.75rem;
+  border: 1px solid #A0522D;
   background: #A0522D;
   color: white !important;
   border-radius: 6px;
@@ -535,7 +549,7 @@ title: "Research". purple theme: 9158A2
   font-size: 0.85rem;
   margin-right: 0.5rem;
   transition: background 0.2s ease;
-}
+} */
 .btn-abstract:hover {
   background: #8B4513;
   color: white !important;
@@ -705,13 +719,6 @@ title: "Research". purple theme: 9158A2
     grid-column: 1;
   }
 }
-/* Adjust for very wide screens - optional 3 column layout
-@media (min-width: 1400px) {
-  .papers-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-} */
 /* Ensure navigation and dormant sections remain full width */
 .section-nav,
 .dormant-summary,
@@ -720,7 +727,6 @@ details {
 }
 </style>
 <style>
-/* Keep all your existing styles, then ADD/MODIFY these */
 /* For paper titles that ARE links (clickable) */
 .paper-title-line a {
   color: #A0522D;
@@ -749,6 +755,146 @@ details {
   margin-left: 0.25rem;
 }
 </style>
+<style>
+/* BibTeX citation button styling */
+/* Toast notification for copy confirmation */
+.copy-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.copy-toast.show {
+  opacity: 1;
+}
+.copy-toast i {
+  font-size: 1.1rem;
+}
+/* Optional: Modal for showing BibTeX (if you want to show it before copying) */
+.bibtex-modal-content {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  color: #495057;
+}
+</style>
+<!-- Add this JavaScript section before your papers list -->
+<script>
+// BibTeX citations for all papers
+const bibtexCitations = {
+  workerdisc: `@unpublished{alam2025employee,
+  title = {Employee-Side Discrimination: Beliefs and Preferences},
+  author = {Alam, Md Moshi Ul and Mookerjee, Mehreen and Roy, Sanket},
+  year = {2025},
+  note = {Working Paper, R\&R at Quantitative Economics},
+  url = {https://moshialam.github.io/papers/Alam_JMP_Oct21.pdf}
+}`,
+  sanitation: `@unpublished{agarwal2024unintended,
+  title = {The Unintended Benefits of Women's Empowerment on Household Sanitation},
+  author = {Agarwal, Monica and Alam, Md Moshi Ul},
+  year = {2024},
+  month = {October},
+  note = {Working Paper, R&R at Journal of Human Resources. Available at SSRN: https://ssrn.com/abstract=4992568},
+  doi = {10.2139/ssrn.4992568}
+}`,
+  payequity: `@unpublished{alam2025labor,
+  title = {Labor Market Consequences of Pay-Equity Laws},
+  author = {Alam, Md Moshi Ul and Lehrer, Steven and Pereira, Nuno Souso},
+  year = {2025},
+  note = {Working Paper}
+}`,
+  placebased: `@unpublished{alam2025computing,
+  title = {Computing Optimal Place-Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption},
+  author = {Alam, Md Moshi Ul and Davis, Morris and Gregory, Jesse},
+  year = {2025},
+  note = {Working Paper}
+}`,
+  divorce: `@article{meyer2022increases,
+  title = {Increases in Shared Custody After Divorce in the United States},
+  author = {Meyer, Daniel and Alam, Md Moshi Ul and Carlson, Marcia},
+  journal = {Demographic Research},
+  volume = {46},
+  number = {38},
+  pages = {1137--1162},
+  year = {2022},
+  doi = {10.4054/DemRes.2022.46.38}
+}`
+};
+// Function to copy BibTeX to clipboard
+function copyBibTeX(paperId) {
+  const bibtex = bibtexCitations[paperId];
+  if (!bibtex) {
+    showToast('Citation not available', 'error');
+    return;
+  }
+  // Use modern clipboard API if available, fallback to older method
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(bibtex).then(() => {
+      showToast('BibTeX copied to clipboard!');
+    }).catch(() => {
+      fallbackCopy(bibtex);
+    });
+  } else {
+    fallbackCopy(bibtex);
+  }
+}
+// Fallback copy method for older browsers
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  textarea.style.pointerEvents = 'none';
+  document.body.appendChild(textarea);
+  textarea.select();
+  try {
+    document.execCommand('copy');
+    showToast('BibTeX copied to clipboard!');
+  } catch (err) {
+    showToast('Failed to copy', 'error');
+  }
+  document.body.removeChild(textarea);
+}
+// Function to show toast notification
+function showToast(message, type = 'success') {
+  // Remove existing toast if any
+  const existingToast = document.querySelector('.copy-toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+  // Create new toast
+  const toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  const icon = type === 'success' ? 'check-circle-fill' : 'exclamation-circle-fill';
+  const bgColor = type === 'success' ? '#28a745' : '#dc3545';
+  toast.style.background = bgColor;
+  toast.innerHTML = `<i class="bi bi-${icon}"></i> ${message}`;
+  document.body.appendChild(toast);
+  // Show toast
+  setTimeout(() => toast.classList.add('show'), 10);
+  // Hide and remove toast after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+</script>
 <section id="working-papers" class="level4">
 <h4 data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
 <div class="papers-list">
@@ -763,7 +909,7 @@ with Mehreen Mookerjee and Sanket Roy
 <p><span class="badge-status badge-rr">R&amp;R at <em>Quantitative Economics</em></span> <span class="badge-jmp">PhD JMP</span> <!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> --></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix A-C</a></p>
+<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix A-C</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -777,7 +923,7 @@ with Monica Agarwal
 <p><span class="badge-status badge-rr">R&amp;R at <em>Journal of Human Resources</em></span> <!-- <span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span> --></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a></p>
+<p><a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a> <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -791,7 +937,7 @@ with Steven Lehrer and Nuno Souso Pereira
 <p><span class="badge-status badge-rr">Under Review</span> <!-- <span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span> --> <span class="badge-jmp">Post-doc JMP</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a></p>
+<p><a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -821,7 +967,7 @@ with Daniel Meyer and Marcia Carlson
 <p><i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice">⭐ Editor’s Choice Article</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a></p>
+<p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a> <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
 </div>
 </div>
 </div>
