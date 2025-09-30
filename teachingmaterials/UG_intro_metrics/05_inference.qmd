@@ -10,7 +10,6 @@ format:
     chalkboard: true
 execute:
   echo: true
-editor: visual
 ---
 
 ## Introduction {.smaller}
@@ -30,7 +29,7 @@ Population model: $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \b
 Now, based on *sample estimates and standard errors.* we will answer questions like:
 
 - Whether the estimated coefficient is statistically significant at any confidence level?
-  - Means: Whether the true population parameter is different from zero at any confidence level?
+  - Whether the true population parameter estimate is statistically  different from zero at any confidence level?
 :::
 :::{.column width="50%"}
 
@@ -43,88 +42,24 @@ summary(reg1)
 :::
 :::
 
-# Refreshers from Econ 160
+## Recall from Econ160 {.smaller}
 
+::::::{.incremental}
+- To test equality of proportions between two groups, we used the $z$-test
+  - $H_0: p_1 - p_2 = 0$ vs $H_1: p_1 - p_2 \neq 0$
+  - Test statistic: $z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}}$ Follows a standard normal distribution
+  - CI: $(\hat{p}_1 - \hat{p}_2) \pm z_{\alpha/2}^* \sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}$
+- To test equality of means between two groups, we used the $t$-test
+  - $H_0: \mu_1 - \mu_2 = 0$ vs $H_1: \mu_1 - \mu_2 \neq 0$
+  - Test statistic: $t = \frac{(\bar{y}_1 - \bar{y}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$ Follows a $t$ distribution with $n_1 + n_2 - 2$ (d.o.f.)
+  - CI: $(\bar{y}_1 - \bar{y}_2) \pm t_{\alpha/2, n_1 + n_2 - 2}^* \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
 
+::: {.callout-note icon="false"}
+### Assumptions
+random sampling, independence, and large sample size
+:::
 
-## Normal Distributions {.smaller}
-Random variable: $X \sim N(\mu, \sigma^2)$
-
-PDF: $f(X = x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$, where
-
-- $E(X) = \mu$ is the mean and $Var(X) = \sigma^2$ is the variance
-- The distirbution is symmetric around $\mu$
-
-Properties:
-
-- $Z = \frac{X - \mu}{\sigma}$ is the standard normal random variable with mean 0 and variance 1
-- Transformation of X such as $aX + b \sim N(a\mu + b, a^2\sigma^2)$
-- If X & Y are independent normal random variables, then $X + Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$
-- Any linear combination of normal random variables is normal
-
-
-## $\chi^2_n$ and $t_n$ {.smaller}
-$Z_i \sim N(0,1)$ for $i = 1, 2, \ldots, n$ independent standard normal random variables
-
-- The sum of squared independent standard normal random variables follows a chi-square distribution with $n$ d.o.f..  Let $Q = \sum_{i=1}^n Z_i^2$ $$Q \sim \chi^2_n$$  
-  - $E(Q) = n$ and $Var(Q) = 2n$
-  <!-- - The sample variance is a random variable and follows a chi-square distribution -->
-- The ratio of a standard normal random variable and a chi-square random variable follows a t-distribution. Let $T = \frac{Z}{\sqrt{Q/n}}$ $$T \sim t_n$$
-  <!-- - Let $Z \sim N(0,1)$ and $Q \sim \chi^2_n$ independent random variables, then $$T = \frac{Z}{\sqrt{Q/n}} \sim t_n$$ -->
-  - $E(T) = 0$ and $Var(T) = n/(n-2)$ for $n > 2$
-  - Shape of the t-distribution is similar to the normal distribution but more spread out (heavier tails). Check out Figure B-9 in Math Refresher B 
-- As sample size increases, the t-distribution approaches the standard normal distribution
-
-## sampling distributions {.smaller}
-
-<!-- - **Population distribution:** The distribution of the variable of interest in the population -->
-The distribution of the sample statistic (e.g., sample mean, sample variance, regression coefficients) over repeated independent sampling
-
-- **Sampling variability:** The variability of the sample statistic across different samples
-- **Standard error:** The estimate of the standard deviation of the sampling distribution of a sample statistic
-- **Central Limit Theorem (CLT):** Let $\{X_1, X_2, \ldots, X_n\}$ be a random sample of size $n$ from a population with mean $\mu$ and variance $\sigma^2$. Then, as $n$ approaches infinity,  $\bar{X} \sim N(\mu, \sigma^2/n)$ so that $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$
-  <!-- - The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.  -->
-- Recall from Econ 160:
-  - The sampling distribution of the *sample proportion* $\hat{p}$ approaches a normal distribution with mean $p$ and variance $p(1-p)/n$.
-  - The sampling distribution of *sample means* follows a $t$-distribution with $n-1$ degrees of freedom 
-  
-
-## Hypothesis testing {.smaller}
-
-- **Null hypothesis $H_0$:** A statement about the population parameter that is assumed to be true and test against an alternative hypothesis $H_1$
-- **Type I error:** Rejecting the $H_0$ when it is true
-- **Type II error:** Failing to reject the $H_0$ when it is false
-- **Significance level:** The probability of committing a Type I error, denoted by $\alpha$
-- **Confidence interval:** A range of values where we are $1-\alpha$ confident that the true population parameter lies within
-  - estimate $\pm$ critical value $\times$ standard error
-  - What happens if the CI contains the hypothesized value?
-- Tests can only allow us to reject the $H_0$ or fail to reject the $H_0$ but never accept the $H_0$. Why? 
-
-## {.smaller}
-- **p-value:** The probability of observing the sample (statistic) if $H_0$ were true
-  - What does it mean when p-value is less than $\alpha$?
-- **Critical value:** The value that separates the rejection region from the non-rejection region in hypothesis testing
-  - What is critical value for a two-tailed test with $\alpha = 0.05$?
-- **Critical region:** The range of values that leads to the rejection of the $H_0$
-- **One-tailed test:** A hypothesis test that tests the $H_0$ in one direction
-- **Two-tailed test:** A hypothesis test that tests the $H_0$ in both directions
-<!-- - **Degrees of freedom:** The number of independent observations in a sample that are available to estimate a parameter -->
-<!-- - **t-distribution:** A family of distributions that are similar to the normal distribution but with heavier tails, used for hypothesis testing when the population standard deviation is unknown -->
-<!-- - **Chi-square distribution:** A family of distributions that are used for hypothesis testing when the population standard deviation  is unknown -->
-<!-- - **F-distribution:** A family of distributions that are used for hypothesis testing when comparing the variances of two populations -->
-
-
-
-
-
-
-
-
-
-
-
-
-
+::::::
 
 # Hypothesis testing in MLR
 
@@ -306,7 +241,7 @@ summary(lm(math10 ~ log(totcomp) + log(staff) + log(enroll), data=meap93))
 
 
 
-## Computing p-values {.smaller}
+## Computing p-values directly in R {.smaller}
 
 - p-value is the probability of observing the sample (statistic) if $H_0$ is true
 - Indeed you can do this using a table.

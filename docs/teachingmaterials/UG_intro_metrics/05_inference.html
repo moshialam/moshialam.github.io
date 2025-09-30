@@ -221,7 +221,7 @@ Moshi Alam
 <ul>
 <li>Whether the estimated coefficient is statistically significant at any confidence level?
 <ul>
-<li>Means: Whether the true population parameter is different from zero at any confidence level?</li>
+<li>Whether the true population parameter estimate is statistically different from zero at any confidence level?</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -255,89 +255,35 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div></div>
 </section>
-<section>
-<section id="refreshers-from-econ-160" class="title-slide slide level1 center">
-<h1>Refreshers from Econ 160</h1>
-
+<section id="recall-from-econ160" class="slide level2 smaller">
+<h2>Recall from Econ160</h2>
+<div>
+<ul>
+<li class="fragment">To test equality of proportions between two groups, we used the <span class="math inline">\(z\)</span>-test
+<ul>
+<li class="fragment"><span class="math inline">\(H_0: p_1 - p_2 = 0\)</span> vs <span class="math inline">\(H_1: p_1 - p_2 \neq 0\)</span></li>
+<li class="fragment">Test statistic: <span class="math inline">\(z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}}\)</span> Follows a standard normal distribution</li>
+<li class="fragment">CI: <span class="math inline">\((\hat{p}_1 - \hat{p}_2) \pm z_{\alpha/2}^* \sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}\)</span></li>
+</ul></li>
+<li class="fragment">To test equality of means between two groups, we used the <span class="math inline">\(t\)</span>-test
+<ul>
+<li class="fragment"><span class="math inline">\(H_0: \mu_1 - \mu_2 = 0\)</span> vs <span class="math inline">\(H_1: \mu_1 - \mu_2 \neq 0\)</span></li>
+<li class="fragment">Test statistic: <span class="math inline">\(t = \frac{(\bar{y}_1 - \bar{y}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}\)</span> Follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n_1 + n_2 - 2\)</span> (d.o.f.)</li>
+<li class="fragment">CI: <span class="math inline">\((\bar{y}_1 - \bar{y}_2) \pm t_{\alpha/2, n_1 + n_2 - 2}^* \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\)</span></li>
+</ul></li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Assumptions</strong></p>
+</div>
+<div class="callout-content">
+<p>random sampling, independence, and large sample size</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="normal-distributions" class="slide level2 smaller">
-<h2>Normal Distributions</h2>
-<p>Random variable: <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></p>
-<p>PDF: <span class="math inline">\(f(X = x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}\)</span>, where</p>
-<ul>
-<li><span class="math inline">\(E(X) = \mu\)</span> is the mean and <span class="math inline">\(Var(X) = \sigma^2\)</span> is the variance</li>
-<li>The distirbution is symmetric around <span class="math inline">\(\mu\)</span></li>
-</ul>
-<p>Properties:</p>
-<ul>
-<li><span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span> is the standard normal random variable with mean 0 and variance 1</li>
-<li>Transformation of X such as <span class="math inline">\(aX + b \sim N(a\mu + b, a^2\sigma^2)\)</span></li>
-<li>If X &amp; Y are independent normal random variables, then <span class="math inline">\(X + Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)\)</span></li>
-<li>Any linear combination of normal random variables is normal</li>
-</ul>
-</section>
-<section id="chi2_n-and-t_n" class="slide level2 smaller">
-<h2><span class="math inline">\(\chi^2_n\)</span> and <span class="math inline">\(t_n\)</span></h2>
-<p><span class="math inline">\(Z_i \sim N(0,1)\)</span> for <span class="math inline">\(i = 1, 2, \ldots, n\)</span> independent standard normal random variables</p>
-<ul>
-<li>The sum of squared independent standard normal random variables follows a chi-square distribution with <span class="math inline">\(n\)</span> d.o.f.. Let <span class="math inline">\(Q = \sum_{i=1}^n Z_i^2\)</span> <span class="math display">\[Q \sim \chi^2_n\]</span>
-<ul>
-<li><span class="math inline">\(E(Q) = n\)</span> and <span class="math inline">\(Var(Q) = 2n\)</span> <!-- - The sample variance is a random variable and follows a chi-square distribution --></li>
-</ul></li>
-<li>The ratio of a standard normal random variable and a chi-square random variable follows a t-distribution. Let <span class="math inline">\(T = \frac{Z}{\sqrt{Q/n}}\)</span> <span class="math display">\[T \sim t_n\]</span> <!-- - Let $Z \sim N(0,1)$ and $Q \sim \chi^2_n$ independent random variables, then $$T = \frac{Z}{\sqrt{Q/n}} \sim t_n$$ -->
-<ul>
-<li><span class="math inline">\(E(T) = 0\)</span> and <span class="math inline">\(Var(T) = n/(n-2)\)</span> for <span class="math inline">\(n &gt; 2\)</span></li>
-<li>Shape of the t-distribution is similar to the normal distribution but more spread out (heavier tails). Check out Figure B-9 in Math Refresher B</li>
-</ul></li>
-<li>As sample size increases, the t-distribution approaches the standard normal distribution</li>
-</ul>
-</section>
-<section id="sampling-distributions" class="slide level2 smaller">
-<h2>sampling distributions</h2>
-<!-- - **Population distribution:** The distribution of the variable of interest in the population -->
-<p>The distribution of the sample statistic (e.g., sample mean, sample variance, regression coefficients) over repeated independent sampling</p>
-<ul>
-<li><strong>Sampling variability:</strong> The variability of the sample statistic across different samples</li>
-<li><strong>Standard error:</strong> The estimate of the standard deviation of the sampling distribution of a sample statistic</li>
-<li><strong>Central Limit Theorem (CLT):</strong> Let <span class="math inline">\(\{X_1, X_2, \ldots, X_n\}\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then, as <span class="math inline">\(n\)</span> approaches infinity, <span class="math inline">\(\bar{X} \sim N(\mu, \sigma^2/n)\)</span> so that <span class="math inline">\(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)\)</span> <!-- - The average from a random random sample for any population (with finite variance), when standardized, has a standard normal distribution as sample size tends to infinity.  --></li>
-<li>Recall from Econ 160:
-<ul>
-<li>The sampling distribution of the <em>sample proportion</em> <span class="math inline">\(\hat{p}\)</span> approaches a normal distribution with mean <span class="math inline">\(p\)</span> and variance <span class="math inline">\(p(1-p)/n\)</span>.</li>
-<li>The sampling distribution of <em>sample means</em> follows a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n-1\)</span> degrees of freedom</li>
-</ul></li>
-</ul>
-</section>
-<section id="hypothesis-testing" class="slide level2 smaller">
-<h2>Hypothesis testing</h2>
-<ul>
-<li><strong>Null hypothesis <span class="math inline">\(H_0\)</span>:</strong> A statement about the population parameter that is assumed to be true and test against an alternative hypothesis <span class="math inline">\(H_1\)</span></li>
-<li><strong>Type I error:</strong> Rejecting the <span class="math inline">\(H_0\)</span> when it is true</li>
-<li><strong>Type II error:</strong> Failing to reject the <span class="math inline">\(H_0\)</span> when it is false</li>
-<li><strong>Significance level:</strong> The probability of committing a Type I error, denoted by <span class="math inline">\(\alpha\)</span></li>
-<li><strong>Confidence interval:</strong> A range of values where we are <span class="math inline">\(1-\alpha\)</span> confident that the true population parameter lies within
-<ul>
-<li>estimate <span class="math inline">\(\pm\)</span> critical value <span class="math inline">\(\times\)</span> standard error</li>
-<li>What happens if the CI contains the hypothesized value?</li>
-</ul></li>
-<li>Tests can only allow us to reject the <span class="math inline">\(H_0\)</span> or fail to reject the <span class="math inline">\(H_0\)</span> but never accept the <span class="math inline">\(H_0\)</span>. Why?</li>
-</ul>
-</section>
-<section id="section" class="slide level2 smaller">
-<h2></h2>
-<ul>
-<li><strong>p-value:</strong> The probability of observing the sample (statistic) if <span class="math inline">\(H_0\)</span> were true
-<ul>
-<li>What does it mean when p-value is less than <span class="math inline">\(\alpha\)</span>?</li>
-</ul></li>
-<li><strong>Critical value:</strong> The value that separates the rejection region from the non-rejection region in hypothesis testing
-<ul>
-<li>What is critical value for a two-tailed test with <span class="math inline">\(\alpha = 0.05\)</span>?</li>
-</ul></li>
-<li><strong>Critical region:</strong> The range of values that leads to the rejection of the <span class="math inline">\(H_0\)</span></li>
-<li><strong>One-tailed test:</strong> A hypothesis test that tests the <span class="math inline">\(H_0\)</span> in one direction</li>
-<li><strong>Two-tailed test:</strong> A hypothesis test that tests the <span class="math inline">\(H_0\)</span> in both directions <!-- - **Degrees of freedom:** The number of independent observations in a sample that are available to estimate a parameter --> <!-- - **t-distribution:** A family of distributions that are similar to the normal distribution but with heavier tails, used for hypothesis testing when the population standard deviation is unknown --> <!-- - **Chi-square distribution:** A family of distributions that are used for hypothesis testing when the population standard deviation  is unknown --> <!-- - **F-distribution:** A family of distributions that are used for hypothesis testing when comparing the variances of two populations --></li>
-</ul>
-</section></section>
 <section>
 <section id="hypothesis-testing-in-mlr" class="title-slide slide level1 center">
 <h1>Hypothesis testing in MLR</h1>
@@ -388,7 +334,7 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="section-1" class="slide level2 smaller">
+<section id="section" class="slide level2 smaller">
 <h2></h2>
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -600,8 +546,8 @@ F-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06</code></pre>
 </div>
 </div>
 </section>
-<section id="computing-p-values" class="slide level2 smaller">
-<h2>Computing p-values</h2>
+<section id="computing-p-values-directly-in-r" class="slide level2 smaller">
+<h2>Computing p-values directly in R</h2>
 <ul>
 <li>p-value is the probability of observing the sample (statistic) if <span class="math inline">\(H_0\)</span> is true</li>
 <li>Indeed you can do this using a table.</li>
@@ -669,7 +615,7 @@ F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>What are we testing?</li>
 </ul>
 </section>
-<section id="section-2" class="slide level2 smaller">
+<section id="section-1" class="slide level2 smaller">
 <h2></h2>
 <p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span> <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> and <span class="math inline">\(H_1: \beta_1 &lt; \beta_2\)</span></p>
 <!-- - $H_0: \beta_1 - \beta_2 = 0$ and $H_1: \beta_1 - \beta_2 < 0$ -->
@@ -746,7 +692,7 @@ F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="section-3" class="slide level2 smaller">
+<section id="section-2" class="slide level2 smaller">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">library</span>(wooldridge)</span>
@@ -925,7 +871,7 @@ F-statistic: 259.3 on 2 and 350 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <p><span class="math inline">\(\log(salary_i)=  \beta_0+\beta_1 years_i +\beta_2 gamesyr_i +\beta_3 bavg_i  +\beta_4 hrunsyr_i +\beta_5 rbisyr_i +u_i\)</span></p>
 <div>
@@ -1000,7 +946,7 @@ F-statistic: 259.3 on 2 and 350 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 </div>
 </section>
-<section id="section-5" class="slide level2 smaller">
+<section id="section-4" class="slide level2 smaller">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">library</span>(stargazer, wooldridge)</span>
@@ -1068,8 +1014,8 @@ Note:                                                                *p&lt;0.1; 
 
     <script>
 
-      function styleCell_yee0izzuazp5jb2rof8x(i, j, css_id) {
-          var table = document.getElementById("tinytable_yee0izzuazp5jb2rof8x");
+      function styleCell_twr0aqh476hphz8jkgf2(i, j, css_id) {
+          var table = document.getElementById("tinytable_twr0aqh476hphz8jkgf2");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1079,7 +1025,7 @@ Note:                                                                *p&lt;0.1; 
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_yee0izzuazp5jb2rof8x');
+        var table = document.getElementById('tinytable_twr0aqh476hphz8jkgf2');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1087,8 +1033,8 @@ Note:                                                                *p&lt;0.1; 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_yee0izzuazp5jb2rof8x(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_yee0izzuazp5jb2rof8x");
+      function spanCell_twr0aqh476hphz8jkgf2(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_twr0aqh476hphz8jkgf2");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1118,20 +1064,20 @@ Note:                                                                *p&lt;0.1; 
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_ngz88w4w1q89lnt96xa4',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 }, { i: 18, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_ennni5ux5rmj9xti3bui',}, 
-          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_ebt7k1mhm776yn04kdhy',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_94rrnwvn042e0pss1g9q',}, 
-          { positions: [ { i: 12, j: 2 }, { i: 12, j: 1 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_584q3ppv8q1q92egm5at',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_56ccdwgb6l9e9fugv0ts',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 4, j: 3 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 17, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 15, j: 2 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 3, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 16, j: 3 }, { i: 13, j: 3 }, { i: 10, j: 3 }, { i: 15, j: 3 }, { i: 14, j: 3 }, { i: 19, j: 3 }, { i: 18, j: 3 },  ], css_id: 'tinytable_css_3gs30teyiizob6g1lgg5',}, 
-          { positions: [ { i: 20, j: 2 }, { i: 20, j: 1 }, { i: 20, j: 3 },  ], css_id: 'tinytable_css_2vb8o87zbmjh2pfu262i',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 4, j: 3 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 17, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 15, j: 2 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 3, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 16, j: 3 }, { i: 13, j: 3 }, { i: 10, j: 3 }, { i: 15, j: 3 }, { i: 14, j: 3 }, { i: 19, j: 3 }, { i: 18, j: 3 },  ], css_id: 'tinytable_css_vhxq3sslfyigrf7oqjyt',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_osvlmfdoseq8rabb2pj4',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_n73u8i6mofir0tto2cs7',}, 
+          { positions: [ { i: 12, j: 2 }, { i: 12, j: 1 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_kk9af5a0hvlvb30htkeg',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_k3w16kvww1xe1rn6edsy',}, 
+          { positions: [ { i: 20, j: 2 }, { i: 20, j: 1 }, { i: 20, j: 3 },  ], css_id: 'tinytable_css_jlppuvtx43psew6n4mzi',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 }, { i: 18, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_8scizpb0wasikl66h9x0',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_2mzt5dd7fd03wfflgcj8',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_yee0izzuazp5jb2rof8x(cell.i, cell.j, group.css_id);
+                  styleCell_twr0aqh476hphz8jkgf2(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1139,17 +1085,17 @@ Note:                                                                *p&lt;0.1; 
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ngz88w4w1q89lnt96xa4, .table th.tinytable_css_ngz88w4w1q89lnt96xa4 { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_ennni5ux5rmj9xti3bui, .table th.tinytable_css_ennni5ux5rmj9xti3bui { text-align: left; }
-      .table td.tinytable_css_ebt7k1mhm776yn04kdhy, .table th.tinytable_css_ebt7k1mhm776yn04kdhy { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_94rrnwvn042e0pss1g9q, .table th.tinytable_css_94rrnwvn042e0pss1g9q { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_584q3ppv8q1q92egm5at, .table th.tinytable_css_584q3ppv8q1q92egm5at { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_56ccdwgb6l9e9fugv0ts, .table th.tinytable_css_56ccdwgb6l9e9fugv0ts { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_3gs30teyiizob6g1lgg5, .table th.tinytable_css_3gs30teyiizob6g1lgg5 { text-align: center; }
-      .table td.tinytable_css_2vb8o87zbmjh2pfu262i, .table th.tinytable_css_2vb8o87zbmjh2pfu262i { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_vhxq3sslfyigrf7oqjyt, .table th.tinytable_css_vhxq3sslfyigrf7oqjyt { text-align: center; }
+      .table td.tinytable_css_osvlmfdoseq8rabb2pj4, .table th.tinytable_css_osvlmfdoseq8rabb2pj4 { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_n73u8i6mofir0tto2cs7, .table th.tinytable_css_n73u8i6mofir0tto2cs7 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_kk9af5a0hvlvb30htkeg, .table th.tinytable_css_kk9af5a0hvlvb30htkeg { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_k3w16kvww1xe1rn6edsy, .table th.tinytable_css_k3w16kvww1xe1rn6edsy { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_jlppuvtx43psew6n4mzi, .table th.tinytable_css_jlppuvtx43psew6n4mzi { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_8scizpb0wasikl66h9x0, .table th.tinytable_css_8scizpb0wasikl66h9x0 { text-align: left; }
+      .table td.tinytable_css_2mzt5dd7fd03wfflgcj8, .table th.tinytable_css_2mzt5dd7fd03wfflgcj8 { text-align: left; border-bottom: solid black 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_yee0izzuazp5jb2rof8x" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_twr0aqh476hphz8jkgf2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
