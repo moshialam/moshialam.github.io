@@ -20,9 +20,7 @@ Population model: $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \ldots + \b
 
 :::{.columns}
 :::{.column width="50%"}
-- estimate the parameters using OLS 
-- obtain the standard errors of the OLS estimates
-- And imlement them in R
+- estimate the parameters \& SE using OLS 
 
 <!-- Now we need to learn how to make inferences about the population parameters based on the *sample estimates and standard errors.* -->
 
@@ -30,6 +28,7 @@ Now, based on *sample estimates and standard errors.* we will answer questions l
 
 - Whether the estimated coefficient is statistically significant at any confidence level?
   - Whether the true population parameter estimate is statistically  different from zero at any confidence level?
+  - Choice of models
 :::
 :::{.column width="50%"}
 
@@ -97,7 +96,7 @@ $$u_i \sim N(0, \sigma^2)$$
 $$y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{ki}, \sigma^2)$$
 
 - *Hard to defend this very strong assumption*
-  - Thankfully not required for large samples (Ch-5)
+  - Thankfully not required for large samples (beyond the scope of this course)
 
 
 
@@ -271,14 +270,15 @@ print(p_left)
 
 ## Testing Linear combinations {.smaller}
 
+- Does attending $jc_i$ has lower effect on wages as going to university $univ_i$?
 $$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ 
+
+- What are we testing?
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(wooldridge)
 summary(lm(lwage ~ jc + univ + exper, data = twoyear))
 ```
-- Does attending $jc_i$ has lower effect on wages as going to university $univ_i$?
-- What are we testing?
 
 ## {.smaller}
 $$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$$ $H_0: \beta_1 = \beta_2$ and $H_1: \beta_1 < \beta_2$
@@ -289,11 +289,10 @@ $$log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i$
 :::{.incremental}
 - Call $\beta_1 - \beta_2 = \theta$ and so $H_0: \theta = 0$ and $H_1: \theta < 0$
 - Test statistic: $t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}$
-<!-- - Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$  -->
-  - Reject $H_0$ 
+  <!-- - Reject $H_0$ 
     - if $t_{\hat{\theta}} < t_{\alpha, n-k-1}^*$
     - Or if p-value = $P(T < t_{\hat{\theta}})$ where $T \sim t_{n-k-1}$ is less than $\alpha$
-    - Or if CI: $[\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]$ does not contain zero
+    - Or if CI: $[\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]$ does not contain zero -->
 - Easy to calculate  $t_{\hat{\theta}}$ if $\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}$ is known 
 :::
 

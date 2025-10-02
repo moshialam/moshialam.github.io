@@ -212,9 +212,7 @@ Moshi Alam
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>estimate the parameters using OLS</li>
-<li>obtain the standard errors of the OLS estimates</li>
-<li>And imlement them in R</li>
+<li>estimate the parameters &amp; SE using OLS</li>
 </ul>
 <!-- Now we need to learn how to make inferences about the population parameters based on the *sample estimates and standard errors.* -->
 <p>Now, based on <em>sample estimates and standard errors.</em> we will answer questions like:</p>
@@ -222,6 +220,7 @@ Moshi Alam
 <li>Whether the estimated coefficient is statistically significant at any confidence level?
 <ul>
 <li>Whether the true population parameter estimate is statistically different from zero at any confidence level?</li>
+<li>Choice of models</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -330,7 +329,7 @@ F-statistic: 80.39 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><p>The full set of assumptions MLR.1-MLR.6 are called the <em>classical linear model (CLM) assumptions</em>. Together they imply: <span class="math display">\[y \mid x_1, \ldots x_k \sim N(\beta_0 + \beta_1 x_{1i} + \ldots + \beta_k x_{ki}, \sigma^2)\]</span></p></li>
 <li><p><em>Hard to defend this very strong assumption</em></p>
 <ul>
-<li>Thankfully not required for large samples (Ch-5)</li>
+<li>Thankfully not required for large samples (beyond the scope of this course)</li>
 </ul></li>
 </ul>
 </section>
@@ -583,7 +582,10 @@ F-statistic:  9.42 on 3 and 404 DF,  p-value: 4.974e-06</code></pre>
 </section>
 <section id="testing-linear-combinations" class="slide level2 smaller">
 <h2>Testing Linear combinations</h2>
-<p><span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></p>
+<ul>
+<li><p>Does attending <span class="math inline">\(jc_i\)</span> has lower effect on wages as going to university <span class="math inline">\(univ_i\)</span>? <span class="math display">\[log(wage_i) = \beta_0 + \beta_1 jc_i + \beta_2 univ_i + \beta_3 exper_i + u_i\]</span></p></li>
+<li><p>What are we testing?</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(wooldridge)</span>
 <span id="cb21-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(lwage <span class="sc">~</span> jc <span class="sc">+</span> univ <span class="sc">+</span> exper, <span class="at">data =</span> twoyear))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -610,10 +612,6 @@ Multiple R-squared:  0.2224,    Adjusted R-squared:  0.2221
 F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<ul>
-<li>Does attending <span class="math inline">\(jc_i\)</span> has lower effect on wages as going to university <span class="math inline">\(univ_i\)</span>?</li>
-<li>What are we testing?</li>
-</ul>
 </section>
 <section id="section-1" class="slide level2 smaller">
 <h2></h2>
@@ -622,15 +620,10 @@ F-statistic: 644.5 on 3 and 6759 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div>
 <ul>
 <li class="fragment">Call <span class="math inline">\(\beta_1 - \beta_2 = \theta\)</span> and so <span class="math inline">\(H_0: \theta = 0\)</span> and <span class="math inline">\(H_1: \theta &lt; 0\)</span></li>
-<li class="fragment">Test statistic: <span class="math inline">\(t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}\)</span> <!-- - Based on d.o.f. we can look up the critical value $t_{\alpha, n-k-1}^*$  -->
-<ul>
-<li class="fragment">Reject <span class="math inline">\(H_0\)</span>
-<ul>
-<li class="fragment">if <span class="math inline">\(t_{\hat{\theta}} &lt; t_{\alpha, n-k-1}^*\)</span></li>
-<li class="fragment">Or if p-value = <span class="math inline">\(P(T &lt; t_{\hat{\theta}})\)</span> where <span class="math inline">\(T \sim t_{n-k-1}\)</span> is less than <span class="math inline">\(\alpha\)</span></li>
-<li class="fragment">Or if CI: <span class="math inline">\([\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]\)</span> does not contain zero</li>
-</ul></li>
-</ul></li>
+<li class="fragment">Test statistic: <span class="math inline">\(t_{\hat{\theta}} = \frac{\hat{\theta}}{\operatorname{se}(\hat{\theta})} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\operatorname{se}(\hat{\beta}_1-\hat{\beta}_2)} = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\operatorname{se}(\hat{\beta}_1)^2 + \operatorname{se}(\hat{\beta}_2)^2 + 2\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}}}\)</span> <!-- - Reject $H_0$ 
+    - if $t_{\hat{\theta}} < t_{\alpha, n-k-1}^*$
+    - Or if p-value = $P(T < t_{\hat{\theta}})$ where $T \sim t_{n-k-1}$ is less than $\alpha$
+    - Or if CI: $[\hat{\theta} \pm t_{\alpha, n-k-1}^* \times \operatorname{se}(\hat{\theta})]$ does not contain zero --></li>
 <li class="fragment">Easy to calculate <span class="math inline">\(t_{\hat{\theta}}\)</span> if <span class="math inline">\(\widehat{\operatorname{cov}(\hat{\beta}_1, \hat{\beta}_2)}\)</span> is known</li>
 </ul>
 </div>
@@ -1014,8 +1007,8 @@ Note:                                                                *p&lt;0.1; 
 
     <script>
 
-      function styleCell_twr0aqh476hphz8jkgf2(i, j, css_id) {
-          var table = document.getElementById("tinytable_twr0aqh476hphz8jkgf2");
+      function styleCell_vgbo5666eqabyz0h5ub2(i, j, css_id) {
+          var table = document.getElementById("tinytable_vgbo5666eqabyz0h5ub2");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1025,7 +1018,7 @@ Note:                                                                *p&lt;0.1; 
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_twr0aqh476hphz8jkgf2');
+        var table = document.getElementById('tinytable_vgbo5666eqabyz0h5ub2');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1033,8 +1026,8 @@ Note:                                                                *p&lt;0.1; 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_twr0aqh476hphz8jkgf2(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_twr0aqh476hphz8jkgf2");
+      function spanCell_vgbo5666eqabyz0h5ub2(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_vgbo5666eqabyz0h5ub2");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1064,20 +1057,20 @@ Note:                                                                *p&lt;0.1; 
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 4, j: 3 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 17, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 15, j: 2 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 3, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 16, j: 3 }, { i: 13, j: 3 }, { i: 10, j: 3 }, { i: 15, j: 3 }, { i: 14, j: 3 }, { i: 19, j: 3 }, { i: 18, j: 3 },  ], css_id: 'tinytable_css_vhxq3sslfyigrf7oqjyt',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_osvlmfdoseq8rabb2pj4',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_n73u8i6mofir0tto2cs7',}, 
-          { positions: [ { i: 12, j: 2 }, { i: 12, j: 1 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_kk9af5a0hvlvb30htkeg',}, 
-          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_k3w16kvww1xe1rn6edsy',}, 
-          { positions: [ { i: 20, j: 2 }, { i: 20, j: 1 }, { i: 20, j: 3 },  ], css_id: 'tinytable_css_jlppuvtx43psew6n4mzi',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 }, { i: 18, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_8scizpb0wasikl66h9x0',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_2mzt5dd7fd03wfflgcj8',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 }, { i: 18, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_sgtza3wrzwrgfrqzl5vs',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_g8xsrbg2bcmmh3zi0yml',}, 
+          { positions: [ { i: 20, j: 2 }, { i: 20, j: 1 }, { i: 20, j: 3 },  ], css_id: 'tinytable_css_fqlqo9gc93b6ubsfrukw',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_f24jbp2j1lnt3e1skfp8',}, 
+          { positions: [ { i: 12, j: 2 }, { i: 12, j: 1 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_drq4hs5pouvia2txwvij',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_cfjvbwqegs7yu4lj0mh2',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_8ktu9knz2wsn85iblii1',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 4, j: 3 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 17, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 15, j: 2 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 3, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 16, j: 3 }, { i: 13, j: 3 }, { i: 10, j: 3 }, { i: 15, j: 3 }, { i: 14, j: 3 }, { i: 19, j: 3 }, { i: 18, j: 3 },  ], css_id: 'tinytable_css_1xqzva8g3ls1f4ja3ewy',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_twr0aqh476hphz8jkgf2(cell.i, cell.j, group.css_id);
+                  styleCell_vgbo5666eqabyz0h5ub2(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1085,17 +1078,17 @@ Note:                                                                *p&lt;0.1; 
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_vhxq3sslfyigrf7oqjyt, .table th.tinytable_css_vhxq3sslfyigrf7oqjyt { text-align: center; }
-      .table td.tinytable_css_osvlmfdoseq8rabb2pj4, .table th.tinytable_css_osvlmfdoseq8rabb2pj4 { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_n73u8i6mofir0tto2cs7, .table th.tinytable_css_n73u8i6mofir0tto2cs7 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_kk9af5a0hvlvb30htkeg, .table th.tinytable_css_kk9af5a0hvlvb30htkeg { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_k3w16kvww1xe1rn6edsy, .table th.tinytable_css_k3w16kvww1xe1rn6edsy { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_jlppuvtx43psew6n4mzi, .table th.tinytable_css_jlppuvtx43psew6n4mzi { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_8scizpb0wasikl66h9x0, .table th.tinytable_css_8scizpb0wasikl66h9x0 { text-align: left; }
-      .table td.tinytable_css_2mzt5dd7fd03wfflgcj8, .table th.tinytable_css_2mzt5dd7fd03wfflgcj8 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_sgtza3wrzwrgfrqzl5vs, .table th.tinytable_css_sgtza3wrzwrgfrqzl5vs { text-align: left; }
+      .table td.tinytable_css_g8xsrbg2bcmmh3zi0yml, .table th.tinytable_css_g8xsrbg2bcmmh3zi0yml { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_fqlqo9gc93b6ubsfrukw, .table th.tinytable_css_fqlqo9gc93b6ubsfrukw { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_f24jbp2j1lnt3e1skfp8, .table th.tinytable_css_f24jbp2j1lnt3e1skfp8 { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_drq4hs5pouvia2txwvij, .table th.tinytable_css_drq4hs5pouvia2txwvij { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_cfjvbwqegs7yu4lj0mh2, .table th.tinytable_css_cfjvbwqegs7yu4lj0mh2 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_8ktu9knz2wsn85iblii1, .table th.tinytable_css_8ktu9knz2wsn85iblii1 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_1xqzva8g3ls1f4ja3ewy, .table th.tinytable_css_1xqzva8g3ls1f4ja3ewy { text-align: center; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_twr0aqh476hphz8jkgf2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_vgbo5666eqabyz0h5ub2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
