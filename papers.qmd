@@ -22,7 +22,7 @@ title: "Research"
    **<a href="#" data-micromodal-trigger="abs_payequity" tabindex="0" class="text-info">[+Abstract]</a>**  
    <p><span class="badge bg-primary">_Updated Aug '25_</span> <small><small>[_Under review_]</small></small></p>
 
-4. **Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Consumption**  
+4. **Computing Optimal Place‑Based Transfers with Direct Measurement of Geographic Variation in Marginal Utility of Income**  
    with Morris Davis and Jesse Gregory  
    <p><span class="badge bg-primary">_Draft coming soon!_</span></p>
 
