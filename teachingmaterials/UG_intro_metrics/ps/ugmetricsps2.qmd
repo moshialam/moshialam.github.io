@@ -55,7 +55,6 @@ $$\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + \beta_2 \tex
 where `avg_wage` is the average wage in the county and `min_wage` is the minimum wage in the county (which is the same as the state minimum wage for all counties in that state).
 
 Which model correctly estimates the effect of minimum wage on employment and why?
-<!-- Scholarship → {More time to study, Less need to work} → Better grades → Graduation -->
 
 
 -----------------------------------------------

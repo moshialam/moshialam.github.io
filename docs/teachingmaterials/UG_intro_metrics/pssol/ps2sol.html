@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.6.40">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Prof Alam">
-<title>Econometrics PS 2 – Moshi Alam</title>
+<title>Econometrics PS 2 - Solution key – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,6 +17,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -231,12 +265,22 @@ window.Quarto = {
 <li>
 <a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a>
   <ul class="collapse">
-<li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+<li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part (a)</a></li>
+  <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part (b)</a></li>
   </ul>
 </li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li>
+<a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a>
+  <ul class="collapse">
+<li><a href="#part-a-1" id="toc-part-a-1" class="nav-link" data-scroll-target="#part-a-1">Part (a)</a></li>
+  <li><a href="#part-b-1" id="toc-part-b-1" class="nav-link" data-scroll-target="#part-b-1">Part (b)</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part (d)</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part (e)</a></li>
+  </ul>
+</li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -506,7 +550,7 @@ window.Quarto = {
 
 </style>
 <header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Econometrics PS 2</h1>
+<h1 class="title">Econometrics PS 2 - Solution key</h1>
 </div>
 
 
@@ -526,67 +570,203 @@ window.Quarto = {
   
 
 
-</header><div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</header><section id="question-1" class="level1"><h1>Question 1</h1>
+<section id="part-a" class="level2"><h2 class="anchored" data-anchor-id="part-a">Part (a)</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">lawsch85</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">model1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lsalary</span> <span class="op">~</span> <span class="va">GPA</span> <span class="op">+</span> <span class="va">rank</span> , data <span class="op">=</span> <span class="va">lawsch85</span><span class="op">)</span></span>
+<span><span class="va">model2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lsalary</span> <span class="op">~</span> <span class="va">GPA</span> <span class="op">+</span> <span class="va">rank</span>  <span class="op">+</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">lawsch85</span><span class="op">)</span></span>
+<span><span class="va">model3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lsalary</span> <span class="op">~</span> <span class="va">GPA</span> <span class="op">+</span> <span class="va">rank</span>  <span class="op">+</span> <span class="va">clsize</span>, data <span class="op">=</span> <span class="va">lawsch85</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">stargazer</span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span>, type <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>          title <span class="op">=</span> <span class="st">"Law School Salary Regressions"</span>,</span>
+<span>          dep.var.labels <span class="op">=</span> <span class="st">"Log(Salary)"</span>,</span>
+<span>          covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GPA"</span>, <span class="st">"Rank"</span>, <span class="st">"Age"</span>, <span class="st">"Class Size"</span><span class="op">)</span>,</span>
+<span>          keep.stat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"n"</span>, <span class="st">"rsq"</span>, <span class="st">"adj.rsq"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Law School Salary Regressions
+==========================================
+                  Dependent variable:     
+             -----------------------------
+                      Log(Salary)         
+                (1)       (2)       (3)   
+------------------------------------------
+GPA          0.294***  0.295***  0.337*** 
+              (0.069)   (0.083)   (0.070) 
+                                          
+Rank         -0.004*** -0.004*** -0.004***
+             (0.0003)  (0.0004)  (0.0003) 
+                                          
+Age                     0.0002            
+                       (0.0004)           
+                                          
+Class Size                       0.0003***
+                                 (0.0001) 
+                                          
+Constant     9.899***  9.860***  9.675*** 
+              (0.245)   (0.293)   (0.255) 
+                                          
+------------------------------------------
+Observations    142       99        139   
+R2             0.824     0.804     0.838  
+Adjusted R2    0.821     0.797     0.834  
+==========================================
+Note:          *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+</div>
+<p>Interpretations are straightforward. I expect students to specify that these are average effects, all else equal, and being careful on not making causal statements instead specify them as associations.</p>
+<p>Inclusion of class size seemingly increases the effect of GPA, while inclusion of age has no discernible effect on the GPA coefficient.</p>
+<p>The reason why I say “seemingly” is because the change when eye-balled with the standard errors gives confidence intervals that gives the upper end of model 2’s coefficient’s 95% CI at 0.458 and the lower end of model 3’s coefficient’s 95% CI at 0.2, which overlap. Before making statistical claims, we need to formally test equality of coefficients across models.</p>
+</section><section id="part-b" class="level2"><h2 class="anchored" data-anchor-id="part-b">Part (b)</h2>
+<p>Model 2’s R-squared is lower than Model 1’s, despite adding a variable. This happens because there are missing values leading to lower number of observations. You can check this by looking at the number of observations in each model when estimation results are produced, and further clarify by running:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lawsch85</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   3.00   63.50   85.00   85.82  112.50  206.00      45 </code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><em>Follow the instructions of completing your problem set detailed in the syllabus.</em></p>
+<p>which shows 45 missing values of <code>age</code>.</p>
+<hr></section></section><section id="question-2" class="level1"><h1>Question 2</h1>
+<p>Model 1 correctly estimates the effect of minimum wage on employment. Since changes in minimum wages also change average wages in the county, controling for average wages in model 2 would “control away part of the effect of minimum wage on employment. this is similar to the over-controlling problem we discussed in class.</p>
+<hr></section><section id="question-3" class="level1"><h1>Question 3</h1>
+<section id="part-a-1" class="level2"><h2 class="anchored" data-anchor-id="part-a-1">Part (a)</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://justinmshea.github.io/wooldridge/">wooldridge</a></span><span class="op">)</span></span>
+<span><span class="va">model_gender1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lwage</span> <span class="op">~</span> <span class="va">female</span>, data <span class="op">=</span> <span class="va">wage1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_gender1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = lwage ~ female, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.05123 -0.31774 -0.04889  0.35548  1.65773 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.81357    0.02981  60.830   &lt;2e-16 ***
+female      -0.39722    0.04307  -9.222   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4935 on 524 degrees of freedom
+Multiple R-squared:  0.1396,    Adjusted R-squared:  0.138 
+F-statistic: 85.04 on 1 and 524 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<section id="question-1" class="level1"><h1>Question 1</h1>
-<p><em>Adapted from wooldridge</em></p>
-<p>Explore the <code>lawsch85</code> dataset from the <code>wooldridge</code> package after loading it in R. This dataset contains information on the number of law school admissions and various characteristics of law schools in 1985.</p>
-<ol type="a">
-<li>Estimate the following regression models using OLS. Report the estimates side by side (using the <code>stargazer</code> package or <code>modelsummary</code> package). Interpret the coefficients in each of the models. How does the inclusion of <code>age</code> and <code>clsize</code> affect the coefficients of <code>GPA</code> and <code>rank</code>?</li>
-</ol>
-<p>model 1: <code>lsalary</code> on <code>GPA</code> and <code>rank</code></p>
-<p>model 2: <code>lsalary</code> on <code>GPA</code>, <code>rank</code>, and <code>age</code></p>
-<p>model 3: <code>lsalary</code> on <code>GPA</code>, <code>rank</code>, and <code>clsize</code></p>
-<ol start="2" type="a">
-<li>Examine the R-squared values of the models. How does the inclusion of <code>age</code> affect the R-squared and why does it not follow the usual pattern of always increasing with the addition of more variables ?</li>
-</ol>
-<hr>
-<section id="question-2" class="level2"><h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
-<p>Different states have different minimum wages. For example:</p>
+<p>On average, female workers earn approximately 39.73% less than male workers. The exact percentage difference is <span class="math inline">(e^{-0.3972} - 1) \times 100 = -32.8\%</span> accounting for the log transformation.</p>
+</section><section id="part-b-1" class="level2"><h2 class="anchored" data-anchor-id="part-b-1">Part (b)</h2>
+<p>We don’t include both <code>female</code> and <code>male</code> dummies because of Perfect multicollinearity: female + male = 1 for every observation. So we need to omit one category to avoid this issue. ## Part (c)</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model_gender2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lwage</span> <span class="op">~</span> <span class="va">female</span> <span class="op">+</span> <span class="va">educ</span> <span class="op">+</span> <span class="va">exper</span> <span class="op">+</span> <span class="va">tenure</span>, data <span class="op">=</span> <span class="va">wage1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">stargazer</span><span class="op">(</span><span class="va">model_gender1</span>, <span class="va">model_gender2</span>, type <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>          title <span class="op">=</span> <span class="st">"Gender Wage Gap Analysis"</span>,</span>
+<span>          dep.var.labels <span class="op">=</span> <span class="st">"Log(Wage)"</span>,</span>
+<span>          covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Education"</span>, <span class="st">"Experience"</span>, <span class="st">"Tenure"</span><span class="op">)</span>,</span>
+<span>          keep.stat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"n"</span>, <span class="st">"rsq"</span>, <span class="st">"adj.rsq"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Gender Wage Gap Analysis
+=========================================
+                 Dependent variable:     
+             ----------------------------
+                      Log(Wage)          
+                  (1)            (2)     
+-----------------------------------------
+Female         -0.397***      -0.301***  
+                (0.043)        (0.037)   
+                                         
+Education                     0.087***   
+                               (0.007)   
+                                         
+Experience                    0.005***   
+                               (0.002)   
+                                         
+Tenure                        0.017***   
+                               (0.003)   
+                                         
+Constant        1.814***      0.501***   
+                (0.030)        (0.102)   
+                                         
+-----------------------------------------
+Observations      526            526     
+R2               0.140          0.392    
+Adjusted R2      0.138          0.388    
+=========================================
+Note:         *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>The coefficient on <code>female</code> decreases from -0.397 to -0.301 (becomes less negative). But be careful of claiming this statistically. Recall the CI based explanation above.</p>
+<p>However, typically in gender gap empirical problems after controlling a bunch of different variables which are expected to differ between gender and also matter for the labor outcomes, one typically observes statistically lower estimates of gender wage gap than raw gender wage gap. This is even more typical of estimate in larger samples which also will give tighter confidence intervals. Part of the raw gender gap are due to differences in: Education levels between genders, Work experience between genders and Job tenure between genders, among other differences. <em>You can read more on this by yourself, but occupational differences account for a majority of the raw gender wage gap, and depending on the country, hours worked and which hours are worked also matter.</em></p>
+</section><section id="part-d" class="level2"><h2 class="anchored" data-anchor-id="part-d">Part (d)</h2>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model_gender3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lwage</span> <span class="op">~</span> <span class="va">female</span> <span class="op">+</span> <span class="va">educ</span> <span class="op">+</span> <span class="va">female</span><span class="op">:</span><span class="va">educ</span> <span class="op">+</span> <span class="va">exper</span> <span class="op">+</span> <span class="va">tenure</span>, data <span class="op">=</span> <span class="va">wage1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_gender3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = lwage ~ female + educ + female:educ + exper + tenure, 
+    data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.91695 -0.26530 -0.02059  0.25715  1.27586 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.464712   0.122892   3.781 0.000174 ***
+female      -0.210376   0.173969  -1.209 0.227107    
+educ         0.090276   0.008715  10.359  &lt; 2e-16 ***
+exper        0.004642   0.001628   2.850 0.004541 ** 
+tenure       0.017436   0.002981   5.849 8.76e-09 ***
+female:educ -0.007245   0.013562  -0.534 0.593456    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4162 on 520 degrees of freedom
+Multiple R-squared:  0.3926,    Adjusted R-squared:  0.3868 
+F-statistic: 67.22 on 5 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>We add an interaction term <code>female × educ</code> to allow education returns to vary by gender.</p>
 <ul>
-<li>Alabama, Georgia, Mississippi: $7.25/hour (federal minimum)</li>
-<li>Florida: $12.00/hour<br>
-</li>
-<li>New York: $15.00/hour</li>
-<li>California: $15.50/hour</li>
-</ul>
-<p>You want to estimate the effect of minimum wage on employment rates using data from different counties in the US indexed by <span class="math inline">c</span>. You consider two regression specifications:</p>
-<p><span class="math display">\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + u_c \quad (1)</span></p>
-<p><span class="math display">\text{employment rate}_c = \beta_0 + \beta_1 \text{min\_wage}_c + \beta_2 \text{avg\_wage}_c + u_c \quad (2)</span></p>
-<p>where <code>avg_wage</code> is the average wage in the county and <code>min_wage</code> is the minimum wage in the county (which is the same as the state minimum wage for all counties in that state).</p>
-<p>Which model correctly estimates the effect of minimum wage on employment and why?</p>
-<hr></section><section id="question-3" class="level2"><h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
-<p>Load the <code>wooldridge</code> library and using the <code>wage1</code> dataset, youa re interested in documenting the gender wage gap.</p>
-<ol type="a">
-<li>Start with running the following regression: <span class="math inline">log(wage_i) = \beta_0 + \beta_1 \, female_i + u_i</span> where <code>female</code> is a binary variable that takes the value 1 if the worker is female and 0 otherwise. Interpret the coefficient on <code>female</code>.</li>
-<li>In estimating the average gender wage gap, why did we not include a dummy variable for <code>male</code> in the regression above?</li>
-<li>Now include <code>educ</code> (years of education), <code>exper</code> (years of experience), and <code>tenure</code> (years with current employer) in your analysis. How and why does the inclusion of these variables affect the coefficient on <code>female</code>? (Report the estimates side by side using the <code>stargazer</code> or <code>modelsummary</code> package).</li>
-<li>Now suppose someone asks you does an additional year of education effects wages differently for male and female workers. How would you modify your regression to answer this question? Run the regression and interpret the relevant coefficients.</li>
-<li>Do you think adding any other variables <em>non-linearly</em> will be helpful? If so, which ones and do your best to show data patterns to support your argument? (You do not need to run any regressions for this part).</li>
-</ol>
-<hr></section><section id="question-4" class="level2"><h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-<ol type="a">
-<li>Problem C6 Wooldridge Chapter 3.</li>
-<li>How is this different from the partialling out analysis we did in class? Explain briefly.</li>
-</ol>
-<hr></section><section id="question-5" class="level2"><h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
-<ol type="a">
-<li>Problem C13 Wooldridge Chapter 3.</li>
-</ol>
+<li>Base education effect (for males): 9.02% return per year</li>
+<li>Additional returns for females: -0.7% per year (interaction term) but it is statistically insginifcant (t-stat = - 0.534).</li>
+<li>Thus education returns for females cannot be claimed to be statistically different from males</li>
+</ul></section><section id="part-e" class="level2"><h2 class="anchored" data-anchor-id="part-e">Part (e)</h2>
+<p>Lets residualize <code>lwage</code> from <code>educ</code> <code>exper</code> <code>female</code> and <code>tenure</code> to see how the data pattern looks with <code>exper^2</code> and <code>tenure^2</code> after expunging variation in <code>lwage</code> from <code>educ</code> <code>exper</code> <code>female</code> and <code>tenure</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model_resid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lwage</span> <span class="op">~</span> <span class="va">educ</span> <span class="op">+</span> <span class="va">female</span> <span class="op">+</span> <span class="va">exper</span> <span class="op">+</span> <span class="va">tenure</span>, data <span class="op">=</span> <span class="va">wage1</span><span class="op">)</span></span>
+<span><span class="va">wage1</span><span class="op">$</span><span class="va">residuals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">model_resid</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">(</span><span class="va">wage1</span><span class="op">$</span><span class="va">exper</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, <span class="va">wage1</span><span class="op">$</span><span class="va">residuals</span>, main <span class="op">=</span> <span class="st">"Residualized Log Wage \n vs Experience squared"</span>, </span>
+<span>     xlab <span class="op">=</span> <span class="st">"Experience"</span>, ylab <span class="op">=</span> <span class="st">"Residualized Log Wage"</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.3</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lowess.html">lowess</a></span><span class="op">(</span><span class="op">(</span><span class="va">wage1</span><span class="op">$</span><span class="va">exper</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, <span class="va">wage1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">(</span><span class="va">wage1</span><span class="op">$</span><span class="va">tenure</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, <span class="va">wage1</span><span class="op">$</span><span class="va">residuals</span>, main <span class="op">=</span> <span class="st">"Residualized Log Wage\n  vs Tenure squared"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Tenure"</span>, ylab <span class="op">=</span> <span class="st">"Residualized Log Wage"</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.3</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lowess.html">lowess</a></span><span class="op">(</span><span class="op">(</span><span class="va">wage1</span><span class="op">$</span><span class="va">tenure</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, <span class="va">wage1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ps2sol_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These patterns suggest adding <code>exper²</code> and <code>tenure²</code> diminishing marginal returns to experience and tenure commonly observed in labor economics.. Adding these non-linearities could improve model fit.</p>
+<hr></section></section><section id="question-4" class="level1"><h1>Question 4</h1>
+<p><em>Zeyi will provide solutions to the Wooldridge problems on Canvas</em></p>
+<p>this is no different from the partialling out analysis we did in class. to see this read the slides on partialling out and the analogous section in Wooldridge chapter 3.</p>
+<hr></section><section id="question-5" class="level1"><h1>Question 5</h1>
+<p><em>Zeyi will provide solutions to the Wooldridge problems on Canvas</em></p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
