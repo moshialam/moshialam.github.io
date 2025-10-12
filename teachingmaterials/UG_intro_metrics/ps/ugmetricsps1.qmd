@@ -116,3 +116,5 @@ c.  If heteroskedasticity is present, what are the consequences for the unbiased
 <!-- a. (5 points) Now include experience (`exper`) in your analysis. First, examine the correlation between education and experience. What does this suggest about potential omitted variable bias in your simple regression? -->
 
 <!-- b. (5 points) Consider the thought experiment: If you could randomly assign education levels to workers (holding everything else constant), would you expect to get the same estimate of $\beta_1$ as in your simple regression? Explain your reasoning, relating it to the zero conditional mean assumption. -->
+
+------------------------------------------------------------------------

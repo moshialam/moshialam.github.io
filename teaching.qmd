@@ -11,15 +11,12 @@ title: "Teaching"
 
 ### [Clark University](https://www.clarku.edu/departments/economics/) 
 
-- Undergraduate: Statistics
 - [Undergraduate: Econometrics](/morepages/UG_intro_metrics.qmd)
     <!-- - [ [Course Outline] ](/morepages/econ452.qmd) [ [Course Website] ](https://onq.queensu.ca/d2l/home/764511) -->
-- PhD: Applied Econometrics-I
-
-_Starting Spring 2025:_
-
-- PhD: Applied Econometrics-II
+- PhD: Applied Econometrics-I: Causality & Design-Based Inference
+- PhD: Applied Econometrics-II: Structural + Computational
 - PhD: Econometric Theory
+- Undergraduate: Statistics
 ---
 
 ### [Queen's University](https://www.econ.queensu.ca/) 

@@ -83,3 +83,5 @@ b. How is this different from the partialling out analysis we did in class? Expl
 ## Question 5
 
 a. Problem C13 Wooldridge Chapter 3.
+
+-----------------------------------------------
