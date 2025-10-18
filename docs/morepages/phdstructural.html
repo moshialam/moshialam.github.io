@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Moshi Alam">
+<meta name="dcterms.date" content="2024-12-31">
+
+<title>PhD Course: Structural Models – Moshi Alam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-391ac0ffccbb3bf0019dee70612ff9d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+  :root {
+    --cream-bg: #FFFDF8;      /* Much lighter, almost white with hint of warmth */
+    --dark-text: #3A3A3A;     /* Softer dark gray, not harsh black */
+    --rust-link: #B8653A;     /* Warm rust/terracotta for links */
+    --rust-hover: #A0522D;    /* Darker rust on hover */
+    --nav-text: #8B5A3C;      /* Brown for navigation */
+  }
+  
+  body {
+    background-color: #FFFDF8 !important;  /* Very light cream */
+    color: #3A3A3A !important;              /* Soft dark gray */
+  }
+  
+  .navbar {
+    background-color: #FFFDF8 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0rem !important;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #8B5A3C !important;    /* Warm brown */
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 1.rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #B8653A !important;
+    text-decoration: none;
+  }
+  
+  /* Main content links */
+  a {
+    color: #A0522D;       /* Warm rust/terracotta */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #8B4513;       /* Darker rust on hover */
+    text-decoration: underline;
+  }
+  
+  /* Headers */
+  h1, h2, h3, h4, h5, h6 {
+    color: #2C3E50;       /* Slightly darker for headers */
+  }
+  
+  .page-footer {
+    background-color: #FAF5F0 !important;  /* Slightly darker than body */
+    border-top: 1px solid #F0E8DF;
+    color: #6B5D54;
+  }
+  
+  /* Make text more readable */
+  p, li {
+    color: #3A3A3A;
+    line-height: 1.6;
+  }
+
+  /* Mobile navigation button (hamburger menu) */
+  .navbar-toggler {
+    border: 1px solid #A0522D !important;  /* Rust border */
+    background-color: #FFFDF8 !important;   /* Light background */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238B4513' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+
+   /* Make mobile nav more visible */
+  @media (max-width: 767px) {
+    .navbar {
+      border-bottom: 1px solid #E6D4B8 !important;  /* Add subtle border */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    }
+  }
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Moshi Alam</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/moshialam"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#foundations" id="toc-foundations" class="nav-link" data-scroll-target="#foundations">Foundations</a>
+  <ul class="collapse">
+  <li><a href="#identification" id="toc-identification" class="nav-link" data-scroll-target="#identification">Identification</a></li>
+  <li><a href="#structural-vs.-reduced-form-methods" id="toc-structural-vs.-reduced-form-methods" class="nav-link" data-scroll-target="#structural-vs.-reduced-form-methods">Structural vs.&nbsp;Reduced Form Methods</a></li>
+  </ul></li>
+  <li><a href="#discrete-choice-models" id="toc-discrete-choice-models" class="nav-link" data-scroll-target="#discrete-choice-models">Discrete Choice Models</a>
+  <ul class="collapse">
+  <li><a href="#static" id="toc-static" class="nav-link" data-scroll-target="#static">Static</a></li>
+  <li><a href="#dynamic" id="toc-dynamic" class="nav-link" data-scroll-target="#dynamic">Dynamic</a></li>
+  </ul></li>
+  <li><a href="#estimation-methods" id="toc-estimation-methods" class="nav-link" data-scroll-target="#estimation-methods">Estimation Methods</a>
+  <ul class="collapse">
+  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation">Maximum Likelihood Estimation</a></li>
+  <li><a href="#generalized-method-of-moments" id="toc-generalized-method-of-moments" class="nav-link" data-scroll-target="#generalized-method-of-moments">Generalized Method of Moments</a></li>
+  <li><a href="#simulated-method-of-moments" id="toc-simulated-method-of-moments" class="nav-link" data-scroll-target="#simulated-method-of-moments">Simulated Method of Moments</a></li>
+  <li><a href="#indirect-inference" id="toc-indirect-inference" class="nav-link" data-scroll-target="#indirect-inference">Indirect Inference</a></li>
+  </ul></li>
+  <li><a href="#applications-in-labor-economics" id="toc-applications-in-labor-economics" class="nav-link" data-scroll-target="#applications-in-labor-economics">Applications in Labor Economics</a>
+  <ul class="collapse">
+  <li><a href="#stated-preferences" id="toc-stated-preferences" class="nav-link" data-scroll-target="#stated-preferences">Stated Preferences</a></li>
+  <li><a href="#monopsony-and-firm-effects" id="toc-monopsony-and-firm-effects" class="nav-link" data-scroll-target="#monopsony-and-firm-effects">Monopsony and Firm Effects</a></li>
+  <li><a href="#other-topics" id="toc-other-topics" class="nav-link" data-scroll-target="#other-topics">Other topics</a></li>
+  </ul></li>
+  <li><a href="#applications-in-public-economics" id="toc-applications-in-public-economics" class="nav-link" data-scroll-target="#applications-in-public-economics">Applications in Public Economics</a></li>
+  <li><a href="#applications-in-development-economics" id="toc-applications-in-development-economics" class="nav-link" data-scroll-target="#applications-in-development-economics">Applications in Development Economics</a></li>
+  <li><a href="#survey-articles" id="toc-survey-articles" class="nav-link" data-scroll-target="#survey-articles">Survey Articles</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<div class="profile-header-container">
+  <div class="profile-header">
+    <div class="profile-image-wrapper">
+      <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image">
+    </div>
+    <div class="profile-info">
+      <div class="profile-name">Md Moshi Ul Alam</div>
+      <div class="profile-title">Assistant Professor of Economics</div>
+      <div class="profile-affiliation">
+        <a href="https://www.clarku.edu/departments/economics/">Clark University</a>
+      </div>
+      <div class="profile-buttons">
+        <a href="mailto:mdalam@clarku.edu" class="btn-profile btn-email">
+          <i class="bi bi-envelope-at"></i>
+          <span>Email</span>
+        </a>
+        <a href="papers/Alam_MdMoshiUl_CV.pdf" class="btn-profile btn-cv">
+          <i class="bi bi-filetype-pdf"></i>
+          <span>CV</span>
+        </a>
+        <a href="https://twitter.com/MoshiAlam" class="btn-profile btn-social btn-twitter">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+        <a href="https://bsky.app/profile/moshialam.bsky.social" class="btn-profile btn-social btn-bluesky">
+          <i class="bi bi-bluesky"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Profile Header Container */
+  .profile-header-container {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: -2.5rem;
+    padding: 0;
+  }
+
+  /* Main Profile Header */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.0rem;
+    padding: 1.0rem;
+    /* background: #f8f9fa; */
+    /* background: linear-gradient(135deg, #FDFBF7 0%, rgba(209, 217, 206, 0.3) 100%); */
+    border-radius: 0.1px;
+    /* border: 1px solid #e9ecef; */
+  }
+
+  /* Profile Image */
+  .profile-image-wrapper {
+    flex-shrink: 0;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Profile Info */
+  .profile-info {
+    flex: 1;
+  }
+
+  /* Profile Name - Using div instead of h1 to avoid Quarto processing */
+  .profile-name {
+    font-size: 1.5rem;
+    /* font-weight: bold; */
+    color: #2c3e50;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.3;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  }
+
+  .profile-title {
+    font-size: 1.05rem;
+    color: #495057;
+    margin: 0 0 0.25rem 0;
+    font-weight: 500;
+  }
+
+  .profile-affiliation {
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .profile-affiliation a {
+    color: #A0522D;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .profile-affiliation a:hover {
+    color: #7a4691;
+    text-decoration: underline;
+  }
+
+  /* Profile Buttons */
+  .profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .btn-profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .btn-profile i {
+    font-size: 0.9rem;
+  }
+
+  .btn-profile span {
+    font-size: 0.85rem;
+  }
+
+  /* Email Button */
+  .btn-email {
+    background: #A0522D;
+    color: white;
+  }
+
+  .btn-email:hover {
+    background: #8B4513;
+    transform: translateY(-1px);
+    color: white;
+  }
+
+  /* CV Button */
+  .btn-cv {
+    background: #A0522D;
+    color: white;
+  }
+
+  .btn-cv:hover {
+    background: #8B4513;
+    transform: translateY(-1px);
+    color: white;
+  }
+
+  /* Social Buttons */
+  .btn-social {
+    padding: 0.4rem;
+    min-width: 32px;
+    justify-content: center;
+  }
+
+  .btn-twitter {
+    /* background: #1a1a1a; */
+    background: #A0522D;
+    color: white;
+  }
+
+  .btn-twitter:hover {
+    background: #000;
+  }
+
+  .btn-bluesky {
+    /* background: #00A8E8; */
+    background: #A0522D;
+    color: white;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .btn-bluesky:hover {
+    background: #0090c7;
+    color: white;
+  }
+
+  .btn-text-only {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* Mobile View (less than 768px) */
+  @media (max-width: 767px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+
+    .profile-name {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .profile-title {
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .profile-affiliation {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .profile-buttons {
+      justify-content: center;
+    }
+
+    .btn-profile {
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+    }
+
+    /* Hide text on very small screens */
+    @media (max-width: 380px) {
+
+      .btn-email span,
+      .btn-cv span {
+        display: none;
+      }
+
+      .btn-email,
+      .btn-cv {
+        padding: 0.35rem;
+        min-width: 32px;
+        justify-content: center;
+      }
+    }
+  }
+
+  /* Small Mobile (less than 480px) */
+  @media (max-width: 479px) {
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+
+    .profile-name {
+      font-size: 1.2rem;
+    }
+
+    .profile-buttons {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+
+</style>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PhD Course: Structural Models</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Moshi Alam </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 31, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>This PhD course covers structural models and econometric methods with a focus on some types of labor and public economics problems. Having a comprehensive course on structural models is nearly impossible since most good structural work fine tune their model to their specific context. The key lies in identification, which can ultimatley help us in doing counterfactuals. Hence, my emphasis will be mostly on identification, and primarily with discrete choice models (both static and dynamic) using estimation methods like MLE, GMM, SMM, and indirect inference. I will cover some numerical optimization methods like gradient-based, derivative-free methods but mostly Nelder-Mead simplex algorithm.</p>
+<p>I do not find the discussions of whether structural models are better than design-based (reduced form) methods very constructive and hence do not engage in them. However, I will list some papers that discuss these which you might find helpful. I like both, and have found both helpful in my work. In my view, both approaches have their own strengths, and it is cool to leverage best of both worlds.</p>
+<p>No textbook as such—its mostly papers, but I found <a href="https://eml.berkeley.edu/books/choice2.html">Kenneth Train’s <em>Discrete Choice Methods with Simulation</em></a> very helpful when I was learning discrete choice models for the first time. Depending on time I will also talk about some of my experience in improving computational efficiency in <code>julia</code>, and discuss some of the workflows that have worked for me.</p>
+</section>
+<section id="foundations" class="level2">
+<h2 class="anchored" data-anchor-id="foundations">Foundations</h2>
+<section id="identification" class="level3">
+<h3 class="anchored" data-anchor-id="identification">Identification</h3>
+<ul>
+<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060709">Heckman, J.J. and Vytlacil, E.J. (2007a)</a>. “Econometric Evaluation of Social Programs, Part I: Causal Models, Structural Models and Econometric Policy Evaluation.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 70.</p></li>
+<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060710">Heckman, J.J. and Vytlacil, E.J. (2007b).</a> “Econometric Evaluation of Social Programs, Part II: Using the Marginal Treatment Effect to Organize Alternative Econometric Estimators to Evaluate Social Programs, and to Forecast their Effects in New Environments.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 71.</p></li>
+<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0169721811004126">French, E. and Taber, C. (2011).</a> “Identification of Models of the Labor Market.” <em>Handbook of Labor Economics</em>, Vol. 4A, Ch. 6: 537-617.</p></li>
+<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060734">Matzkin, R.L. (2007).</a> “Nonparametric Identification.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 73.</p></li>
+</ul>
+</section>
+<section id="structural-vs.-reduced-form-methods" class="level3">
+<h3 class="anchored" data-anchor-id="structural-vs.-reduced-form-methods">Structural vs.&nbsp;Reduced Form Methods</h3>
+<ul>
+<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33">Low, H. and Meghir, C. (2017)</a>. “The Use of Structural Models in Econometrics.” <em>Journal of Economic Perspectives</em>, 31(2): 33-58.</p></li>
+<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.24.2.47">Keane, M.P. (2010).</a> “A Structural Perspective on the Experimentalist School of Econometrics.” <em>Journal of Economic Perspectives</em></p></li>
+<li><p><a href="https://www.nber.org/papers/w28698">Galiani, S. and Pantano, J. (2021)</a>. “Structural Models: Inception and Frontier.” NBER Working Paper 28698.</p></li>
+</ul>
+<!-- - Heckman, J.J. and Urzúa, S. (2010). "Comparing IV with Structural Models: What Simple IV Can and Cannot Identify." *Journal of Econometrics*, 156(1): 27-37. -->
+<!-- - Reiss, P.C. and Wolak, F.A. (2007). "Structural Econometric Modeling: Rationales and Examples from Industrial Organization." *Handbook of Econometrics*, Vol. 6A, Ch. 64. -->
+</section>
+</section>
+<section id="discrete-choice-models" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-choice-models">Discrete Choice Models</h2>
+<section id="static" class="level3">
+<h3 class="anchored" data-anchor-id="static">Static</h3>
+<ul>
+<li><p>McFadden, D. (1973). “Conditional Logit Analysis of Qualitative Choice Behavior.” In P. Zarembka (ed.), <em>Frontiers in Econometrics</em>. Academic Press.</p></li>
+<li><p>McFadden, D. (1981). “Econometric Models of Probabilistic Choice.” In C. Manski &amp; D. McFadden (eds.), <em>Structural Analysis of Discrete Data</em>.</p></li>
+</ul>
+<!-- - Train, K. (2009). *Discrete Choice Methods with Simulation*. Cambridge University Press. [Selected chapters] -->
+<!-- ### Identification in Discrete Choice
+
+- Manski, C.F. (1975). "Maximum Score Estimation of the Stochastic Utility Model of Choice." *Journal of Econometrics*, 3(3): 205-228.
+
+- Lewbel, A. (2000). "Semiparametric Qualitative Response Model Estimation with Unknown Heteroscedasticity or Instrumental Variables." *Journal of Econometrics*, 97(1): 145-177. -->
+</section>
+<section id="dynamic" class="level3">
+<h3 class="anchored" data-anchor-id="dynamic">Dynamic</h3>
+<ul>
+<li><p>Rust, J. (1987). “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher.” <em>Econometrica</em>, 55(5): 999-1033.</p></li>
+<li><p>Hotz, V.J. and Miller, R.A. (1993). “Conditional Choice Probabilities and the Estimation of Dynamic Models.” <em>Review of Economic Studies</em>, 60(3): 497-529.</p></li>
+</ul>
+<!-- - Hotz, V.J., Miller, R.A., Sanders, S., and Smith, J. (1994). "A Simulation Estimator for Dynamic Models of Discrete Choice." *Review of Economic Studies*, 61(2): 265-289. -->
+<!-- - Aguirregabiria, V. and Mira, P. (2002). "Swapping the Nested Fixed Point Algorithm: A Class of Estimators for Discrete Markov Decision Models." *Econometrica*, 70(4): 1519-1543. -->
+<ul>
+<li>Arcidiacono, P. and Miller, R.A. (2011). “Conditional Choice Probabilities and the Estimation of Dynamic Models with Unobserved Heterogeneity.” <em>Econometrica</em>, 79(6): 1823-1867.</li>
+</ul>
+</section>
+</section>
+<section id="estimation-methods" class="level2">
+<h2 class="anchored" data-anchor-id="estimation-methods">Estimation Methods</h2>
+<section id="maximum-likelihood-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum Likelihood Estimation</h3>
+<ul>
+<li><p>Ruud, P.A. (1991). “Extensions of Estimation Methods Using the EM Algorithm.” <em>Journal of Econometrics</em>, 49(3): 305-341.</p></li>
+<li><p>Keane, M.P. and Wolpin, K.I. (1994). “The Solution and Estimation of Discrete Choice Dynamic Programming Models by Simulation and Interpolation: Monte Carlo Evidence.” <em>Review of Economics and Statistics</em>, 76(4): 648-672.</p></li>
+</ul>
+</section>
+<section id="generalized-method-of-moments" class="level3">
+<h3 class="anchored" data-anchor-id="generalized-method-of-moments">Generalized Method of Moments</h3>
+<ul>
+<li><p>Hansen, L.P. (1982). “Large Sample Properties of Generalized Method of Moments Estimators.” <em>Econometrica</em>, 50(4): 1029-1054.</p></li>
+<li><p>Newey, W.K. and McFadden, D. (1994). “Large Sample Estimation and Hypothesis Testing.” <em>Handbook of Econometrics</em>, Vol. 4, Ch. 36.</p></li>
+</ul>
+</section>
+<section id="simulated-method-of-moments" class="level3">
+<h3 class="anchored" data-anchor-id="simulated-method-of-moments">Simulated Method of Moments</h3>
+<ul>
+<li><p>McFadden, D. (1989). “A Method of Simulated Moments for Estimation of Discrete Response Models without Numerical Integration.” <em>Econometrica</em>, 57(5): 995-1026.</p></li>
+<li><p>Pakes, A. and Pollard, D. (1989). “Simulation and the Asymptotics of Optimization Estimators.” <em>Econometrica</em>, 57(5): 1027-1057.</p></li>
+</ul>
+</section>
+<section id="indirect-inference" class="level3">
+<h3 class="anchored" data-anchor-id="indirect-inference">Indirect Inference</h3>
+<ul>
+<li>Gourieroux, C., Monfort, A., and Renault, E. (1993). “Indirect Inference.” <em>Journal of Applied Econometrics</em>, 8(S1): S85-S118.</li>
+</ul>
+</section>
+</section>
+<section id="applications-in-labor-economics" class="level2">
+<h2 class="anchored" data-anchor-id="applications-in-labor-economics">Applications in Labor Economics</h2>
+<!-- ### Early Childhood and Education
+
+- Heckman, J.J. and Zhou, J. (2025). "A Study of the Microdynamics of Early Childhood Learning." NBER Working Paper 34294.
+
+- Cunha, F., Hu, Q., Salvati, A., Wolpin, K., and Zeng, R. (2025). "An Evaluation of the Alief Independent School District Jumpstart Program: Using a Model to Recover Mechanisms from an RCT." NBER Working Paper 33537. -->
+<section id="stated-preferences" class="level3">
+<h3 class="anchored" data-anchor-id="stated-preferences">Stated Preferences</h3>
+<ul>
+<li><p>Wiswall, M. and Zafar, B. (2018). “Preference for the Workplace, Investment in Human Capital, and Gender.” <em>Quarterly Journal of Economics</em>, 133(1): 457-507.</p></li>
+<li><p><em>Alam, M.M.U., Mookerjee, M., and Roy, S. (2021) “Employee-Side Discrimination: Beliefs and Preferences.”</em></p></li>
+<li><p>Adams, A., and Andrew, A. (2025) “Revealed Beliefs and the Marriage Market Return to Education“ <em>Quarterly Journal of Economics</em>.</p></li>
+<li><p>Delavande, A. and Zafar, B. (2019). “University Choice: The Role of Expected Earnings, Nonpecuniary Outcomes, and Financial Constraints.” <em>Journal of Political Economy</em>, 127(5): 2343-2393.</p></li>
+</ul>
+<!-- - Abaluck, J. and Adams-Prassl, A. (2021). "What Do Consumers Consider Before They Choose? Identification from Asymmetric Demand Responses." *Quarterly Journal of Economics*, 136(3): 1611-1663. -->
+</section>
+<section id="monopsony-and-firm-effects" class="level3">
+<h3 class="anchored" data-anchor-id="monopsony-and-firm-effects">Monopsony and Firm Effects</h3>
+<ul>
+<li>Card, D., Cardoso, A.R., Heining, J., and Kline, P. (2018). “Firms and Labor Market Inequality: Evidence and Some Theory.” <em>Journal of Labor Economics</em>, 36(S1): S13-S70.</li>
+</ul>
+<!-- - Card, D., Cardoso, A.R., and Kline, P. (2016). "Bargaining, Sorting, and the Gender Wage Gap: Quantifying the Impact of Firms on the Relative Pay of Women." *Quarterly Journal of Economics*, 131(2): 633-686. -->
+<ul>
+<li><p>Lamadon, T., Mogstad, M., and Setzler, B. (2022). “Imperfect Competition, Compensating Differentials, and Rent Sharing in the US Labor Market.” <em>American Economic Review</em>, 112(1): 169-212.</p></li>
+<li><p>Kroft, K., Luo, Y., Mogstad, M., and Setzler, B. (2025). “Imperfect Competition and Rents in Labor and Product Markets: The Case of the Construction Industry.” <em>American Economic Review</em>, 115(9): 2926-2969.</p></li>
+<li><p>Kline, P. and Petkova, K. (2025). “Labor Market Monopsony: Fundamentals and Frontiers.” <em>Handbook of Labor Economics</em>, Vol. 6: 655-728.</p></li>
+</ul>
+</section>
+<section id="other-topics" class="level3">
+<h3 class="anchored" data-anchor-id="other-topics">Other topics</h3>
+<section id="career-decisions-human-capital-household-consumption-migration-search" class="level4">
+<h4 class="anchored" data-anchor-id="career-decisions-human-capital-household-consumption-migration-search">Career Decisions, Human Capital, Household consumption, Migration, Search</h4>
+<ul>
+<li><p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2002.00441.x">Postel-Vinay, F. and Robin, J.M. (2002)</a>. “Equilibrium Wage Dispersion with Worker and Employer Heterogeneity.” <em>Econometrica</em>, 70(6): 2295-2350.</p></li>
+<li><p>Keane, M.P. and Wolpin, K.I. (1997). “The Career Decisions of Young Men.” <em>Journal of Political Economy</em>, 105(3): 473-522.</p></li>
+<li><p>Eckstein, Z. and Wolpin, K.I. (1989). “Dynamic Labour Force Participation of Married Women and Endogenous Work Experience.” <em>Review of Economic Studies</em>, 56(3): 375-390.</p></li>
+<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/aer.96.5.1384">Todd, P.E. and Wolpin, K.I. (2006)</a>. “Assessing the Impact of a School Subsidy Program in Mexico: Using a Social Experiment to Validate a Dynamic Behavioral Model of Child Schooling and Fertility.” <em>American Economic Review</em>, 96(5): 1384-1417.</p></li>
+<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20120234">Voena, A. (2015)</a>. “Yours, Mine, and Ours: Do Divorce Laws Affect the Intertemporal Behavior of Married Couples?” <em>American Economic Review</em>, 105(8): 2295-2332.</p></li>
+<li><p><a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA4657">Kennan, J. and Walker, J.R. (2011).</a> “The Effect of Expected Income on Individual Migration Decisions.” <em>Econometrica</em>, 79(1): 211-251.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="applications-in-public-economics" class="level2">
+<h2 class="anchored" data-anchor-id="applications-in-public-economics">Applications in Public Economics</h2>
+<ul>
+<li><em>Alam, M.M.U., Davis, M, and Gregory, J. (2025). “Computing Optimal Place-Based Redistribtuion using Measured Geographic Variation in Marginal Utility of Income”</em></li>
+</ul>
+<!-- - Low, H., Meghir, C., and Pistaferri, L. (2010). "Wage Risk and Employment Risk over the Life Cycle." *American Economic Review*, 100(4): 1432-1467. -->
+<ul>
+<li>Chetty, R. (2009). “Sufficient Statistics for Welfare Analysis: A Bridge Between Structural and Reduced-Form Methods.” <em>Annual Review of Economics</em>, 1: 451-488.</li>
+</ul>
+</section>
+<section id="applications-in-development-economics" class="level2">
+<h2 class="anchored" data-anchor-id="applications-in-development-economics">Applications in Development Economics</h2>
+<ul>
+<li><p>Attanasio, O., Meghir, C., and Santiago, A. (2012). “Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA.” <em>Review of Economic Studies</em>, 79(1): 37-66.</p></li>
+<li><p>Duflo, E., Hanna, R., and Ryan, S.P. (2012). “Incentives Work: Getting Teachers to Come to School.” <em>American Economic Review</em>, 102(4): 1241-1278.</p></li>
+</ul>
+<!-- ## VIII. Recent Methodological Advances
+
+- Kalouptsidi, M., Scott, P.T., and Souza-Rodrigues, E. (2021). "Identification of Counterfactuals in Dynamic Discrete Choice Models." *Quantitative Economics*, 12(2): 351-403.
+
+- Abbring, J.H. and Daljord, Ø. (2020). "Identifying the Discount Factor in Dynamic Discrete Choice Models." *Quantitative Economics*, 11(2): 471-501. -->
+<!-- ## IX. Validation and Model Selection
+
+- Keane, M.P. and Wolpin, K.I. (2007). "Exploring the Usefulness of a Nonrandom Holdout Sample for Model Validation: Welfare Effects on Female Behavior." *International Economic Review*, 48(4): 1351-1378.
+
+- Kaboski, J.P. and Townsend, R.M. (2011). "A Structural Evaluation of a Large-Scale Quasi-Experimental Microfinance Initiative." *Econometrica*, 79(5): 1357-1406. -->
+</section>
+<section id="survey-articles" class="level2">
+<h2 class="anchored" data-anchor-id="survey-articles">Survey Articles</h2>
+<ul>
+<li><p>Todd, P.E. and Wolpin, K.I. (2010). “Structural Estimation and Policy Evaluation in Developing Countries.” <em>Annual Review of Economics</em>, 2: 21-50.</p></li>
+<li><p>Keane, M.P., Todd, P.E., and Wolpin, K.I. (2011). “The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications.” <em>Handbook of Labor Economics</em>, Vol. 4, Ch. 4: 331-461.</p></li>
+<li><p>Aguirregabiria, V. and Mira, P. (2010). “Dynamic Discrete Choice Structural Models: A Survey.” <em>Journal of Econometrics</em>, 156(1): 38-67.</p></li>
+<li><p>Keane, M.P. and Wolpin, K.I. (2009). “Empirical Applications of Discrete Choice Dynamic Programming Models.” <em>Review of Economic Dynamics</em>, 12(1): 1-22.</p></li>
+<li><p>Blundell, R. and MaCurdy, T. (1999). “Labor Supply: A Review of Alternative Approaches.” <em>Handbook of Labor Economics</em>, Vol. 3A, Ch. 27.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2021, Md Moshi Ul Alam. Website created using Quarto.
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
