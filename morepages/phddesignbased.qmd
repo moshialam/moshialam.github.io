@@ -88,4 +88,4 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
     - Students can use their programming language of choice. I recommend R.
     - Students are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.
     - I will also assign students topics for presentations/referee reports. 
-- **Class attendance and participation — 20%**
+- **Class  participation — 20%**

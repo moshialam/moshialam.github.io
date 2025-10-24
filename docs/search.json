@@ -816,7 +816,7 @@
     "href": "morepages/phddesignbased.html#assessment",
     "title": "PhD: Design-Based Causal Inference",
     "section": "Assessment",
-    "text": "Assessment\n\nProblem Sets — 80%: Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.\n\nStudents can use their programming language of choice. I recommend R.\nStudents are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.\nI will also assign students topics for presentations/referee reports.\n\nClass attendance and participation — 20%"
+    "text": "Assessment\n\nProblem Sets — 80%: Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.\n\nStudents can use their programming language of choice. I recommend R.\nStudents are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.\nI will also assign students topics for presentations/referee reports.\n\nClass participation — 20%"
   },
   {
     "objectID": "morepages/podcasts.html",
@@ -928,7 +928,21 @@
     "href": "morepages/phdmetrics.html#course-description",
     "title": "PhD: Econometric Theory",
     "section": "Course Description",
-    "text": "Course Description\nThis is a core PhD level econometrics course. I am not an Econometric theorist, but I think a lot about Econometrics and pay attention to it in my work. Hence, my teaching of this course may differ from a traditional econometrician. My goal here is to get you ready for second year applied econometrics course sequence of design-based and structural methods, and ensure certain results and style of approaching econometric proofs are at your fingertips.\nI will mostly follow Bruce Hansen’s Econometrics (2022) textbook from which I have learnt a lot and found very useful. You would also find the first part of this book Probability and Statistics for Economists (2022) very useful too. I want to cover this course in mostly four big sub-parts:\n\nIdentification and Estimation\nParametric estimation of linear models\nLarge Sample Asymptotics and Inference, and Resampling based inference\nNon-parametrics\nNon-linear models"
+    "text": "Course Description\nThis is a core PhD level econometrics course. I am not an Econometric theorist, but I think a lot about Econometrics and pay attention to it in my work. Hence, my teaching of this course may differ from a traditional econometric theorist.\nMy goal here is to get you ready for second year applied econometrics course sequence of design-based and structural methods. Hence I want to ensure certain results, and style of approaching econometric proofs are at your fingertips as you embark on research. An additional theme, besides all the math, will be simulation to better understand estimators and sensitivity of assumptions. I have found this very useful in my own learning to line up intuition with the theory. I will be mostly doing this in R or julia.\nI will mostly follow Bruce Hansen’s Econometrics (2022) textbook from which I have learnt a lot and found very useful. You would also find the first part of this book Probability and Statistics for Economists (2022) very useful too."
+  },
+  {
+    "objectID": "morepages/phdmetrics.html#broad-outline",
+    "href": "morepages/phdmetrics.html#broad-outline",
+    "title": "PhD: Econometric Theory",
+    "section": "Broad outline",
+    "text": "Broad outline\nI plan to cover this course in mostly the following big sub-parts:\n\nIdentification and Estimation\nParametric estimation of linear models\nLarge sample asymptotics and inference, and resampling based inference\nNon-parametrics\nNon-linear models"
+  },
+  {
+    "objectID": "morepages/phdmetrics.html#assessment",
+    "href": "morepages/phdmetrics.html#assessment",
+    "title": "PhD: Econometric Theory",
+    "section": "Assessment",
+    "text": "Assessment\n\nProblem Sets — 80%: Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.\n\nStudents can use their programming language of choice. I recommend R.\nStudents are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.\n\nClass participation — 20%"
   },
   {
     "objectID": "blogs/julia_environments.html",

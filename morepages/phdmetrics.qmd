@@ -13,14 +13,32 @@ format:
 
 ## Course Description
 
-This is a core PhD level econometrics course. I am not an Econometric theorist, but I think a lot about Econometrics and pay attention to it in my work. Hence, my teaching of this course may differ from a traditional econometrician. My goal here is to get you ready for second year applied econometrics course sequence of design-based and structural methods, and ensure certain results and style of approaching econometric proofs are at your fingertips. 
+This is a core PhD level econometrics course. I am not an Econometric theorist, but I think a lot about Econometrics and pay attention to it in my work. Hence, my teaching of this course may differ from a traditional econometric theorist. 
+
+My goal here is to get you ready for second year applied econometrics course sequence of design-based and structural methods. Hence I want to ensure certain results, and style of approaching econometric proofs are at your fingertips as you embark on research. An additional theme, besides all the math, will be simulation to better understand estimators and sensitivity of assumptions.  I have found this very useful in my own learning to line up intuition with the theory. I will be mostly doing this in `R` or `julia`.
 
 
-I will mostly follow [Bruce Hansen](https://econ.wisc.edu/staff/hansen-bruce/)'s *[Econometrics (2022)](https://users.ssc.wisc.edu/~bhansen/econometrics/)*  textbook from which I have learnt a lot and found very useful. You would also find the first part of this book [Probability and Statistics for Economists (2022)](https://users.ssc.wisc.edu/~bhansen/probability/) very useful too. I want to cover this course in mostly four big sub-parts: 
+I will mostly follow [Bruce Hansen](https://econ.wisc.edu/staff/hansen-bruce/)'s *[Econometrics (2022)](https://users.ssc.wisc.edu/~bhansen/econometrics/)*  textbook from which I have learnt a lot and found very useful. You would also find the first part of this book [Probability and Statistics for Economists (2022)](https://users.ssc.wisc.edu/~bhansen/probability/) very useful too. 
+
+
+## Broad outline
+
+I plan to cover this course in mostly the following big sub-parts: 
 
 - Identification and Estimation
 - Parametric estimation of linear models
-- Large Sample Asymptotics and Inference, and Resampling based inference
+- Large sample asymptotics and inference, and resampling based inference
 - Non-parametrics
 - Non-linear models
+
+
+
+
+## Assessment
+
+- **Problem Sets — 80%:** Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.
+    - Students can use their programming language of choice. I recommend R.
+    - Students are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.
+- **Class participation — 20%**
+
 
