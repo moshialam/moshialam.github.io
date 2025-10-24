@@ -9,7 +9,7 @@
 <meta name="author" content="Moshi Alam">
 <meta name="dcterms.date" content="2024-12-31">
 
-<title>PhD: Structural Models – Moshi Alam</title>
+<title>PhD: Design-Based Causal Inference – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -206,19 +206,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#course-outline" id="toc-course-outline" class="nav-link" data-scroll-target="#course-outline">Course outline</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a>
-  <ul class="collapse">
-  <li><a href="#identification" id="toc-identification" class="nav-link" data-scroll-target="#identification">Identification</a></li>
-  <li><a href="#structural-vs.-reduced-form-methods" id="toc-structural-vs.-reduced-form-methods" class="nav-link" data-scroll-target="#structural-vs.-reduced-form-methods">Structural vs.&nbsp;Reduced Form Methods</a></li>
-  <li><a href="#static-discrete-choice-models" id="toc-static-discrete-choice-models" class="nav-link" data-scroll-target="#static-discrete-choice-models">Static Discrete Choice Models</a></li>
-  <li><a href="#dynamic-discrete-choice-models" id="toc-dynamic-discrete-choice-models" class="nav-link" data-scroll-target="#dynamic-discrete-choice-models">Dynamic Discrete Choice Models</a></li>
-  <li><a href="#estimation-methods" id="toc-estimation-methods" class="nav-link" data-scroll-target="#estimation-methods">Estimation Methods</a></li>
-  <li><a href="#applications-in-labor-economics" id="toc-applications-in-labor-economics" class="nav-link" data-scroll-target="#applications-in-labor-economics">Applications in Labor Economics</a></li>
-  <li><a href="#applications-in-public-economics" id="toc-applications-in-public-economics" class="nav-link" data-scroll-target="#applications-in-public-economics">Applications in Public Economics</a></li>
-  <li><a href="#applications-in-development-economics" id="toc-applications-in-development-economics" class="nav-link" data-scroll-target="#applications-in-development-economics">Applications in Development Economics</a></li>
-  <li><a href="#survey-articles" id="toc-survey-articles" class="nav-link" data-scroll-target="#survey-articles">Survey Articles</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -492,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PhD: Structural Models</h1>
+<h1 class="title">PhD: Design-Based Causal Inference</h1>
 </div>
 
 
@@ -523,9 +513,84 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="course-description" class="level2">
 <h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
-<p>THis si the second part of a two-part sequence of Applied ecopnometrics at the PhD level. Here I cover structural models and econometric methods with a focus on some types of labor and public economics problems. Having a comprehensive course on structural models is nearly impossible since structural work fine tune the model to the specific theory and context. The key lies in identification, which can ultimatley help us in doing counterfactuals. Hence, my emphasis will be mostly on identification, and primarily with discrete choice models (both static and dynamic) using estimation methods like MLE, GMM, SMM, and primarily indirect inference. I will cover some numerical optimization methods like gradient-based, derivative-free methods but mostly Nelder-Mead simplex algorithm.</p>
-<p>I do not find the discussions of whether structural models are better than design-based (reduced form) methods very constructive and hence will not engage in them. However, I will list some papers that discuss these. I like both, and have found both helpful in my work. In my view, both approaches have their own strengths, and it is cool to leverage best of both worlds.</p>
-<p>No textbook as such—its mostly papers, but I found <a href="https://eml.berkeley.edu/books/choice2.html">Kenneth Train’s <em>Discrete Choice Methods with Simulation</em></a> very helpful when I was learning discrete choice models for the first time. Depending on time I will also talk about some of my experience in improving computational efficiency in <code>julia</code>, and discuss some of the workflows that have worked for me.</p>
+<p>This is the first course in a two-course sequence on applied econometrics at the PhD level, where we will cover design based methods for causal inference. The next course will cover model-based structural methods.</p>
+<p>There is no particular textbook for this course. We will mostly talk about the econometrics of methods and applications through papers. I will upload <a href="https://canvas.clarku.edu/courses/17807">slides on canvas</a>. Some additional useful references are:</p>
+<ul>
+<li>Angrist and Pischke (2009), <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton University Press.</li>
+<li>Cunningham, S (2012), <em>Causal Inference: The Mixtape</em>. Yale University Press. <a href="https://mixtape.scunning.com/">[Open-source Link]</a></li>
+</ul>
+</section>
+<section id="course-outline" class="level2">
+<h2 class="anchored" data-anchor-id="course-outline">Course outline</h2>
+<ul>
+<li>Potential outcomes framework</li>
+<li>Randomized controlled trials</li>
+<li>IV and Heterogeneous treatment effects</li>
+<li>Regression discontinuity designs</li>
+<li>FE, TWFE and Negative weights</li>
+<li>Heterogeneity robust D-i-D and extensions</li>
+<li>Shrinkage Estimators</li>
+<li>Judge IV Designs</li>
+<li>Shift share IV</li>
+<li>Marginal Treatment Effects</li>
+</ul>
+</section>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<p>This reading list by no means is exhaustive. I have tried to add handbook chapters and survey papers since they are pretty well explanatory. Your objective in reading these papers is not only to understand the empirical application but also to understand how good authors write and structure their papers.</p>
+<ul>
+<li><strong>Randomized Controlled Trials, IV (and mixed stuff)</strong>
+<ul>
+<li>Miguel and Kremer (2004), “Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities”. Econometrica</li>
+<li>Bertrand, M., and S. Mullainathan (2004). “Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination.” American Economic Review</li>
+<li>Duflo, E., Glennerster, R., &amp; Kremer, M. (2007), “Using Randomization in Development Economics Research: A Toolkit,” Handbook of Development Economics.</li>
+</ul></li>
+<li><strong>Instrumental Variables</strong>
+<ul>
+<li>Angrist, J., &amp; Krueger, A. (1991), “Does Compulsory School Attendance Affect Schooling and Earnings?” QJE.</li>
+<li>Bound, J., Jaeger, D. A., &amp; Baker, R. M. (1995), “Problems with Instrumental Variables Estimation when the Correlation between the Instruments and the Endogenous Explanatory Variable is Weak,” Journal of the American Statistical Association.</li>
+<li>Card, D. (1999), “The Causal Effect of Education on Earnings,” in Handbook of Labor Economics.</li>
+<li>Imbens, G. W., &amp; Angrist, J. D. (1994), “Identification and Estimation of Local Average Treatment Effects,” Econometrica.</li>
+</ul></li>
+<li><strong>Regression Discontinuity</strong>
+<ul>
+<li>Lee, D. S., &amp; Lemieux, T. (2010), “Regression Discontinuity Designs in Economics,” JEL</li>
+<li>Zimmerman, S. (2014). “The returns to college admission for academically marginal students.” Journal of Labor Economics</li>
+<li>Clark, D., and P. Martorell (2014). “The signaling value of a high school diploma.” Journal of Political Economy</li>
+</ul></li>
+<li><strong>TWFE and Negative weights</strong>
+<ul>
+<li>Goodman-Bacon, Andrew. (2021). “Difference-in-differences with variation in treatment timing.” Journal of Econometrics.</li>
+<li>de Chaisemartin, C., &amp; D’Haultfoeuille, X. (2020). “Two-way fixed effects estimators with heterogeneous treatment effects.” American Economic Review.</li>
+</ul></li>
+<li><strong>Heterogeneity robust D-i-D and extensions</strong>
+<ul>
+<li>Callaway, B., and Sant’Anna, P.. (2021). “Difference-in-differences with multiple time periods.” Journal of Econometrics.</li>
+<li>Sun, L., &amp; Abraham, S. (2021). “Estimating dynamic treatment effects in event studies with heterogeneous treatment effects.” Journal of Econometrics.</li>
+<li>Roth, J., Rambachan, A. (2023) “A More Credible Approach to Parallel Trends” Review of Economic Studies.</li>
+<li>Roth, Sant’Anna, Bilinksky, Poe (2023). ““What’s trending in difference-in-differences? A synthesis of the recent econometrics literature”. Journal of Econometrics” <!-- - Cengiz, D., Dube, A., Lindner, A., & Zipperer, B. (2019). "The effect of minimum wages on low-wage jobs: Evidence from the United States using a bunching estimator." Quarterly Journal of Economics. --></li>
+</ul></li>
+<li><strong>Shrinkage Estimators</strong>
+<ul>
+<li>Walters, C. (2024), “Empirical Bayes methods in labor economics,” Handbook of Econometrics, Volume 5.</li>
+<li>Kline, P., &amp; Walters, C. (2021), “Reasonable Doubt: Experimental Detection of Job-Level Employment Discrimination,” Econometrica</li>
+</ul></li>
+<li><strong>Judge IV Designs</strong>
+<ul>
+<li>Dobbie, W., Goldin, J., &amp; Yang, C. S. (2018). “The effects of legal representation in criminal trials.” American Economic Review.</li>
+<li>Frandsen, Lefgren, and Leslie (2023). “Judging Judge Fixed Effects.” American Economic Review.</li>
+</ul></li>
+<li><strong>Shift share IV</strong>
+<ul>
+<li>Borusyak, K., Hull, P., &amp; Jaravel, X. (2022). “Quasi-experimental shift-share research designs.” Review of Economic Studies.</li>
+<li>Goldsmith-Pinkham, P., Sorkin, I., &amp; Swift, H. (2020). “Bartik instruments: What, when, why, and how.” American Economic Review.</li>
+</ul></li>
+<li><strong>Marginal Treatment Effects</strong>
+<ul>
+<li>Heckman, J. J., &amp; Vytlacil, E. (2007). “Econometric evaluation of social programs, part I: Causal models, structural models and econometric policy evaluation.” Handbook of Econometrics.</li>
+<li>Heckman, J. J., &amp; Vytlacil, E. (2007). “Econometric evaluation of social programs, part II: Using the marginal treatment effect to organize alternative econometric estimators to evaluate social programs.” Handbook of Econometrics.</li>
+</ul></li>
+</ul>
 </section>
 <section id="assessment" class="level2">
 <h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
@@ -538,164 +603,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><strong>Class attendance and participation — 20%</strong></li>
 </ul>
-</section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<section id="identification" class="level3">
-<h3 class="anchored" data-anchor-id="identification">Identification</h3>
-<ul>
-<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060709">Heckman, J.J. and Vytlacil, E.J. (2007a)</a>. “Econometric Evaluation of Social Programs, Part I: Causal Models, Structural Models and Econometric Policy Evaluation.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 70.</p></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060710">Heckman, J.J. and Vytlacil, E.J. (2007b).</a> “Econometric Evaluation of Social Programs, Part II: Using the Marginal Treatment Effect to Organize Alternative Econometric Estimators to Evaluate Social Programs, and to Forecast their Effects in New Environments.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 71.</p></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0169721811004126">French, E. and Taber, C. (2011).</a> “Identification of Models of the Labor Market.” <em>Handbook of Labor Economics</em>, Vol. 4A, Ch. 6: 537-617.</p></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1573441207060734">Matzkin, R.L. (2007).</a> “Nonparametric Identification.” <em>Handbook of Econometrics</em>, Vol. 6B, Ch. 73.</p></li>
-</ul>
-</section>
-<section id="structural-vs.-reduced-form-methods" class="level3">
-<h3 class="anchored" data-anchor-id="structural-vs.-reduced-form-methods">Structural vs.&nbsp;Reduced Form Methods</h3>
-<ul>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33">Low, H. and Meghir, C. (2017)</a>. “The Use of Structural Models in Econometrics.” <em>Journal of Economic Perspectives</em>, 31(2): 33-58.</p></li>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.24.2.3">Angrist, J.D. and Pischke, J.S. (2010).</a> “The Credibility Revolution in Empirical Economics: How Better Research Design is Taking the Con out of Econometrics.” <em>Journal of Economic Perspectives</em>, 23(1): 69-90.</p></li>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.24.2.47">Keane, M.P. (2010).</a> “A Structural Perspective on the Experimentalist School of Econometrics.” <em>Journal of Economic Perspectives</em></p></li>
-<li><p><a href="https://www.nber.org/papers/w28698">Galiani, S. and Pantano, J. (2021)</a>. “Structural Models: Inception and Frontier.” NBER Working Paper 28698.</p></li>
-</ul>
-<!-- - Heckman, J.J. and Urzúa, S. (2010). "Comparing IV with Structural Models: What Simple IV Can and Cannot Identify." *Journal of Econometrics*, 156(1): 27-37. -->
-<!-- - Reiss, P.C. and Wolak, F.A. (2007). "Structural Econometric Modeling: Rationales and Examples from Industrial Organization." *Handbook of Econometrics*, Vol. 6A, Ch. 64. -->
-</section>
-<section id="static-discrete-choice-models" class="level3">
-<h3 class="anchored" data-anchor-id="static-discrete-choice-models">Static Discrete Choice Models</h3>
-<ul>
-<li><p>McFadden, D. (1973). “Conditional Logit Analysis of Qualitative Choice Behavior.” In P. Zarembka (ed.), <em>Frontiers in Econometrics</em>. Academic Press.</p></li>
-<li><p>McFadden, D. (1981). “Econometric Models of Probabilistic Choice.” In C. Manski &amp; D. McFadden (eds.), <em>Structural Analysis of Discrete Data</em>.</p></li>
-</ul>
-<!-- - Train, K. (2009). *Discrete Choice Methods with Simulation*. Cambridge University Press. [Selected chapters] -->
-<!-- ### Identification in Discrete Choice
-
-- Manski, C.F. (1975). "Maximum Score Estimation of the Stochastic Utility Model of Choice." *Journal of Econometrics*, 3(3): 205-228.
-
-- Lewbel, A. (2000). "Semiparametric Qualitative Response Model Estimation with Unknown Heteroscedasticity or Instrumental Variables." *Journal of Econometrics*, 97(1): 145-177. -->
-</section>
-<section id="dynamic-discrete-choice-models" class="level3">
-<h3 class="anchored" data-anchor-id="dynamic-discrete-choice-models">Dynamic Discrete Choice Models</h3>
-<ul>
-<li><p>Rust, J. (1987). “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher.” <em>Econometrica</em>, 55(5): 999-1033.</p></li>
-<li><p>Hotz, V.J. and Miller, R.A. (1993). “Conditional Choice Probabilities and the Estimation of Dynamic Models.” <em>Review of Economic Studies</em>, 60(3): 497-529.</p></li>
-</ul>
-<!-- - Hotz, V.J., Miller, R.A., Sanders, S., and Smith, J. (1994). "A Simulation Estimator for Dynamic Models of Discrete Choice." *Review of Economic Studies*, 61(2): 265-289. -->
-<!-- - Aguirregabiria, V. and Mira, P. (2002). "Swapping the Nested Fixed Point Algorithm: A Class of Estimators for Discrete Markov Decision Models." *Econometrica*, 70(4): 1519-1543. -->
-<ul>
-<li>Arcidiacono, P. and Miller, R.A. (2011). “Conditional Choice Probabilities and the Estimation of Dynamic Models with Unobserved Heterogeneity.” <em>Econometrica</em>, 79(6): 1823-1867.</li>
-</ul>
-</section>
-<section id="estimation-methods" class="level3">
-<h3 class="anchored" data-anchor-id="estimation-methods">Estimation Methods</h3>
-<section id="maximum-likelihood-estimation" class="level4">
-<h4 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum Likelihood Estimation</h4>
-<ul>
-<li><p>Ruud, P.A. (1991). “Extensions of Estimation Methods Using the EM Algorithm.” <em>Journal of Econometrics</em>, 49(3): 305-341.</p></li>
-<li><p>Keane, M.P. and Wolpin, K.I. (1994). “The Solution and Estimation of Discrete Choice Dynamic Programming Models by Simulation and Interpolation: Monte Carlo Evidence.” <em>Review of Economics and Statistics</em>, 76(4): 648-672.</p></li>
-</ul>
-</section>
-<section id="generalized-method-of-moments" class="level4">
-<h4 class="anchored" data-anchor-id="generalized-method-of-moments">Generalized Method of Moments</h4>
-<ul>
-<li>Hansen, L.P. (1982). “Large Sample Properties of Generalized Method of Moments Estimators.” <em>Econometrica</em>, 50(4): 1029-1054.</li>
-</ul>
-<!-- - Newey, W.K. and McFadden, D. (1994). "Large Sample Estimation and Hypothesis Testing." *Handbook of Econometrics*, Vol. 4, Ch. 36. -->
-</section>
-<section id="simulated-method-of-moments" class="level4">
-<h4 class="anchored" data-anchor-id="simulated-method-of-moments">Simulated Method of Moments</h4>
-<ul>
-<li><p>McFadden, D. (1989). “A Method of Simulated Moments for Estimation of Discrete Response Models without Numerical Integration.” <em>Econometrica</em>, 57(5): 995-1026.</p></li>
-<li><p>Pakes, A. and Pollard, D. (1989). “Simulation and the Asymptotics of Optimization Estimators.” <em>Econometrica</em>, 57(5): 1027-1057.</p></li>
-</ul>
-</section>
-<section id="indirect-inference" class="level4">
-<h4 class="anchored" data-anchor-id="indirect-inference">Indirect Inference</h4>
-<ul>
-<li>Gourieroux, C., Monfort, A., and Renault, E. (1993). “Indirect Inference.” <em>Journal of Applied Econometrics</em>, 8(S1): S85-S118.</li>
-</ul>
-</section>
-</section>
-<section id="applications-in-labor-economics" class="level3">
-<h3 class="anchored" data-anchor-id="applications-in-labor-economics">Applications in Labor Economics</h3>
-<!-- ### Early Childhood and Education
-
-- Heckman, J.J. and Zhou, J. (2025). "A Study of the Microdynamics of Early Childhood Learning." NBER Working Paper 34294.
-
-- Cunha, F., Hu, Q., Salvati, A., Wolpin, K., and Zeng, R. (2025). "An Evaluation of the Alief Independent School District Jumpstart Program: Using a Model to Recover Mechanisms from an RCT." NBER Working Paper 33537. -->
-<section id="stated-preferences" class="level4">
-<h4 class="anchored" data-anchor-id="stated-preferences">Stated Preferences</h4>
-<ul>
-<li><p>Wiswall, M. and Zafar, B. (2018). “Preference for the Workplace, Investment in Human Capital, and Gender.” <em>Quarterly Journal of Economics</em>, 133(1): 457-507.</p></li>
-<li><p><em>Alam, M.M.U., Mookerjee, M., and Roy, S. (2021) “Employee-Side Discrimination: Beliefs and Preferences.”</em></p></li>
-<li><p>Adams, A., and Andrew, A. (2025) “Revealed Beliefs and the Marriage Market Return to Education“ <em>Quarterly Journal of Economics</em>.</p></li>
-<li><p>Delavande, A. and Zafar, B. (2019). “University Choice: The Role of Expected Earnings, Nonpecuniary Outcomes, and Financial Constraints.” <em>Journal of Political Economy</em>, 127(5): 2343-2393.</p></li>
-</ul>
-<!-- - Abaluck, J. and Adams-Prassl, A. (2021). "What Do Consumers Consider Before They Choose? Identification from Asymmetric Demand Responses." *Quarterly Journal of Economics*, 136(3): 1611-1663. -->
-</section>
-<section id="monopsony-and-firm-effects" class="level4">
-<h4 class="anchored" data-anchor-id="monopsony-and-firm-effects">Monopsony and Firm Effects</h4>
-<ul>
-<li>Card, D., Cardoso, A.R., Heining, J., and Kline, P. (2018). “Firms and Labor Market Inequality: Evidence and Some Theory.” <em>Journal of Labor Economics</em>, 36(S1): S13-S70.</li>
-</ul>
-<!-- - Card, D., Cardoso, A.R., and Kline, P. (2016). "Bargaining, Sorting, and the Gender Wage Gap: Quantifying the Impact of Firms on the Relative Pay of Women." *Quarterly Journal of Economics*, 131(2): 633-686. -->
-<ul>
-<li><p>Lamadon, T., Mogstad, M., and Setzler, B. (2022). “Imperfect Competition, Compensating Differentials, and Rent Sharing in the US Labor Market.” <em>American Economic Review</em>, 112(1): 169-212.</p></li>
-<li><p>Kroft, K., Luo, Y., Mogstad, M., and Setzler, B. (2025). “Imperfect Competition and Rents in Labor and Product Markets: The Case of the Construction Industry.” <em>American Economic Review</em>, 115(9): 2926-2969.</p></li>
-<li><p>Kline, P. and Petkova, K. (2025). “Labor Market Monopsony: Fundamentals and Frontiers.” <em>Handbook of Labor Economics</em>, Vol. 6: 655-728.</p></li>
-</ul>
-</section>
-<section id="career-decisions-human-capital-household-consumption-migration-search" class="level4">
-<h4 class="anchored" data-anchor-id="career-decisions-human-capital-household-consumption-migration-search">Career Decisions, Human Capital, Household consumption, Migration, Search</h4>
-<ul>
-<li><p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2002.00441.x">Postel-Vinay, F. and Robin, J.M. (2002)</a>. “Equilibrium Wage Dispersion with Worker and Employer Heterogeneity.” <em>Econometrica</em>, 70(6): 2295-2350.</p></li>
-<li><p>Keane, M.P. and Wolpin, K.I. (1997). “The Career Decisions of Young Men.” <em>Journal of Political Economy</em>, 105(3): 473-522.</p></li>
-<li><p>Eckstein, Z. and Wolpin, K.I. (1989). “Dynamic Labour Force Participation of Married Women and Endogenous Work Experience.” <em>Review of Economic Studies</em>, 56(3): 375-390.</p></li>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/aer.96.5.1384">Todd, P.E. and Wolpin, K.I. (2006)</a>. “Assessing the Impact of a School Subsidy Program in Mexico: Using a Social Experiment to Validate a Dynamic Behavioral Model of Child Schooling and Fertility.” <em>American Economic Review</em>, 96(5): 1384-1417.</p></li>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20120234">Voena, A. (2015)</a>. “Yours, Mine, and Ours: Do Divorce Laws Affect the Intertemporal Behavior of Married Couples?” <em>American Economic Review</em>, 105(8): 2295-2332.</p></li>
-<li><p><a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA4657">Kennan, J. and Walker, J.R. (2011).</a> “The Effect of Expected Income on Individual Migration Decisions.” <em>Econometrica</em>, 79(1): 211-251.</p></li>
-</ul>
-</section>
-</section>
-<section id="applications-in-public-economics" class="level3">
-<h3 class="anchored" data-anchor-id="applications-in-public-economics">Applications in Public Economics</h3>
-<ul>
-<li><em>Alam, M.M.U., Davis, M, and Gregory, J. (2025). “Computing Optimal Place-Based Redistribtuion using Measured Geographic Variation in Marginal Utility of Income”</em></li>
-</ul>
-<!-- - Low, H., Meghir, C., and Pistaferri, L. (2010). "Wage Risk and Employment Risk over the Life Cycle." *American Economic Review*, 100(4): 1432-1467. -->
-<ul>
-<li>Chetty, R. (2009). “Sufficient Statistics for Welfare Analysis: A Bridge Between Structural and Reduced-Form Methods.” <em>Annual Review of Economics</em>, 1: 451-488.</li>
-</ul>
-</section>
-<section id="applications-in-development-economics" class="level3">
-<h3 class="anchored" data-anchor-id="applications-in-development-economics">Applications in Development Economics</h3>
-<ul>
-<li><p>Attanasio, O., Meghir, C., and Santiago, A. (2012). “Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA.” <em>Review of Economic Studies</em>, 79(1): 37-66.</p></li>
-<li><p>Duflo, E., Hanna, R., and Ryan, S.P. (2012). “Incentives Work: Getting Teachers to Come to School.” <em>American Economic Review</em>, 102(4): 1241-1278.</p></li>
-</ul>
-<!-- ## VIII. Recent Methodological Advances
-
-- Kalouptsidi, M., Scott, P.T., and Souza-Rodrigues, E. (2021). "Identification of Counterfactuals in Dynamic Discrete Choice Models." *Quantitative Economics*, 12(2): 351-403.
-
-- Abbring, J.H. and Daljord, Ø. (2020). "Identifying the Discount Factor in Dynamic Discrete Choice Models." *Quantitative Economics*, 11(2): 471-501. -->
-<!-- ## IX. Validation and Model Selection
-
-- Keane, M.P. and Wolpin, K.I. (2007). "Exploring the Usefulness of a Nonrandom Holdout Sample for Model Validation: Welfare Effects on Female Behavior." *International Economic Review*, 48(4): 1351-1378.
-
-- Kaboski, J.P. and Townsend, R.M. (2011). "A Structural Evaluation of a Large-Scale Quasi-Experimental Microfinance Initiative." *Econometrica*, 79(5): 1357-1406. -->
-</section>
-<section id="survey-articles" class="level3">
-<h3 class="anchored" data-anchor-id="survey-articles">Survey Articles</h3>
-<ul>
-<li><p>Todd, P.E. and Wolpin, K.I. (2010). “Structural Estimation and Policy Evaluation in Developing Countries.” <em>Annual Review of Economics</em>, 2: 21-50.</p></li>
-<li><p>Keane, M.P., Todd, P.E., and Wolpin, K.I. (2011). “The Structural Estimation of Behavioral Models: Discrete Choice Dynamic Programming Methods and Applications.” <em>Handbook of Labor Economics</em>, Vol. 4, Ch. 4: 331-461.</p></li>
-<li><p>Aguirregabiria, V. and Mira, P. (2010). “Dynamic Discrete Choice Structural Models: A Survey.” <em>Journal of Econometrics</em>, 156(1): 38-67.</p></li>
-<li><p>Keane, M.P. and Wolpin, K.I. (2009). “Empirical Applications of Discrete Choice Dynamic Programming Models.” <em>Review of Economic Dynamics</em>, 12(1): 1-22.</p></li>
-<li><p>Blundell, R. and MaCurdy, T. (1999). “Labor Supply: A Review of Alternative Approaches.” <em>Handbook of Labor Economics</em>, Vol. 3A, Ch. 27.</p></li>
-</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
