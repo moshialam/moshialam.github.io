@@ -31,6 +31,8 @@ No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete 
 
 ##  Readings
 
+The readings are in not a particular order, although I will talk about identification in general first and then how is strucutral (model-based) approach different from reduced form (design-based) approach. Things that are not in particular order maybe specific topics & estimation routines and papers applying them.
+
 ### Identification
 
 - [Heckman, J.J. and Vytlacil, E.J. (2007a)](https://www.sciencedirect.com/science/article/abs/pii/S1573441207060709). "Econometric Evaluation of Social Programs, Part I: Causal Models, Structural Models and Econometric Policy Evaluation." *Handbook of Econometrics*, Vol. 6B, Ch. 70.
@@ -100,7 +102,7 @@ No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete 
 
 - McFadden, D. (1989). "A Method of Simulated Moments for Estimation of Discrete Response Models without Numerical Integration." *Econometrica*, 57(5): 995-1026.
 
-- Pakes, A. and Pollard, D. (1989). "Simulation and the Asymptotics of Optimization Estimators." *Econometrica*, 57(5): 1027-1057.
+<!-- - Pakes, A. and Pollard, D. (1989). "Simulation and the Asymptotics of Optimization Estimators." *Econometrica*, 57(5): 1027-1057. -->
 
 #### Indirect Inference
 
@@ -157,9 +159,7 @@ No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete 
 
 ### Applications in Public Economics
 
-- *Alam, M.M.U., Davis, M, and Gregory, J. (2025). "Computing Optimal Place-Based Redistribtuion using Measured Geographic Variation in Marginal Utility of Income"*
-
-<!-- - Low, H., Meghir, C., and Pistaferri, L. (2010). "Wage Risk and Employment Risk over the Life Cycle." *American Economic Review*, 100(4): 1432-1467. -->
+- *Alam, M.M.U., Davis, M, and Gregory, J. (2025). "Optimal Place-Based Redistribtuion using Geographic Variation in Marginal Utility of Income"*
 
 - Chetty, R. (2009). "Sufficient Statistics for Welfare Analysis: A Bridge Between Structural and Reduced-Form Methods." *Annual Review of Economics*, 1: 451-488.
 
@@ -168,18 +168,6 @@ No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete 
 - Attanasio, O., Meghir, C., and Santiago, A. (2012). "Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA." *Review of Economic Studies*, 79(1): 37-66.
 
 - Duflo, E., Hanna, R., and Ryan, S.P. (2012). "Incentives Work: Getting Teachers to Come to School." *American Economic Review*, 102(4): 1241-1278.
-
-<!-- ## VIII. Recent Methodological Advances
-
-- Kalouptsidi, M., Scott, P.T., and Souza-Rodrigues, E. (2021). "Identification of Counterfactuals in Dynamic Discrete Choice Models." *Quantitative Economics*, 12(2): 351-403.
-
-- Abbring, J.H. and Daljord, Ø. (2020). "Identifying the Discount Factor in Dynamic Discrete Choice Models." *Quantitative Economics*, 11(2): 471-501. -->
-
-<!-- ## IX. Validation and Model Selection
-
-- Keane, M.P. and Wolpin, K.I. (2007). "Exploring the Usefulness of a Nonrandom Holdout Sample for Model Validation: Welfare Effects on Female Behavior." *International Economic Review*, 48(4): 1351-1378.
-
-- Kaboski, J.P. and Townsend, R.M. (2011). "A Structural Evaluation of a Large-Scale Quasi-Experimental Microfinance Initiative." *Econometrica*, 79(5): 1357-1406. -->
 
 ### Survey Articles
 
