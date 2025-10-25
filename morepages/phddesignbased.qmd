@@ -64,6 +64,7 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
     - Sun, L., & Abraham, S. (2021). "Estimating dynamic treatment effects in event studies with heterogeneous treatment effects." Journal of Econometrics.
     - Roth, J., Rambachan, A. (2023) "A More Credible Approach to Parallel Trends" Review of Economic Studies.
     - Roth, Sant’Anna, Bilinksky, Poe (2023). "“What’s trending in difference-in-differences? A synthesis of the recent econometrics literature”. Journal of Econometrics"
+    - Agarwal, M., Alam, M.M.U. (2025), "The Unintended Benefits of Women Empowerment on Household Sanitation"
     <!-- - Cengiz, D., Dube, A., Lindner, A., & Zipperer, B. (2019). "The effect of minimum wages on low-wage jobs: Evidence from the United States using a bunching estimator." Quarterly Journal of Economics. -->
 
 - **Shrinkage Estimators**
