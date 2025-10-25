@@ -71,6 +71,8 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
 - **Shrinkage Estimators**
     - Walters  (2024), "Empirical Bayes methods in labor economics," Handbook of Econometrics, Volume 5.
     - Kline  & Walters (2021), "Reasonable Doubt: Experimental Detection of Job-Level Employment Discrimination," Econometrica
+    - Alam, Mookerjee & Roy (2021) "Employee-Side DIscrimination--Beliefs and Preferences"
+    - Alam, Davis & Gregory (2025) "Optimal Place Based Redistribution using Geographic Variation in the Marginal Utility of Income"
 
 - **Judge IV Designs**
     - Dobbie,  Goldin,  & Yang (2018). "The effects of legal representation in criminal trials." American Economic Review.
