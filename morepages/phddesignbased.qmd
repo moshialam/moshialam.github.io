@@ -39,49 +39,50 @@ There is no particular textbook for this course. We will mostly talk about the e
 This reading list by no means is exhaustive. I have tried to add handbook chapters and survey papers since they are pretty well explanatory. Your objective in reading these papers is not only to understand the empirical application but also to understand how good authors write and structure their papers.
 
 
-- **Randomized Controlled Trials, IV (and mixed stuff)**
-    - Miguel and Kremer (2004), "Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities". Econometrica
-    - Bertrand, M., and S. Mullainathan (2004). "Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination." American Economic Review
-    - Duflo, E., Glennerster, R., & Kremer, M. (2007), "Using Randomization in Development Economics Research: A Toolkit," Handbook of Development Economics.
+- **Randomized Controlled Trials**
+    - Miguel & Kremer (2004), "Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities". Econometrica
+    - Bertrand & Mullainathan (2004). "Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination." American Economic Review
+    - Duflo, Glennerster, & Kremer, M. (2007), "Using Randomization in Development Economics Research: A Toolkit," Handbook of Development Economics.
 
-- **Instrumental Variables**
-    - Angrist, J., & Krueger, A. (1991), "Does Compulsory School Attendance Affect Schooling and Earnings?" QJE.
-    - Bound, J., Jaeger, D. A., & Baker, R. M. (1995), "Problems with Instrumental Variables Estimation when the Correlation between the Instruments and the Endogenous Explanatory Variable is Weak," Journal of the American Statistical Association.
-    - Card, D. (1999), "The Causal Effect of Education on Earnings," in Handbook of Labor Economics.
-    - Imbens, G. W., & Angrist, J. D. (1994), "Identification and Estimation of Local Average Treatment Effects," Econometrica.
+- **Instrumental Variables and heterogeneous treatment effects**
+    - Angrist & Krueger  (1991), "Does Compulsory School Attendance Affect Schooling and Earnings?" QJE.
+    - Bound, Jaeger & Baker (1995), "Problems with Instrumental Variables Estimation when the Correlation between the Instruments and the Endogenous Explanatory Variable is Weak," Journal of the American Statistical Association.
+    - Card (1999), "The Causal Effect of Education on Earnings," in Handbook of Labor Economics.
+    - Imbens & Angrist, J. D. (1994), "Identification and Estimation of Local Average Treatment Effects," Econometrica.
 
 - **Regression Discontinuity**
-    - Lee, D. S., & Lemieux, T. (2010), "Regression Discontinuity Designs in Economics," JEL
-    - Zimmerman, S. (2014). "The returns to college admission for academically marginal students." Journal of Labor Economics
-    - Clark, D., and P. Martorell (2014). "The signaling value of a high school diploma." Journal of Political Economy
+    - Lee  & Lemieux (2010), "Regression Discontinuity Designs in Economics," JEL
+    - Zimmerman (2014). "The returns to college admission for academically marginal students." Journal of Labor Economics
+    - Clark & Martorell (2014). "The signaling value of a high school diploma." Journal of Political Economy
+    - Kolesar & Rothe (2018). "Inference in Regression Discontinuity Designs with a Discrete Running Variable." American Economic Review.
 
 - **TWFE and Negative weights**
-    - Goodman-Bacon, Andrew. (2021). "Difference-in-differences with variation in treatment timing." Journal of Econometrics.
-    - de Chaisemartin, C., & D'Haultfoeuille, X. (2020). "Two-way fixed effects estimators with heterogeneous treatment effects." American Economic Review.
+    - Goodman-Bacon (2021). "Difference-in-differences with variation in treatment timing." Journal of Econometrics.
+    - de Chaisemartin & D'Haultfoeuille (2020). "Two-way fixed effects estimators with heterogeneous treatment effects." American Economic Review.
 
 - **Heterogeneity robust D-i-D and extensions**
-    - Callaway, B., and Sant'Anna, P.. (2021). "Difference-in-differences with multiple time periods." Journal of Econometrics.
-    - Sun, L., & Abraham, S. (2021). "Estimating dynamic treatment effects in event studies with heterogeneous treatment effects." Journal of Econometrics.
-    - Roth, J., Rambachan, A. (2023) "A More Credible Approach to Parallel Trends" Review of Economic Studies.
-    - Roth, Sant’Anna, Bilinksky, Poe (2023). "“What’s trending in difference-in-differences? A synthesis of the recent econometrics literature”. Journal of Econometrics"
-    - Agarwal, M., Alam, M.M.U. (2025), "The Unintended Benefits of Women Empowerment on Household Sanitation"
+    - Callaway & Sant'Anna  (2021). "Difference-in-differences with multiple time periods." Journal of Econometrics.
+    - Sun & Abraham (2021). "Estimating dynamic treatment effects in event studies with heterogeneous treatment effects." Journal of Econometrics.
+    - Rambachan & Roth (2023) "A More Credible Approach to Parallel Trends" Review of Economic Studies.
+    - Roth, Sant’Anna, Bilinksky, & Poe (2023). "“What’s trending in difference-in-differences? A synthesis of the recent econometrics literature”. Journal of Econometrics"
+    - Agarwal & Alam  (2025), "The Unintended Benefits of Women Empowerment on Household Sanitation"
     <!-- - Cengiz, D., Dube, A., Lindner, A., & Zipperer, B. (2019). "The effect of minimum wages on low-wage jobs: Evidence from the United States using a bunching estimator." Quarterly Journal of Economics. -->
 
 - **Shrinkage Estimators**
-    - Walters, C. (2024), "Empirical Bayes methods in labor economics," Handbook of Econometrics, Volume 5.
-    - Kline, P., & Walters, C. (2021), "Reasonable Doubt: Experimental Detection of Job-Level Employment Discrimination," Econometrica
+    - Walters  (2024), "Empirical Bayes methods in labor economics," Handbook of Econometrics, Volume 5.
+    - Kline  & Walters (2021), "Reasonable Doubt: Experimental Detection of Job-Level Employment Discrimination," Econometrica
 
 - **Judge IV Designs**
-    - Dobbie, W., Goldin, J., & Yang, C. S. (2018). "The effects of legal representation in criminal trials." American Economic Review.
-    - Frandsen, Lefgren, and  Leslie (2023). "Judging Judge Fixed Effects." American Economic Review.
+    - Dobbie,  Goldin,  & Yang (2018). "The effects of legal representation in criminal trials." American Economic Review.
+    - Frandsen, Lefgren, &  Leslie (2023). "Judging Judge Fixed Effects." American Economic Review.
 
 - **Shift share IV**
-    - Borusyak, K., Hull, P., & Jaravel, X. (2022). "Quasi-experimental shift-share research designs." Review of Economic Studies.
-    - Goldsmith-Pinkham, P., Sorkin, I., & Swift, H. (2020). "Bartik instruments: What, when, why, and how." American Economic Review.
+    - Borusyak, Hull, & Jaravel (2022). "Quasi-experimental shift-share research designs." Review of Economic Studies.
+    - Goldsmith-Pinkham, Sorkin, & Swift (2020). "Bartik instruments: What, when, why, and how." American Economic Review.
 
 - **Marginal Treatment Effects**
-    - Heckman, J. J., & Vytlacil, E. (2007). "Econometric evaluation of social programs, part I: Causal models, structural models and econometric policy evaluation." Handbook of Econometrics.
-    - Heckman, J. J., & Vytlacil, E. (2007). "Econometric evaluation of social programs, part II: Using the marginal treatment effect to organize alternative econometric estimators to evaluate social programs." Handbook of Econometrics.
+    - Heckman, & Vytlacil (2007). "Econometric evaluation of social programs, part I: Causal models, structural models and econometric policy evaluation." Handbook of Econometrics.
+    - Heckman, & Vytlacil (2007). "Econometric evaluation of social programs, part II: Using the marginal treatment effect to organize alternative econometric estimators to evaluate social programs." Handbook of Econometrics.
 
 ## Assessment
 
