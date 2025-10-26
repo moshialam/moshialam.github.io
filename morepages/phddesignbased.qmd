@@ -52,6 +52,7 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
 
 - **Regression Discontinuity**
     - Lee  & Lemieux (2010), "Regression Discontinuity Designs in Economics," JEL
+    - Black (1999). "Do Better Schools Matter? Parental Valuation of Elementary Education." Quarterly Journal of Economics
     - Zimmerman (2014). "The returns to college admission for academically marginal students." Journal of Labor Economics
     - Clark & Martorell (2014). "The signaling value of a high school diploma." Journal of Political Economy
     - Kolesar & Rothe (2018). "Inference in Regression Discontinuity Designs with a Discrete Running Variable." American Economic Review.

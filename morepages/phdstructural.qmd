@@ -141,6 +141,16 @@ The readings are in not a particular order, although I will talk about identific
 
 - Kline, P. and Petkova, K. (2025). "Labor Market Monopsony: Fundamentals and Frontiers." *Handbook of Labor Economics*, Vol. 6: 655-728.
 
+
+#### Empirical school choice
+
+- Agarwal, N., & Somaini, P. (2018). "Demand Analysis Using Strategic Reports: An Application to a School Choice Mechanism." Econometrica
+
+- Chade, H., Lewis, G., & Smith, L. (2014). "Student Portfolios and the College Admissions Problem." Review of Economic Studies 
+
+- Kapor, A., Neilson, C., & Zimmerman, S. (2020). "Heterogeneous Beliefs and School Choice Mechanisms." American Economic Review
+
+
 #### Career Decisions, Human Capital, Household consumption, Migration, Search
 
 - [Postel-Vinay, F. and Robin, J.M. (2002)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2002.00441.x). "Equilibrium Wage Dispersion with Worker and Employer Heterogeneity." *Econometrica*, 70(6): 2295-2350.
