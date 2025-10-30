@@ -76,7 +76,8 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
     - Alam, Davis & Gregory (2025) "Optimal Place Based Redistribution using Geographic Variation in the Marginal Utility of Income"
 
 - **Judge IV Designs**
-    - Dobbie,  Goldin,  & Yang (2018). "The effects of legal representation in criminal trials." American Economic Review.
+    - Dobbie,  Goldin,  & Yang (2018). "The Effects of Pretrial Detention on Conviction, Future Crime, and Employment: Evidence from Randomly Assigned Judges" American Economic Review.
+    - Dobbie, Goldsmith-Pinkham, & Yang (2017). "Consumer Bankruptcy and Financial Health" Review of Economics and Statistics.
     - Frandsen, Lefgren, &  Leslie (2023). "Judging Judge Fixed Effects." American Economic Review.
 
 - **Shift share IV**

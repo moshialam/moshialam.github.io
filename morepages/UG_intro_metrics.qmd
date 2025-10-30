@@ -29,7 +29,10 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 8. [Potential Outcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)
 9. [Randomized Controlled Trials](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
 10. [Instrumental Variables, 2SLS & HTE](/teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf)
-11. [Course Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
+11. Panel Data and Fixed effects
+12. Difference-in-Differences
+13. Regression Discontinuity Designs
+14. [Course Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
 :::
 :::
 

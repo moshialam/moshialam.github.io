@@ -127,8 +127,6 @@ The readings are in not a particular order, although I will talk about identific
 
 - Delavande, A. and Zafar, B. (2019). "University Choice: The Role of Expected Earnings, Nonpecuniary Outcomes, and Financial Constraints." *Journal of Political Economy*, 127(5): 2343-2393.
 
-<!-- - Abaluck, J. and Adams-Prassl, A. (2021). "What Do Consumers Consider Before They Choose? Identification from Asymmetric Demand Responses." *Quarterly Journal of Economics*, 136(3): 1611-1663. -->
-
 #### Monopsony and Firm Effects
 
 - Card, D., Cardoso, A.R., Heining, J., and Kline, P. (2018). "Firms and Labor Market Inequality: Evidence and Some Theory." *Journal of Labor Economics*, 36(S1): S13-S70.
@@ -145,8 +143,6 @@ The readings are in not a particular order, although I will talk about identific
 #### Empirical school choice
 
 - Agarwal, N., & Somaini, P. (2018). "Demand Analysis Using Strategic Reports: An Application to a School Choice Mechanism." Econometrica
-
-- Chade, H., Lewis, G., & Smith, L. (2014). "Student Portfolios and the College Admissions Problem." Review of Economic Studies 
 
 - Kapor, A., Neilson, C., & Zimmerman, S. (2020). "Heterogeneous Beliefs and School Choice Mechanisms." American Economic Review
 
