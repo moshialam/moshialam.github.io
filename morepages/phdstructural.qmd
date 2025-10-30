@@ -86,25 +86,23 @@ The readings are in not a particular order, although I will talk about identific
 
 ###  Estimation Methods
 
-#### Maximum Likelihood Estimation
+#### MLE, GMM, SMM, II
 
 - Ruud, P.A. (1991). "Extensions of Estimation Methods Using the EM Algorithm." *Journal of Econometrics*, 49(3): 305-341.
 
-- Keane, M.P. and Wolpin, K.I. (1994). "The Solution and Estimation of Discrete Choice Dynamic Programming Models by Simulation and Interpolation: Monte Carlo Evidence." *Review of Economics and Statistics*, 76(4): 648-672.
-
-#### Generalized Method of Moments
+<!-- - Keane, M.P. and Wolpin, K.I. (1994). "The Solution and Estimation of Discrete Choice Dynamic Programming Models by Simulation and Interpolation: Monte Carlo Evidence." *Review of Economics and Statistics*, 76(4): 648-672. -->
 
 - Hansen, L.P. (1982). "Large Sample Properties of Generalized Method of Moments Estimators." *Econometrica*, 50(4): 1029-1054.
 
 <!-- - Newey, W.K. and McFadden, D. (1994). "Large Sample Estimation and Hypothesis Testing." *Handbook of Econometrics*, Vol. 4, Ch. 36. -->
 
-#### Simulated Method of Moments
+<!-- #### Simulated Method of Moments -->
 
 - McFadden, D. (1989). "A Method of Simulated Moments for Estimation of Discrete Response Models without Numerical Integration." *Econometrica*, 57(5): 995-1026.
 
 <!-- - Pakes, A. and Pollard, D. (1989). "Simulation and the Asymptotics of Optimization Estimators." *Econometrica*, 57(5): 1027-1057. -->
 
-#### Indirect Inference
+<!-- #### Indirect Inference -->
 
 - Gourieroux, C., Monfort, A., and Renault, E. (1993). "Indirect Inference." *Journal of Applied Econometrics*, 8(S1): S85-S118.
 
@@ -147,7 +145,11 @@ The readings are in not a particular order, although I will talk about identific
 - Kapor, A., Neilson, C., & Zimmerman, S. (2020). "Heterogeneous Beliefs and School Choice Mechanisms." American Economic Review
 
 
-#### Career Decisions, Human Capital, Household consumption, Migration, Search
+#### Optimal Policies, Career Decisions, Human Capital, Household consumption, Migration, Search
+
+- Alam, Davis & Gregory (2025) "Optimal Place-Based Redistribution using Geographic Variation in the Marginal Utility of Income"
+
+- Fu & Gregory (2019) "Estimation of an Equilibrium Model with Externalities: Post-Disaster Neighborhood Rebuilding" *Econometrica*
 
 - [Postel-Vinay, F. and Robin, J.M. (2002)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2002.00441.x). "Equilibrium Wage Dispersion with Worker and Employer Heterogeneity." *Econometrica*, 70(6): 2295-2350.
 

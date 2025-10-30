@@ -1,13 +1,6 @@
 ---
 title: "Teaching"
 ---
-<!-- 
-### [Clark University](https://www.clarku.edu/departments/economics/) 
-
-- Undergraduate: Introductory Econometrics
-- Undergraduate: Applied Econometrics -->
-
-
 
 ### [Clark University](https://www.clarku.edu/departments/economics/) 
 
