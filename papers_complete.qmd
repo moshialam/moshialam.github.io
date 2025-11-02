@@ -606,12 +606,12 @@ function showToast(message, type = 'success') {
 <div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
 </div>
 
-<div class="paper-item in-progress">
+<!-- <div class="paper-item in-progress">
 <div class="paper-title-line">
 <strong>Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions</strong>
 </div>
 <div class="paper-meta"></div>
-</div>
+</div> -->
 
 </div>
 
