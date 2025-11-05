@@ -1,5 +1,5 @@
 ---
-title: "PhD: Design-Based Causal Inference"
+title: "PhD: Causality & Design-Based Methods"
 author: "Moshi Alam"
 date: "2025"
 format:

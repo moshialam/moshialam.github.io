@@ -1,0 +1,579 @@
+---
+title: "Panel Data and Fixed Effects"
+author: "Moshi Alam"
+format:
+  revealjs:
+    theme: serif
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  echo: true
+editor: visual
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.align = "center", dev = "svg", cache = TRUE)
+
+library(wooldridge)
+library(dplyr)
+library(ggplot2)
+library(fixest)
+library(modelsummary)
+library(data.table)
+```
+
+
+
+
+## Motivation {.smaller}
+
+- So far we have dealt with a **single cross-sectional dataset**
+- The biggest challenge to causal inference is **selection bias** because we do not observe the counterfactual
+- We have learned how **IVs** can help us solve the endogeneity problem
+- But IVs are not always easy to find — especially good ones
+- Often, **data over multiple time periods** can reveal interesting patterns and provide additional variation to consistently estimate parameters of interest
+- ... especially **if** the unobservables that make our estimates inconsistent do not change over time
+
+---
+
+## Motivation (continued) {.smaller}
+
+Panel data are additionally important because:
+
+- They are required to understand **policy impacts**
+- They allow us to study **how causal impacts evolve over time**
+- Many policies are **staggered** in implementation, necessitating panel data
+    - Will discuss this more details in a couple of classes when we get into Difference-in-Differences
+- Even when the question of interest is not a policy evaluation, **observing the same units over time** can be very informative
+
+---
+
+
+
+## Types of Data Over Time {.smaller}
+::: incremental
+
+- **Panel data**
+    - **Balanced panel**: every unit observed in all time periods  
+    - **Unbalanced panel**: some units missing in certain time periods (attrition)
+        - **PSID** – Panel Study of Income Dynamics  
+        - **NLSY** – National Longitudinal Survey of Youth  
+        - **Most administrative datasets** (e.g., tax records) are panel 
+- **Repeated cross-sections**
+    - Different units observed in each time period  
+    - **CPS** – Current Population Survey  
+    - **NHIS** – National Health Interview Survey
+- **Time series**
+
+:::
+
+---
+
+## Panel Data & Fixed Effects {.smaller}
+
+- Credits: Bunch of materials drawn from *Florian Oswald*; *Nick C. Huntington-Klein*
+
+---
+
+## Cross-section vs Panel {.smaller}
+
+- Cross-section: one time snapshot per unit $i$: $\hat{\beta_{OLS}} = \frac{\sum_i (x_i - \bar x)(y_i - \bar y)}{\sum_i (x_i - \bar x)^2}$
+- Panel: multiple time periods $t$ per unit $\color{blue}{i}$: $\hat{\beta_{FE}} = \frac{\sum_{\color{blue}{i}} \sum_{\color{red}{t}} \left(x_{\color{blue}{i}\color{red}{t}} - \bar x_{\color{blue}{i}}\right)\left(y_{\color{blue}{i}\color{red}{t}} - \bar y_{\color{blue}{i}}\right)}{\sum_{\color{blue}{i}} \sum_{\color{red}{t}} \left(x_{\color{blue}{i}\color{red}{t}} - \bar x_{\color{blue}{i}}\right)^2}$
+- Panel: index $(i,t)$; track units over time
+- Benefit: control unobserved time-invariant heterogeneity $c_i$
+- Deterrence question: does higher arrest probability reduce crime?
+
+```{r}
+data(crime4)
+crime4 %>% select(county, year, crmrte, prbarr) %>% arrange(county, year) %>% head()
+```
+
+---
+
+## Raw pattern {.smaller}
+
+<!-- - Simultaneity: -->
+<!-- - Unobserved heterogeneity $c_i$ (e.g., local “tough-on-crime” culture) confounds cross-sections. -->
+
+```{r}
+css = crime4 %>% 
+  filter(county %in% c(1,3,145, 23))  # subset to 4 counties
+
+ggplot(css,aes(x =  prbarr, y = crmrte)) + 
+  geom_point() + 
+  theme_bw() +
+  labs(x = 'Probability of Arrest', y = 'Crime Rate')
+```
+
+
+---
+
+## Pooled OLS {.smaller}
+
+```{r}
+summary(lm(crmrte ~ prbarr, data = css))$coef["prbarr",]
+```
+
+<!-- - Simultaneity: -->
+<!-- - Unobserved heterogeneity $c_i$ (e.g., local “tough-on-crime” culture) confounds cross-sections. -->
+
+```{r}
+css = crime4 %>% 
+  filter(county %in% c(1,3,145, 23))  # subset to 4 counties
+
+ggplot(css,aes(x =  prbarr, y = crmrte)) + 
+  geom_point() + 
+  geom_smooth(method="lm",se=FALSE) + 
+  theme_bw() +
+  labs(x = 'Probability of Arrest', y = 'Crime Rate')
+```
+
+
+---
+
+
+## Naive Interpreting the Cross-Section {.smaller}
+
+- Literally: counties with a higher probability of arrest also have a higher crime rate.  
+- Does this imply that more crime leads to more efficient policing?  
+- Or that higher police presence deters crime — but only once it gets bad enough?  
+- What determines **police efficiency**?  
+  - Could depend on **poverty**, **local laws**, **political commitment**, or other local factors.  
+- 🤯 There are clearly many omitted factors in this simple model — we cannot tell whether the estimated relationship makes sense causally.
+
+---
+
+##  What Varies Between and Within Counties  {.smaller}
+
+- **LocalStuff** — fixed county characteristics (e.g., geography, institutions).  
+- **LawAndOrder** and **CivilRights** — political and institutional traits that may change slowly, but are mostly fixed over short horizons.  
+- **Police budgets** and **Poverty levels** — vary **within counties over time**, reflecting local and macroeconomic fluctuations  (national)  
+
+- Can panel data allows us to separate **time-invariant county traits** from **time-varying factors** — helping us get closer to a causal interpretation?
+
+---
+
+
+
+
+## Within county patterns {.smaller}
+
+```{r}
+css = crime4 %>% 
+  filter(county %in% c(1,3,145, 23))  # subset to 4 counties
+
+ggplot(css, aes(x = prbarr, y = crmrte, color = factor(county))) + 
+    geom_point() + 
+    #geom_smooth(method = "lm", se = FALSE) + 
+    theme_bw() +
+    labs(x = 'Probability of Arrest', y = 'Crime Rate', color = 'County')
+```
+
+---
+
+
+## Within county patterns {.smaller}
+
+```{r}
+css = crime4 %>% 
+  filter(county %in% c(1,3,145, 23))  # subset to 4 counties
+
+ggplot(css, aes(x = prbarr, y = crmrte, color = factor(county))) + 
+    geom_point() + 
+    geom_smooth(method = "lm", se = FALSE) + 
+    theme_bw() +
+    labs(x = 'Probability of Arrest', y = 'Crime Rate', color = 'County')
+```
+
+---
+
+## Within county means {.smaller}
+
+```{r, echo=F}
+# Load packages
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(wooldridge)
+
+# Load the dataset
+data(crime4)
+
+# Subset to four counties
+css <- crime4 %>%
+  filter(county %in% c(1, 3, 23, 145))
+
+# Compute county means and SDs
+means <- css %>%
+  group_by(county) %>%
+  summarise(
+    m_crmrte = mean(crmrte),
+    m_prbarr = mean(prbarr),
+    sd_crmrte = sd(crmrte),
+    sd_prbarr = sd(prbarr)
+  )
+
+# --- Left plot: within-county variation ---
+p1 <- ggplot(css, aes(x = prbarr, y = crmrte, color = factor(county))) +
+  geom_point() +
+  geom_errorbar(
+    data = means,
+    inherit.aes = FALSE,
+    aes(x = m_prbarr, ymin = m_crmrte - sd_crmrte, ymax = m_crmrte + sd_crmrte, color = factor(county)),
+    width = 0
+  ) +
+  geom_errorbarh(
+    data = means,
+    inherit.aes = FALSE,
+    aes(y = m_crmrte, xmin = m_prbarr - sd_prbarr, xmax = m_prbarr + sd_prbarr, color = factor(county)),
+    height = 0
+  ) +
+  geom_point(
+    data = means,
+    inherit.aes = FALSE,
+    aes(x = m_prbarr, y = m_crmrte, color = factor(county)),
+    size = 3, shape = 3
+  ) +
+  annotate("text", x = 0.3, y = 0.02, label = "Means Within Each County", color = "darkorange", size = 5) +
+  labs(x = "Probability of Arrest", y = "Crime Rate", color = "County") +
+  theme_bw()
+
+# --- Right plot: between-county means and regression ---
+p2 <- ggplot(means, aes(x = m_prbarr, y = m_crmrte, color = factor(county))) +
+  geom_point(size = 3, shape = 3) +
+  geom_errorbar(
+    aes(ymin = m_crmrte - sd_crmrte, ymax = m_crmrte + sd_crmrte),
+    width = 0
+  ) +
+  geom_errorbarh(
+    aes(xmin = m_prbarr - sd_prbarr, xmax = m_prbarr + sd_prbarr),
+    height = 0
+  ) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(x = "Probability of Arrest", y = "Crime Rate", color = "County") +
+  theme_bw()
+
+# Combine using grid.arrange
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+
+---
+
+## Panel Model with Unit FE {.smaller}
+
+  $$
+  y_{it} = \beta x_{it} + \underbrace{c_i + u_{it}}_{\text{error}}
+  $$
+- $c_i$ may correlate with $x_{it}$ → OLS biased $E(c_i + u_{it} \mid x_{it}) \neq 0$
+- Simple OLS mixes within + between; biased if $Cov(x_{it}, c_i) \neq 0$.
+    - **Between**: differences across $i$ (time-invariant) → drives pooled OLS bias  
+    - **Within**: changes over $t$ within $i$ → identifies $\beta$ under FE assumptions
+
+
+
+```{r}
+css <- crime4 %>% filter(county %in% c(1,3,23,145))
+m_cs <- lm(crmrte ~ prbarr, data = css)
+coef(m_cs)["prbarr"]
+```
+- FE approach: control for $c_i$ by allowing **unit-specific intercepts** or FIXED EFFECTS
+
+
+---
+
+## FE Assumptions (succinct) {.smaller}
+
+  $$
+  y_{it} = \beta x_{it} + \underbrace{c_i + u_{it}}_{\text{error}}
+  $$
+
+- **Strict exogeneity**: $E[u_{it} \mid x_{i1},…,x_{iT},c_i] = 0$
+- **No perfect collinearity**: time-invariant regressors drop in FE
+- **Errors**: correlation within $i$ → **cluster by $i$**
+
+---
+
+## Three Estimators (same $\hat\beta$) {.smaller}
+
+1) **LSDV (dummies)**:
+   $$
+   y_{it} = \beta x_{it} + \sum_{i=1}^{N-1} \gamma_i 1\{i\} + u_{it}
+   $$
+2) **First-difference (FD)**, $T=2$:
+   $$
+   \Delta y_i = \beta \Delta x_i + \Delta u_i
+   $$
+3) **Within (demeaning)**, $T\ge2$:
+   $$
+   y_{it} - \bar y_i = \beta (x_{it} - \bar x_i) + (u_{it} - \bar u_i)
+   $$
+
+---
+ 
+
+## LSDV (Dummy-Variable OLS) {.smaller}
+
+```{r}
+m_lsdv <- lm(crmrte ~ prbarr + factor(county), data = css)
+summary(m_lsdv) 
+```
+
+- Adds intercept for every county → recovers within county slope.
+
+---
+
+
+## {.smaller}
+
+```{r}
+library(modelsummary)
+cdata <- css %>%
+  group_by(county) %>%
+  mutate(mean_crime = mean(crmrte),
+         mean_prob = mean(prbarr)) %>%
+  mutate(demeaned_crime = crmrte - mean_crime,
+         demeaned_prob = prbarr - mean_prob)
+mod = list()
+mod$dummy <- lm(crmrte ~ prbarr + factor(county), css)  # i is the unit ID
+mod$xsect <- lm(crmrte ~ prbarr, data = cdata)
+mod$demeaned <- lm(demeaned_crime ~ demeaned_prob, data = cdata)
+gom = 'DF|Deviance|AIC|BIC|p.value|se_type|R2 Adj. |statistic|Log.Lik.|Num.Obs.'  # stuff to omit from table
+modelsummary::modelsummary(mod[c("xsect","dummy","demeaned")],
+                           statistic = 'std.error',
+                           title = "Comparing (biased) cross-setcional OLS, dummy variable and manual demeaning panel regressions",
+                           coef_omit = "factor",
+                           gof_omit = gom)
+```
+
+---
+
+## Manual Within Transformation {.smaller}
+
+```{r}
+cdata <- css %>%
+  mutate(y = crmrte, x = prbarr) %>%
+  group_by(county) %>%
+  mutate(y_dm = y - mean(y), x_dm = x - mean(x)) %>%
+  ungroup()
+
+m_within_manual <- lm(y_dm ~ x_dm, data = cdata)
+summary(m_within_manual) 
+```
+
+- Same slope as LSDV 
+- Intercept is 0 by construction.
+
+---
+
+## First-Differencing  {.smaller}
+
+```{r}
+dt <- as.data.table(css)[order(county, year)]
+dt[, y := crmrte]; dt[, x := prbarr]
+dt[, `:=`(dy = y - shift(y), dx = x - shift(x)), by = county]
+m_fd <- lm(dy ~ dx, data = dt[!is.na(dy)])
+summary(m_fd) 
+```
+
+- With $T=2$, FD $\equiv$ FE. 
+- For $T>2$, FE typically more efficient if errors are not well-behaved in differences.
+- Let's use a package which can worry for us about efficiency and clustering `fixest`.
+
+---
+
+## `fixest::feols` (recommended) {.smaller}
+
+```{r}
+m_fe_1w <- feols(crmrte ~ prbarr | county, data = css, cluster = ~ county)
+
+modelsummary::modelsummary(
+  list("Pooled (lm)" = m_cs,
+       "LSDV (lm)" = m_lsdv,
+       "Within (manual lm)" = m_within_manual,
+       "FE (fixest)" = m_fe_1w)
+)
+```
+
+- Syntax: `y ~ x | FE1 + FE2 + ...`
+- Cluster by the unit for valid SEs with serial correlation.
+
+---
+
+## Interpretation (within effect) {.smaller}
+
+- $\hat\beta_{\text{FE}}$: effect of a **within-county** change in $prbarr$ on $crmrte$, holding time-invariant county traits fixed.
+- A change $\Delta prbarr = 0.10$ implies $\Delta crmrte \approx 0.10 \times \hat\beta_{\text{FE}}$ (within a county over time).
+
+---
+
+
+
+## So we started from here with POLS {.smaller}
+
+Pooled OLS: Mixing Within and Between Variation
+
+```{r, echo=F}
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(wooldridge)
+
+data(crime4)
+
+css <- crime4 %>%
+  filter(county %in% c(1, 3, 23, 145))
+
+means <- css %>%
+  group_by(county) %>%
+  summarise(
+    m_crmrte = mean(crmrte),
+    m_prbarr = mean(prbarr),
+    sd_crmrte = sd(crmrte),
+    sd_prbarr = sd(prbarr)
+  )
+
+# --- Left plot: within-county variation ---
+p1 <- ggplot(css, aes(x = prbarr, y = crmrte, color = factor(county))) +
+  geom_point() +
+  geom_errorbar(
+    data = means,
+    inherit.aes = FALSE,
+    aes(x = m_prbarr, ymin = m_crmrte - sd_crmrte, ymax = m_crmrte + sd_crmrte, color = factor(county)),
+    width = 0
+  ) +
+  geom_errorbarh(
+    data = means,
+    inherit.aes = FALSE,
+    aes(y = m_crmrte, xmin = m_prbarr - sd_prbarr, xmax = m_prbarr + sd_prbarr, color = factor(county)),
+    height = 0
+  ) +
+  geom_point(
+    data = means,
+    inherit.aes = FALSE,
+    aes(x = m_prbarr, y = m_crmrte, color = factor(county)),
+    size = 3, shape = 3
+  ) +
+  annotate("text", x = 0.3, y = 0.02, label = "Means Within Each County", color = "darkorange", size = 5) +
+  labs(x = "Probability of Arrest", y = "Crime Rate", color = "County") +
+  theme_bw()
+
+# --- Right plot: between-county means and regression ---
+p2 <- ggplot(means, aes(x = m_prbarr, y = m_crmrte, color = factor(county))) +
+  geom_point(size = 3, shape = 3) +
+  geom_errorbar(
+    aes(ymin = m_crmrte - sd_crmrte, ymax = m_crmrte + sd_crmrte),
+    width = 0
+  ) +
+  geom_errorbarh(
+    aes(xmin = m_prbarr - sd_prbarr, xmax = m_prbarr + sd_prbarr),
+    height = 0
+  ) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(x = "Probability of Arrest", y = "Crime Rate", color = "County") +
+  theme_bw()
+
+# Combine using grid.arrange
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+---
+
+
+ 
+## FE: Within Transformation {.smaller}
+
+multiple time periods $t$ per unit $\color{blue}{i}$: $\hat{\beta_{FE}} = \frac{\sum_{\color{blue}{i}} \sum_{\color{red}{t}} \left(x_{\color{blue}{i}\color{red}{t}} - \bar x_{\color{blue}{i}}\right)\left(y_{\color{blue}{i}\color{red}{t}} - \bar y_{\color{blue}{i}}\right)}{\sum_{\color{blue}{i}} \sum_{\color{red}{t}} \left(x_{\color{blue}{i}\color{red}{t}} - \bar x_{\color{blue}{i}}\right)^2}$
+
+::::::{.columns}
+::: {.column}
+```{r, echo=F}
+library(knitr)
+knitr::include_graphics("panel.gif")
+```
+:::
+::: {.column}
+ 
+* The within transformation **centers** the data!
+
+* By time-demeaning $y$ and $x$, we *project out* the fixed factors related to *county*
+
+* Only *within* county variation is left.
+
+* Made by [Nick C Huntington-Klein](http://nickchk.com).  🙏
+:::
+:::::
+
+---
+
+
+## Time-Invariant Regressors {.smaller}
+
+- Variables constant within $i$ (e.g., geography) are absorbed and **not identified** in FE.
+    - Absorbed by $c_i$.
+- For example if you have tax panel data of individuals over time and you add an individual fixed effect, what are examples of variables that you cannot estimate the effect of?
+- Options (if you need to udnerstand the efffect of some variable): 
+    - interact with time 
+
+---
+
+# Two-Way Fixed Effects 
+
+---
+
+## Motivation {.smaller}
+
+
+:::{.incremental}
+- Often, we want to control for **common shocks** that affect all units in a given time period
+    - e.g., national business cycles, federal policy changes, macroeconomic shocks
+- We can add **time fixed effects** $\tau_t$ to control for these common shocks
+- This leads to the **Two-Way Fixed Effects (TWFE)** model
+  - $$
+  y_{it} = \beta x_{it} + c_i + \tau_t + u_{it}
+  $$
+  - Unit fixed effects $c_i$ control for time-invariant heterogeneity across units $i$
+  - Time fixed effects $\tau_t$ control for common shocks to all units across time periods $t$
+:::
+---
+
+## Two-Way Fixed Effects (TWFE) {.smaller}
+
+- Add common shocks $\tau_t$:
+  $$
+  y_{it} = \beta x_{it} + c_i + \tau_t + u_{it}
+  $$
+```{r}
+m_twoway <- feols(crmrte ~ prbarr | county + year, data = crime4, cluster = ~ county)
+etable(m_fe_1w, m_twoway, se = "cluster")
+```
+
+- Interprets $\beta$ net of unit and time effects.
+- IN the next two weeks, we will see how this is a foundational model for policy evaluation 
+
+---
+
+## Comparing POLS, FE, TWFE {.smaller}
+
+```{r}
+m_pooled <- lm(crmrte ~ prbarr, data = crime4)
+m_fe   <- feols(crmrte ~ prbarr | county, data = crime4)
+m_twfe <- feols(crmrte ~ prbarr | county + year, data = crime4, cluster = ~ county)
+
+modelsummary::modelsummary(list(
+  "Pooled"   = m_pooled,
+  "FE"     = m_fe,
+  "TWFE (fixest)"   = m_twfe
+))
+```
+
+---
+
+## References & Credits {.smaller}
+
+- Some slides/materials adapted from *Florian Oswald, Nick C. Huntington-Klein (Nick Klein)*
+
+---
