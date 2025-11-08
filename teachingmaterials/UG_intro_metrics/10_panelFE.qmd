@@ -512,11 +512,13 @@ knitr::include_graphics("panel.gif")
 
 ## Time-Invariant Regressors {.smaller}
 
+:::{.incremental}
 - Variables constant within $i$ (e.g., geography) are absorbed and **not identified** in FE.
     - Absorbed by $c_i$.
 - For example if you have tax panel data of individuals over time and you add an individual fixed effect, what are examples of variables that you cannot estimate the effect of?
 - Options (if you need to udnerstand the efffect of some variable): 
     - interact with time 
+:::
 
 ---
 
@@ -574,6 +576,6 @@ modelsummary::modelsummary(list(
 
 ## References & Credits {.smaller}
 
-- Some slides/materials adapted from *Florian Oswald, Nick C. Huntington-Klein (Nick Klein)*
+- Some slides/materials adapted from *Florian Oswald, Nick C. Huntington-Klein*
 
 ---

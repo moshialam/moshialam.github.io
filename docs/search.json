@@ -165,7 +165,7 @@
     "href": "teachingmaterials/UG_intro_metrics/10_panelFE.html#time-invariant-regressors",
     "title": "Panel Data and Fixed Effects",
     "section": "Time-Invariant Regressors",
-    "text": "Time-Invariant Regressors\n\nVariables constant within \\(i\\) (e.g., geography) are absorbed and not identified in FE.\n\nAbsorbed by \\(c_i\\).\n\nFor example if you have tax panel data of individuals over time and you add an individual fixed effect, what are examples of variables that you cannot estimate the effect of?\nOptions (if you need to udnerstand the efffect of some variable):\n\ninteract with time"
+    "text": "Time-Invariant Regressors\n\n\nVariables constant within \\(i\\) (e.g., geography) are absorbed and not identified in FE.\n\nAbsorbed by \\(c_i\\).\n\nFor example if you have tax panel data of individuals over time and you add an individual fixed effect, what are examples of variables that you cannot estimate the effect of?\nOptions (if you need to udnerstand the efffect of some variable):\n\ninteract with time"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/10_panelFE.html#motivation-1",
@@ -193,7 +193,7 @@
     "href": "teachingmaterials/UG_intro_metrics/10_panelFE.html#references-credits",
     "title": "Panel Data and Fixed Effects",
     "section": "References & Credits",
-    "text": "References & Credits\n\nSome slides/materials adapted from Florian Oswald, Nick C. Huntington-Klein (Nick Klein)"
+    "text": "References & Credits\n\nSome slides/materials adapted from Florian Oswald, Nick C. Huntington-Klein"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html",
