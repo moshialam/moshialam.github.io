@@ -1,0 +1,55 @@
+---
+title: "Econometrics PS 4"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+## Simplified Angrist and Krueger (1991) Replication
+
+You will need libraries `AER`, `ggplot2`, and `lmtest` for this problem set.
+
+Recall the context of our quiz on Instrumental Variables based on Angrist and Krueger (1991). Load `iv_csl_dataset.csv` in R using `read.csv` function. It contains a simplified simulated dataset based on Angrist and Krueger (1991). The variable `qob` indicates the quarter of birth of individual $i$ (Q1, Q2, Q3, Q4). The rest should be self-explanatory.
+
+
+We study the causal effect of education on earnings, controlling for a bunch of other included exogenous variables. 
+$$ \ln(Wage_i) = \beta_0 + \beta_1 Educ_i + \beta_3 Age_i + \beta_4 Region_i + u_i $$
+where `Wage` is the annual wage of individual $i$, `Educ` is years of education, `Age` is age in years, and `Region` is a categorical variable indicating the region of residence (representing region fixed effects) which includes the , and clearly $E(u_i|Educ_i) \neq 0$ so $E(u_i | Educ_i, Age_i, Region_i) \neq 0$ as well.
+
+### Question 1
+
+Explore the dataset and report summary statistics of the variables
+
+### Question 2
+
+Make two plots and describe what you see in each plot:
+
+(a) mean years of education by quarter of birth
+(b) mean log wage by quarter of birth
+
+### Question 3
+
+Generate a dummy variable Z equal to 1 if an individual was born in Quarter 1, and 0 otherwise.  Explain why Z is a valid instrument for `Educ` in the above regression.
+
+### Question 4
+
+Estimate the 1st stage regression. Be careful to include the other exogenous variables in the regression. Report and interpret the results. See slide 39.
+
+### Question 5
+
+Predict the values of `Educ` using the 1st stage regression and save them in a new variable called `Educ_hat`. Estimate the 2nd stage regression of `ln(Wage)` on `Educ_hat` and the other exogenous variables. Report and interpret the results. See slide 39 & 40.
+
+### Question 6
+
+Now instead of manually doing the 2SLS procedure, use the `ivreg` function from the `AER` package to estimate the IV regression of `ln(Wage)` on `Educ`, using `Z` as an instrument for `Educ`, and including the other exogenous variables. Compare the results. What differs and why?
+
+Use `summary(yourivmodel, diagnostics = TRUE)` to see the diagnostic tests and interpret whether the instrument is weak or not.
+
+### Question 7
+
+Explain why your estimate is a Local Average Treatment Effect and for whom it is identified.
+
+---

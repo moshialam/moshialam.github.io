@@ -50,6 +50,9 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 
 **Problem Set 3** *(Due Oct 31)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](https://canvas.clarku.edu/courses/17788/assignments/127610) 
+
+**Problem Set 4** *(Due Nov 16)*  
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps4.qmd) | 
 :::
 :::
 
