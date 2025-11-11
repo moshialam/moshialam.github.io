@@ -53,7 +53,7 @@
     "href": "teachingmaterials/UG_intro_metrics/10_panelFE.html#naive-interpreting-the-cross-section",
     "title": "Panel Data and Fixed Effects",
     "section": "Naive Interpreting the Cross-Section",
-    "text": "Naive Interpreting the Cross-Section\n\nLiterally: counties with a higher probability of arrest also have a higher crime rate.\n\nDoes this imply that more crime leads to more efficient policing?\n\nOr that higher police presence deters crime — but only once it gets bad enough?\n\nWhat determines police efficiency?\n\nCould depend on poverty, local laws, political commitment, or other local factors.\n\n\n🤯 There are clearly many omitted factors in this simple model — we cannot tell whether the estimated relationship makes sense causally."
+    "text": "Naive Interpreting the Cross-Section\n\nCounties with a higher probability of arrest also have a higher crime rate.\n\nDoes this imply that more crime leads to more efficient policing?\n\nOr that higher police presence deters crime — but only once it gets bad enough?\n\nWhat determines police efficiency?\n\nCould depend on poverty, local laws, political commitment, or other local factors.\n\n\nMany omitted factors in this simple model — cannot tell whether the estimated relationship is causal."
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/10_panelFE.html#what-varies-between-and-within-counties",

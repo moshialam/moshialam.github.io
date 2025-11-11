@@ -136,12 +136,13 @@ ggplot(css,aes(x =  prbarr, y = crmrte)) +
 
 ## Naive Interpreting the Cross-Section {.smaller}
 
-- Literally: counties with a higher probability of arrest also have a higher crime rate.  
+- Counties with a higher probability of arrest also have a higher crime rate.  
 - Does this imply that more crime leads to more efficient policing?  
 - Or that higher police presence deters crime — but only once it gets bad enough?  
 - What determines **police efficiency**?  
   - Could depend on **poverty**, **local laws**, **political commitment**, or other local factors.  
-- 🤯 There are clearly many omitted factors in this simple model — we cannot tell whether the estimated relationship makes sense causally.
+- Many omitted factors in this simple model 
+  — cannot tell whether the estimated relationship is causal.
 
 ---
 
