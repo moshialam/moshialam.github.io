@@ -560,6 +560,7 @@ function showToast(message, type = 'success') {
 <div class="paper-meta">with Morris Davis and Jesse Gregory</div>
 <div class="paper-status">
 <span class="badge-status badge-rr">Draft Coming Soon</span>
+<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
 </div>
 </div>
 
@@ -727,6 +728,26 @@ Workers' preferences and beliefs shape labor market outcomes, yet remain underst
 
 ::: {.modal__content}
 Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women's decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women's property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women's inheritance, but shows that the policy had significant indirect effects, such as improving women's education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces policy-relevant complementarity between women's education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women's education—plausibly reducing misperceptions about the benefits of toilets—and increased women's decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope---while we document improvements in toilet coverage, the implications extend to other household investments where women's preferences are stronger, but various frictions limit adoption.
+:::
+
+::::
+:::::
+::::::
+
+<!-- Abstract Modal: Place-based -->
+:::::: {#abs_placebased .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_placebased-title"}
+
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+::: {.modal__header}
+### Optimal Place‑Based Transfers using Measured Geographic Variation in the Marginal Utility of Income {#abs_placebased-title}
+*with Morris Davis and Jesse Gregory*
+:::
+
+::: {.modal__content}
+We address a fundamental identification challenge in optimal place-based redistribution policy design: characterizing how marginal utility of income (MU) varies across locations. We show that MU is not identified from location choice data alone, even with full support location-specific instruments. To overcome this challenge, we design and implement a nationally representative novel survey in the US that directly elicits location-specific MUs and substitution patterns allowing for individual specific choice sets.  We characterize optimal place-based transfers using both a sufficient statistics approach with an iterative algorithm for marginal policies, and a structural model with heterogeneous types and non-separable preferences for non-marginal policies. We find that optimal policy is substantially more nuanced than a simple redistribution from high-wage to low-wage locations.
 :::
 
 ::::
