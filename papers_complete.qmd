@@ -559,8 +559,8 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Morris Davis and Jesse Gregory</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">Draft Coming Soon</span>
 <a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
+<span class="badge-status badge-rr">Draft Coming Soon</span>
 </div>
 </div>
 

@@ -29,7 +29,7 @@ There is no particular textbook for this course. We will mostly talk about the e
 - FE, TWFE and Negative weights 
 - Heterogeneity robust D-i-D and extensions
 - Shrinkage Estimators
-- Judge IV Designs
+- Leniency IV Designs
 - Shift share IV
 - Marginal Treatment Effects
 
@@ -75,14 +75,16 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
     - Alam, Mookerjee & Roy (2021) "Employee-Side DIscrimination--Beliefs and Preferences"
     - Alam, Davis & Gregory (2025) "Optimal Place Based Redistribution using Geographic Variation in the Marginal Utility of Income"
 
-- **Judge IV Designs**
+- **Leniency IV Designs**
     - Dobbie,  Goldin,  & Yang (2018). "The Effects of Pretrial Detention on Conviction, Future Crime, and Employment: Evidence from Randomly Assigned Judges" American Economic Review.
     - Dobbie, Goldsmith-Pinkham, & Yang (2017). "Consumer Bankruptcy and Financial Health" Review of Economics and Statistics.
     - Frandsen, Lefgren, &  Leslie (2023). "Judging Judge Fixed Effects." American Economic Review.
+    - Hull, Goldsmith-Pinkham & Kolesár (2025) "Leniency Designs: An Operator's Manual"
 
 - **Shift share IV**
     - Borusyak, Hull, & Jaravel (2022). "Quasi-experimental shift-share research designs." Review of Economic Studies.
     - Goldsmith-Pinkham, Sorkin, & Swift (2020). "Bartik instruments: What, when, why, and how." American Economic Review.
+    - Borusyak, Hull & Jaravel (2025), "A Practical Guide to Shift-Share Instruments" Journal of Economic Perspectives.
 
 - **Marginal Treatment Effects**
     - Heckman, & Vytlacil (2007). "Econometric evaluation of social programs, part I: Causal models, structural models and econometric policy evaluation." Handbook of Econometrics.
