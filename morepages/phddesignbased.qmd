@@ -15,10 +15,8 @@ format:
 
 This is the first course in a two-course sequence on applied econometrics at the PhD level, where we will cover design based methods for causal inference. The next course will cover model-based structural methods. 
 
-There is no particular textbook for this course. We will mostly talk about the econometrics of methods and applications through papers. I will upload [slides on canvas](https://canvas.clarku.edu/courses/17807). Some additional useful references are:
+There is no particular textbook for this course. We will mostly talk about the econometrics of methods and applications through papers. I will upload [slides on canvas](https://canvas.clarku.edu/courses/17807). 
 
-- Angrist and Pischke (2009), *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton University Press.
-- Cunningham, S (2012), *Causal Inference: The Mixtape*. Yale University Press. [[Open-source Link]](https://mixtape.scunning.com/)
 
 ## Course outline
 
@@ -89,6 +87,12 @@ This reading list by no means is exhaustive. I have tried to add handbook chapte
 - **Marginal Treatment Effects**
     - Heckman, & Vytlacil (2007). "Econometric evaluation of social programs, part I: Causal models, structural models and econometric policy evaluation." Handbook of Econometrics.
     - Heckman, & Vytlacil (2007). "Econometric evaluation of social programs, part II: Using the marginal treatment effect to organize alternative econometric estimators to evaluate social programs." Handbook of Econometrics.
+
+
+Some additional useful references for some topics are:
+
+- Angrist and Pischke (2009), *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton University Press.
+- Cunningham, S (2012), *Causal Inference: The Mixtape*. Yale University Press. [[Open-source Link]](https://mixtape.scunning.com/)
 
 ## Assessment
 
