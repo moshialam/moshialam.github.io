@@ -1,0 +1,55 @@
+---
+title: "Econometrics PS 5"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+
+# Note:
+
+This is an evolving problem set. Since we are using multiple classes to cover this topic, I will keep on adding questions as we go. You can get a head start on it as I keep on adding problems. Once the PS is complete I will post an announcement on Canvas. Please check back for updates.
+
+## Simple 2x2 DiD
+
+Use the .Rmd file that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called `ckdata`. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class. 
+
+IMPORTANT: In all estimations, whenever you are interpreting your estimates, state all necessary assumptions for you to claim that the estimated effect is causal (i.e. identification assumptions).
+
+### Question 1
+
+Plot the data of starting wages by the state and the year (before and after the minimum wage increase). Comment on any patterns you observe.
+
+### Question 2
+
+- Re-estimate the simple 2x2 DiD model of the effect of minimum wage increase on employment that we did in class. Report and interpret the results. 
+- How many unique food chains are in the data? 
+- Estimate the simple 2x2 DiD model of the effect of minimum wage increase on employment with `chain` fixed effects. Report, compare and interpret the results.
+
+### Question 3
+
+- What are some additional control variables that you can add to the model? Re-estimate the DiD model with these additional controls. Report, compare and interpret the results. (Hint: Be mindful of the discussion of "bad controls" we discussed before the mid-term in class.)
+
+### Question 4
+
+- Did employers in NJ pass on the increased labor costs to consumers in the form of higher prices? Answer this question empirically. 
+
+
+--- Covered till here in class on Nov 18 ---
+
+## 2xT Event Study
+
+Use the .Rmd file that we used in class to append `ckdata` with the additional years of data from 1990, 1991 and 1993 provided in the dataset `ck_additional_years.csv` on Canvas. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class.
+
+### Question 5
+
+- Estimate an event study model of the effect of minimum wage increase on employment along with chain FE. Report and interpret the results. Plot the event study coefficients with 95% confidence intervals. Comment on any patterns you observe.
+
+- What do the pre-treatment coefficients tell you about your main identification assumption?
+
+## GxT DiD / TWFE
+
+## GxT Event Study
