@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Introduction to Econometrics – Moshi Alam</title>
+<meta name="author" content="Prof Alam">
+<title>Econometrics PS 4 - Solution key – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +18,57 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-391ac0ffccbb3bf0019dee70612ff9d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-7af0dd17589a3d8c71754ac1e2854f3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,8 +94,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <style>
   :root {
@@ -148,19 +177,14 @@ ul.task-list li input[type="checkbox"] {
     }
   }
 </style>
-
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Moshi Alam</span>
     </a>
   </div>
@@ -170,16 +194,16 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+<li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="../../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -188,34 +212,32 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information"><i class="bi bi-journal-text"></i> Course Information</a></li>
-  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><i class="bi bi-easel2"></i> Lecture Slides</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets"><i class="bi bi-pencil-square"></i> Problem Sets</a></li>
-  </ul>
-</nav>
+<li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-<div class="profile-header-container">
+<main class="content column-page-left" id="quarto-document-content"><div class="profile-header-container">
   <div class="profile-header">
     <div class="profile-image-wrapper">
       <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image">
-    </div>
+</div>
     <div class="profile-info">
       <div class="profile-name">Md Moshi Ul Alam</div>
       <div class="profile-title">Assistant Professor of Economics</div>
@@ -476,168 +498,174 @@ ul.task-list li input[type="checkbox"] {
   }
 
 </style>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introduction to Econometrics</h1>
+<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Econometrics PS 4 - Solution key</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
-    
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 18, 2025</p>
-    </div>
+             <p>Prof Alam </p>
+          </div>
   </div>
+    
+  
     
   </div>
   
 
 
-</header>
-
-
-<section id="course-information" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="course-information"><i class="bi bi-journal-text"></i> Course Information</h2>
-<div class="resource-card">
-<p><a href="../teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf" class="btn btn-primary"> <i class="bi bi-filetype-pdf"></i> Download Syllabus </a></p>
-<p>Also see <a href="../morepages/resourcesforugstudents.html"><i class="bi bi-box-arrow-up-right"></i> Resources for Students</a></p>
+</header><section id="question-1" class="level1"><h1>Question 1</h1>
+<p>You can explore the data in your own different ways.</p>
+</section><section id="question-2" class="level1"><h1>Question 2</h1>
+<p>Shows evidence of a strong first stage</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dat</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">qob</span>, <span class="va">Educ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_summary</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">mean</span>, geom <span class="op">=</span> <span class="st">"point"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_summary</span><span class="op">(</span>fun.data <span class="op">=</span> <span class="va">mean_se</span>, geom <span class="op">=</span> <span class="st">"errorbar"</span>, width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Mean years of education by quarter of birth"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Quarter of birth"</span>, y <span class="op">=</span> <span class="st">"Years of education"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ps4sol_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
 </div>
-</section>
-<section id="lecture-slides" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="lecture-slides"><i class="bi bi-easel2"></i> Lecture Slides</h2>
-<div class="resource-card">
-<ol type="1">
-<li><a href="../teachingmaterials/UG_intro_metrics/01_introRv2.html">Introduction to R</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/02_stat_review.pdf">Statistical Review &amp; Population Concepts</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/03_regression.html">Simple Linear Regressions</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/04_mlr.html">Multiple Linear Regressions</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">More on MLR</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/05_inference.html">Inference in Regression Models</a></li>
-<li>Heteroskedasticity &amp; Serial Correlation <em>[Discussion section]</em></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf">Potential Outcomes</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/08_RCT.pdf">Randomized Controlled Trials</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf">Instrumental Variables, 2SLS &amp; HTE</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/10_panelFE.html">Panel Data and FE, TWFE</a></li>
-<li>Difference-in-Differences</li>
-<li>Regression Discontinuity Designs</li>
-<li><a href="../teachingmaterials/UG_intro_metrics/summary.pdf">Course Summary</a></li>
-</ol>
 </div>
-</section>
-<section id="problem-sets" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="problem-sets"><i class="bi bi-pencil-square"></i> Problem Sets</h2>
-<div class="resource-card">
-<p><strong>Problem Set 1</strong> <em>(Due Sep 18)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.html"><i class="bi bi-file-earmark-text"></i> Assignment</a> | <a href="../teachingmaterials/UG_intro_metrics/pssol/ps1sol.html"><i class="bi bi-check-circle"></i> Solutions</a></p>
-<p><strong>Problem Set 2</strong> <em>(Due Oct 5)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html"><i class="bi bi-file-earmark-text"></i> Assignment</a> | <a href="../teachingmaterials/UG_intro_metrics/pssol/ps2sol.html"><i class="bi bi-check-circle"></i> Solutions</a></p>
-<p><strong>Problem Set 3</strong> <em>(Due Oct 31)</em><br>
-<a href="https://canvas.clarku.edu/courses/17788/assignments/127610"><i class="bi bi-file-earmark-text"></i> Assignment</a></p>
-<p><strong>Problem Set 4</strong> <em>(Due Nov 16)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps4.html"><i class="bi bi-file-earmark-text"></i> Assignment</a> | <a href="../teachingmaterials/UG_intro_metrics/pssol/ps4sol.html"><i class="bi bi-check-circle"></i> Solutions</a></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dat</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">qob</span>, <span class="va">logwage</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_summary</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">mean</span>, geom <span class="op">=</span> <span class="st">"point"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_summary</span><span class="op">(</span>fun.data <span class="op">=</span> <span class="va">mean_se</span>, geom <span class="op">=</span> <span class="st">"errorbar"</span>, width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Mean log wages by quarter of birth"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Quarter of birth"</span>, y <span class="op">=</span> <span class="st">"Log wage"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ps4sol_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="576"></p>
+</figure>
 </div>
-</section>
-<style>
-.course-section {
-  margin-bottom: 1.25rem;
-}
+</div>
+</div>
+</section><section id="question-3" class="level1"><h1>Question 3</h1>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dat</span><span class="op">$</span><span class="va">Z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">dat</span><span class="op">$</span><span class="va">qob</span> <span class="op">==</span> <span class="st">"Q1"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Validity of the instrument:</p>
+<ul>
+<li>Relevance: The first stage plot above shows that quarter of birth affects years of education. Specifically, being born in Q1 (Jan-Mar) leads to lower average years of education compared to other quarters. This is consistent with the idea that children born earlier in the year start school at a younger age and may drop out earlier, leading to fewer years of education on average.</li>
+<li>Exogeneity: quarter of birth is potentially uncorrelated with unobservables that determine wages and are correlated with education There is no direct effect of quarter of birth on wages other than through education.</li>
+</ul></section><section id="question-4" class="level1"><h1>Question 4</h1>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">first_stage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Educ</span> <span class="op">~</span> <span class="va">Z</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">first_stage</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Educ ~ Z + age + factor(region), data = dat)
 
-.section-header {
-  padding: 0.5rem 0.75rem;
-  background: linear-gradient(to right, rgba(160, 82, 45, 0.08), transparent);
-  border-left: 4px solid #A0522D;  /* Rust color */
-  border-radius: 0 8px 8px 0;
-  color: #3A3A3A;  /* Soft dark gray */
-  margin-bottom: 0.75rem;
-  margin-top: 0;
-  font-size: 1.0rem;
-}
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.33313 -0.24367 -0.00436  0.24341  1.27080 
 
-.resource-card {
-  background: #FFFDF8;  /* Very light cream */
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  border-left: 3px solid #E6D4B8;  /* Light tan */
-  transition: all 0.3s ease;
-}
+Coefficients:
+                        Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           11.9430837  0.0360378 331.404  &lt; 2e-16 ***
+Z                     -0.3991040  0.0116625 -34.221  &lt; 2e-16 ***
+age                   -0.0216297  0.0008488 -25.482  &lt; 2e-16 ***
+factor(region)Midwest -0.0709166  0.0152780  -4.642 3.54e-06 ***
+factor(region)South   -0.1258614  0.0143128  -8.794  &lt; 2e-16 ***
+factor(region)West    -0.0338108  0.0163593  -2.067   0.0388 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-.resource-card:hover {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.12);
-  border-left-color: #A0522D;  /* Rust on hover */
-  transform: translateX(2px);
-}
+Residual standard error: 0.3568 on 4994 degrees of freedom
+Multiple R-squared:  0.2787,    Adjusted R-squared:  0.278 
+F-statistic: 385.9 on 5 and 4994 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Consistent with the plot, being born in Q1 reduces years of education by about 0.39 years on average, controlling for age and region fixed effects.</p>
+<p>But we are not done, we have to test for weak IV, which we will do later.</p>
+</section><section id="question-5" class="level1"><h1>Question 5</h1>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dat</span><span class="op">$</span><span class="va">Educ_hat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">first_stage</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">manual_second_stage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">logwage</span> <span class="op">~</span> <span class="va">Educ_hat</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">region</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">manual_second_stage</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = logwage ~ Educ_hat + age + region, data = dat)
 
-.resource-card ol, .resource-card ul {
-  margin: 0;
-  padding-left: 1.5rem;
-  line-height: 1.4;
-}
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.1855 -0.2423 -0.0007  0.2329  1.1525 
 
-.resource-card li {
-  padding: 0.25rem 0; 
-  font-size: 0.9rem;
-  color: #3A3A3A;  /* Soft dark gray for text */
-}
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    1.742858   0.339489   5.134 2.95e-07 ***
+Educ_hat       0.067000   0.028481   2.352 0.018691 *  
+age            0.010056   0.001036   9.707  &lt; 2e-16 ***
+regionMidwest -0.061907   0.015027  -4.120 3.86e-05 ***
+regionSouth   -0.099866   0.014448  -6.912 5.38e-12 ***
+regionWest    -0.054734   0.015970  -3.427 0.000614 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-.resource-card a {
-  color: #A0522D;  /* Rust for links */
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+Residual standard error: 0.3478 on 4994 degrees of freedom
+Multiple R-squared:  0.03442,   Adjusted R-squared:  0.03345 
+F-statistic: 35.61 on 5 and 4994 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The average return to education is approximately 6.7% per additional year of education, controlling for age and region fixed effects when using quarter of birth as an instrument for education.</p>
+<p>However, as discussed in class, the standard errors from this manual two-stage approach are not valid, since using the fitted values from the first stage does not account for the estimation error in the first stage.</p>
+<p>We will address this using the <code>ivreg</code> function in the next question which will also allow us to formally test for weak IV.</p>
+</section><section id="question-6" class="level1"><h1>Question 6</h1>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">iv</span> <span class="op">&lt;-</span> <span class="fu">ivreg</span><span class="op">(</span><span class="va">logwage</span> <span class="op">~</span> <span class="va">Educ</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">region</span> <span class="op">|</span> <span class="va">Z</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">region</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">iv</span>, diagnostics <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ivreg(formula = logwage ~ Educ + age + region | Z + age + region, 
+    data = dat)
 
-.resource-card a:hover {
-  color: #8B4513;  /* Darker brown on hover */
-  text-decoration: underline;
-}
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-1.134434 -0.230608 -0.003418  0.220237  1.111106 
 
-/* Button styling */
-.btn-primary {
-  background: #A0522D !important;  /* Rust */
-  border-color: #A0522D !important;
-  color: white !important;
-  padding: 0.4rem 0.9rem; 
-  text-decoration: none !important;
-  display: inline-block;
-  margin-bottom: 0.5rem; 
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem; 
-  transition: all 0.2s ease;
-}
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    1.7428582  0.3230204   5.396 7.15e-08 ***
+Educ           0.0669996  0.0270996   2.472 0.013456 *  
+age            0.0100564  0.0009858  10.201  &lt; 2e-16 ***
+regionMidwest -0.0619066  0.0142981  -4.330 1.52e-05 ***
+regionSouth   -0.0998656  0.0137475  -7.264 4.33e-13 ***
+regionWest    -0.0547343  0.0151953  -3.602 0.000319 ***
 
-.btn-primary:hover {
-  background: #8B4513 !important;  /* Darker brown */
-  border-color: #8B4513 !important;
-  color: white !important;
-  text-decoration: none !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
-}
+Diagnostic tests:
+                  df1  df2 statistic p-value    
+Weak instruments    1 4994    1171.1  &lt;2e-16 ***
+Wu-Hausman          1 4993     850.2  &lt;2e-16 ***
+Sargan              0   NA        NA      NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-.btn-primary i {
-  margin-right: 0.4rem;
-  color: white !important;
-}
-
-/* Headers */
-h2 {
-  margin-top: 0 !important;
-  color: #3A3A3A;
-}
-</style>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"></p>
+Residual standard error: 0.3309 on 4994 degrees of freedom
+Multiple R-Squared: 0.1258, Adjusted R-squared: 0.125 
+Wald test: 39.33 on 5 and 4994 DF,  p-value: &lt; 2.2e-16 </code></pre>
+</div>
+</div>
+<p>The corresponding F-stat is more than a thousand, so we can reject the null of weak instrument.</p>
+<p>The IV estimate of the return to education is approximately 6.7% per additional year of education, controlling for age and region fixed effects, but now with correct standard errors.</p>
+</section><section id="question-7" class="level1"><h1>Question 7</h1>
+<p>This is an estimate of the local average treatment effect (LATE) for compliers affected by the instrument i.e., those whose education decisions are influenced by their quarter of birth.</p>
+<p>This is because only for those individuals whose education is affected by the instrument (compliers), the instrument uses the exogenous variation to identify the causal effect of education on wages.</p>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1055,15 +1083,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
  Copyright 2021, Md Moshi Ul Alam. Website created using Quarto.
   </li>  
 </ul>
-    </div>   
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -1074,7 +1101,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
-
-
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

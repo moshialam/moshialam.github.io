@@ -1,0 +1,162 @@
+---
+title: "Econometrics PS 4 - Solution key"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+library(stargazer)
+library(AER)
+
+set.seed(265)
+N <- 5000
+
+# --- Quarter of birth & instrument ---
+qob <- sample(1:4, N, replace = TRUE)
+Z   <- as.integer(qob == 1)      # not saved to file
+
+# --- Exogenous controls / fixed effects used in second stage ---
+region <- sample(c("Northeast","Midwest","South","West"),
+                 N, replace = TRUE, prob = c(0.20,0.25,0.35,0.20))
+age <- round(pmin(60, pmax(25, rnorm(N, mean = 40, sd = 6))))
+age_grp <- cut(age, breaks = c(24,34,44,54,60), labels = c("25-34","35-44","45-54","55-60"), right = TRUE)
+
+# --- Unobservables & shocks ---
+ability <- rnorm(N)
+e1 <- rnorm(N, sd = 0.25)   # educ shock (tight for clear 1st stage)
+e2 <- rnorm(N, sd = 0.12)   # wage shock (tight for clear 2nd stage)
+
+# --- Structural parameters ---
+beta   <- 0.12   # causal return to schooling (target IV ≈ 0.11–0.13)
+gamma  <- 0.30   # ability → wages (endogeneity)
+delta  <- 0.00   # exclusion (no direct Z → wage)
+
+# Region & age effects in levels
+reg_educ_eff <- setNames(c(0.10, 0.00, -0.05, 0.05),
+                         c("Northeast","Midwest","South","West"))
+reg_wage_eff <- setNames(c(0.06, 0.00, -0.04, 0.02),
+                         c("Northeast","Midwest","South","West"))
+
+# --- KEY: within-FE first-stage strength ---
+# All negative; vary slightly by region and age group so Z is relevant inside each FE.
+tau_region <- setNames(c(-0.38, -0.33, -0.36, -0.34),
+                       c("Northeast","Midwest","South","West"))
+tau_agegrp <- setNames(c(-0.05, -0.06, -0.07, -0.08),
+                       c("25-34","35-44","45-54","55-60"))
+
+tau_i <- unname(tau_region[region]) + unname(tau_agegrp[age_grp])   # always negative
+
+# --- Education equation (first stage) ---
+Educ <- 11 +
+  0.25*ability +
+  (-0.02)*(age - 40) +
+  unname(reg_educ_eff[region]) +
+  tau_i * Z +                      # instrument shifts schooling within each FE
+  e1
+
+# --- Wage equation (structural) ---
+logwage <- 1.5 +
+  beta*Educ +
+  gamma*ability +
+  0.012*(age - 40) +
+  unname(reg_wage_eff[region]) +
+  delta*Z +
+  e2
+
+# --- Save (no Z) ---
+dat <- data.frame(
+  id = 1:N,
+  logwage = round(logwage, 3),
+  Educ = round(Educ, 2),
+  age = as.integer(age),
+  region = factor(region, levels = c("Northeast","Midwest","South","West")),
+  qob = factor(qob, labels = c("Q1","Q2","Q3","Q4"))
+)
+```
+
+# Question 1
+
+You can explore the data in your own different ways.
+
+
+# Question 2
+
+Shows evidence of a strong first stage
+```{r}
+p1 <- ggplot(dat, aes(qob, Educ)) +
+  stat_summary(fun = mean, geom = "point") +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "Mean years of education by quarter of birth",
+       x = "Quarter of birth", y = "Years of education")
+print(p1)
+
+p2 <- ggplot(dat, aes(qob, logwage)) +
+  stat_summary(fun = mean, geom = "point") +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "Mean log wages by quarter of birth",
+       x = "Quarter of birth", y = "Log wage")
+print(p2)
+```
+
+# Question 3
+
+```{r}
+dat$Z <- as.integer(dat$qob == "Q1")
+```
+
+Validity of the instrument:
+
+- Relevance: The first stage plot above shows that quarter of birth affects years of education. Specifically, being born in Q1 (Jan-Mar) leads to lower average years of education compared to other quarters. This is consistent with the idea that children born earlier in the year start school at a younger age and may drop out earlier, leading to fewer years of education on average.
+- Exogeneity: quarter of birth is potentially uncorrelated with unobservables that determine wages and are correlated with education There is no direct effect of quarter of birth on wages other than through education. 
+
+# Question 4
+
+```{r}
+first_stage <- lm(Educ ~ Z + age + factor(region), data = dat)
+summary(first_stage)
+```
+
+Consistent with the plot, being born in Q1 reduces years of education by about 0.39 years on average, controlling for age and region fixed effects. 
+
+But we are not done, we have to test for weak IV, which we will do later. 
+
+# Question 5
+
+```{r}
+dat$Educ_hat <- fitted(first_stage)
+
+manual_second_stage <- lm(logwage ~ Educ_hat + age + region, data = dat)
+print(summary(manual_second_stage))
+```
+
+The average return to education is approximately 6.7% per additional year of education, controlling for age and region fixed effects when using quarter of birth as an instrument for education. 
+
+
+
+However, as discussed in class, the standard errors from this manual two-stage approach are not valid, since using the fitted values from the first stage does not account for the estimation error in the first stage. 
+
+We will address this using the `ivreg` function in the next question which will also allow us to formally test for weak IV.
+
+# Question 6
+```{r}
+iv <- ivreg(logwage ~ Educ + age + region | Z + age + region, data = dat)
+summary(iv, diagnostics = TRUE)
+```
+
+The corresponding F-stat is more than a thousand, so we can reject the null of weak instrument.
+
+The IV estimate of the return to education is approximately 6.7% per additional year of education, controlling for age and region fixed effects, but now with correct standard errors.
+
+# Question 7
+
+This is an estimate of the local average treatment effect (LATE) for compliers affected by the instrument i.e., those whose education decisions are influenced by their quarter of birth.
+
+This is because only for those individuals whose education is affected by the instrument (compliers), the instrument uses the exogenous variation to identify the causal effect of education on wages.
