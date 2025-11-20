@@ -963,7 +963,7 @@
     "href": "morepages/phddesignbased.html#assessment",
     "title": "PhD: Causality & Design-Based Methods",
     "section": "Assessment",
-    "text": "Assessment\n\nProblem Sets — 80%: Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.\n\nStudents can use their programming language of choice. I recommend R.\nStudents are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.\nI will also assign students topics for presentations/referee reports.\n\nClass participation — 20%"
+    "text": "Assessment\n\nProblem Sets — 50%: Four problem sets involving both theoretical derivations and empirical exercises + presentations. These are to be completed in groups of two.\n\nStudents can use their programming language of choice. I recommend R.\nStudents are expected to compile their assignments using LaTeX or equivalently in R Markdown. The final submission will involve both code and results in a single PDF with all tables properly formatted, variables properly labeled, and figures and tables with complete footnotes as if they are submitting the work to a journal.\nI will also assign students topics for presentations/referee reports.\n\nPresentation — 30%\nClass participation — 20%"
   },
   {
     "objectID": "morepages/podcasts.html",
