@@ -18,6 +18,8 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 ::: {.course-section}
 ## <i class="bi bi-easel2"></i> Lecture Slides {.section-header}
 
+All R-scripts, R-markdown files, and data files for the lectures will be uploaded on Canvas. Some simulations and estimations are within the lecture slides.
+
 ::: {.resource-card}
 1. [Introduction to R](/teachingmaterials/UG_intro_metrics/01_introRv2.qmd)
 2. [Statistical Review & Population Concepts](/teachingmaterials/UG_intro_metrics/02_stat_review.pdf)
@@ -30,7 +32,7 @@ Also see [<i class="bi bi-box-arrow-up-right"></i> Resources for Students](/more
 9. [Randomized Controlled Trials](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)
 10. [Instrumental Variables, 2SLS & HTE](/teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf)
 11. [Panel Data and FE, TWFE](/teachingmaterials/UG_intro_metrics/10_panelFE.qmd)
-12. Difference-in-Differences
+12. [Difference-in-Differences](/teachingmaterials/UG_intro_metrics/2025did.pdf)
 13. Regression Discontinuity Designs
 14. [Course Summary](/teachingmaterials/UG_intro_metrics/summary.pdf)
 :::
