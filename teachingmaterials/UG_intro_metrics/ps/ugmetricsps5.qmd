@@ -8,11 +8,6 @@ toc: true
 code-fold: false
 ---
 
-
-# Note:
-
-This is an evolving problem set. Since we are using multiple classes to cover this topic, I will keep on adding questions as we go. You can get a head start on it as I keep on adding problems. Once the PS is complete I will post an announcement on Canvas. Please check back for updates.
-
 ## Simple 2x2 DiD
 
 Use the .Rmd file that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called `ckdata`. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class. 
@@ -37,19 +32,24 @@ Plot the data of starting wages by the state and the year (before and after the 
 
 - Did employers in NJ pass on the increased labor costs to consumers in the form of higher prices? Answer this question empirically. 
 
-
---- Covered till here in class on Nov 18 ---
-
 ## 2xT Event Study
 
-Use the .Rmd file that we used in class to append `ckdata` with the additional years of data from 1990, 1991 and 1993 provided in the dataset `ck_additional_years.csv` on Canvas. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class.
+The .Rmd notebook I uploded on canvas where we worked on such problems will be a helpful reference for this part of the problem set.
 
-### Question 5
+Use the data `2xT_did_ps5data.csv` provided on Canvas for this part of the problem set. This dataset contains data from 2000 to 2004 on firm id, firm profits, treatment status, and other firm characteristics. 
 
-- Estimate an event study model of the effect of minimum wage increase on employment along with chain FE. Report and interpret the results. Plot the event study coefficients with 95% confidence intervals. Comment on any patterns you observe.
+In 2002, a government introduces a profit tax credit to encourage small manufacturing firms to upgrade to more energy-efficient machinery. Because of budget and administrative constraints, the program is offered first to firms that already have relatively high electricity usage per unit of output. Firms with lower electricity intensity are not initially eligible and thus do not adopt the program during the sample period. On average, profits increase over time in both treated and control firms, reflecting improving economic conditions that affect all firms. But we are interested in estimating the causal effect of the energy-efficiency program on firm profits.
+
+The treated group ($D_i = 1$) consists of firms that adopt the energy-efficiency program in 2002, and the control group consists of otherwise similar firms that never become eligible in this window. The outcome $Y_{it}$ is each firm’s monthly profit measured in hundreds of thousands of dollars. 
+
+- Load the data into R and create a variable `t` that indicates the number of years since treatment.  This is similar to what we worked on in class.
+- Create a variable `post` that is equal to 1 if the observation is in the post-treatment period and 0 otherwise.
+- Estimate a simple 2xT DiD model of the effect of the policy on profits controlling for firm age in your estimating and industry fixed effects. Write the estimating equation. Estimate it on R and report and interpret the results. What assumptions are you making to interpret the estimates causally?
+- Now I want you to estimate an event study model of the effect of the policy on profits controlling for firm age in your estimating and industry fixed effects. Write the estimating equation. Estimate it on R and report and interpret the results. What assumptions are you making to interpret the estimates causally? Hint: You will need to create event time dummies for this, similar to what we did in class.
 
 - What do the pre-treatment coefficients tell you about your main identification assumption?
 
-## GxT DiD / TWFE
+### Bonus not to be turned in
 
-## GxT Event Study
+- Plot the event study coefficients with 95% confidence intervals. Interpret the plot.
+

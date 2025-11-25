@@ -150,6 +150,49 @@ ul.task-list li input[type="checkbox"] {
   }
 </style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -204,9 +247,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#note" id="toc-note" class="nav-link active" data-scroll-target="#note">Note:</a>
-  <ul class="collapse">
-  <li><a href="#simple-2x2-did" id="toc-simple-2x2-did" class="nav-link" data-scroll-target="#simple-2x2-did">Simple 2x2 DiD</a>
+  <li><a href="#simple-2x2-did" id="toc-simple-2x2-did" class="nav-link active" data-scroll-target="#simple-2x2-did">Simple 2x2 DiD</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
@@ -215,10 +256,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#xt-event-study" id="toc-xt-event-study" class="nav-link" data-scroll-target="#xt-event-study">2xT Event Study</a>
   <ul class="collapse">
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  </ul></li>
-  <li><a href="#gxt-did-twfe" id="toc-gxt-did-twfe" class="nav-link" data-scroll-target="#gxt-did-twfe">GxT DiD / TWFE</a></li>
-  <li><a href="#gxt-event-study" id="toc-gxt-event-study" class="nav-link" data-scroll-target="#gxt-event-study">GxT Event Study</a></li>
+  <li><a href="#bonus-not-to-be-turned-in" id="toc-bonus-not-to-be-turned-in" class="nav-link" data-scroll-target="#bonus-not-to-be-turned-in">Bonus not to be turned in</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -516,9 +554,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="note" class="level1">
-<h1>Note:</h1>
-<p>This is an evolving problem set. Since we are using multiple classes to cover this topic, I will keep on adding questions as we go. You can get a head start on it as I keep on adding problems. Once the PS is complete I will post an announcement on Canvas. Please check back for updates.</p>
 <section id="simple-2x2-did" class="level2">
 <h2 class="anchored" data-anchor-id="simple-2x2-did">Simple 2x2 DiD</h2>
 <p>Use the .Rmd file that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called <code>ckdata</code>. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class.</p>
@@ -546,25 +581,26 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Did employers in NJ pass on the increased labor costs to consumers in the form of higher prices? Answer this question empirically.</li>
 </ul>
-<p>— Covered till here in class on Nov 18 —</p>
 </section>
 </section>
 <section id="xt-event-study" class="level2">
 <h2 class="anchored" data-anchor-id="xt-event-study">2xT Event Study</h2>
-<p>Use the .Rmd file that we used in class to append <code>ckdata</code> with the additional years of data from 1990, 1991 and 1993 provided in the dataset <code>ck_additional_years.csv</code> on Canvas. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class.</p>
-<section id="question-5" class="level3">
-<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>The .Rmd notebook I uploded on canvas where we worked on such problems will be a helpful reference for this part of the problem set.</p>
+<p>Use the data <code>2xT_did_ps5data.csv</code> provided on Canvas for this part of the problem set. This dataset contains data from 2000 to 2004 on firm id, firm profits, treatment status, and other firm characteristics.</p>
+<p>In 2002, a government introduces a profit tax credit to encourage small manufacturing firms to upgrade to more energy-efficient machinery. Because of budget and administrative constraints, the program is offered first to firms that already have relatively high electricity usage per unit of output. Firms with lower electricity intensity are not initially eligible and thus do not adopt the program during the sample period. On average, profits increase over time in both treated and control firms, reflecting improving economic conditions that affect all firms. But we are interested in estimating the causal effect of the energy-efficiency program on firm profits.</p>
+<p>The treated group (<span class="math inline">D_i = 1</span>) consists of firms that adopt the energy-efficiency program in 2002, and the control group consists of otherwise similar firms that never become eligible in this window. The outcome <span class="math inline">Y_{it}</span> is each firm’s monthly profit measured in hundreds of thousands of dollars.</p>
 <ul>
-<li><p>Estimate an event study model of the effect of minimum wage increase on employment along with chain FE. Report and interpret the results. Plot the event study coefficients with 95% confidence intervals. Comment on any patterns you observe.</p></li>
+<li><p>Load the data into R and create a variable <code>t</code> that indicates the number of years since treatment. This is similar to what we worked on in class.</p></li>
+<li><p>Create a variable <code>post</code> that is equal to 1 if the observation is in the post-treatment period and 0 otherwise.</p></li>
+<li><p>Estimate a simple 2xT DiD model of the effect of the policy on profits controlling for firm age in your estimating and industry fixed effects. Write the estimating equation. Estimate it on R and report and interpret the results. What assumptions are you making to interpret the estimates causally?</p></li>
+<li><p>Now I want you to estimate an event study model of the effect of the policy on profits controlling for firm age in your estimating and industry fixed effects. Write the estimating equation. Estimate it on R and report and interpret the results. What assumptions are you making to interpret the estimates causally? Hint: You will need to create event time dummies for this, similar to what we did in class.</p></li>
 <li><p>What do the pre-treatment coefficients tell you about your main identification assumption?</p></li>
 </ul>
-</section>
-</section>
-<section id="gxt-did-twfe" class="level2">
-<h2 class="anchored" data-anchor-id="gxt-did-twfe">GxT DiD / TWFE</h2>
-</section>
-<section id="gxt-event-study" class="level2">
-<h2 class="anchored" data-anchor-id="gxt-event-study">GxT Event Study</h2>
+<section id="bonus-not-to-be-turned-in" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-not-to-be-turned-in">Bonus not to be turned in</h3>
+<ul>
+<li>Plot the event study coefficients with 95% confidence intervals. Interpret the plot.</li>
+</ul>
 
 
 </section>
