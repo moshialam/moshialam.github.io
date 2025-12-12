@@ -13,13 +13,11 @@ format:
 
 ## Course Description
 
-THis si the second part of a two-part sequence of Applied ecopnometrics at the PhD level. Here I cover structural models and econometric methods with a focus on some types of labor and public economics problems. Having a comprehensive course on structural models is nearly impossible since  structural work fine tune the model to the specific theory and context. The key lies in identification, which can ultimatley help us in doing counterfactuals. Hence, my emphasis will be mostly on identification, and primarily with discrete choice models (both static and dynamic) using estimation methods like MLE, GMM, SMM, and primarily indirect inference. I will cover some numerical optimization methods like gradient-based, derivative-free methods but mostly Nelder-Mead simplex algorithm. 
+THis si the second part of a two-part sequence of Applied econometrics at the PhD level. Here I cover structural models and econometric methods with a focus on some types of labor and public economics problems. Having a comprehensive course on structural models is nearly impossible since  structural work fine tune the model to the specific theory and context. The key lies in identification, which can ultimately help us in doing counterfactuals. Hence, my emphasis will be mostly on identification, and primarily with discrete choice models (both static and dynamic) using estimation methods like MLE, GMM, SMM, and primarily indirect inference. I will cover some numerical optimization methods like gradient-based, derivative-free methods but mostly Nelder-Mead simplex algorithm. 
 
 I do not find the discussions of whether structural models are better than design-based (reduced form) methods very constructive and hence will not engage in them. However, I will list some papers that discuss these. I like both, and have found both helpful in my work. In my view, both approaches have their own strengths, and it is cool to leverage best of both worlds.
 
 No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete Choice Methods with Simulation*](https://eml.berkeley.edu/books/choice2.html) very helpful when I was learning discrete choice models for the first time. Depending on time I will also talk about some of my experience in improving computational efficiency in `julia`, and discuss some of the workflows that have worked for me.
-
-
 
 ## Assessment
 
@@ -43,7 +41,11 @@ The readings are in not a particular order, although I will talk about identific
 
 - [Matzkin, R.L. (2007).](https://www.sciencedirect.com/science/article/abs/pii/S1573441207060734) "Nonparametric Identification." *Handbook of Econometrics*, Vol. 6B, Ch. 73.
 
-### Structural vs. Reduced Form Methods
+### Structural and Reduced Form Methods Discussions
+
+- Andrews, A., Gentzkow, M., and Shapiro, J.M. (2020) "Transparency in Structural Research", *Journal of Business \& Economic Statistics*, 38:4, 711-722
+
+- Andrews, A., Gentzkow, M., and Shapiro, J.M. (2020) "On the Informativeness of  Descriptive Statistics for Structural Estimates", *Econometrica*, Vol. 88, No. 6 
 
 - [Low, H. and Meghir, C. (2017)](https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33). "The Use of Structural Models in Econometrics." *Journal of Economic Perspectives*, 31(2): 33-58.
 
