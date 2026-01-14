@@ -17,7 +17,10 @@ THis si the second part of a two-part sequence of Applied econometrics at the Ph
 
 I do not find the discussions of whether structural models are better than design-based (reduced form) methods very constructive and hence will not engage in them. However, I will list some papers that discuss these. I like both, and have found both helpful in my work. In my view, both approaches have their own strengths, and it is cool to leverage best of both worlds.
 
-No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete Choice Methods with Simulation*](https://eml.berkeley.edu/books/choice2.html) very helpful when I was learning discrete choice models for the first time. Depending on time I will also talk about some of my experience in improving computational efficiency in `julia`, and discuss some of the workflows that have worked for me.
+No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete Choice Methods with Simulation*](https://eml.berkeley.edu/books/choice2.html) very helpful when I was learning discrete choice models for the first time. Other references include *Structural Analysis of Discrete Data with Econometric Applications, Edited by Manski and McFadden*
+
+
+Depending on time I will also talk about improving computational efficiency in `julia`, and discuss some of the workflows that have worked for me.
 
 ## Assessment
 
@@ -29,7 +32,7 @@ No textbook as such---its mostly papers, but I found [Kenneth Train's *Discrete 
 
 ##  Readings
 
-The readings are in not a particular order, although I will talk about identification in general first and then how is strucutral (model-based) approach different from reduced form (design-based) approach. Things that are not in particular order maybe specific topics & estimation routines and papers applying them.
+The readings are in not a particular order, although I will talk about identification in general first and then how is structural (model-based) approach different from reduced form (design-based) approach. Things that are not in particular order maybe specific topics & estimation routines and papers applying them.
 
 ### Identification
 
