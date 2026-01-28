@@ -44,6 +44,7 @@ The readings are in not a particular order, although I will talk about identific
 
 - [Heckman, J.J. and Vytlacil, E.J. (2007b).](https://www.sciencedirect.com/science/article/abs/pii/S1573441207060710) "Econometric Evaluation of Social Programs, Part II: Using the Marginal Treatment Effect to Organize Alternative Econometric Estimators to Evaluate Social Programs, and to Forecast their Effects in New Environments." *Handbook of Econometrics*, Vol. 6B, Ch. 71.
 
+- Allen and Rehbeck (2019) Identification with Additively Separable Heterogeneity. *Econometrica*
 
 ### Structural and Reduced Form Methods Discussions
 
