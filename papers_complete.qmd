@@ -504,7 +504,7 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">R&R at *Quantitative Economics*</span>
+<span class="badge-status badge-rr">R&R at *Quantitative Economics (2nd round)*</span>
 <span class="badge-jmp">PhD JMP</span>
 <!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> -->
 </div>
