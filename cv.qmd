@@ -6,6 +6,6 @@ title: "CV"
 <a href="https://moshialam.github.io/papers/Alam_MdMoshiUl_CV.pdf" target="_blank" class="btn btn-outline-info btn-lg"> <i class="bi bi-download"></i>  **Download my CV**
 </a>
 
-Last updated: November 2025
+Last updated: February 2026
 
 ---
