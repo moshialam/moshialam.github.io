@@ -510,7 +510,7 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a>
-<a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix A-C</a>
+<a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a>
 <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> BibTeX
 </button>
