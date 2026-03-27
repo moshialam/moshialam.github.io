@@ -559,9 +559,8 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Morris Davis and Jesse Gregory</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">In preparation for submission</span>
 <a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
-<span class="badge-status badge-rr">Draft Coming Soon.</span>
+<span class="badge-status badge-rr">In preparation for submission.</span>
 </div>
 </div>
 
@@ -743,7 +742,7 @@ Existing research shows that women benefit more from private toilets, but misper
 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 
 ::: {.modal__header}
-### Optimal Place‑Based Transfers using Measured Geographic Variation in the Marginal Utility of Income {#abs_placebased-title}
+### A New Way to Estimate Optimal State-Contingent Transfers: The Case of Transfers Across Locations {#abs_placebased-title}
 *with Morris Davis and Jesse Gregory*
 :::
 
