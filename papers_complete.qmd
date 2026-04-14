@@ -504,7 +504,7 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">Conditionally Accepted at *Quantitative Economics</span>
+<span class="badge-status badge-rr">Conditionally Accepted at *Quantitative Economics*</span>
 <span class="badge-jmp">PhD JMP</span>
 <!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> -->
 </div>
@@ -707,7 +707,7 @@ Limited policy variation, data constraints in defining 'equal work', and complia
 :::
 
 ::: {.modal__content}
-Workers' preferences and beliefs shape labor market outcomes, yet remain understudied. We develop a theory-driven novel identification strategy for information experiments that separates preferences from beliefs. We apply this to provide the first evidence on the distribution of workers' preferences on manager gender and their beliefs on managers' mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers—willing to forgo 1.3–2.2% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are likely biased, highlighting scope for information-based policy interventions that could reduce suboptimal matching and gender gaps in management levels. Our identification-driven design provides a general framework for information experiments to study beliefs.
+When agents choose among options with unobserved attributes to maximize expected utility, their choices conflate preferences with beliefs about those attributes. We develop a novel theory-driven identification strategy for such settings, showing that compensating differentials separately identify beliefs from preferences. Noting that workers’ preferences and beliefs shape labor market outcomes, yet remain understudied, we apply our method to provide the first evidence on the distribution of workers’ preferences over manager gender, and their beliefs about managers’ mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers, willing to forgo 1.7% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are biased, highlighting scope for information-based policy interventions.
 :::
 
 ::::
