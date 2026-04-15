@@ -712,7 +712,7 @@ When agents choose among options with unobserved attributes to maximize expected
 
 ::::
 :::::
-::::::
+::::::  
 
 <!-- Abstract Modal: Sanitation -->
 :::::: {#abs_sanitation .modal .micromodal-slide aria-hidden="true"}
