@@ -127,6 +127,14 @@ title: "Research". purple theme: 9158A2
   /* border: 1px solid #C4A57B;           Light brown border */
 }
 
+
+.badge-accept {
+  background: #F1F8F1;
+  color: #3D6B3D;
+  /* border: 1px solid #8FAF8F; */
+}
+
+
 .badge-update {
   background: transparent;
   color: #6c757d;
@@ -373,15 +381,15 @@ details {
 <script>
 // BibTeX citations for all papers
 const bibtexCitations = {
-  workerdisc: `@unpublished{alam2025employee,
+  workerdisc: `@article{alam2025employee,
   title = {Employee-Side Discrimination: Beliefs and Preferences},
   author = {Alam, Md Moshi Ul and Mookerjee, Mehreen and Roy, Sanket},
-  year = {2025},
-  note = {Working Paper, R\&R at Quantitative Economics},
+  year = {2026},
+  note = {Forthcoming at Quantitative Economics},
   url = {https://moshialam.github.io/papers/Alam_JMP_Oct21.pdf}
 }`,
 
-  sanitation: `@unpublished{agarwal2024unintended,
+  sanitation: `@article{agarwal2024unintended,
   title = {The Unintended Benefits of Women's Empowerment on Household Sanitation},
   author = {Agarwal, Monica and Alam, Md Moshi Ul},
   year = {2024},
@@ -390,14 +398,14 @@ const bibtexCitations = {
   doi = {10.2139/ssrn.4992568}
 }`,
 
-  payequity: `@unpublished{alam2025labor,
+  payequity: `@article{alam2025labor,
   title = {Labor Market Consequences of Pay-Equity Laws},
   author = {Alam, Md Moshi Ul and Lehrer, Steven and Pereira, Nuno Souso},
   year = {2025},
   note = {Working Paper}
 }`,
 
-  placebased: `@unpublished{alam2025computing,
+  placebased: `@article{alam2025computing,
   title = {A New Way to Estimate Optimal State-Contingent Transfers: The Case of Transfers Across Locations},
   author = {Alam, Md Moshi Ul and Davis, Morris and Gregory, Jesse},
   year = {2025},
@@ -504,7 +512,7 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">Accepted at **Quantitative Economics**</span>
+<span class="badge-status badge-accept">Accepted at ***Quantitative Economics***</span>
 <span class="badge-jmp">PhD JMP</span>
 <!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> -->
 </div>
