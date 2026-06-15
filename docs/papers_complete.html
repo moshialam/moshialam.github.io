@@ -538,7 +538,7 @@ title: "Research". purple theme: 9158A2
 }
 
 .paper-title-line {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: -.5rem;
   line-height: 1.4;
@@ -691,6 +691,14 @@ title: "Research". purple theme: 9158A2
   color: #2c3e50;
 }
 
+.paper-section-heading {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
 .section-heading.published {
   background: linear-gradient(to right, rgba(173, 114, 55, 0.08), transparent);
   border-left-color: #ad7237;
@@ -754,55 +762,21 @@ title: "Research". purple theme: 9158A2
 }
 </style>
 <style>
-/* Keep all your existing styles, then ADD these modifications */
-
-/* Two-column layout for desktop */
-@media (min-width: 992px) {
-  .papers-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    width: 100%;
-  }
-  
-  .paper-item {
-    margin-bottom: 0; /* Remove bottom margin since gap handles spacing */
-  }
+/* Keep paper cards stacked vertically at every viewport width. */
+.papers-list {
+  display: block !important;
+  width: 100%;
 }
 
-/* Single column for tablets and mobile */
-@media (max-width: 991px) {
-  .papers-list {
-    display: block !important;
-  }
-  
-  .paper-item {
-    margin-bottom: 0.5rem; /* Keep your original spacing */
-  }
-}
-
-/* Optional: Make section headers span both columns */
-@media (min-width: 992px) {
-  .section-heading {
-    grid-column: 1 / -1; /* Spans all columns */
-  }
-}
-
-/* Optional: Balance the columns better for odd numbers of papers */
-@media (min-width: 992px) {
-  .paper-item:last-child:nth-child(odd) {
-    /* Centers the last item if it's alone in its row */
-    /* grid-column: 1 / -1; */
-    /* OR keeps it in left column: */
-    grid-column: 1;
-  }
+.paper-item {
+  margin-bottom: 0.75rem;
 }
 
 /* Ensure navigation and dormant sections remain full width */
 .section-nav,
 .dormant-summary,
 details {
-  grid-column: 1 / -1;
+  width: 100%;
 }
 </style>
 <style>
@@ -1000,8 +974,8 @@ function showToast(message, type = 'success') {
   }, 3000);
 }
 </script>
-<section id="working-papers" class="level4">
-<h4 class="anchored" data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
+<section id="working-papers" class="level4 paper-section-heading">
+<h4 class="paper-section-heading anchored" data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
 <div class="papers-list">
 <div class="paper-item">
 <div class="paper-title-line">
@@ -1014,7 +988,7 @@ with Mehreen Mookerjee and Sanket Roy
 <p><span class="badge-status badge-accept">Forthcoming at <strong><em>Quantitative Economics</em></strong></span> <span class="badge-jmp">PhD JMP</span> <!-- <span class="badge-update" title="Updated July '25"><i class="bi bi-clock-history"></i> July '25</span> --></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
+<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -1028,7 +1002,7 @@ with Monica Agarwal
 <p><span class="badge-status badge-rr">R&amp;R at <em>Journal of Human Resources</em> (2nd round, resubmitted)</span> <!-- <span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span> --></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a> <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
+<p><a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a> <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -1042,7 +1016,7 @@ with Steven Lehrer and Nuno Souso Pereira
 <p><span class="badge-status badge-rr">Under revisions</span> <!-- <span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span> --> <span class="badge-jmp">Post-doc JMP</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
+<p><a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 <div class="paper-item">
@@ -1058,8 +1032,8 @@ with Morris Davis and Jesse Gregory
 </div>
 </div>
 </section>
-<section id="publications" class="level4">
-<h4 class="anchored" data-anchor-id="publications"><i class="bi bi-bookmark-check-fill"></i> Publications</h4>
+<section id="publications" class="level4 paper-section-heading">
+<h4 class="paper-section-heading anchored" data-anchor-id="publications"><i class="bi bi-bookmark-check-fill"></i> Publications</h4>
 <div class="papers-list">
 <div class="paper-item published">
 <div class="paper-title-line">
@@ -1072,13 +1046,13 @@ with Daniel Meyer and Marcia Carlson
 <p><i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice"> Editor’s Choice Article</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a> <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> BibTeX </button></p>
+<p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a> <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 </div>
 </section>
-<section id="research-in-progress" class="level4">
-<h4 class="anchored" data-anchor-id="research-in-progress"><i class="bi bi-bookmark"></i> Research in Progress</h4>
+<section id="research-in-progress" class="level4 paper-section-heading">
+<h4 class="paper-section-heading anchored" data-anchor-id="research-in-progress"><i class="bi bi-bookmark"></i> Research in Progress</h4>
 <div class="papers-list">
 <div class="paper-item in-progress">
 <div class="paper-title-line">
@@ -1127,12 +1101,12 @@ with Steven Lehrer and Nuno Souso Pereira
 <div class="cell" data-include="false">
 <details class="code-fold hidden">
 <summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="657" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 656;"><span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
-<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
-<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="631" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 630;"><span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display hidden">
 <div>

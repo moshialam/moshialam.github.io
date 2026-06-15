@@ -29,7 +29,7 @@ title: "Research". purple theme: 9158A2
 }
 
 .paper-title-line {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: -.5rem;
   line-height: 1.4;
@@ -182,6 +182,14 @@ title: "Research". purple theme: 9158A2
   color: #2c3e50;
 }
 
+.paper-section-heading {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
 .section-heading.published {
   background: linear-gradient(to right, rgba(173, 114, 55, 0.08), transparent);
   border-left-color: #ad7237;
@@ -245,55 +253,21 @@ title: "Research". purple theme: 9158A2
 }
 </style>
 <style>
-/* Keep all your existing styles, then ADD these modifications */
-
-/* Two-column layout for desktop */
-@media (min-width: 992px) {
-  .papers-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    width: 100%;
-  }
-  
-  .paper-item {
-    margin-bottom: 0; /* Remove bottom margin since gap handles spacing */
-  }
+/* Keep paper cards stacked vertically at every viewport width. */
+.papers-list {
+  display: block !important;
+  width: 100%;
 }
 
-/* Single column for tablets and mobile */
-@media (max-width: 991px) {
-  .papers-list {
-    display: block !important;
-  }
-  
-  .paper-item {
-    margin-bottom: 0.5rem; /* Keep your original spacing */
-  }
-}
-
-/* Optional: Make section headers span both columns */
-@media (min-width: 992px) {
-  .section-heading {
-    grid-column: 1 / -1; /* Spans all columns */
-  }
-}
-
-/* Optional: Balance the columns better for odd numbers of papers */
-@media (min-width: 992px) {
-  .paper-item:last-child:nth-child(odd) {
-    /* Centers the last item if it's alone in its row */
-    /* grid-column: 1 / -1; */
-    /* OR keeps it in left column: */
-    grid-column: 1;
-  }
+.paper-item {
+  margin-bottom: 0.75rem;
 }
 
 /* Ensure navigation and dormant sections remain full width */
 .section-nav,
 .dormant-summary,
 details {
-  grid-column: 1 / -1;
+  width: 100%;
 }
 </style>
 <style>
@@ -502,7 +476,7 @@ function showToast(message, type = 'success') {
 
 
 
-#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers}
+#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading}
 
 <div class="papers-list">
 
@@ -520,7 +494,7 @@ function showToast(message, type = 'success') {
 <a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a>
 <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a>
 <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> BibTeX
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
 </div>
 </div>
@@ -538,7 +512,7 @@ function showToast(message, type = 'success') {
 <a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a>
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a>
 <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> BibTeX
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
 </div>
 </div>
@@ -556,7 +530,7 @@ function showToast(message, type = 'success') {
 <div class="paper-links">
 <a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
 <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> BibTeX
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
 </div>
 </div>
@@ -574,7 +548,7 @@ function showToast(message, type = 'success') {
 
 </div>
 
-#### <i class="bi bi-bookmark-check-fill"></i> Publications {#publications}
+#### <i class="bi bi-bookmark-check-fill"></i> Publications {#publications .paper-section-heading}
 
 <div class="papers-list">
 
@@ -590,14 +564,14 @@ function showToast(message, type = 'success') {
 <a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a>
 <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a>
 <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> BibTeX
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
 </div>
 </div>
 
 </div>
 
-#### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress}
+#### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress .paper-section-heading}
 
 <div class="papers-list">
 
