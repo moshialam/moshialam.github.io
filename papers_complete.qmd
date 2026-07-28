@@ -379,11 +379,11 @@ const bibtexCitations = {
   note = {Working Paper}
 }`,
 
-  placebased: `@article{alam2026theory,
-  title = {The Theory and Measurement of Optimal Place-Based Transfers},
+  placebased: `@article{alam2026optimal,
+  title = {Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement},
   author = {Alam, Md Moshi Ul and Davis, Morris and Gregory, Jesse},
   year = {2026},
-  note = {Working Paper}
+  note = {Working Paper. Available at SSRN: https://ssrn.com/abstract=7192721}
 }`,
 
   divorce: `@article{meyer2022increases,
@@ -517,14 +517,29 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 
+
 <div class="paper-item">
 <div class="paper-title-line">
-<strong>3.</strong> <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
+<strong>3.</strong> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
+</div>
+<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
+<div class="paper-status">
+<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
+<button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
+<span class="badge-status badge-rr">Under Review</span>
+</div>
+</div>
+
+
+<div class="paper-item">
+<div class="paper-title-line">
+<strong>4.</strong> <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
 </div>
 <div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
 <div class="paper-status">
 <span class="badge-status badge-rr">Under revisions</span>
-<!-- <span class="badge-update" title="Updated Aug '25"><i class="bi bi-clock-history"></i> Aug '25</span> -->
 <span class="badge-jmp">Post-doc JMP</span>
 </div>
 <div class="paper-links">
@@ -532,17 +547,6 @@ function showToast(message, type = 'success') {
 <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
-</div>
-</div>
-
-<div class="paper-item">
-<div class="paper-title-line">
-<strong>4.</strong> The Theory and Measurement of Optimal Place-Based Transfers
-</div>
-<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
-<div class="paper-status">
-<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
-<span class="badge-status badge-rr">In preparation for submission.</span>
 </div>
 </div>
 
@@ -589,12 +593,6 @@ function showToast(message, type = 'success') {
 <div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
 </div>
 
-<!-- <div class="paper-item in-progress">
-<div class="paper-title-line">
-<strong>Racial Gaps in Wage Growth: Discrimination, Selection and Search Frictions</strong>
-</div>
-<div class="paper-meta"></div>
-</div> -->
 
 </div>
 
@@ -724,12 +722,12 @@ Existing research shows that women benefit more from private toilets, but misper
 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 
 ::: {.modal__header}
-### The Theory and Measurement of Optimal Place-Based Transfers {#abs_placebased-title}
+### Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement {#abs_placebased-title}
 *with Morris Davis and Jesse Gregory*
 :::
 
 ::: {.modal__content}
-The optimal redistribution of income across locations in a system of locations is determined by two sufficient statistics: the average marginal utility of income in each location and a location demand system that specifies, for every possible pair of locations, the change in probability of moving to one location in response to a change in taxes or transfers in the other location. We prove that location-choice data do not identify the average marginal utility of income in any location without extreme restrictions on preferences and show that standard data sets are typically insufficient to identify the location demand system. We therefore design and field a new, nationally representative survey of adults in the United States that allows for heterogeneity in preferences across respondents and develop a method to aggregate survey responses in order to construct the key ingredients for place-based policy: the average marginal utility of income in each of 270 locations in the United States and the demand system for these locations. We find there is large variation in the average marginal utility of income across locations and strong regional substitution patterns, and optimal place-based taxes and transfers involve substantially more redistribution across locations than implied by policy rules resulting from standard assumptions of log utility and proportional substitution. The assumptions of log utility and proportional substitution are rejected by our data and transfers based on these assumptions reduce aggregate welfare.
+The optimal redistribution of income across locations is determined by two sufficient statistics: location by location, the average marginal utility of income and the average tax paid by residents in substitute locations that receive individuals migrating in response to a marginal tax change. We show that location-choice data do not identify average marginal utilities without strong restrictions on preferences and that standard data sets are insufficient to identify the cross-location elasticities that pin down the average tax of substitute locations. We design and field a unique nationally representative survey that allows for heterogeneity in preferences, and develop a method to aggregate survey responses to recover both sufficient statistics for 270 U.S. locations. We estimate large variation in the average marginal utility of income and strong regional substitution patterns. Optimal place-based taxes and transfers involve substantially more redistribution across locations than implied by policy rules resulting from common specifications of preferences.
 <!-- We address a fundamental identification challenge in optimal place-based redistribution policy design: characterizing how marginal utility of income (MU) varies across locations. We show that MU is not identified from location choice data alone, even with full-support location-specific instruments that generate arbitrarily large positive or negative income shifts in every location. To overcome this challenge, we design and implement a nationally representative survey that directly elicits location-specific MUs and recovers how respondents would substitute across locations when relative net incomes change, using respondent-specific feasible choice sets. We characterize optimal place-based transfers using both a sufficient-statistics approach with an iterative algorithm for marginal policies, and a structural model with heterogeneous types and non-separable preferences for non-marginal policies. Although location is often treated as a tag for types (such as skill groups), we find that nearly half of the cross-metro variation in the planner’s welfare weights—and thus the motive to redistribute—comes from within-person and within-skill-group differences in marginal utility across locations, identified only through our survey. We find that optimal policy is substantially more nuanced than a simple redistribution from high-wage to low-wage locations. -->
 :::
 
