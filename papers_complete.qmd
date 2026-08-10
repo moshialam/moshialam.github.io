@@ -368,7 +368,7 @@ const bibtexCitations = {
   author = {Agarwal, Monica and Alam, Md Moshi Ul},
   year = {2024},
   month = {October},
-  note = {Working Paper, R\&R at Journal of Human Resources. Available at SSRN: https://ssrn.com/abstract=4992568},
+  note = {Forthcoming at Journal of Human Resources. Available at SSRN: https://ssrn.com/abstract=4992568},
   doi = {10.2139/ssrn.4992568}
 }`,
 
@@ -471,18 +471,51 @@ function showToast(message, type = 'success') {
 </script>
 
 
-
-
-
-
-
 #### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading}
 
 <div class="papers-list">
 
+
 <div class="paper-item">
 <div class="paper-title-line">
-<strong>1.</strong> <a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
+</div>
+<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
+<div class="paper-status">
+<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
+<button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
+<span class="badge-status badge-rr">Under Review</span>
+</div>
+</div>
+
+
+<div class="paper-item">
+<div class="paper-title-line">
+<a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
+</div>
+<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
+<div class="paper-status">
+<span class="badge-status badge-rr">Under revisions</span>
+<span class="badge-jmp">Post-doc JMP</span>
+</div>
+<div class="paper-links">
+<a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
+<button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
+</div>
+</div>
+
+</div>
+
+
+#### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted {#publications .paper-section-heading}
+
+<div class="paper-item">
+<div class="paper-title-line">
+<a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
@@ -501,11 +534,11 @@ function showToast(message, type = 'success') {
 
 <div class="paper-item">
 <div class="paper-title-line">
-<strong>2.</strong> <a href="papers/Agarwal_Alam_sanitation.pdf">The Unintended Benefits of Women's Empowerment on Household Sanitation</a>
+<a href="papers/Agarwal_Alam_sanitation.pdf">The Unintended Benefits of Women's Empowerment on Household Sanitation</a>
 </div>
 <div class="paper-meta">with Monica Agarwal</div>
 <div class="paper-status">
-<span class="badge-status badge-accept">Forthcoming at ***Journal of Human Resources***</span>
+<span class="badge-status badge-accept">Accepted at ***Journal of Human Resources***</span>
 <!-- <span class="badge-update" title="Updated April '25"><i class="bi bi-clock-history"></i> April '25</span> -->
 </div>
 <div class="paper-links">
@@ -517,42 +550,6 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 
-
-<div class="paper-item">
-<div class="paper-title-line">
-<strong>3.</strong> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
-</div>
-<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
-<div class="paper-status">
-<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
-<button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> Cite (BibTeX)
-</button>
-<span class="badge-status badge-rr">Under Review</span>
-</div>
-</div>
-
-
-<div class="paper-item">
-<div class="paper-title-line">
-<strong>4.</strong> <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
-</div>
-<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
-<div class="paper-status">
-<span class="badge-status badge-rr">Under revisions</span>
-<span class="badge-jmp">Post-doc JMP</span>
-</div>
-<div class="paper-links">
-<a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
-<button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> Cite (BibTeX)
-</button>
-</div>
-</div>
-
-</div>
-
-#### <i class="bi bi-bookmark-check-fill"></i> Publications {#publications .paper-section-heading}
 
 <div class="papers-list">
 
@@ -573,7 +570,13 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 
+
+
 </div>
+
+
+
+
 
 #### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress .paper-section-heading}
 
