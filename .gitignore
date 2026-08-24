@@ -48,3 +48,6 @@ teach.qmd
 .Rhistory
 # Keep the reusable syllabus source tracked (overrides */*.tex above)
 !teachingmaterials/syllabus.tex
+
+# Word source docs for syllabi/papers (PDFs are what get published)
+*.docx
