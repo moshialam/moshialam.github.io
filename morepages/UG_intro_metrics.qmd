@@ -7,7 +7,7 @@ date-modified: last-modified
 ## <i class="bi bi-journal-text"></i> Course Information {.section-header}
 
 ::: {.resource-card}
-<a href="/teachingmaterials/UG_intro_metrics/Alam_Econ265_Syllabus_F25.pdf" class="btn btn-primary">
+<a href="/teachingmaterials/syllabus.pdf" class="btn btn-primary">
 <i class="bi bi-filetype-pdf"></i> Download Syllabus
 </a>
 
@@ -40,7 +40,7 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 
 ::: {.course-section}
 ## <i class="bi bi-pencil-square"></i> Problem Sets {.section-header}
-
+<!-- 
 ::: {.resource-card}
 **Problem Set 1** *(Due Sep 18)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd) | 
@@ -59,7 +59,7 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 
 **Problem Set 5** *(Due Dec 1)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps5.qmd) | 
-:::
+::: -->
 :::
 
 <style>

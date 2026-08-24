@@ -46,3 +46,5 @@ teach.qmd
 */*.synctex(busy)
 *.Rproj.user
 .Rhistory
+# Keep the reusable syllabus source tracked (overrides */*.tex above)
+!teachingmaterials/syllabus.tex

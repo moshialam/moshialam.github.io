@@ -1,0 +1,561 @@
+%==============================================================================
+%  ECON265 / CES365 -- Introduction to Econometrics
+%  Reusable syllabus template.  Compile with:  pdflatex syllabus.tex  (x2)
+%
+%  >>> TO REUSE FOR A NEW SEMESTER, EDIT ONLY THE "COURSE CONFIGURATION"
+%  >>> BLOCK BELOW.  The body text pulls everything from these macros.
+%==============================================================================
+\documentclass[11pt]{article}
+
+%------------------------------------------------------------------------------
+%  COURSE CONFIGURATION  -- edit me each semester
+%------------------------------------------------------------------------------
+\newcommand{\CourseNumber}{ECON265/CES365}
+\newcommand{\CourseTitle}{Introduction to Econometrics}
+\newcommand{\Semester}{Fall 2026}
+
+% ---- Instructor ----
+\newcommand{\InstructorName}{Moshi Alam}
+\newcommand{\InstructorShort}{Moshi}
+\newcommand{\InstructorEmail}{mdalam@clarku.edu}
+\newcommand{\LectureRoom}{Carlson CH128}
+\newcommand{\LectureTimes}{Tue \& Thu, 10:25--11:40AM}
+\newcommand{\OfficeRoom}{JC222}
+\newcommand{\OfficeHours}{Thu 12:05--1:05PM, or by appointment}
+
+% ---- Teaching assistant ----
+\newcommand{\TAName}{Yujie Zheng}
+\newcommand{\TAShort}{Yujie}
+\newcommand{\TAthey}{she}                            % pronouns, subject
+\newcommand{\TAthem}{her}                            % pronouns, object
+\newcommand{\TAtheir}{her}                           % pronouns, possessive
+\newcommand{\TAEmail}{YujiZeng@clarku.edu}
+% Discussion sections: one \SectionLine{day+time}{room} per section
+\newcommand{\TASessions}{%
+  \SectionLine{Mon 10:00--10:50AM}{Carlson CH128}%
+  \SectionLine{Wed 10:00--10:50AM}{Carlson CH120}%
+}
+\newcommand{\TAOfficeHours}{Mon \& Wed 11:00AM--12:00PM}
+\newcommand{\TAOfficeRoom}{JC201}
+
+% ---- Exams (set \ShowExamDates to 0 to hide the key-dates table) ----
+\newcommand{\ShowExamDates}{1}
+\newcommand{\MidtermOneDate}{Thursday, October 8, 2026}
+\newcommand{\MidtermTwoDate}{Thursday, November 5, 2026}
+\newcommand{\FinalDate}{Thursday, December 3, 2026}
+
+% ---- Grade weights (must sum to 100) ----
+\newcommand{\WtProblemSets}{10}
+\newcommand{\WtQuizzes}{15}
+\newcommand{\WtClassAtt}{10}
+\newcommand{\WtDiscAtt}{5}
+\newcommand{\WtMidtermOne}{20}
+\newcommand{\WtMidtermTwo}{20}
+\newcommand{\WtFinal}{20}
+
+% ---- Assignment counts ----
+\newcommand{\NumProblemSets}{5}
+\newcommand{\NumQuizzes}{4}
+\newcommand{\NumQuizzesCounted}{3}
+
+%------------------------------------------------------------------------------
+%  PREAMBLE  -- you should not need to touch anything below
+%------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage[margin=1in,top=0.9in,bottom=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\definecolor{accent}{HTML}{7C2128}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
+  pdftitle={\CourseNumber: \CourseTitle{} (\Semester)},
+  pdfauthor={\InstructorName}}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.4ex plus .3ex}{0.6ex}
+\titleformat{\subsection}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[:\hspace{0.4em}]
+\titlespacing*{\subsection}{0pt}{1.0ex plus .2ex}{0.4em}
+
+\setlist[itemize]{leftmargin=1.4em,topsep=2pt,itemsep=1.5pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=1.6em,topsep=2pt,itemsep=1.5pt,parsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7ex plus .1ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small--~\thepage~--}
+
+% \info{Label}{value} -- one line of the header block
+\newcommand{\info}[2]{\textbf{#1:}~#2\par}
+% \SectionLine{day and time}{room} -- one discussion section, indented
+\newcommand{\SectionLine}[2]{\par\hspace*{1.5em}#1\quad[#2]}
+\newcommand{\ul}[1]{\underline{#1}}
+
+\begin{document}
+
+%------------------------------------------------------------------------------
+%  TITLE + CONTACT BLOCK
+%------------------------------------------------------------------------------
+\begin{center}
+  {\LARGE\bfseries\color{accent}\CourseNumber}\\[0.35em]
+  {\LARGE\bfseries \CourseTitle}\\[0.6em]
+  {\large \Semester}\\[0.2em]
+  {\large Prof.\ Alam}
+\end{center}
+\vspace{0.6em}
+\hrule
+\vspace{0.9em}
+
+\info{Instructor}{\InstructorName}
+Email: \href{mailto:\InstructorEmail}{\InstructorEmail}\par
+\ul{Lectures}: \LectureRoom{} on \LectureTimes\par
+Office Hours: \OfficeRoom, \OfficeHours\par
+
+\vspace{0.6em}
+\info{Teaching Assistant (TA)}{\TAName}
+Email: \href{mailto:\TAEmail}{\TAEmail}\par
+\ul{Lab/discussion sessions}:\TASessions\par
+Office Hours: \TAOfficeRoom{} on \TAOfficeHours\par
+
+\if\ShowExamDates1
+\vspace{0.9em}
+\begin{center}
+\begin{tabularx}{0.85\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Exam} & \textbf{Date} \\
+\midrule
+Midterm 1 & \MidtermOneDate \\
+Midterm 2 & \MidtermTwoDate \\
+Final exam (cumulative) & \FinalDate \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\fi
+
+%------------------------------------------------------------------------------
+\section{Course description}
+
+This course is an Introduction to Econometrics and is a required course for the
+Economics major. It is also highly recommended for Econ minors and in general,
+anyone who is interested in using data to understand the world around them
+better. Materials of ECON 160 (\textbf{pre-requisite course}) are expected to be
+well-understood by students. I strongly recommend students to refresh their
+concepts of Econ 160 before we deep-dive into Econometrics.
+
+In this course, we will learn concepts and techniques of \emph{econometric
+methods} in economic analysis and implement them with real data. The empirical
+models we will build, and use will be guided by intuition of economic models
+building foundational bridge connecting theory and empirics. Most of the course
+will focus working with \emph{cross-sectional data}, with a small part towards
+the end dedicated to \emph{panel data} methods. We will not cover methods
+related to time-series data in this course. This course will have a strong focus
+on working with data in R. Throughout the course, in parallel, we will be
+implementing the concepts learnt using R.
+
+We will begin with a week of reviewing some concepts from ECON160, working with
+R, followed by introductory concepts of econometrics which initially will build
+and add mathematical formality to the concepts learned in ECON160, then dive
+into new econometric methods which deal with \emph{causality}.
+
+I want to emphasize that even though we will be using R heavily, the primary
+objective in this course is to learn econometric methods, while R is simply a
+tool to implement them. Hence throughout the course even though I will work with
+examples with you on R, I will in most cases point you towards resources for you
+to learn more by yourself since coding is just like learning any
+language---you will learn the best by practicing yourself. Thus, attending
+discussion sections with \TAShort---where you will be involved in coding
+primarily---will be equally important as attending lectures to do well in this
+course.
+
+%------------------------------------------------------------------------------
+\section{Textbook and references}
+
+For the econometric methods only, the recommended textbook the
+7\textsuperscript{th} edition of \textbf{\emph{Introductory Econometrics---A
+Modern Approach}} by Jeffrey Wooldridge. Older versions of the text are
+acceptable as well but please be aware that chapter numbers may not correspond
+exactly between different editions. You can also use the copies of the textbook
+available in the library on reserve. Before delving into the depths of the
+course materials cover in this course, students must go through \textbf{Math
+Refresher A} (Basic Mathematical Tools) \textbf{and B} (Fundamentals of
+Probability) from Wooldridge's textbook. However, this book specializes in
+teaching you econometric methods and not much into causality and econometric
+techniques for causality. For the causal part of the course, as a \emph{reference
+textbook}, I recommend \textbf{\emph{Mastering `Metrics: The Path from Cause to
+Effect}} by Angrist and Pischke.
+
+While working with data, we will mostly use the datasets available in the
+\emph{wooldridge} package in R. These data will correspond to the textbook: the
+7\textsuperscript{th} edition of \textbf{\emph{Introductory Econometrics---A
+Modern Approach}} by Jeffrey Wooldridge. See
+\url{https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf} for
+documentation on the package and associated data within. You will need to refer
+to it time and again as you will work through the problem sets and practices
+that we will do in class.
+
+Finally, even though my primary objective is to teach you econometric methods,
+to start your journey on the path of becoming an expert of implementing them
+with real data, there are rarely ``textbooks'' that achieves everything in the
+best possible way. To that end, I will follow a combination of various
+open-source resources listed below that the authors have graciously allowed the
+academic community to use. Citations of resources I will be drawing from:
+
+\begin{itemize}
+  \item \emph{Statistical Inference via Data Science: A ModernDive into R and
+        the Tidyverse} (2\textsuperscript{nd} Edition) by Ismai, Kim and
+        Valdivia. \\ Open-source available at: \url{https://moderndive.com/v2/}
+  \item \emph{R for Data Science} (2\textsuperscript{nd} edition) by Hadley
+        Wickham, Mine \c{C}etinkaya-Rundel, and Garrett Grolemund. \\
+        Open-source available at: \url{https://r4ds.hadley.nz/}
+  \item \emph{Applied Statistics with R} by David Dalpiaz. \\
+        Open-source project: \url{https://github.com/daviddalpiaz/appliedstats}
+  \item \emph{Introduction to Econometrics with R} by Oswald F, Viers V,
+        Villedieu P, Kennedy G (2020). \\
+        Open-source project: \url{https://scpoecon.github.io/ScPoEconometrics/}
+  \item \emph{Data Science for Economists} by Grant McDermott. \\
+        Open-source project: \url{https://github.com/uo-ec607/lectures}
+  \item \emph{Using R for Introductory Econometrics} (2\textsuperscript{nd}
+        edition) by Florian Heiss. \\
+        Open-source available at: \url{https://www.urfie.net/}
+\end{itemize}
+
+Although this is not necessary, an advanced reading for interested students is
+\textbf{\emph{Causal Inference: The Mixtape}} by Scott Cunningham. Open-source
+available at: \url{https://mixtape.scunning.com/}
+
+%------------------------------------------------------------------------------
+\section{More on coding with R}
+
+We will use the open-source programming language R to implement the methods we
+learn in this course. We will write R code in an IDE (\emph{integrated
+development environment}) called RStudio. Please ensure that both \textbf{R} and
+\textbf{RStudio} are installed in your machine following instructions posted in
+the 1\textsuperscript{st} Canvas announcement.
+
+If you have had no experience with any object-oriented programming language like
+R before, I recommend that, in the next three weeks, you start familiarizing
+yourself with the basics of R, even though I will spend the first week covering
+the basics. A programming language, like any other language, takes time to get
+used to. I don't want any student to fall behind just because of this---ultimately,
+the goal of the course is to build your knowledge and understanding of
+econometrics. There are several ways to get started:
+
+\begin{itemize}
+  \item Getting started:
+        \href{https://posit.co/download/rstudio-desktop/}{Download and install R}
+        and
+        \href{https://posit.co/download/rstudio-desktop/}{download and install
+        RStudio IDE}. It is open-source and hence free to use.
+        \begin{itemize}
+          \item For students unable to install RStudio, they can use
+                \textbf{RStudio Cloud} as an alternative. It offers the same
+                functionality as the desktop version and can be accessed
+                directly at \href{https://posit.cloud/}{Posit Cloud}. However, I
+                strongly recommend having it up and running on your own machine,
+                since access to RStudio Cloud will always require a stable
+                internet connection and is only free for 25 hours/month.
+        \end{itemize}
+  \item Explore resources in addition to those recommended above.
+  \item Practice regularly: even just an hour a day will help you feel more
+        comfortable with the basics.
+  \item Join study groups: collaborating with peers can make the learning
+        process easier and more enjoyable.
+\end{itemize}
+
+Working with R or any programming language will be difficult initially with a
+steep learning curve, but it will pay off tremendously in the long run. This is
+not only because you will learn coding but the ability to implement complicated
+methods improves analytic and abstract thinking which is a very valuable in the
+labor market.
+
+\subsection{To make the most out of the course, I recommend}
+\begin{itemize}
+  \item Most important is to ask questions whenever you are in doubt, regardless
+        of what you think about the quality of your question.
+        \begin{itemize}
+          \item There is no way you can learn unless you are willing to make
+                mistakes.
+          \item I want to encourage you to \textbf{make mistakes early in class
+                by asking questions}---else the probability of mistakes
+                increases in exams.
+        \end{itemize}
+  \item Practicing data analysis in R regularly to build your skills.
+  \item Keeping up with the readings and exercises to reinforce the concepts we
+        cover in class.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\section{Problem sets}
+
+Problem sets will be assigned most weeks. \TAShort{} will not accept late problem
+sets (see more on this under the ``Policies'' section).
+
+\subsection{Working format}
+All assignments will include \textbf{both} theoretical calculations, coding
+exercises requiring you to analyze data sets, and answer other questions based on
+intuition or on the underlying math of the econometric methods that you learn. To
+do all of them together in one single file, you will submit your solutions coded
+and typed up in an \emph{R-notebook} file (\texttt{.Rmd}). Rmd files are designed
+to allow for code, the output of code and user typed text all in one file. It
+lets you develop code and record your thoughts by tightly integrating prose and
+code!
+
+\subsection{Submission on Canvas}
+As you will see in the first week, R-notebooks by themselves are hard to grade
+because the grader will need to download and run it on their own machine. So,
+after your R-notebook with your code and typed up answers are ready, you will
+``\emph{knit}'' it to a PDF which you will submit electronically on Canvas.
+Canvas will \ul{not} allow you to submit any other file format. To knit to PDF
+you will first need to install a \LaTeX{} distribution for your machine: MacTeX
+for macOS or MiKTeX for Windows. If knitting to PDF fails, you can knit to HTML
+and submit. At times installing Java may be necessary depending on your machine.
+\TAShort{} will discuss R-notebooks and ``knitting'' them to PDF in the first
+week in more details.
+
+\subsection{Expectation}
+Please make sure you describe \textbf{\ul{all steps}} you took to get to the
+answers. You will \ul{not} receive full credit if you only give the final answer
+(even if it's correct). You can discuss the problem set with your classmates, but
+you need to code up your own file. If you're working with others, you must write
+their names in the authors section of your R-notebook.
+
+\subsection{Clarification/doubts on PS}
+If you have any questions about the problem sets, please reach out to \TAShort{}
+directly. \TAShort{} will be grading all the problem sets, and I want to ensure
+consistency in the guidance provided to all students on problem sets. By
+directing your problem set questions to \TAShort{} instead of me, we can avoid
+any potential differences in the advice given to students. Again, since
+\TAShort{} will grade, \TAthey{} will be keeping track of any late assignments.
+So, if you need an extension due to unavoidable circumstances reach out to
+\TAShort.
+
+%------------------------------------------------------------------------------
+\section{Grading}
+
+\begin{itemize}
+  \item \NumProblemSets{} group problem sets --- \WtProblemSets\%
+        \begin{itemize}
+          \item A group is a group of 2 students, no more. \emph{This is to
+                foster learning from mistakes of one another and hold each other
+                accountable.}
+                \begin{itemize}
+                  \item Inform \TAShort{} about your group by the end of the week.
+                \end{itemize}
+          \item One question on each exam will be randomly drawn from any of the
+                PS questions.
+        \end{itemize}
+  \item Best of \NumQuizzesCounted{} (out of \NumQuizzes) pop-quizzes ---
+        \WtQuizzes\%
+        \begin{itemize}
+          \item Pop-quiz will be taken in the first, or last 15 mins of any
+                class. You could miss the quiz if you come late to the class.
+        \end{itemize}
+  \item Class attendance and participation --- \WtClassAtt\%
+        \begin{itemize}
+          \item Attendance sheet will only be available till the first 2 mins of
+                class. Thus arriving 2 mins after the class starts will not count
+                towards your attendance or class participation.
+        \end{itemize}
+  \item Discussion session attendance --- \WtDiscAtt\%
+        \begin{itemize}
+          \item Attendance sheet will only be available till the first 2 mins of
+                the discussion session. Thus arriving 2 mins after the session
+                starts will not count towards your attendance or class
+                participation.
+        \end{itemize}
+  \item Participation will be both voluntary as well as randomly drawn.
+  \item Midterm exam 1 (\MidtermOneDate) --- \WtMidtermOne\%
+  \item Midterm exam 2 (\MidtermTwoDate) --- \WtMidtermTwo\%
+  \item Final exam (\FinalDate) --- \WtFinal\% (cumulative)
+  \item No exceptions and no re-take of exams allowed.
+\end{itemize}
+
+\textbf{\ul{No} collaboration will be allowed on exams.}
+
+\subsection{Overall class grade algorithm}\hspace{0pt}\par
+\vspace{0.3em}
+\begin{tabular}{@{}ll@{\hspace{3em}}ll@{}}
+\toprule
+A  & 95--100\%   & C+ & 78--79.9\% \\
+A- & 90--94.9\%  & C  & 75--77.9\% \\
+B+ & 88--89.9\%  & C- & 70--74.9\% \\
+B  & 85--87.9\%  & D  & 60--69.9\% \\
+B- & 80--84.9\%  & F  & $<$60\% \\
+\bottomrule
+\end{tabular}
+
+%------------------------------------------------------------------------------
+\section{Engaged Learning Hours}
+
+Every one unit/free credit hour course at Clark University has 180 hours of
+associated engaged academic time. In this course, for the typical student, they
+may be divided as follows:
+
+\vspace{0.3em}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Class time            & 42 hours (14 weeks $\times$ 3 hours) \\
+Discussion session    & 12 hours (12 classes $\times$ 1 hour) \\
+Reading and class prep& 56 hours (14 weeks $\times$ 4 hours) \\
+Problem sets          & 40 hours (8 $\times$ 5 hours) \\
+Studying for exams    & 30 hours (3 $\times$ 10 hours) \\
+\midrule
+\textbf{Total}        & \textbf{180 hours} \\
+\bottomrule
+\end{tabular}
+
+%------------------------------------------------------------------------------
+\section{LEEP learning objectives}
+
+As part of the Economics curriculum, this course is designed to focus on these
+learning outcomes: 1) \emph{Knowledge of society}: Economics focuses on the use
+of quantitative data to understand the economic aspects of society. This course
+helps you think about how those data are generated and provides you with tools to
+summarize and synthesize both the description of society and identify potential
+associations between social phenomena (for example, between education and
+income). 2) \emph{Intellectual and practical skills}: This course is all about
+data: learning rigorous methods to distinguish correlation from causation and
+thinking about what is ``real'' (the data generating processes) and what is due
+to chance and then using statistical methods to draw conclusions from it.
+
+%------------------------------------------------------------------------------
+\section{Policies}
+
+\subsection{No devices in class}\hspace{0pt}\par
+There is enough empirical evidence that use of laptops and phones in class are
+distracting to not only the student but also other students. Moreover, most of
+this class will prepare you to think through econometric problems through
+mathematical proofs which is best learnt when you write them yourself using pen
+and paper to improve efficiency of learning. \TAShort{} will walk you through R
+in the first two weeks in discussion labs where you are required to bring your
+laptop. However, following that please follow \TAShort's instructions on use of
+laptops in discussion classes.
+
+\subsection{AI usage}\hspace{0pt}\par
+There is causal evidence (which we will discuss in class) that shows that
+``over'' usage of AI causes students to perform worse on exams while being
+stellar on their assignments. Clearly this can and will be linked to worse labor
+market outcomes. So, even though we cannot monitor your AI usage, I believe that
+you will minimize your AI usage for your own interest to maximize your labor
+market outcomes. Given this, with advent of AI the value of critical thinking is
+going to be probably at its highest. So, what I do not want is that you copy
+paste your assignment into an LLM and have it produce the solution for you.
+Submitting answers generated by AI without your own understanding constitutes
+academic dishonesty.
+
+\begin{enumerate}
+  \item If you completely depend on AI, then you will lose the opportunity to
+        build your skill and knowledge and you will prove to yourself that you
+        are replaceable by AI.
+  \item In the exam, you will be at a loss unless you have spent enough time
+        thinking about the problems in the assignments by failing to understand
+        the context of the questions.
+\end{enumerate}
+
+Students can \textbf{efficiently use AI to \ul{learn a coding language, but not
+econometrics}}. The word \textbf{efficient} is important here. Efficient use of
+AI is \emph{mostly} using it only in learning to code in R, by asking it to
+assist you in learning the language, and not to solve your problem sets. This
+requires you to be proactive and start working on your assignments as early as
+possible, so that you do not have to give in to the temptation of the easy way
+out of having the AI solve your assignment thereby worsening your future labor
+market outcomes.
+
+\subsection{Late work policy}\hspace{0pt}\par
+Please note that all assignments should be uploaded to Canvas \textbf{before} the
+due date. If you need an extension for an assignment you need to email \TAShort{}
+(\href{mailto:\TAEmail}{\TAEmail}) \textbf{and ask for an extension \ul{at least
+48 hours before} the assignment is due}. Once the 48-hour timeline before the
+assignment is due is past, \textbf{no requests} will be accepted. This will
+ensure that you can plan to work on the assignments in advance and allow
+\TAShort{} to post the solutions promptly on Canvas. If you anticipate
+\textbf{substantial} difficulty meeting a deadline, please reach out to me in
+advance to request the problem set early, allowing you additional time to
+complete it.
+
+\subsection{Objective specific emails for efficiency / email policy}\hspace{0pt}\par
+\vspace{0.4em}
+\begin{center}
+\begin{tabularx}{0.8\textwidth}{@{}Xl@{}}
+\toprule
+\textbf{Task} & \textbf{Whom to email} \\
+\midrule
+Extension requests on PS & \TAShort \\
+Course content           & \InstructorShort{} / \TAShort{} / both \\
+Question on the PS       & \TAShort \\
+Coding questions         & \TAShort \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Academic integrity}\hspace{0pt}\par
+All students are expected to adhere to Clark's standards of academic integrity;
+this means that all work must be entirely your own and entirely unique to this
+course. Plagiarism and other forms of cheating will not be tolerated or excused.
+For more information, please refer to the university's policy on this issue,
+available at
+\url{https://catalog.clarku.edu/content.php?catoid=32&navoid=2735#academic-integrity}
+or in the student handbook. If you have any questions about proper citation or
+other related issues, please don't hesitate to come see me.
+
+\subsection{Students with disabilities}\hspace{0pt}\par
+Clark University is committed to providing students with documented disabilities
+equal access to all university programs and facilities. Students are encouraged
+to register with Student Accessibility Services (SAS) to explore and access
+accommodations that may support their success in their coursework. SAS is located
+on the second floor of the Shaich Family Alumni and Student Engagement Center
+(ASEC). Please contact SAS at
+\href{mailto:accessibilityservices@clarku.edu}{accessibilityservices@clarku.edu}
+with questions or to initiate the registration process. For additional
+information, please visit the SAS website at:
+\url{https://www.clarku.edu/offices/student-accessibility-services/}
+
+\subsection{Title IX}\hspace{0pt}\par
+Clark University and its faculty are committed to creating a safe and open
+learning environment for all students. Clark University encourages all members of
+the community to seek support and report incidents of sexual harassment to the
+Title IX office (\href{mailto:titleix@clarku.edu}{titleix@clarku.edu}). If you or
+someone you know has experienced any sexual harassment, including sexual assault,
+dating or domestic violence, or stalking, help and support is available.
+
+Please be aware that all Clark University faculty and teaching assistants are
+considered responsible employees, which means that if you tell me about a
+situation involving the aforementioned offenses, I must share that information
+with the Title IX Coordinator, Brittany Brickman
+(\href{mailto:titleix@clarku.edu}{titleix@clarku.edu}). Although I have to make
+that notification, you will, for the most part, control how your case will be
+handled, including whether or not you wish to pursue a formal complaint. Our goal
+is to make sure you are aware of the range of options available to you and have
+access to the resources you need.
+
+If you wish to speak to a confidential resource who does not have this reporting
+responsibility, you can contact Clark's Center for Counseling and Professional
+Growth (508-793-7678), Clark's Health Center (508-793-7467), or confidential
+resource providers on campus: Prof.\ Stewart
+(\href{mailto:als.confidential@clarku.edu}{als.confidential@clarku.edu}), Prof.\
+Palm Reed
+(\href{mailto:kpr.confidential@clarku.edu}{kpr.confidential@clarku.edu}), and
+Prof.\ Cordova
+(\href{mailto:jvc.confidential@clarku.edu}{jvc.confidential@clarku.edu}).
+
+\subsection{FERPA}\hspace{0pt}\par
+The link to Clark's policy regarding student privacy under the Family Education
+Rights and Privacy Act is available here:
+\url{https://www.clarku.edu/offices/security-and-identification-protection/ferpa/}
+
+\vspace{1em}
+\textbf{Disclaimer:} The instructor reserves the right to make changes to any
+information contained in this syllabus at any time during the semester. Changes
+will be announced, and an updated version of the syllabus will be posted on
+Canvas and/or distributed to students.
+
+\end{document}
