@@ -9,6 +9,7 @@ title: "Teaching"
 - [PhD: Econometric Theory](/morepages/phdmetrics.qmd)
 - [Undergraduate: Econometrics](/morepages/UG_intro_metrics.qmd)
 - Undergraduate: Statistics [ [Canvas Course Website] ](https://canvas.clarku.edu/courses/13122)
+- Undergraduate: Principles of Economics [ [Canvas Course Website] ](https://canvas.clarku.edu/courses/21112)
 
 ---
 
