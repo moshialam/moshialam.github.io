@@ -40,12 +40,14 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 
 ::: {.course-section}
 ## <i class="bi bi-pencil-square"></i> Problem Sets {.section-header}
+
+::: {.resource-card}
+**Problem Set 1** *(Due Sep 19, 5pm)*  
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd)
+:::
+
 <!-- 
 ::: {.resource-card}
-**Problem Set 1** *(Due Sep 18)*  
-[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.qmd) | 
-[<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps1sol.qmd)
-
 **Problem Set 2** *(Due Oct 5)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.qmd) | 
 [<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps2sol.qmd)

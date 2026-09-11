@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "**/*.qmd"
+    - "**/*.ipynb"
+    - "!teachingmaterials/UG_intro_metrics/pssol/"
 
 website:
   title: "Moshi Alam"
