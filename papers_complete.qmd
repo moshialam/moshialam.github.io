@@ -351,6 +351,40 @@ details {
 }
 </style>
 
+<style>
+/* "Show: All work | Published | Working papers | In progress" */
+.workfilter {
+  margin: 1rem 0 0.5rem;
+  color: #6c757d;
+}
+
+.workfilter button {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #A0522D;
+}
+
+.workfilter button:hover {
+  color: #8B4513;
+  text-decoration: underline;
+}
+
+.workfilter button[aria-pressed="true"] {
+  color: #2c3e50;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: default;
+}
+
+.workfilter .bar {
+  padding: 0 0.4rem;
+  color: #C4A57B;
+}
+</style>
+
 <!-- Add this JavaScript section before your papers list -->
 <script>
 // BibTeX citations for all papers
@@ -472,9 +506,16 @@ function showToast(message, type = 'success') {
 
 
 
-#### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted {#publications .paper-section-heading}
+<p class="workfilter">Show:
+<button type="button" data-filter="all" aria-pressed="true">All work</button><span class="bar">|</span>
+<button type="button" data-filter="published" aria-pressed="false">Published</button><span class="bar">|</span>
+<button type="button" data-filter="working" aria-pressed="false">Working papers</button><span class="bar">|</span>
+<button type="button" data-filter="progress" aria-pressed="false">In progress</button>
+</p>
 
-<div class="paper-item">
+#### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted {#publications .paper-section-heading data-state="published"}
+
+<div data-state="published" class="paper-item">
 <div class="paper-title-line">
 <a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
 </div>
@@ -495,7 +536,7 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 
-<div class="paper-item">
+<div data-state="published" class="paper-item">
 <div class="paper-title-line">
 <a href="papers/Agarwal_Alam_sanitation.pdf">The Unintended Benefits of Women's Empowerment on Household Sanitation</a>
 </div>
@@ -518,7 +559,7 @@ function showToast(message, type = 'success') {
 
 <div class="papers-list">
 
-<div class="paper-item published">
+<div data-state="published" class="paper-item published">
 <div class="paper-title-line">
 <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm">Increases in shared custody after divorce in the United States</a>
 </div>
@@ -541,12 +582,12 @@ function showToast(message, type = 'success') {
 
 
 
-#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading}
+#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading data-state="working"}
 
 <div class="papers-list">
 
 
-<div class="paper-item">
+<div data-state="working" class="paper-item">
 <div class="paper-title-line">
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
 </div>
@@ -561,7 +602,7 @@ function showToast(message, type = 'success') {
 </div>
 
 
-<div class="paper-item">
+<div data-state="working" class="paper-item">
 <div class="paper-title-line">
 <a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
 </div>
@@ -582,18 +623,18 @@ function showToast(message, type = 'success') {
 
 
 
-#### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress .paper-section-heading}
+#### <i class="bi bi-bookmark"></i> Research in Progress {#research-in-progress .paper-section-heading data-state="progress"}
 
 <div class="papers-list">
 
-<div class="paper-item in-progress">
+<div data-state="progress" class="paper-item in-progress">
 <div class="paper-title-line">
 <strong>Spatial Inequality and School Choice Mechanisms</strong>
 </div>
 <div class="paper-meta">with Monica Agarwal, Chao Fu, and YingHua He</div>
 </div>
 
-<div class="paper-item in-progress">
+<div data-state="progress" class="paper-item in-progress">
 <div class="paper-title-line">
 <strong>Labor Market Inequality and Collective Bargaining Agreements</strong>
 </div>
@@ -603,9 +644,9 @@ function showToast(message, type = 'success') {
 
 </div>
 
-#### Dormant Papers
+#### Dormant Papers {#dormant-papers data-state="dormant"}
 
-<details>
+<details data-state="dormant">
 <summary class="dormant-summary">
 <i class="bi bi-archive"></i> Click to view dormant papers
 </summary>
@@ -744,3 +785,41 @@ The optimal redistribution of income across locations is determined by two suffi
 
 <!-- Load Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- ============================================================= -->
+<!-- Work filter: "Show: All work | Published | ..."               -->
+<!-- ============================================================= -->
+
+<script>
+(function () {
+  function init() {
+    var bar = document.querySelector('.workfilter');
+    if (!bar) return;
+
+    var buttons = bar.querySelectorAll('button');
+    var items = document.querySelectorAll('[data-state]');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wanted = btn.getAttribute('data-filter');
+
+        buttons.forEach(function (other) {
+          other.setAttribute('aria-pressed', String(other === btn));
+        });
+
+        // Headings, papers and the dormant list each carry data-state;
+        // anything that doesn't match the choice is hidden.
+        items.forEach(function (item) {
+          item.hidden = !(wanted === 'all' || item.getAttribute('data-state') === wanted);
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

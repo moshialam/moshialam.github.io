@@ -777,6 +777,35 @@ details {
   color: #495057;
 }
 </style>
+<style>
+/* "Show: All work | Published | Working papers | In progress" */
+.workfilter {
+  margin: 1rem 0 0.5rem;
+  color: #6c757d;
+}
+.workfilter button {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #A0522D;
+}
+.workfilter button:hover {
+  color: #8B4513;
+  text-decoration: underline;
+}
+.workfilter button[aria-pressed="true"] {
+  color: #2c3e50;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: default;
+}
+.workfilter .bar {
+  padding: 0 0.4rem;
+  color: #C4A57B;
+}
+</style>
 <!-- Add this JavaScript section before your papers list -->
 <script>
 // BibTeX citations for all papers
@@ -878,9 +907,12 @@ function showToast(message, type = 'success') {
   }, 3000);
 }
 </script>
-<section id="publications" class="level4 paper-section-heading">
-<h4 class="paper-section-heading" data-anchor-id="publications"><i class="bi bi-bookmark-check-fill"></i> Publications/Accepted</h4>
-<div class="paper-item">
+<p class="workfilter">
+Show: <button type="button" data-filter="all" aria-pressed="true">All work</button><span class="bar">|</span> <button type="button" data-filter="published" aria-pressed="false">Published</button><span class="bar">|</span> <button type="button" data-filter="working" aria-pressed="false">Working papers</button><span class="bar">|</span> <button type="button" data-filter="progress" aria-pressed="false">In progress</button>
+</p>
+<section id="publications" class="level4 paper-section-heading" data-state="published">
+<h4 class="paper-section-heading" data-state="published" data-anchor-id="publications"><i class="bi bi-bookmark-check-fill"></i> Publications/Accepted</h4>
+<div class="paper-item" data-state="published">
 <div class="paper-title-line">
 <p><a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a></p>
 </div>
@@ -897,7 +929,7 @@ with Mehreen Mookerjee and Sanket Roy
 <p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
-<div class="paper-item">
+<div class="paper-item" data-state="published">
 <div class="paper-title-line">
 <p><a href="papers/Agarwal_Alam_sanitation.pdf">The Unintended Benefits of Women’s Empowerment on Household Sanitation</a></p>
 </div>
@@ -915,7 +947,7 @@ with Monica Agarwal
 </div>
 </div>
 <div class="papers-list">
-<div class="paper-item published">
+<div class="paper-item published" data-state="published">
 <div class="paper-title-line">
 <p><a href="https://www.demographic-research.org/volumes/vol46/38/default.htm">Increases in shared custody after divorce in the United States</a></p>
 </div>
@@ -931,10 +963,10 @@ with Daniel Meyer and Marcia Carlson
 </div>
 </div>
 </section>
-<section id="working-papers" class="level4 paper-section-heading">
-<h4 class="paper-section-heading" data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
+<section id="working-papers" class="level4 paper-section-heading" data-state="working">
+<h4 class="paper-section-heading" data-state="working" data-anchor-id="working-papers"><i class="bi bi-bookmark-check"></i> Working Papers</h4>
 <div class="papers-list">
-<div class="paper-item">
+<div class="paper-item" data-state="working">
 <div class="paper-title-line">
 <p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a></p>
 </div>
@@ -945,7 +977,7 @@ with Morris Davis and Jesse Gregory
 <p><a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button> <span class="badge-status badge-rr">Under Review</span></p>
 </div>
 </div>
-<div class="paper-item">
+<div class="paper-item" data-state="working">
 <div class="paper-title-line">
 <p><a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a></p>
 </div>
@@ -961,10 +993,10 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
 </div>
 </section>
-<section id="research-in-progress" class="level4 paper-section-heading">
-<h4 class="paper-section-heading" data-anchor-id="research-in-progress"><i class="bi bi-bookmark"></i> Research in Progress</h4>
+<section id="research-in-progress" class="level4 paper-section-heading" data-state="progress">
+<h4 class="paper-section-heading" data-state="progress" data-anchor-id="research-in-progress"><i class="bi bi-bookmark"></i> Research in Progress</h4>
 <div class="papers-list">
-<div class="paper-item in-progress">
+<div class="paper-item in-progress" data-state="progress">
 <div class="paper-title-line">
 <p><strong>Spatial Inequality and School Choice Mechanisms</strong></p>
 </div>
@@ -972,7 +1004,7 @@ with Steven Lehrer and Nuno Souso Pereira
 with Monica Agarwal, Chao Fu, and YingHua He
 </div>
 </div>
-<div class="paper-item in-progress">
+<div class="paper-item in-progress" data-state="progress">
 <div class="paper-title-line">
 <p><strong>Labor Market Inequality and Collective Bargaining Agreements</strong></p>
 </div>
@@ -982,9 +1014,9 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
 </div>
 </section>
-<section id="dormant-papers" class="level4">
-<h4>Dormant Papers</h4>
-<details>
+<section id="dormant-papers" class="level4" data-state="dormant">
+<h4 data-state="dormant">Dormant Papers</h4>
+<details data-state="dormant">
 <summary class="dormant-summary">
 <i class="bi bi-archive"></i> Click to view dormant papers
 </summary>
@@ -1107,6 +1139,37 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
 <!-- Load Font Awesome for icons -->
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
+<!-- ============================================================= -->
+<!-- Work filter: "Show: All work | Published | ..."               -->
+<!-- ============================================================= -->
+<script>
+(function () {
+  function init() {
+    var bar = document.querySelector('.workfilter');
+    if (!bar) return;
+    var buttons = bar.querySelectorAll('button');
+    var items = document.querySelectorAll('[data-state]');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wanted = btn.getAttribute('data-filter');
+        buttons.forEach(function (other) {
+          other.setAttribute('aria-pressed', String(other === btn));
+        });
+        // Headings, papers and the dormant list each carry data-state;
+        // anything that doesn't match the choice is hidden.
+        items.forEach(function (item) {
+          item.hidden = !(wanted === 'all' || item.getAttribute('data-state') === wanted);
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
 
 
