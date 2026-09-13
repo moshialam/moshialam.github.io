@@ -58,6 +58,8 @@ title: "Research". purple theme: 9158A2
 }
 
 .btn-abstract {
+  font-family: inherit;
+  line-height: inherit;
   display: inline-block;
   padding: calc(0.35rem - 1px) 0.75rem;
   background: white;
@@ -528,7 +530,7 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 <div class="paper-links">
-<a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a>
+<span><button type="button" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</button></span>
 <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a>
 <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
@@ -548,7 +550,7 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 <div class="paper-links">
-<a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a>
+<span><button type="button" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</button></span>
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a>
 <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
@@ -568,7 +570,7 @@ function showToast(message, type = 'success') {
 <i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice"> Editor's Choice Article</span>
 </div>
 <div class="paper-links">
-<a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a>
+<span><button type="button" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</button></span>
 <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a>
 <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
@@ -593,7 +595,7 @@ function showToast(message, type = 'success') {
 </div>
 <div class="paper-meta">with Morris Davis and Jesse Gregory</div>
 <div class="paper-status">
-<a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a>
+<span><button type="button" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</button></span>
 <button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
@@ -612,7 +614,7 @@ function showToast(message, type = 'success') {
 <span class="badge-jmp">Post-doc JMP</span>
 </div>
 <div class="paper-links">
-<a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a>
+<span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span>
 <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>
@@ -676,9 +678,23 @@ function showToast(message, type = 'success') {
 // Initialize micromodal for popup abstracts
 micro = require("micromodal@0.4.10");
 
+// Abstract links are <button>s, not <a href="#">: Quarto's smooth-scroll
+// intercepts same-page anchors and swallows the click before Micromodal
+// sees it. Both await* options stay false: they make Micromodal wait for an
+// animationend event, which never fires when motion is reduced, leaving the
+// dialog stuck open.
 micro.init({
-  awaitOpenAnimation: true,
-  awaitCloseAnimation: true
+  awaitOpenAnimation: false,
+  awaitCloseAnimation: false
+});
+
+// Micromodal 0.4.10 recognises Escape only by the deprecated keyCode 27.
+// Also close on event.key, so Escape works wherever keyCode isn't set;
+// events that do carry 27 are left to Micromodal so nothing closes twice.
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape" || e.keyCode === 27) return;
+  const open = document.querySelector(".micromodal-slide.is-open");
+  if (open) micro.close(open.id);
 });
 ```
 

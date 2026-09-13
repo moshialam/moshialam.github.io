@@ -567,6 +567,8 @@ title: "Research". purple theme: 9158A2
 }
 
 .btn-abstract {
+  font-family: inherit;
+  line-height: inherit;
   display: inline-block;
   padding: calc(0.35rem - 1px) 0.75rem;
   background: white;
@@ -1026,7 +1028,7 @@ with Mehreen Mookerjee and Sanket Roy
 </div>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</a> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
+<p><span><button type="button" data-micromodal-trigger="abs_workerdisc" class="btn-abstract">Abstract</button></span> <a href="papers/OA_Alam_JMP_QE.pdf" class="btn-link">Online Appendix</a> <button onclick="copyBibTeX('workerdisc')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 <div class="paper-item" data-state="published">
@@ -1043,7 +1045,7 @@ with Monica Agarwal
 </div>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a> <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
+<p><span><button type="button" data-micromodal-trigger="abs_sanitation" class="btn-abstract">Abstract</button></span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4992568" class="btn-link">SSRN</a> <button onclick="copyBibTeX('sanitation')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 <div class="papers-list">
@@ -1058,7 +1060,7 @@ with Daniel Meyer and Marcia Carlson
 <p><i class="bi bi-journal-text"></i> Demographic Research 46(38) 2022: 1137-1162 <span class="badge-choice"> Editor’s Choice Article</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</a> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a> <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
+<p><span><button type="button" data-micromodal-trigger="abs_divorce" class="btn-abstract">Abstract</button></span> <a href="https://www.demographic-research.org/volumes/vol46/38/default.htm" class="btn-link">Replication</a> <button onclick="copyBibTeX('divorce')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 </div>
@@ -1074,7 +1076,7 @@ with Daniel Meyer and Marcia Carlson
 with Morris Davis and Jesse Gregory
 </div>
 <div class="paper-status">
-<p><a href="#" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button> <span class="badge-status badge-rr">Under Review</span></p>
+<p><span><button type="button" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</button></span> <button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button> <span class="badge-status badge-rr">Under Review</span></p>
 </div>
 </div>
 <div class="paper-item" data-state="working">
@@ -1088,7 +1090,7 @@ with Steven Lehrer and Nuno Souso Pereira
 <p><span class="badge-status badge-rr">Under revisions</span> <span class="badge-jmp">Post-doc JMP</span></p>
 </div>
 <div class="paper-links">
-<p><a href="#" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</a> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
+<p><span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
 </div>
 </div>
 </div>
@@ -1137,12 +1139,17 @@ with Steven Lehrer and Nuno Souso Pereira
 <div class="cell" data-include="false">
 <details class="code-fold hidden">
 <summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="677" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 676;"><span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
-<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
-<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb1-682"><a href="#cb1-682" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="679" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 678;"><span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
+<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a><span class="co">// Abstract links are &lt;button&gt;s, not &lt;a href="#"&gt;: Quarto's smooth-scroll</span></span>
+<span id="cb1-682"><a href="#cb1-682" aria-hidden="true" tabindex="-1"></a><span class="co">// intercepts same-page anchors and swallows the click before Micromodal</span></span>
+<span id="cb1-683"><a href="#cb1-683" aria-hidden="true" tabindex="-1"></a><span class="co">// sees it. Both await* options stay false: they make Micromodal wait for an</span></span>
+<span id="cb1-684"><a href="#cb1-684" aria-hidden="true" tabindex="-1"></a><span class="co">// animationend event, which never fires when motion is reduced, leaving the</span></span>
+<span id="cb1-685"><a href="#cb1-685" aria-hidden="true" tabindex="-1"></a><span class="co">// dialog stuck open.</span></span>
+<span id="cb1-686"><a href="#cb1-686" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
+<span id="cb1-687"><a href="#cb1-687" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb1-688"><a href="#cb1-688" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb1-689"><a href="#cb1-689" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display hidden">
 <div>
@@ -1154,6 +1161,21 @@ with Steven Lehrer and Nuno Souso Pereira
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="694" data-source-offset="-705"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 693;"><span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"keydown"</span><span class="op">,</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">key</span> <span class="op">!==</span> <span class="st">"Escape"</span> <span class="op">||</span> e<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> <span class="dv">27</span>) <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> open <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".micromodal-slide.is-open"</span>)<span class="op">;</span></span>
+<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (open) micro<span class="op">.</span><span class="fu">close</span>(open<span class="op">.</span><span class="at">id</span>)<span class="op">;</span></span>
+<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="expression">
 
 </div>
 </div>
@@ -1283,7 +1305,7 @@ with Steven Lehrer and Nuno Souso Pereira
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gSW5pdGlhbGl6ZSBtaWNyb21vZGFsIGZvciBwb3B1cCBhYnN0cmFjdHNcbm1pY3JvID0gcmVxdWlyZShcIm1pY3JvbW9kYWxAMC40LjEwXCIpO1xuXG5taWNyby5pbml0KHtcbiAgYXdhaXRPcGVuQW5pbWF0aW9uOiB0cnVlLFxuICBhd2FpdENsb3NlQW5pbWF0aW9uOiB0cnVlXG59KTtcbiJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gSW5pdGlhbGl6ZSBtaWNyb21vZGFsIGZvciBwb3B1cCBhYnN0cmFjdHNcbm1pY3JvID0gcmVxdWlyZShcIm1pY3JvbW9kYWxAMC40LjEwXCIpO1xuXG4vLyBBYnN0cmFjdCBsaW5rcyBhcmUgPGJ1dHRvbj5zLCBub3QgPGEgaHJlZj1cIiNcIj46IFF1YXJ0bydzIHNtb290aC1zY3JvbGxcbi8vIGludGVyY2VwdHMgc2FtZS1wYWdlIGFuY2hvcnMgYW5kIHN3YWxsb3dzIHRoZSBjbGljayBiZWZvcmUgTWljcm9tb2RhbFxuLy8gc2VlcyBpdC4gQm90aCBhd2FpdCogb3B0aW9ucyBzdGF5IGZhbHNlOiB0aGV5IG1ha2UgTWljcm9tb2RhbCB3YWl0IGZvciBhblxuLy8gYW5pbWF0aW9uZW5kIGV2ZW50LCB3aGljaCBuZXZlciBmaXJlcyB3aGVuIG1vdGlvbiBpcyByZWR1Y2VkLCBsZWF2aW5nIHRoZVxuLy8gZGlhbG9nIHN0dWNrIG9wZW4uXG5taWNyby5pbml0KHtcbiAgYXdhaXRPcGVuQW5pbWF0aW9uOiBmYWxzZSxcbiAgYXdhaXRDbG9zZUFuaW1hdGlvbjogZmFsc2Vcbn0pO1xuXG4vLyBNaWNyb21vZGFsIDAuNC4xMCByZWNvZ25pc2VzIEVzY2FwZSBvbmx5IGJ5IHRoZSBkZXByZWNhdGVkIGtleUNvZGUgMjcuXG4vLyBBbHNvIGNsb3NlIG9uIGV2ZW50LmtleSwgc28gRXNjYXBlIHdvcmtzIHdoZXJldmVyIGtleUNvZGUgaXNuJ3Qgc2V0O1xuLy8gZXZlbnRzIHRoYXQgZG8gY2FycnkgMjcgYXJlIGxlZnQgdG8gTWljcm9tb2RhbCBzbyBub3RoaW5nIGNsb3NlcyB0d2ljZS5cbmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoXCJrZXlkb3duXCIsIChlKSA9PiB7XG4gIGlmIChlLmtleSAhPT0gXCJFc2NhcGVcIiB8fCBlLmtleUNvZGUgPT09IDI3KSByZXR1cm47XG4gIGNvbnN0IG9wZW4gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLm1pY3JvbW9kYWwtc2xpZGUuaXMtb3BlblwiKTtcbiAgaWYgKG9wZW4pIG1pY3JvLmNsb3NlKG9wZW4uaWQpO1xufSk7XG4ifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
