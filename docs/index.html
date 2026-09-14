@@ -909,6 +909,136 @@ function showToast(message, type = 'success') {
   }, 3000);
 }
 </script>
+<!-- The abstract dialogs must stay ABOVE the first #### heading. Quarto wraps
+     each heading and everything after it in a <section>; placed after the
+     last heading they end up inside the Dormant Papers section, which the
+     work filter hides, so abstracts opened invisibly under Published,
+     Working papers or In progress. -->
+<!-- ============================================================= -->
+<!-- MODAL/POPUP DEFINITIONS SECTION -->
+<!-- ============================================================= -->
+<div class="cell" data-include="false">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="4" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 3;"><span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Abstract links are &lt;button&gt;s, not &lt;a href="#"&gt;: Quarto's smooth-scroll</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">// intercepts same-page anchors and swallows the click before Micromodal</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// sees it. Both await* options stay false: they make Micromodal wait for an</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// animationend event, which never fires when motion is reduced, leaving the</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// dialog stuck open.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+</div>
+</div>
+</div>
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="22" data-source-offset="-919"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 21;"><span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"keydown"</span><span class="op">,</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">key</span> <span class="op">!==</span> <span class="st">"Escape"</span> <span class="op">||</span> e<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> <span class="dv">27</span>) <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> open <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".micromodal-slide.is-open"</span>)<span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (open) open<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".modal__close"</span>)<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="expression">
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Modal: Divorce -->
+<div id="abs_divorce" class="modal micromodal-slide" aria-hidden="true">
+<div class="modal__overlay" tabindex="-1" data-micromodal-close="true">
+<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_divorce-title">
+<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
+</button>
+<section id="abs_divorce-title" class="level3 modal__header">
+<h3 data-anchor-id="abs_divorce-title">Increases in shared custody after divorce in the United States</h3>
+<p><em>with Daniel Meyer and Marcia Carlson</em></p>
+</section>
+<div class="modal__content">
+<p>This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Modal: Pay Equity -->
+<div id="abs_payequity" class="modal micromodal-slide" aria-hidden="true">
+<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
+<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title">
+<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
+</button>
+<section id="abs_payequity-title" class="level3 modal__header">
+<h3 data-anchor-id="abs_payequity-title">Labor Market Consequences of Pay-Equity Laws</h3>
+<p><em>with Steven Lehrer and Nuno Souso Pereira</em></p>
+</section>
+<div class="modal__content">
+<p>Limited policy variation, data constraints in defining ‘equal work’, and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal’s 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving “equal pay for equal work”.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Modal: Worker Discrimination -->
+<div id="abs_workerdisc" class="modal micromodal-slide" aria-hidden="true">
+<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
+<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_workerdisc-title">
+<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
+</button>
+<section id="abs_workerdisc-title" class="level3 modal__header">
+<h3 data-anchor-id="abs_workerdisc-title">Employee-Side Discrimination: Beliefs and Preferences</h3>
+<p><em>with Mehreen Mookerjee and Sanket Roy</em></p>
+</section>
+<div class="modal__content">
+<p>When agents choose among options with unobserved attributes to maximize expected utility, their choices conflate preferences with beliefs about those attributes. We develop a novel theory-driven identification strategy for such settings, showing that compensating differentials separately identify beliefs from preferences. Noting that workers’ preferences and beliefs shape labor market outcomes, yet remain understudied, we apply our method to provide the first evidence on the distribution of workers’ preferences over manager gender, and their beliefs about managers’ mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers, willing to forgo 1.7% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are biased, highlighting scope for information-based policy interventions.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Modal: Sanitation -->
+<div id="abs_sanitation" class="modal micromodal-slide" aria-hidden="true">
+<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
+<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_sanitation-title">
+<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
+</button>
+<section id="abs_sanitation-title" class="level3 modal__header">
+<h3 data-anchor-id="abs_sanitation-title">The Unintended Benefits of Women’s Empowerment on Household Sanitation</h3>
+<p><em>with Monica Agarwal</em></p>
+</section>
+<div class="modal__content">
+<p>Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women’s decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women’s property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women’s inheritance, but shows that the policy had significant indirect effects, such as improving women’s education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces policy-relevant complementarity between women’s education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women’s education—plausibly reducing misperceptions about the benefits of toilets—and increased women’s decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope—while we document improvements in toilet coverage, the implications extend to other household investments where women’s preferences are stronger, but various frictions limit adoption.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Modal: Place-based -->
+<div id="abs_placebased" class="modal micromodal-slide" aria-hidden="true">
+<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
+<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_placebased-title">
+<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
+</button>
+<section id="abs_placebased-title" class="level3 modal__header">
+<h3 data-anchor-id="abs_placebased-title">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</h3>
+<p><em>with Morris Davis and Jesse Gregory</em></p>
+</section>
+<div class="modal__content">
+<p>The optimal redistribution of income across locations is determined by two sufficient statistics: location by location, the average marginal utility of income and the average tax paid by residents in substitute locations that receive individuals migrating in response to a marginal tax change. We show that location-choice data do not identify average marginal utilities without strong restrictions on preferences and that standard data sets are insufficient to identify the cross-location elasticities that pin down the average tax of substitute locations. We design and field a unique nationally representative survey that allows for heterogeneity in preferences, and develop a method to aggregate survey responses to recover both sufficient statistics for 270 U.S. locations. We estimate large variation in the average marginal utility of income and strong regional substitution patterns. Optimal place-based taxes and transfers involve substantially more redistribution across locations than implied by policy rules resulting from common specifications of preferences. <!-- We address a fundamental identification challenge in optimal place-based redistribution policy design: characterizing how marginal utility of income (MU) varies across locations. We show that MU is not identified from location choice data alone, even with full-support location-specific instruments that generate arbitrarily large positive or negative income shifts in every location. To overcome this challenge, we design and implement a nationally representative survey that directly elicits location-specific MUs and recovers how respondents would substitute across locations when relative net incomes change, using respondent-specific feasible choice sets. We characterize optimal place-based transfers using both a sufficient-statistics approach with an iterative algorithm for marginal policies, and a structural model with heterogeneous types and non-separable preferences for non-marginal policies. Although location is often treated as a tag for types (such as skill groups), we find that nearly half of the cross-metro variation in the planner’s welfare weights—and thus the motive to redistribute—comes from within-person and within-skill-group differences in marginal utility across locations, identified only through our survey. We find that optimal policy is substantially more nuanced than a simple redistribution from high-wage to low-wage locations. --></p>
+</div>
+</div>
+</div>
+</div>
 <p class="workfilter">
 Show: <button type="button" data-filter="all" aria-pressed="true">All work</button><span class="bar">|</span> <button type="button" data-filter="published" aria-pressed="false">Published</button><span class="bar">|</span> <button type="button" data-filter="working" aria-pressed="false">Working papers</button><span class="bar">|</span> <button type="button" data-filter="progress" aria-pressed="false">In progress</button>
 </p>
@@ -1017,7 +1147,7 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
 </section>
 <section id="dormant-papers" class="level4" data-state="dormant">
-<h4 data-state="dormant">Dormant Papers</h4>
+<h4 data-state="dormant" data-anchor-id="dormant-papers">Dormant Papers</h4>
 <details data-state="dormant">
 <summary class="dormant-summary">
 <i class="bi bi-archive"></i> Click to view dormant papers
@@ -1033,131 +1163,6 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
 </div>
 </details>
-<!-- ============================================================= -->
-<!-- MODAL/POPUP DEFINITIONS SECTION -->
-<!-- ============================================================= -->
-<div class="cell" data-include="false">
-<details class="code-fold hidden">
-<summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="4" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 3;"><span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Abstract links are &lt;button&gt;s, not &lt;a href="#"&gt;: Quarto's smooth-scroll</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">// intercepts same-page anchors and swallows the click before Micromodal</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// sees it. Both await* options stay false: they make Micromodal wait for an</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// animationend event, which never fires when motion is reduced, leaving the</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// dialog stuck open.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="expression">
-</div>
-</div>
-</div>
-<details class="code-fold hidden">
-<summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="19" data-source-offset="-705"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 18;"><span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"keydown"</span><span class="op">,</span> (e) <span class="kw">=&gt;</span> {</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">key</span> <span class="op">!==</span> <span class="st">"Escape"</span> <span class="op">||</span> e<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> <span class="dv">27</span>) <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> open <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".micromodal-slide.is-open"</span>)<span class="op">;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (open) micro<span class="op">.</span><span class="fu">close</span>(open<span class="op">.</span><span class="at">id</span>)<span class="op">;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-3" data-nodetype="expression">
-</div>
-</div>
-</div>
-</div>
-<!-- Abstract Modal: Divorce -->
-<div id="abs_divorce" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="-1" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_divorce-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_divorce-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_divorce-title">Increases in shared custody after divorce in the United States</h3>
-<p><em>with Daniel Meyer and Marcia Carlson</em></p>
-</section>
-<div class="modal__content">
-<p>This paper provides new evidence on the time trend in shared physical custody after divorce in the U.S., using eight waves of data from the Current Population Survey - Child Support Supplement. We find that the likelihood of shared custody more than doubled between divorces that occurred before 1985 and those in 2010-2014, from 12% to 28%. We show that non-Hispanic Whites and those who are more socioeconomically advantaged are more likely to have shared custody. Using more formal methods we show that the increase cannot be explained by changes in the characteristics of those divorcing; instead, we infer that this is the result of changing norms and policies that favor shared custody. Finally, this paper complements previous analyses using court record data from Wisconsin and shows that while the rate of shared custody in Wisconsin is higher than the national rate, a large increase over time has occurred in the nation as well as in Wisconsin. These changing patterns have important implications for children’s living arrangements and for the parental investments that children receive after their parents’ divorce.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Abstract Modal: Pay Equity -->
-<div id="abs_payequity" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_payequity-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_payequity-title">Labor Market Consequences of Pay-Equity Laws</h3>
-<p><em>with Steven Lehrer and Nuno Souso Pereira</em></p>
-</section>
-<div class="modal__content">
-<p>Limited policy variation, data constraints in defining ‘equal work’, and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal’s 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving “equal pay for equal work”.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Abstract Modal: Worker Discrimination -->
-<div id="abs_workerdisc" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_workerdisc-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_workerdisc-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_workerdisc-title">Employee-Side Discrimination: Beliefs and Preferences</h3>
-<p><em>with Mehreen Mookerjee and Sanket Roy</em></p>
-</section>
-<div class="modal__content">
-<p>When agents choose among options with unobserved attributes to maximize expected utility, their choices conflate preferences with beliefs about those attributes. We develop a novel theory-driven identification strategy for such settings, showing that compensating differentials separately identify beliefs from preferences. Noting that workers’ preferences and beliefs shape labor market outcomes, yet remain understudied, we apply our method to provide the first evidence on the distribution of workers’ preferences over manager gender, and their beliefs about managers’ mentoring ability. In the absence of information on manager mentoring ability, workers are indifferent to manager gender. However, upon receiving information on manager mentorship ability, workers prefer to work for female managers, willing to forgo 1.7% of average annual wages. Hence, absent additional information, workers believe female managers are worse mentors (1.6% wage equivalent). Non-parametric estimates of the distributions reveal that 75% prefer female managers with mentoring information, and 67% believe male managers are better mentors absent information. Machine learning algorithms show that individuals with higher education are less likely to hold such beliefs. These beliefs are primarily driven by perceptions that women are less competent. Evidence suggests these beliefs are biased, highlighting scope for information-based policy interventions.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Abstract Modal: Sanitation -->
-<div id="abs_sanitation" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_sanitation-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_sanitation-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_sanitation-title">The Unintended Benefits of Women’s Empowerment on Household Sanitation</h3>
-<p><em>with Monica Agarwal</em></p>
-</section>
-<div class="modal__content">
-<p>Existing research shows that women benefit more from private toilets, but misperceptions about the net benefits from toilets and lack of women’s decision-making power can hinder toilet adoption by households. In this paper, we explore a novel link between household sanitation and policies that empower women. We show that a policy aimed at improving women’s property inheritance rights in India led to an increase in toilet adoption in the households of treated cohorts by at least 10%. Prior literature shows mixed evidence on whether the policy increased women’s inheritance, but shows that the policy had significant indirect effects, such as improving women’s education. To generate empirical tests for the mechanisms driving our main results, we build a discrete choice model with idiosyncratic household preference shocks that produces policy-relevant complementarity between women’s education and decision-making power in adoption of a household public good valued more by women. Using a heterogeneity-robust event-study design, we find that, consistent with our model, the increase in toilet adoption is concentrated in states where the policy boosted women’s education—plausibly reducing misperceptions about the benefits of toilets—and increased women’s decision-making power. Our findings highlight that policies empowering women can yield unintended benefits beyond their original scope—while we document improvements in toilet coverage, the implications extend to other household investments where women’s preferences are stronger, but various frictions limit adoption.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Abstract Modal: Place-based -->
-<div id="abs_placebased" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_placebased-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_placebased-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_placebased-title">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</h3>
-<p><em>with Morris Davis and Jesse Gregory</em></p>
-</section>
-<div class="modal__content">
-<p>The optimal redistribution of income across locations is determined by two sufficient statistics: location by location, the average marginal utility of income and the average tax paid by residents in substitute locations that receive individuals migrating in response to a marginal tax change. We show that location-choice data do not identify average marginal utilities without strong restrictions on preferences and that standard data sets are insufficient to identify the cross-location elasticities that pin down the average tax of substitute locations. We design and field a unique nationally representative survey that allows for heterogeneity in preferences, and develop a method to aggregate survey responses to recover both sufficient statistics for 270 U.S. locations. We estimate large variation in the average marginal utility of income and strong regional substitution patterns. Optimal place-based taxes and transfers involve substantially more redistribution across locations than implied by policy rules resulting from common specifications of preferences. <!-- We address a fundamental identification challenge in optimal place-based redistribution policy design: characterizing how marginal utility of income (MU) varies across locations. We show that MU is not identified from location choice data alone, even with full-support location-specific instruments that generate arbitrarily large positive or negative income shifts in every location. To overcome this challenge, we design and implement a nationally representative survey that directly elicits location-specific MUs and recovers how respondents would substitute across locations when relative net incomes change, using respondent-specific feasible choice sets. We characterize optimal place-based transfers using both a sufficient-statistics approach with an iterative algorithm for marginal policies, and a structural model with heterogeneous types and non-separable preferences for non-marginal policies. Although location is often treated as a tag for types (such as skill groups), we find that nearly half of the cross-metro variation in the planner’s welfare weights—and thus the motive to redistribute—comes from within-person and within-skill-group differences in marginal utility across locations, identified only through our survey. We find that optimal policy is substantially more nuanced than a simple redistribution from high-wage to low-wage locations. --></p>
-</div>
-</div>
-</div>
-</div>
 <!-- Load Font Awesome for icons -->
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></p>
 <!-- ============================================================= -->
@@ -1200,7 +1205,7 @@ with Steven Lehrer and Nuno Souso Pereira
 </div>
  <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gSW5pdGlhbGl6ZSBtaWNyb21vZGFsIGZvciBwb3B1cCBhYnN0cmFjdHNcbm1pY3JvID0gcmVxdWlyZShcIm1pY3JvbW9kYWxAMC40LjEwXCIpO1xuXG4vLyBBYnN0cmFjdCBsaW5rcyBhcmUgPGJ1dHRvbj5zLCBub3QgPGEgaHJlZj1cIiNcIj46IFF1YXJ0bydzIHNtb290aC1zY3JvbGxcbi8vIGludGVyY2VwdHMgc2FtZS1wYWdlIGFuY2hvcnMgYW5kIHN3YWxsb3dzIHRoZSBjbGljayBiZWZvcmUgTWljcm9tb2RhbFxuLy8gc2VlcyBpdC4gQm90aCBhd2FpdCogb3B0aW9ucyBzdGF5IGZhbHNlOiB0aGV5IG1ha2UgTWljcm9tb2RhbCB3YWl0IGZvciBhblxuLy8gYW5pbWF0aW9uZW5kIGV2ZW50LCB3aGljaCBuZXZlciBmaXJlcyB3aGVuIG1vdGlvbiBpcyByZWR1Y2VkLCBsZWF2aW5nIHRoZVxuLy8gZGlhbG9nIHN0dWNrIG9wZW4uXG5taWNyby5pbml0KHtcbiAgYXdhaXRPcGVuQW5pbWF0aW9uOiBmYWxzZSxcbiAgYXdhaXRDbG9zZUFuaW1hdGlvbjogZmFsc2Vcbn0pO1xuXG4vLyBNaWNyb21vZGFsIDAuNC4xMCByZWNvZ25pc2VzIEVzY2FwZSBvbmx5IGJ5IHRoZSBkZXByZWNhdGVkIGtleUNvZGUgMjcuXG4vLyBBbHNvIGNsb3NlIG9uIGV2ZW50LmtleSwgc28gRXNjYXBlIHdvcmtzIHdoZXJldmVyIGtleUNvZGUgaXNuJ3Qgc2V0O1xuLy8gZXZlbnRzIHRoYXQgZG8gY2FycnkgMjcgYXJlIGxlZnQgdG8gTWljcm9tb2RhbCBzbyBub3RoaW5nIGNsb3NlcyB0d2ljZS5cbmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoXCJrZXlkb3duXCIsIChlKSA9PiB7XG4gIGlmIChlLmtleSAhPT0gXCJFc2NhcGVcIiB8fCBlLmtleUNvZGUgPT09IDI3KSByZXR1cm47XG4gIGNvbnN0IG9wZW4gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLm1pY3JvbW9kYWwtc2xpZGUuaXMtb3BlblwiKTtcbiAgaWYgKG9wZW4pIG1pY3JvLmNsb3NlKG9wZW4uaWQpO1xufSk7XG4ifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gSW5pdGlhbGl6ZSBtaWNyb21vZGFsIGZvciBwb3B1cCBhYnN0cmFjdHNcbm1pY3JvID0gcmVxdWlyZShcIm1pY3JvbW9kYWxAMC40LjEwXCIpO1xuXG4vLyBBYnN0cmFjdCBsaW5rcyBhcmUgPGJ1dHRvbj5zLCBub3QgPGEgaHJlZj1cIiNcIj46IFF1YXJ0bydzIHNtb290aC1zY3JvbGxcbi8vIGludGVyY2VwdHMgc2FtZS1wYWdlIGFuY2hvcnMgYW5kIHN3YWxsb3dzIHRoZSBjbGljayBiZWZvcmUgTWljcm9tb2RhbFxuLy8gc2VlcyBpdC4gQm90aCBhd2FpdCogb3B0aW9ucyBzdGF5IGZhbHNlOiB0aGV5IG1ha2UgTWljcm9tb2RhbCB3YWl0IGZvciBhblxuLy8gYW5pbWF0aW9uZW5kIGV2ZW50LCB3aGljaCBuZXZlciBmaXJlcyB3aGVuIG1vdGlvbiBpcyByZWR1Y2VkLCBsZWF2aW5nIHRoZVxuLy8gZGlhbG9nIHN0dWNrIG9wZW4uXG5taWNyby5pbml0KHtcbiAgYXdhaXRPcGVuQW5pbWF0aW9uOiBmYWxzZSxcbiAgYXdhaXRDbG9zZUFuaW1hdGlvbjogZmFsc2Vcbn0pO1xuXG4vLyBNaWNyb21vZGFsIDAuNC4xMCByZWNvZ25pc2VzIEVzY2FwZSBvbmx5IGJ5IHRoZSBkZXByZWNhdGVkIGtleUNvZGUgMjcuXG4vLyBBbHNvIGNsb3NlIG9uIGV2ZW50LmtleSwgc28gRXNjYXBlIHdvcmtzIHdoZXJldmVyIGtleUNvZGUgaXNuJ3Qgc2V0O1xuLy8gZXZlbnRzIHRoYXQgZG8gY2FycnkgMjcgYXJlIGxlZnQgdG8gTWljcm9tb2RhbCBzbyBub3RoaW5nIGNsb3NlcyB0d2ljZS5cbi8vIENsb3NlIGJ5IGNsaWNraW5nIHRoZSBkaWFsb2cncyBvd24gY2xvc2UgYnV0dG9uLCBOT1QgbWljcm8uY2xvc2UoaWQpOlxuLy8gY2xvc2UoaWQpIHJlLXBvaW50cyBNaWNyb21vZGFsJ3Mgc2hhcmVkIGluc3RhbmNlIGF0IHRoYXQgZGlhbG9nLCBhZnRlclxuLy8gd2hpY2ggYW5vdGhlciBwYXBlcidzIEFic3RyYWN0IGJ1dHRvbiBvcGVucyB0aGUgd3JvbmcgYWJzdHJhY3QuXG5kb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKFwia2V5ZG93blwiLCAoZSkgPT4ge1xuICBpZiAoZS5rZXkgIT09IFwiRXNjYXBlXCIgfHwgZS5rZXlDb2RlID09PSAyNykgcmV0dXJuO1xuICBjb25zdCBvcGVuID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5taWNyb21vZGFsLXNsaWRlLmlzLW9wZW5cIik7XG4gIGlmIChvcGVuKSBvcGVuLnF1ZXJ5U2VsZWN0b3IoXCIubW9kYWxfX2Nsb3NlXCIpLmNsaWNrKCk7XG59KTtcbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
