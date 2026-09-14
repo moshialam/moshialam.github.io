@@ -1,4 +1,8 @@
 ---
+# papers.html was an older Research page (now _papers.qmd, not rendered);
+# old links to it redirect here.
+aliases:
+  - papers.html
 # title: "Md Moshi Ul Alam"
 # subtitle: "Assistant Professor of Economics \n \n [Clark University](https://www.clarku.edu/departments/economics/)"
 # image: 20221021-LTH-Alam16-3.jpg
