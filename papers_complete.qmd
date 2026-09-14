@@ -409,7 +409,7 @@ const bibtexCitations = {
 }`,
 
   payequity: `@article{alam2025labor,
-  title = {Labor Market Consequences of Pay-Equity Laws},
+  title = {Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers},
   author = {Alam, Md Moshi Ul and Lehrer, Steven and Pereira, Nuno Souso},
   year = {2025},
   note = {Working Paper}
@@ -567,7 +567,7 @@ This paper provides new evidence on the time trend in shared physical custody af
 :::::
 ::::::
 
-<!-- Abstract Modal: Pay Equity -->
+<!-- Abstract Modal: Pay Equity (commented out until the updated draft is posted)
 :::::: {#abs_payequity .modal .micromodal-slide aria-hidden="true"}
 ::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
 :::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title"}
@@ -586,6 +586,7 @@ Limited policy variation, data constraints in defining 'equal work', and complia
 ::::
 :::::
 ::::::
+-->
 
 <!-- Abstract Modal: Worker Discrimination -->
 :::::: {#abs_workerdisc .modal .micromodal-slide aria-hidden="true"}
@@ -746,15 +747,17 @@ The optimal redistribution of income across locations is determined by two suffi
 
 <div data-state="working" class="paper-item">
 <div class="paper-title-line">
-<a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a>
+<strong>Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers</strong>
 </div>
 <div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
 <div class="paper-status">
-<span class="badge-status badge-rr">Under revisions</span>
+<span class="badge-status badge-rr">Updated draft coming soon</span>
 <span class="badge-jmp">Post-doc JMP</span>
 </div>
 <div class="paper-links">
+<!-- Abstract hidden until the updated draft is posted
 <span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span>
+-->
 <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
   <i class="bi bi-clipboard"></i> Cite (BibTeX)
 </button>

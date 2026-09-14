@@ -828,7 +828,7 @@ const bibtexCitations = {
   doi = {10.2139/ssrn.4992568}
 }`,
   payequity: `@article{alam2025labor,
-  title = {Labor Market Consequences of Pay-Equity Laws},
+  title = {Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers},
   author = {Alam, Md Moshi Ul and Lehrer, Steven and Pereira, Nuno Souso},
   year = {2025},
   note = {Working Paper}
@@ -975,22 +975,22 @@ function showToast(message, type = 'success') {
 </div>
 </div>
 </div>
-<!-- Abstract Modal: Pay Equity -->
-<div id="abs_payequity" class="modal micromodal-slide" aria-hidden="true">
-<div class="modal__overlay" tabindex="0" data-micromodal-close="true">
-<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title">
-<button class="modal__close" aria-label="Close modal" data-micromodal-close="">
-</button>
-<section id="abs_payequity-title" class="level3 modal__header">
-<h3 data-anchor-id="abs_payequity-title">Labor Market Consequences of Pay-Equity Laws</h3>
-<p><em>with Steven Lehrer and Nuno Souso Pereira</em></p>
-</section>
-<div class="modal__content">
-<p>Limited policy variation, data constraints in defining ‘equal work’, and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal’s 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving “equal pay for equal work”.</p>
-</div>
-</div>
-</div>
-</div>
+<!-- Abstract Modal: Pay Equity (commented out until the updated draft is posted)
+:::::: {#abs_payequity .modal .micromodal-slide aria-hidden="true"}
+::::: {.modal__overlay tabindex="0" data-micromodal-close="true"}
+:::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="abs_payequity-title"}
+<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+::: {.modal__header}
+### Labor Market Consequences of Pay-Equity Laws {#abs_payequity-title}
+*with Steven Lehrer and Nuno Souso Pereira*
+:::
+::: {.modal__content}
+Limited policy variation, data constraints in defining 'equal work', and compliance issues have prevented rigorous causal analysis of pay equity laws. We address these challenges using Portugal's 2018 legislation, which penalized firms with over 250 employees for gender wage gaps exceeding 5%. Using administrative data that links employees to industry-defined job titles within firms, we analyze its impact both within and between genders using an event study design. We find the law achieved its intended effects in some areas while generating unintended consequences in others. Jobs with initial gaps exceeding 5% saw a 9% reduction, mainly through slower male wage growth. A small fraction of jobs with negative gaps saw reduced female wage growth, closing the gap by half. However, gaps in jobs initially between 0-5% unexpectedly widened by 21% due to slower female wage growth. These unintended consequences are more pronounced in male-dominated industries and cannot be explained by productivity differences. Further, we find that firms did not change their size to evade the law, nor did it impact job gender composition, or hours worked. Our findings reveal both intended and unintended consequences of pay equity laws implemented with uniform regulatory targets: while the 5% target effectively reduced large disparities, it inadvertently widened gaps below the threshold as firms, with enforcement rules now clarified, strategically adjusted wages but not employment, offering crucial insights for policy design in achieving "equal pay for equal work".
+:::
+::::
+:::::
+::::::
+-->
 <!-- Abstract Modal: Worker Discrimination -->
 <div id="abs_workerdisc" class="modal micromodal-slide" aria-hidden="true">
 <div class="modal__overlay" tabindex="0" data-micromodal-close="true">
@@ -1111,16 +1111,21 @@ with Morris Davis and Jesse Gregory
 </div>
 <div class="paper-item" data-state="working">
 <div class="paper-title-line">
-<p><a href="papers/Alam_JMP_payequity.pdf">Labor Market Consequences of Pay-Equity Laws</a></p>
+<p><strong>Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers</strong></p>
 </div>
 <div class="paper-meta">
 with Steven Lehrer and Nuno Souso Pereira
 </div>
 <div class="paper-status">
-<p><span class="badge-status badge-rr">Under revisions</span> <span class="badge-jmp">Post-doc JMP</span></p>
+<p><span class="badge-status badge-rr">Updated draft coming soon</span> <span class="badge-jmp">Post-doc JMP</span></p>
 </div>
 <div class="paper-links">
-<p><span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span> <button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation"> <i class="bi bi-clipboard"></i> Cite (BibTeX) </button></p>
+<!-- Abstract hidden until the updated draft is posted
+<span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span>
+-->
+<button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
+<i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
 </div>
 </div>
 </div>
