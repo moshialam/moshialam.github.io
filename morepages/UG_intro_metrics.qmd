@@ -48,7 +48,7 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 :::
 
 ::: {.resource-card}
-**Problem Set 2** *(Due Oct 1)*  
+**Problem Set 2** *(Due Oct 1, 5pm)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.qmd)
 :::
 
