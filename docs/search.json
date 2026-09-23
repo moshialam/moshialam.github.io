@@ -886,7 +886,7 @@
     "href": "morepages/UG_intro_metrics.html#problem-sets",
     "title": "Introduction to Econometrics",
     "section": " Problem Sets",
-    "text": "Problem Sets\n\nProblem Set 1 (Due Sep 19, 5pm)\n Assignment"
+    "text": "Problem Sets\n\nProblem Set 1 (Due Sep 19, 5pm)\n Assignment |  Solutions"
   },
   {
     "objectID": "teaching.html",
@@ -1685,5 +1685,61 @@
     "title": "Econ 265: Introduction to Econometrics",
     "section": "Heteroskedasticity to be covered by Zeyi in the lab",
     "text": "Heteroskedasticity to be covered by Zeyi in the lab"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "",
+    "text": "Md Moshi Ul Alam\n      Assistant Professor of Economics\n      \n        Clark University\n      \n      \n        \n          \n          Email\n        \n        \n          \n          CV"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-a",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-a",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Part (a)",
+    "text": "Part (a)\n\npar(mfrow=c(1,2))\nplot(x, u1, main=\"u1 vs x\", pch=20, col=\"blue\")\nabline(lm(u1~x), col=\"red\", lwd=2)\nplot(x, u2, main=\"u2 vs x\", pch=20, col=\"blue\")\nabline(lm(u2~x), col=\"red\", lwd=2)\n\n\n\n\n\n\n\nIn the first population model, u_1 shows no systematic pattern with x (randomly scattered around zero). However, in the second one, u_2 exhibits a clear positive linear relationship with x, violating the zero conditional mean assumption i.e., E(u_2|x) \\neq 0."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-b",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-b",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Part (b)",
+    "text": "Part (b)\nOnly the regression of y_1 on x will produce unbiased estimates.\nProof: For unbiased OLS, we need E(u|x) = 0.\n\nFor model 1: E(u_1|x) = 0 because u_1 is generated as N(0, 0.1) independent of x\n\nFor model 2: E(u_2|x) = E(x + \\text{rnorm}(0, 0.1)|x) = x \\neq 0. This is clear from the plot in part (a) where the average of u_2 increases with x.\n\nSince the zero conditional mean assumption is violated for model 2, OLS estimates will be biased."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-c",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-c",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Part (c)",
+    "text": "Part (c)\n\nmodel1 &lt;- lm(y1 ~ x)\nmodel2 &lt;- lm(y2 ~ x)\n\nresults &lt;- data.frame(\n  Model = c(\"y1 ~ x\", \"y2 ~ x\"),\n  True_Beta0 = c(2, 2),\n  Beta0_hat = c(coef(model1)[1], coef(model2)[1]),\n  True_Beta1 = c(3, 3),\n  Beta1_hat = c(coef(model1)[2], coef(model2)[2])\n)\nkable(results, digits=4)\n\n\n\nModel\nTrue_Beta0\nBeta0_hat\nTrue_Beta1\nBeta1_hat\n\n\n\ny1 ~ x\n2\n1.9998\n3\n3.0019\n\n\ny2 ~ x\n2\n1.9991\n3\n4.0002\n\n\n\n\n\nModel 1 estimates are very close to true parameters (2 and 3). Model 2’s slope estimate is biased upward (~4 instead of 3) because u_2 is positively correlated with x, causing omitted variable bias.\nNot required for credit: –&gt;"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-d",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#part-d",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Part (d)",
+    "text": "Part (d)\nE(u|\\text{education}) \\neq 0 because ability is in the error term since it affects wages, and is correlated with education.\nSince ability is positively correlated with education and affects wages positively, OLS will overestimate the true return to education leading to upward bias in the estimate of β_1 because it will give you an estimate of the return to education that confounded by the effect of ability.\n\n\\text{Cov}(\\text{education}, u) &gt; 0, leading to positive bias: E(\\hat{\\beta}_1) = \\beta_1 + \\frac{\\text{Cov}(education,u)}{\\text{Var}(education)} &gt; \\beta_1"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.1",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.1",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Q 3.1",
+    "text": "Q 3.1\nPart (a)\n\ndata(wage2)\nggplot(wage2, aes(x = educ, y = wage)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"red\") +\n  labs(title = \"Wages vs Education\", x = \"Years of Education\", y = \"Monthly Wage\")\n\n\n\n\n\n\n\nPositive relationship between education and wages. Observable heteroskedasticity (variance increases with education) and potential outliers at high wage levels.\nPart (b)\n\n# Sample correlation\nrho_xy &lt;- cor(wage2$wage, wage2$educ)\n\n# Standard deviations\nsigma_y &lt;- sd(wage2$wage)\nsigma_x &lt;- sd(wage2$educ)\n\n# Manual calculation of beta1\nbeta1_manual &lt;- rho_xy * (sigma_y / sigma_x)\n\n# Using lm()\nmodel &lt;- lm(wage ~ educ, data = wage2)\nbeta1_lm &lt;- coef(model)[2]\n\n\ncat(\"Beta1 (manual): \", round(beta1_manual, 4), \"\\n\", \"Beta1 (lm): \", round(beta1_lm, 4), \"\\n\")\n\nBeta1 (manual):  60.2143 \n Beta1 (lm):  60.2143 \n\n\nPart (c)\n\nsummary(model)\n\n\nCall:\nlm(formula = wage ~ educ, data = wage2)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-877.38 -268.63  -38.38  207.05 2148.26 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  146.952     77.715   1.891   0.0589 .  \neduc          60.214      5.695  10.573   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 382.3 on 933 degrees of freedom\nMultiple R-squared:  0.107, Adjusted R-squared:  0.106 \nF-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\\hat{\\beta}_0 = 146.95 gives the average monthly wage with zero education (not meaningful in this context as no one has zero education in the sample, and otherwise we are extrapolating). But that does not mean that we should drop it from the regression. Recall that the intercept is needed to ensure that E(u) = 0 through re-normalization.\n\n\\hat{\\beta}_1 = 60.21: Each additional year of education on average is associated with $60.21 increase in average monthly wages, all else equal.\nPart (d)\n\n# Manual calculations of Fitted values\nbeta0_hat &lt;- coef(model)[1]\nbeta1_hat &lt;- coef(model)[2]\ny_hat &lt;- beta0_hat + beta1_hat * wage2$educ\n\n# Residuals\nu_hat &lt;- wage2$wage - y_hat\n\n# residual at mean_educ, mean_wage\nmean_wage &lt;- mean(wage2$wage)\nmean_educ &lt;- mean(wage2$educ)\nresid_at_mean &lt;- mean_wage - (beta0_hat + beta1_hat * mean_educ)\n\n# Verifications\ncat(\"Mean of residuals: \", round(mean(u_hat), 5), \"\\n\", \n  \"Point (mean_educ, mean_wage): (\", mean(wage2$educ), \", \", mean(wage2$wage), \")\\n\",\n  \"Residual at (mean_educ, mean_wage): \", round(resid_at_mean, 5), \"\\n\",\n  \"Covariance(educ, residuals): \", round(cov(wage2$educ, u_hat), 10), \"\\n\")\n\nMean of residuals:  0 \n Point (mean_educ, mean_wage): ( 13.46845 ,  957.9455 )\n Residual at (mean_educ, mean_wage):  0 \n Covariance(educ, residuals):  0 \n\n\nWhile other parts are obvious, Point (mean_educ, mean_wage) lies on the regression line because the residual at that point is effectively zero."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.2",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.2",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Q 3.2",
+    "text": "Q 3.2\nPart (a)\n\nlog_model &lt;- lm(log(wage) ~ educ, data = wage2)\nsummary(log_model)\n\n\nCall:\nlm(formula = log(wage) ~ educ, data = wage2)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.94620 -0.24832  0.03507  0.27440  1.28106 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 5.973062   0.081374   73.40   &lt;2e-16 ***\neduc        0.059839   0.005963   10.04   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4003 on 933 degrees of freedom\nMultiple R-squared:  0.09742,   Adjusted R-squared:  0.09645 \nF-statistic: 100.7 on 1 and 933 DF,  p-value: &lt; 2.2e-16\n\n\nPart (b)\nE(\\log(wage)|educ =16) - E(\\log(wage)|educ =12) = 4\\beta_1\n\nbeta1_log &lt;- coef(log_model)[2]\n\n# Exact percentage return\npct_return &lt;- (exp(beta1_log) - 1) * 100\ncat(\"Exact % return to one year of education: \", round(pct_return, 2), \"%\\n\")\n\nExact % return to one year of education:  6.17 %\n\n#  avg Wage difference between 12 and 16 years\nwage_diff &lt;-  (exp(beta1_log * 4) - 1) * 100\ncat(\"% wage difference (16 vs 12 years): \", round(wage_diff, 2), \"%\\n\")\n\n% wage difference (16 vs 12 years):  27.04 %\n\n\nPart (c)\n\npar(mfrow = c(1, 2))\nhist(wage2$wage, main = \"Distribution of Wage\", xlab = \"Wage\", breaks = 30)\nhist(log(wage2$wage), main = \"Distribution of Log(Wage)\", xlab = \"Log(Wage)\", breaks = 30)\n\n\n\n\n\n\n\nLog-level specification is preferred because level wage is right-skewed and log transformation helps in reducing the influence of outliers and for approximate interpretations percentage interpretation which is more intuitive for wage returns"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.3",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps1sol.html#q-3.3",
+    "title": "Econometrics PS 1 - Solutions",
+    "section": "Q 3.3",
+    "text": "Q 3.3\nPart (a)\n\nplot(fitted(log_model), residuals(log_model), \n     main = \"Residual Plot for Log-Level Model\",\n     xlab = \"Fitted Values\", ylab = \"Residuals\")\n\n\n\n\n\n\n\nSome heteroskedasticity visible - residual spread appears to increase slightly with fitted values. Thus variance of residuals changes systematically with fitted values.\nPart (b)\n\nwage2$educ_group &lt;- cut(wage2$educ, \n                        breaks = c(-Inf, 12, 16, Inf),\n                        labels = c(\"Low (&lt;12)\", \"Medium (12-16)\", \"High (≥16)\"),\n                        right = FALSE)\n\nresid &lt;- residuals(log_model)\n\nvar_resid_group1 &lt;- var(resid[wage2$educ_group == \"Low (&lt;12)\"])\nvar_resid_group2 &lt;- var(resid[wage2$educ_group == \"Medium (12-16)\"])\nvar_resid_group3 &lt;- var(resid[wage2$educ_group == \"High (≥16)\"])\n\nprint(data.frame(\n  Education_Group = c(\"Low (&lt;12)\", \"Medium (12-16)\", \"High (≥16)\"),\n  Variance_of_Residuals = c(var_resid_group1, var_resid_group2, var_resid_group3)\n))\n\n    Education_Group Variance_of_Residuals\n1         Low (&lt;12)             0.1360187\n2    Medium (12-16)             0.1631016\n3 High (&lt;U+2265&gt;16)             0.1624964\n\n# Shorter code using `tapply`:\n# variance_by_group &lt;- tapply(resid, wage2$educ_group, var)\n# print(variance_by_group)\n\nVariances of the residuals differs across education groups, suggesting heteroskedasticity is present (though differences are moderate in the log specification).\nPart (c)\nHeteroskedasticity does not affect the unbiasedness of \\hat{\\beta}_1. The OLS estimator remains unbiased as long as E(u|x) = 0 holds.\nNot for credit\nConsequences of heteroskedasticity:\n\nOLS estimates remain unbiased and consistent as long as E(u|x) = 0 holds\nOLS is no longer BLUE (efficient)\nHomoskedastic Standard errors are typically underestimated\nCosnequently, hypothesis tests and confidence intervals are invalid"
   }
 ]
