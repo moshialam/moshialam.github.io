@@ -49,6 +49,22 @@ summary(lawsch85$age)
 ```
 which shows 45 missing values of `age`.
 
+The usual pattern (R-squared never falls when a regressor is added) only holds when both models are estimated on the *same sample*. Model 1 uses all schools with non-missing `lsalary`, `GPA` and `rank`, while Model 2 also drops every school missing `age`, so the two R-squareds describe different sets of schools and are not comparable. To compare like with like, re-estimate Model 1 on Model 2's sample:
+
+```{r}
+model1_same <- lm(lsalary ~ GPA + rank, data = lawsch85, subset = !is.na(age))
+
+data.frame(
+  model = c("Model 1 (full sample)", "Model 1 (Model 2's sample)", "Model 2"),
+  n = c(nobs(model1), nobs(model1_same), nobs(model2)),
+  r_squared = round(c(summary(model1)$r.squared,
+                      summary(model1_same)$r.squared,
+                      summary(model2)$r.squared), 4)
+)
+```
+
+On the common sample, adding `age` raises the R-squared (slightly), exactly as the usual pattern predicts.
+
 ---
 
 # Question 2
