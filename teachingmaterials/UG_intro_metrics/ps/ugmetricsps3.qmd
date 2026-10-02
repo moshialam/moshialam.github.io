@@ -99,10 +99,9 @@ Load the `attend` dataset, which contains information on 680 students in an intr
 - `stndfnl`: standardized final exam score (the score minus its mean, divided by its standard deviation)
 - `atndrte`: percentage of classes attended
 - `priGPA`: cumulative GPA before the term
-- `ACT`: ACT score
 
 a. Estimate
-$$stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + \beta_4 priGPA_i^2 + \beta_5 ACT_i^2 + \beta_6 \, atndrte_i \times priGPA_i + u_i$$
+$$stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 priGPA_i^2 + \beta_4 \, atndrte_i \times priGPA_i + u_i$$
 
 b. Write down the effect of attendance on the expected final exam score, $\partial E(stndfnl \mid \cdot) / \partial\, atndrte$. Does $\hat{\beta}_1$ on its own have a useful interpretation? Why or why not?
 
@@ -114,7 +113,7 @@ d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 
 
 # Question 6: Adjusted $R^2$ and overcontrolling
 
-Continue with `attend`.
+Continue with `attend`. The variable `ACT` is the student's ACT score.
 
 a. Estimate $stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i$. Compute the adjusted $R^2$ by hand from the $R^2$, $n$ and $k$, and check that it matches R's output.
 

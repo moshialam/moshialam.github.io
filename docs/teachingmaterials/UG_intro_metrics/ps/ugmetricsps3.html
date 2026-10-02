@@ -630,17 +630,15 @@ Note
 <code>atndrte</code>: percentage of classes attended</li>
 <li>
 <code>priGPA</code>: cumulative GPA before the term</li>
-<li>
-<code>ACT</code>: ACT score</li>
 </ul>
 <ol type="a">
-<li><p>Estimate <span class="math display">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + \beta_4 priGPA_i^2 + \beta_5 ACT_i^2 + \beta_6 \, atndrte_i \times priGPA_i + u_i</span></p></li>
+<li><p>Estimate <span class="math display">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 priGPA_i^2 + \beta_4 \, atndrte_i \times priGPA_i + u_i</span></p></li>
 <li><p>Write down the effect of attendance on the expected final exam score, <span class="math inline">\partial E(stndfnl \mid \cdot) / \partial\, atndrte</span>. Does <span class="math inline">\hat{\beta}_1</span> on its own have a useful interpretation? Why or why not?</p></li>
 <li><p>Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.</p></li>
 <li><p>Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of <code>priGPA</code> in the data. What does the interaction tell you about who benefits more from attending class?</p></li>
 </ol>
 <hr></section><section id="question-6-adjusted-r2-and-overcontrolling" class="level1"><h1>Question 6: Adjusted <span class="math inline">R^2</span> and overcontrolling</h1>
-<p>Continue with <code>attend</code>.</p>
+<p>Continue with <code>attend</code>. The variable <code>ACT</code> is the student’s ACT score.</p>
 <ol type="a">
 <li><p>Estimate <span class="math inline">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i</span>. Compute the adjusted <span class="math inline">R^2</span> by hand from the <span class="math inline">R^2</span>, <span class="math inline">n</span> and <span class="math inline">k</span>, and check that it matches R’s output.</p></li>
 <li><p>Add a variable of pure noise to the model:</p></li>
