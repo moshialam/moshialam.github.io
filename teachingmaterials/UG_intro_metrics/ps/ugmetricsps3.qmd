@@ -23,7 +23,7 @@ This problem set covers the variants on multiple regression from the slides ([06
 
 ------------------------------------------------------------------------
 
-# Question 1: Units of measurement and functional form
+# Question 1
 
 Load the `vote1` dataset from the `wooldridge` package. Each observation is a 1988 U.S. House of Representatives race between two candidates, A and B. The variables you need are:
 
@@ -45,7 +45,7 @@ d. Compare the $R^2$ of the models in (a) and (c). Is it legitimate to compare t
 
 ------------------------------------------------------------------------
 
-# Question 2: Standardized coefficients
+# Question 2
 
 Continue with `vote1` and the level model from Question 1(a).
 
@@ -57,7 +57,7 @@ c. Based on the raw coefficients in Question 1(a), one might conclude that party
 
 ------------------------------------------------------------------------
 
-# Question 3: Nonlinear effects of experience
+# Question 3
 
 Load the `nbasal` dataset, which contains information on 269 players in the National Basketball Association. The variables you need are:
 
@@ -78,7 +78,7 @@ d. Plot the predicted log salary against `exper`, holding `points` at its sample
 
 ------------------------------------------------------------------------
 
-# Question 4: Categorical variables and interactions with dummies
+# Question 4
 
 Continue with `nbasal` and the model from Question 3(a).
 
@@ -92,7 +92,7 @@ d. Now add `marr` (=1 if married), `black` (=1 if black) and their interaction `
 
 ------------------------------------------------------------------------
 
-# Question 5: Interactions between continuous variables
+# Question 5
 
 Load the `attend` dataset, which contains information on 680 students in an introductory microeconomics course. The variables you need are:
 
@@ -111,7 +111,7 @@ d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 
 
 ------------------------------------------------------------------------
 
-# Question 6: What to control for
+# Question 6
 
 A college offers a free peer-tutoring program, and you want to estimate the effect of using it on students' final grades in an introductory course. You have data on each student's final grade, whether they used the tutoring program ($tutor_i = 1$), their GPA before the semester started, and the number of hours they studied per week during the semester. You consider two regressions:
 

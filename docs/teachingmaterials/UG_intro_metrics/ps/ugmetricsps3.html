@@ -228,12 +228,12 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#question-1-units-of-measurement-and-functional-form" id="toc-question-1-units-of-measurement-and-functional-form" class="nav-link active" data-scroll-target="#question-1-units-of-measurement-and-functional-form">Question 1: Units of measurement and functional form</a></li>
-  <li><a href="#question-2-standardized-coefficients" id="toc-question-2-standardized-coefficients" class="nav-link" data-scroll-target="#question-2-standardized-coefficients">Question 2: Standardized coefficients</a></li>
-  <li><a href="#question-3-nonlinear-effects-of-experience" id="toc-question-3-nonlinear-effects-of-experience" class="nav-link" data-scroll-target="#question-3-nonlinear-effects-of-experience">Question 3: Nonlinear effects of experience</a></li>
-  <li><a href="#question-4-categorical-variables-and-interactions-with-dummies" id="toc-question-4-categorical-variables-and-interactions-with-dummies" class="nav-link" data-scroll-target="#question-4-categorical-variables-and-interactions-with-dummies">Question 4: Categorical variables and interactions with dummies</a></li>
-  <li><a href="#question-5-interactions-between-continuous-variables" id="toc-question-5-interactions-between-continuous-variables" class="nav-link" data-scroll-target="#question-5-interactions-between-continuous-variables">Question 5: Interactions between continuous variables</a></li>
-  <li><a href="#question-6-what-to-control-for" id="toc-question-6-what-to-control-for" class="nav-link" data-scroll-target="#question-6-what-to-control-for">Question 6: What to control for</a></li>
+<li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -538,7 +538,7 @@ Note
 </div>
 <p>This problem set covers the variants on multiple regression from the slides (<a href="../../../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">06_mlrvariants</a>). Whenever you are asked to compare models, report the estimates side by side using the <code>stargazer</code> or <code>modelsummary</code> package. Interpret all coefficients in complete sentences.</p>
 <hr>
-<section id="question-1-units-of-measurement-and-functional-form" class="level1"><h1>Question 1: Units of measurement and functional form</h1>
+<section id="question-1" class="level1"><h1>Question 1</h1>
 <p>Load the <code>vote1</code> dataset from the <code>wooldridge</code> package. Each observation is a 1988 U.S. House of Representatives race between two candidates, A and B. The variables you need are:</p>
 <ul>
 <li>
@@ -554,14 +554,14 @@ Note
 <li><p>Now estimate the level-log model <span class="math display">voteA_i = \beta_0 + \beta_1 \log(expendA_i) + \beta_2 \log(expendB_i) + \beta_3 prtystrA_i + u_i</span> Interpret <span class="math inline">\hat{\beta}_1</span>. What is the predicted change in A’s vote share if A spends 10% more, holding B’s spending and party strength fixed?</p></li>
 <li><p>Compare the <span class="math inline">R^2</span> of the models in (a) and (c). Is it legitimate to compare them here? Make a scatter plot of <code>voteA</code> against <code>expendA</code> and another against <code>log(expendA)</code>. Use the plots to explain which specification fits the data better and why that makes economic sense.</p></li>
 </ol>
-<hr></section><section id="question-2-standardized-coefficients" class="level1"><h1>Question 2: Standardized coefficients</h1>
+<hr></section><section id="question-2" class="level1"><h1>Question 2</h1>
 <p>Continue with <code>vote1</code> and the level model from Question 1(a).</p>
 <ol type="a">
 <li><p>Estimate the standardized version of the model, in which the dependent variable and all explanatory variables are standardized, using the <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> function. Interpret the standardized coefficient on <code>expendA</code>.</p></li>
 <li><p>Verify the standardized coefficient on <code>prtystrA</code> by hand, using <span class="math inline">\hat{\beta}_j^* = \hat{\beta}_j \cdot s_{x_j} / s_y</span> and the sample standard deviations.</p></li>
 <li><p>Based on the raw coefficients in Question 1(a), one might conclude that party strength matters about ten times as much as A’s spending. Based on the standardized coefficients, which variable has the larger association with A’s vote share? Explain why the raw coefficients are misleading for this comparison.</p></li>
 </ol>
-<hr></section><section id="question-3-nonlinear-effects-of-experience" class="level1"><h1>Question 3: Nonlinear effects of experience</h1>
+<hr></section><section id="question-3" class="level1"><h1>Question 3</h1>
 <p>Load the <code>nbasal</code> dataset, which contains information on 269 players in the National Basketball Association. The variables you need are:</p>
 <ul>
 <li>
@@ -579,7 +579,7 @@ Note
 <li><p>At how many years of experience does predicted log salary reach its maximum? How many players in the sample have more experience than that? Does your answer imply that the most experienced players are paid less than they were a few years earlier? Discuss.</p></li>
 <li><p>Plot the predicted log salary against <code>exper</code>, holding <code>points</code> at its sample mean and setting the player to be a center.</p></li>
 </ol>
-<hr></section><section id="question-4-categorical-variables-and-interactions-with-dummies" class="level1"><h1>Question 4: Categorical variables and interactions with dummies</h1>
+<hr></section><section id="question-4" class="level1"><h1>Question 4</h1>
 <p>Continue with <code>nbasal</code> and the model from Question 3(a).</p>
 <ol type="a">
 <li><p>What is the base group for position? What happens if you also include <code>center</code> in the regression? Try it and explain R’s output.</p></li>
@@ -587,7 +587,7 @@ Note
 <li><p>Re-estimate the model using <strong>guards</strong> as the base group. Which coefficients change, and which do not? Show that the estimated salary difference between forwards and guards is the same in both specifications. Does the <span class="math inline">R^2</span> change?</p></li>
 <li><p>Now add <code>marr</code> (=1 if married), <code>black</code> (=1 if black) and their interaction <code>marrblck</code> to the model from Question 3(a). Using the estimates, write down the expected difference in log salary, relative to unmarried non-black players with the same points, experience and position, for each of the three other groups: married non-black, unmarried black, and married black players. What does the coefficient on <code>marrblck</code> measure?</p></li>
 </ol>
-<hr></section><section id="question-5-interactions-between-continuous-variables" class="level1"><h1>Question 5: Interactions between continuous variables</h1>
+<hr></section><section id="question-5" class="level1"><h1>Question 5</h1>
 <p>Load the <code>attend</code> dataset, which contains information on 680 students in an introductory microeconomics course. The variables you need are:</p>
 <ul>
 <li>
@@ -603,7 +603,7 @@ Note
 <li><p>Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.</p></li>
 <li><p>Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of <code>priGPA</code> in the data. What does the interaction tell you about who benefits more from attending class?</p></li>
 </ol>
-<hr></section><section id="question-6-what-to-control-for" class="level1"><h1>Question 6: What to control for</h1>
+<hr></section><section id="question-6" class="level1"><h1>Question 6</h1>
 <p>A college offers a free peer-tutoring program, and you want to estimate the effect of using it on students’ final grades in an introductory course. You have data on each student’s final grade, whether they used the tutoring program (<span class="math inline">tutor_i = 1</span>), their GPA before the semester started, and the number of hours they studied per week during the semester. You consider two regressions:</p>
 <p><span class="math display">\text{Model A:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + u_i</span> <span class="math display">\text{Model B:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + \beta_3 studyhours_i + u_i</span></p>
 <ol type="a">
