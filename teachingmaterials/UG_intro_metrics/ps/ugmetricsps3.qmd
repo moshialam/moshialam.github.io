@@ -1,0 +1,130 @@
+---
+title: "Econometrics PS 3"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+```
+
+::: {.callout-note}
+*Follow the instructions of completing your problem set detailed in the syllabus.*
+:::
+
+This problem set covers the variants on multiple regression from the slides ([06_mlrvariants](/teachingmaterials/UG_intro_metrics/06_mlrvariants.qmd)). Whenever you are asked to compare models, report the estimates side by side using the `stargazer` or `modelsummary` package. Interpret all coefficients in complete sentences.
+
+------------------------------------------------------------------------
+
+# Question 1: Units of measurement and functional form
+
+Load the `vote1` dataset from the `wooldridge` package. Each observation is a 1988 U.S. House of Representatives race between two candidates, A and B. The variables you need are:
+
+- `voteA`: percentage of the vote received by candidate A
+- `expendA`, `expendB`: campaign spending by candidates A and B, in \$1,000s
+- `prtystrA`: percentage of the most recent presidential vote in the district that went to A's party
+
+a. Estimate the model
+$$voteA_i = \beta_0 + \beta_1 expendA_i + \beta_2 expendB_i + \beta_3 prtystrA_i + u_i$$
+and interpret $\hat{\beta}_1$ and $\hat{\beta}_3$.
+
+b. Create new variables measuring spending in **millions** of dollars instead of thousands. *Before* re-estimating, predict what will happen to each coefficient, its standard error, and the $R^2$. Then re-estimate the model with the new variables and check your predictions. What would happen instead if `voteA` were measured as a share between 0 and 1?
+
+c. Now estimate the level-log model
+$$voteA_i = \beta_0 + \beta_1 \log(expendA_i) + \beta_2 \log(expendB_i) + \beta_3 prtystrA_i + u_i$$
+Interpret $\hat{\beta}_1$. What is the predicted change in A's vote share if A spends 10% more, holding B's spending and party strength fixed?
+
+d. Compare the $R^2$ of the models in (a) and (c). Is it legitimate to compare them here? Make a scatter plot of `voteA` against `expendA` and another against `log(expendA)`. Use the plots to explain which specification fits the data better and why that makes economic sense.
+
+------------------------------------------------------------------------
+
+# Question 2: Standardized coefficients
+
+Continue with `vote1` and the level model from Question 1(a).
+
+a. Estimate the standardized version of the model, in which the dependent variable and all explanatory variables are standardized, using the `scale()` function. Interpret the standardized coefficient on `expendA`.
+
+b. Verify the standardized coefficient on `prtystrA` by hand, using $\hat{\beta}_j^* = \hat{\beta}_j \cdot s_{x_j} / s_y$ and the sample standard deviations.
+
+c. Based on the raw coefficients in Question 1(a), one might conclude that party strength matters about ten times as much as A's spending. Based on the standardized coefficients, which variable has the larger association with A's vote share? Explain why the raw coefficients are misleading for this comparison.
+
+------------------------------------------------------------------------
+
+# Question 3: Nonlinear effects of experience
+
+Load the `nbasal` dataset, which contains information on 269 players in the National Basketball Association. The variables you need are:
+
+- `lwage`: log of annual salary (salary is in \$1,000s)
+- `points`: points per game
+- `exper`, `expersq`: years as a professional player, and its square
+- `guard`, `forward`, `center`: position dummies (each player plays exactly one position)
+
+a. Estimate
+$$\log(wage_i) = \beta_0 + \beta_1 points_i + \beta_2 exper_i + \beta_3 exper_i^2 + \beta_4 guard_i + \beta_5 forward_i + u_i$$
+and interpret $\hat{\beta}_1$.
+
+b. Write down the effect of one more year of experience on log salary, holding the other variables fixed. Compute it for players with 2, 5 and 10 years of experience. Is the effect increasing or decreasing in experience?
+
+c. At how many years of experience does predicted log salary reach its maximum? How many players in the sample have more experience than that? Does your answer imply that the most experienced players are paid less than they were a few years earlier? Discuss.
+
+d. Plot the predicted log salary against `exper`, holding `points` at its sample mean and setting the player to be a center.
+
+------------------------------------------------------------------------
+
+# Question 4: Categorical variables and interactions with dummies
+
+Continue with `nbasal` and the model from Question 3(a).
+
+a. What is the base group for position? What happens if you also include `center` in the regression? Try it and explain R's output.
+
+b. Interpret the coefficients on `guard` and `forward`, using both the approximation and the exact percentage change.
+
+c. Re-estimate the model using **guards** as the base group. Which coefficients change, and which do not? Show that the estimated salary difference between forwards and guards is the same in both specifications. Does the $R^2$ change?
+
+d. Now add `marr` (=1 if married), `black` (=1 if black) and their interaction `marrblck` to the model from Question 3(a). Using the estimates, write down the expected difference in log salary, relative to unmarried non-black players with the same points, experience and position, for each of the three other groups: married non-black, unmarried black, and married black players. What does the coefficient on `marrblck` measure?
+
+------------------------------------------------------------------------
+
+# Question 5: Interactions between continuous variables
+
+Load the `attend` dataset, which contains information on 680 students in an introductory microeconomics course. The variables you need are:
+
+- `stndfnl`: standardized final exam score (the score minus its mean, divided by its standard deviation)
+- `atndrte`: percentage of classes attended
+- `priGPA`: cumulative GPA before the term
+- `ACT`: ACT score
+
+a. Estimate
+$$stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + \beta_4 priGPA_i^2 + \beta_5 ACT_i^2 + \beta_6 \, atndrte_i \times priGPA_i + u_i$$
+
+b. Write down the effect of attendance on the expected final exam score, $\partial E(stndfnl \mid \cdot) / \partial\, atndrte$. Does $\hat{\beta}_1$ on its own have a useful interpretation? Why or why not?
+
+c. Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.
+
+d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of `priGPA` in the data. What does the interaction tell you about who benefits more from attending class?
+
+------------------------------------------------------------------------
+
+# Question 6: Adjusted $R^2$ and overcontrolling
+
+Continue with `attend`.
+
+a. Estimate $stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i$. Compute the adjusted $R^2$ by hand from the $R^2$, $n$ and $k$, and check that it matches R's output.
+
+b. Add a variable of pure noise to the model:
+
+```{r, eval=FALSE}
+set.seed(265)
+attend$noise <- rnorm(nrow(attend))
+```
+
+Re-estimate the model with `noise` added. What happens to the $R^2$ and to the adjusted $R^2$? Explain why, using the formula for the adjusted $R^2$.
+
+c. Now add `termGPA` (the student's GPA for the current term, which includes their grade in this course) to the model in (a). What happens to the coefficient on `atndrte` and to the $R^2$? If your goal is to learn how attending class affects exam performance, should you control for `termGPA`? Explain using the idea of overcontrolling.

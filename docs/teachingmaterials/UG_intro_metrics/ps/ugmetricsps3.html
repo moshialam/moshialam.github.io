@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Introduction to Econometrics – Moshi Alam</title>
+<meta name="author" content="Prof Alam">
+<title>Econometrics PS 3 – Moshi Alam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +18,57 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-391ac0ffccbb3bf0019dee70612ff9d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-7af0dd17589a3d8c71754ac1e2854f3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,8 +94,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <style>
   :root {
@@ -148,19 +177,53 @@ ul.task-list li input[type="checkbox"] {
     }
   }
 </style>
-
-
-<link rel="stylesheet" href="../styles.css">
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../../../styles.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Moshi Alam</span>
     </a>
   </div>
@@ -170,16 +233,16 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+<li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="../../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -188,34 +251,31 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-information" id="toc-course-information" class="nav-link active" data-scroll-target="#course-information"><i class="bi bi-journal-text"></i> Course Information</a></li>
-  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><i class="bi bi-easel2"></i> Lecture Slides</a></li>
-  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets"><i class="bi bi-pencil-square"></i> Problem Sets</a></li>
-  </ul>
-</nav>
+<li><a href="#question-1-units-of-measurement-and-functional-form" id="toc-question-1-units-of-measurement-and-functional-form" class="nav-link active" data-scroll-target="#question-1-units-of-measurement-and-functional-form">Question 1: Units of measurement and functional form</a></li>
+  <li><a href="#question-2-standardized-coefficients" id="toc-question-2-standardized-coefficients" class="nav-link" data-scroll-target="#question-2-standardized-coefficients">Question 2: Standardized coefficients</a></li>
+  <li><a href="#question-3-nonlinear-effects-of-experience" id="toc-question-3-nonlinear-effects-of-experience" class="nav-link" data-scroll-target="#question-3-nonlinear-effects-of-experience">Question 3: Nonlinear effects of experience</a></li>
+  <li><a href="#question-4-categorical-variables-and-interactions-with-dummies" id="toc-question-4-categorical-variables-and-interactions-with-dummies" class="nav-link" data-scroll-target="#question-4-categorical-variables-and-interactions-with-dummies">Question 4: Categorical variables and interactions with dummies</a></li>
+  <li><a href="#question-5-interactions-between-continuous-variables" id="toc-question-5-interactions-between-continuous-variables" class="nav-link" data-scroll-target="#question-5-interactions-between-continuous-variables">Question 5: Interactions between continuous variables</a></li>
+  <li><a href="#question-6-adjusted-r2-and-overcontrolling" id="toc-question-6-adjusted-r2-and-overcontrolling" class="nav-link" data-scroll-target="#question-6-adjusted-r2-and-overcontrolling">Question 6: Adjusted <span class="math inline">R^2</span> and overcontrolling</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-<div class="profile-header-container">
+<main class="content column-page-left" id="quarto-document-content"><div class="profile-header-container">
   <div class="profile-header">
     <div class="profile-image-wrapper">
       <img src="20221021-LTH-Alam16-3.jpg" alt="Md Moshi Ul Alam" class="profile-image">
-    </div>
+</div>
     <div class="profile-info">
       <div class="profile-name">Md Moshi Ul Alam</div>
       <div class="profile-title">Assistant Professor of Economics</div>
@@ -476,180 +536,126 @@ ul.task-list li input[type="checkbox"] {
   }
 
 </style>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introduction to Econometrics</h1>
+<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Econometrics PS 3</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
-    
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 2, 2026</p>
-    </div>
+             <p>Prof Alam </p>
+          </div>
   </div>
+    
+  
     
   </div>
   
 
 
-</header>
-
-
-<section id="course-information" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="course-information"><i class="bi bi-journal-text"></i> Course Information</h2>
-<div class="resource-card">
-<p><a href="../teachingmaterials/syllabus.pdf" class="btn btn-primary"> <i class="bi bi-filetype-pdf"></i> Download Syllabus </a></p>
-<p>Also see <a href="../morepages/resourcesforugstudents.html"><i class="bi bi-box-arrow-up-right"></i> Resources for Students</a></p>
+</header><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="lecture-slides" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="lecture-slides"><i class="bi bi-easel2"></i> Lecture Slides</h2>
-<p>All R-scripts, R-markdown files, and data files for the lectures will be uploaded on Canvas. Some simulations and estimations are within the lecture slides.</p>
-<div class="resource-card">
-<ol type="1">
-<li><a href="../teachingmaterials/UG_intro_metrics/01_introRv2.html">Introduction to R</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/02_stat_review.pdf">Statistical Review &amp; Population Concepts</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/03_regression.html">Simple Linear Regressions</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/04_mlr.html">Multiple Linear Regressions</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">More on MLR</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/05_inference.html">Inference in Regression Models</a></li>
-<li>Heteroskedasticity &amp; Serial Correlation <em>[Discussion section]</em></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf">Potential Outcomes</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/08_RCT.pdf">Randomized Controlled Trials</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/09_IV_HTE.pdf">Instrumental Variables, 2SLS &amp; HTE</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/10_panelFE.html">Panel Data and FE, TWFE</a></li>
-<li><a href="../teachingmaterials/UG_intro_metrics/2025did.pdf">Difference-in-Differences</a></li>
-<li>Regression Discontinuity Designs</li>
-<li><a href="../teachingmaterials/UG_intro_metrics/summary.pdf">Course Summary</a></li>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Follow the instructions of completing your problem set detailed in the syllabus.</em></p>
+</div>
+</div>
+<p>This problem set covers the variants on multiple regression from the slides (<a href="../../../teachingmaterials/UG_intro_metrics/06_mlrvariants.html">06_mlrvariants</a>). Whenever you are asked to compare models, report the estimates side by side using the <code>stargazer</code> or <code>modelsummary</code> package. Interpret all coefficients in complete sentences.</p>
+<hr>
+<section id="question-1-units-of-measurement-and-functional-form" class="level1"><h1>Question 1: Units of measurement and functional form</h1>
+<p>Load the <code>vote1</code> dataset from the <code>wooldridge</code> package. Each observation is a 1988 U.S. House of Representatives race between two candidates, A and B. The variables you need are:</p>
+<ul>
+<li>
+<code>voteA</code>: percentage of the vote received by candidate A</li>
+<li>
+<code>expendA</code>, <code>expendB</code>: campaign spending by candidates A and B, in $1,000s</li>
+<li>
+<code>prtystrA</code>: percentage of the most recent presidential vote in the district that went to A’s party</li>
+</ul>
+<ol type="a">
+<li><p>Estimate the model <span class="math display">voteA_i = \beta_0 + \beta_1 expendA_i + \beta_2 expendB_i + \beta_3 prtystrA_i + u_i</span> and interpret <span class="math inline">\hat{\beta}_1</span> and <span class="math inline">\hat{\beta}_3</span>.</p></li>
+<li><p>Create new variables measuring spending in <strong>millions</strong> of dollars instead of thousands. <em>Before</em> re-estimating, predict what will happen to each coefficient, its standard error, and the <span class="math inline">R^2</span>. Then re-estimate the model with the new variables and check your predictions. What would happen instead if <code>voteA</code> were measured as a share between 0 and 1?</p></li>
+<li><p>Now estimate the level-log model <span class="math display">voteA_i = \beta_0 + \beta_1 \log(expendA_i) + \beta_2 \log(expendB_i) + \beta_3 prtystrA_i + u_i</span> Interpret <span class="math inline">\hat{\beta}_1</span>. What is the predicted change in A’s vote share if A spends 10% more, holding B’s spending and party strength fixed?</p></li>
+<li><p>Compare the <span class="math inline">R^2</span> of the models in (a) and (c). Is it legitimate to compare them here? Make a scatter plot of <code>voteA</code> against <code>expendA</code> and another against <code>log(expendA)</code>. Use the plots to explain which specification fits the data better and why that makes economic sense.</p></li>
 </ol>
+<hr></section><section id="question-2-standardized-coefficients" class="level1"><h1>Question 2: Standardized coefficients</h1>
+<p>Continue with <code>vote1</code> and the level model from Question 1(a).</p>
+<ol type="a">
+<li><p>Estimate the standardized version of the model, in which the dependent variable and all explanatory variables are standardized, using the <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> function. Interpret the standardized coefficient on <code>expendA</code>.</p></li>
+<li><p>Verify the standardized coefficient on <code>prtystrA</code> by hand, using <span class="math inline">\hat{\beta}_j^* = \hat{\beta}_j \cdot s_{x_j} / s_y</span> and the sample standard deviations.</p></li>
+<li><p>Based on the raw coefficients in Question 1(a), one might conclude that party strength matters about ten times as much as A’s spending. Based on the standardized coefficients, which variable has the larger association with A’s vote share? Explain why the raw coefficients are misleading for this comparison.</p></li>
+</ol>
+<hr></section><section id="question-3-nonlinear-effects-of-experience" class="level1"><h1>Question 3: Nonlinear effects of experience</h1>
+<p>Load the <code>nbasal</code> dataset, which contains information on 269 players in the National Basketball Association. The variables you need are:</p>
+<ul>
+<li>
+<code>lwage</code>: log of annual salary (salary is in $1,000s)</li>
+<li>
+<code>points</code>: points per game</li>
+<li>
+<code>exper</code>, <code>expersq</code>: years as a professional player, and its square</li>
+<li>
+<code>guard</code>, <code>forward</code>, <code>center</code>: position dummies (each player plays exactly one position)</li>
+</ul>
+<ol type="a">
+<li><p>Estimate <span class="math display">\log(wage_i) = \beta_0 + \beta_1 points_i + \beta_2 exper_i + \beta_3 exper_i^2 + \beta_4 guard_i + \beta_5 forward_i + u_i</span> and interpret <span class="math inline">\hat{\beta}_1</span>.</p></li>
+<li><p>Write down the effect of one more year of experience on log salary, holding the other variables fixed. Compute it for players with 2, 5 and 10 years of experience. Is the effect increasing or decreasing in experience?</p></li>
+<li><p>At how many years of experience does predicted log salary reach its maximum? How many players in the sample have more experience than that? Does your answer imply that the most experienced players are paid less than they were a few years earlier? Discuss.</p></li>
+<li><p>Plot the predicted log salary against <code>exper</code>, holding <code>points</code> at its sample mean and setting the player to be a center.</p></li>
+</ol>
+<hr></section><section id="question-4-categorical-variables-and-interactions-with-dummies" class="level1"><h1>Question 4: Categorical variables and interactions with dummies</h1>
+<p>Continue with <code>nbasal</code> and the model from Question 3(a).</p>
+<ol type="a">
+<li><p>What is the base group for position? What happens if you also include <code>center</code> in the regression? Try it and explain R’s output.</p></li>
+<li><p>Interpret the coefficients on <code>guard</code> and <code>forward</code>, using both the approximation and the exact percentage change.</p></li>
+<li><p>Re-estimate the model using <strong>guards</strong> as the base group. Which coefficients change, and which do not? Show that the estimated salary difference between forwards and guards is the same in both specifications. Does the <span class="math inline">R^2</span> change?</p></li>
+<li><p>Now add <code>marr</code> (=1 if married), <code>black</code> (=1 if black) and their interaction <code>marrblck</code> to the model from Question 3(a). Using the estimates, write down the expected difference in log salary, relative to unmarried non-black players with the same points, experience and position, for each of the three other groups: married non-black, unmarried black, and married black players. What does the coefficient on <code>marrblck</code> measure?</p></li>
+</ol>
+<hr></section><section id="question-5-interactions-between-continuous-variables" class="level1"><h1>Question 5: Interactions between continuous variables</h1>
+<p>Load the <code>attend</code> dataset, which contains information on 680 students in an introductory microeconomics course. The variables you need are:</p>
+<ul>
+<li>
+<code>stndfnl</code>: standardized final exam score (the score minus its mean, divided by its standard deviation)</li>
+<li>
+<code>atndrte</code>: percentage of classes attended</li>
+<li>
+<code>priGPA</code>: cumulative GPA before the term</li>
+<li>
+<code>ACT</code>: ACT score</li>
+</ul>
+<ol type="a">
+<li><p>Estimate <span class="math display">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + \beta_4 priGPA_i^2 + \beta_5 ACT_i^2 + \beta_6 \, atndrte_i \times priGPA_i + u_i</span></p></li>
+<li><p>Write down the effect of attendance on the expected final exam score, <span class="math inline">\partial E(stndfnl \mid \cdot) / \partial\, atndrte</span>. Does <span class="math inline">\hat{\beta}_1</span> on its own have a useful interpretation? Why or why not?</p></li>
+<li><p>Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.</p></li>
+<li><p>Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of <code>priGPA</code> in the data. What does the interaction tell you about who benefits more from attending class?</p></li>
+</ol>
+<hr></section><section id="question-6-adjusted-r2-and-overcontrolling" class="level1"><h1>Question 6: Adjusted <span class="math inline">R^2</span> and overcontrolling</h1>
+<p>Continue with <code>attend</code>.</p>
+<ol type="a">
+<li><p>Estimate <span class="math inline">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i</span>. Compute the adjusted <span class="math inline">R^2</span> by hand from the <span class="math inline">R^2</span>, <span class="math inline">n</span> and <span class="math inline">k</span>, and check that it matches R’s output.</p></li>
+<li><p>Add a variable of pure noise to the model:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">265</span><span class="op">)</span></span>
+<span><span class="va">attend</span><span class="op">$</span><span class="va">noise</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">attend</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="problem-sets" class="level2 section-header course-section">
-<h2 class="section-header anchored" data-anchor-id="problem-sets"><i class="bi bi-pencil-square"></i> Problem Sets</h2>
-<div class="resource-card">
-<p><strong>Problem Set 1</strong> <em>(Due Sep 19, 5pm)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps1.html"><i class="bi bi-file-earmark-text"></i> Assignment</a> | <a href="../teachingmaterials/UG_intro_metrics/pssol/ps1sol.html"><i class="bi bi-check-circle"></i> Solutions</a></p>
-</div>
-<div class="resource-card">
-<p><strong>Problem Set 2</strong> <em>(Due Oct 2, 5pm)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps2.html"><i class="bi bi-file-earmark-text"></i> Assignment</a></p>
-</div>
-<div class="resource-card">
-<p><strong>Problem Set 3</strong> <em>(Due Oct 10)</em><br>
-<a href="../teachingmaterials/UG_intro_metrics/ps/ugmetricsps3.html"><i class="bi bi-file-earmark-text"></i> Assignment</a></p>
-</div>
-<!-- 
-::: {.resource-card}
-**Problem Set 4** *(Due Nov 16)*  
-[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps4.qmd) | 
-[<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps4sol.qmd)
-
-**Problem Set 5** *(Due Dec 1)*  
-[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps5.qmd) | 
-::: -->
-</section>
-<style>
-.course-section {
-  margin-bottom: 1.25rem;
-}
-
-.section-header {
-  padding: 0.5rem 0.75rem;
-  background: linear-gradient(to right, rgba(160, 82, 45, 0.08), transparent);
-  border-left: 4px solid #A0522D;  /* Rust color */
-  border-radius: 0 8px 8px 0;
-  color: #3A3A3A;  /* Soft dark gray */
-  margin-bottom: 0.75rem;
-  margin-top: 0;
-  font-size: 1.0rem;
-}
-
-.resource-card {
-  background: #FFFDF8;  /* Very light cream */
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  border-left: 3px solid #E6D4B8;  /* Light tan */
-  transition: all 0.3s ease;
-}
-
-.resource-card:hover {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.12);
-  border-left-color: #A0522D;  /* Rust on hover */
-  transform: translateX(2px);
-}
-
-.resource-card ol, .resource-card ul {
-  margin: 0;
-  padding-left: 1.5rem;
-  line-height: 1.4;
-}
-
-.resource-card li {
-  padding: 0.25rem 0; 
-  font-size: 0.9rem;
-  color: #3A3A3A;  /* Soft dark gray for text */
-}
-
-.resource-card a {
-  color: #A0522D;  /* Rust for links */
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.resource-card a:hover {
-  color: #8B4513;  /* Darker brown on hover */
-  text-decoration: underline;
-}
-
-/* Button styling */
-.btn-primary {
-  background: #A0522D !important;  /* Rust */
-  border-color: #A0522D !important;
-  color: white !important;
-  padding: 0.4rem 0.9rem; 
-  text-decoration: none !important;
-  display: inline-block;
-  margin-bottom: 0.5rem; 
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem; 
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  background: #8B4513 !important;  /* Darker brown */
-  border-color: #8B4513 !important;
-  color: white !important;
-  text-decoration: none !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
-}
-
-.btn-primary i {
-  margin-right: 0.4rem;
-  color: white !important;
-}
-
-/* Headers */
-h2 {
-  margin-top: 0 !important;
-  color: #3A3A3A;
-}
-</style>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"></p>
+<p>Re-estimate the model with <code>noise</code> added. What happens to the <span class="math inline">R^2</span> and to the adjusted <span class="math inline">R^2</span>? Explain why, using the formula for the adjusted <span class="math inline">R^2</span>.</p>
+<ol start="3" type="a">
+<li>Now add <code>termGPA</code> (the student’s GPA for the current term, which includes their grade in this course) to the model in (a). What happens to the coefficient on <code>atndrte</code> and to the <span class="math inline">R^2</span>? If your goal is to learn how attending class affects exam performance, should you control for <code>termGPA</code>? Explain using the idea of overcontrolling.</li>
+</ol>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1067,15 +1073,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
  Copyright 2021, Md Moshi Ul Alam. Website created using Quarto.
   </li>  
 </ul>
-    </div>   
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -1086,7 +1091,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
-
-
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
