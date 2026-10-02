@@ -108,22 +108,3 @@ b. Write down the effect of attendance on the expected final exam score, $\parti
 c. Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.
 
 d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of `priGPA` in the data. What does the interaction tell you about who benefits more from attending class?
-
-------------------------------------------------------------------------
-
-# Question 6: Adjusted $R^2$ and overcontrolling
-
-Continue with `attend`.
-
-a. Estimate $stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + u_i$. Compute the adjusted $R^2$ by hand from the $R^2$, $n$ and $k$, and check that it matches R's output.
-
-b. Add a variable of pure noise to the model:
-
-```{r, eval=FALSE}
-set.seed(2)
-attend$noise <- rnorm(nrow(attend))
-```
-
-Re-estimate the model with `noise` added. What happens to the $R^2$ and to the adjusted $R^2$? Explain why, using the formula for the adjusted $R^2$.
-
-c. Now add `termGPA` (the student's GPA for the current term, which includes their grade in this course) to the model in (a). What happens to the coefficient on `atndrte` and to the $R^2$? If your goal is to learn how attending class affects exam performance, should you control for `termGPA`? Explain using the idea of overcontrolling.
