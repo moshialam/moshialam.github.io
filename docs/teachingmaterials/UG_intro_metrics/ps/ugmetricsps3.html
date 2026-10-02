@@ -233,6 +233,7 @@ window.Quarto = {
   <li><a href="#question-3-nonlinear-effects-of-experience" id="toc-question-3-nonlinear-effects-of-experience" class="nav-link" data-scroll-target="#question-3-nonlinear-effects-of-experience">Question 3: Nonlinear effects of experience</a></li>
   <li><a href="#question-4-categorical-variables-and-interactions-with-dummies" id="toc-question-4-categorical-variables-and-interactions-with-dummies" class="nav-link" data-scroll-target="#question-4-categorical-variables-and-interactions-with-dummies">Question 4: Categorical variables and interactions with dummies</a></li>
   <li><a href="#question-5-interactions-between-continuous-variables" id="toc-question-5-interactions-between-continuous-variables" class="nav-link" data-scroll-target="#question-5-interactions-between-continuous-variables">Question 5: Interactions between continuous variables</a></li>
+  <li><a href="#question-6-what-to-control-for" id="toc-question-6-what-to-control-for" class="nav-link" data-scroll-target="#question-6-what-to-control-for">Question 6: What to control for</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -601,6 +602,14 @@ Note
 <li><p>Write down the effect of attendance on the expected final exam score, <span class="math inline">\partial E(stndfnl \mid \cdot) / \partial\, atndrte</span>. Does <span class="math inline">\hat{\beta}_1</span> on its own have a useful interpretation? Why or why not?</p></li>
 <li><p>Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.</p></li>
 <li><p>Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of <code>priGPA</code> in the data. What does the interaction tell you about who benefits more from attending class?</p></li>
+</ol>
+<hr></section><section id="question-6-what-to-control-for" class="level1"><h1>Question 6: What to control for</h1>
+<p>A college offers a free peer-tutoring program, and you want to estimate the effect of using it on students’ final grades in an introductory course. You have data on each student’s final grade, whether they used the tutoring program (<span class="math inline">tutor_i = 1</span>), their GPA before the semester started, and the number of hours they studied per week during the semester. You consider two regressions:</p>
+<p><span class="math display">\text{Model A:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + u_i</span> <span class="math display">\text{Model B:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + \beta_3 studyhours_i + u_i</span></p>
+<ol type="a">
+<li><p>Why is it reasonable to control for <code>priorGPA</code>?</p></li>
+<li><p>Tutors encourage students to study more, so part of the program’s effect on grades works through study hours. If that is the case, would you expect <span class="math inline">\hat{\beta}_1</span> to be larger in Model A or in Model B? Explain.</p></li>
+<li><p>What does <span class="math inline">\beta_1</span> measure in Model B? Which model would you use to estimate the effect of the tutoring program on grades, and why?</p></li>
 </ol>
 
 

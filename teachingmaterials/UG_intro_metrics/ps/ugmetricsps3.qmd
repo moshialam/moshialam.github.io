@@ -108,3 +108,18 @@ b. Write down the effect of attendance on the expected final exam score, $\parti
 c. Compute the effect of attendance for a student with the average prior GPA. What does it imply for a student who attends 10 percentage points more of the classes? Express your answer in standard deviations of the final exam score.
 
 d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of `priGPA` in the data. What does the interaction tell you about who benefits more from attending class?
+
+------------------------------------------------------------------------
+
+# Question 6: What to control for
+
+A college offers a free peer-tutoring program, and you want to estimate the effect of using it on students' final grades in an introductory course. You have data on each student's final grade, whether they used the tutoring program ($tutor_i = 1$), their GPA before the semester started, and the number of hours they studied per week during the semester. You consider two regressions:
+
+$$\text{Model A:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + u_i$$
+$$\text{Model B:} \quad grade_i = \beta_0 + \beta_1 tutor_i + \beta_2 priorGPA_i + \beta_3 studyhours_i + u_i$$
+
+a. Why is it reasonable to control for `priorGPA`?
+
+b. Tutors encourage students to study more, so part of the program's effect on grades works through study hours. If that is the case, would you expect $\hat{\beta}_1$ to be larger in Model A or in Model B? Explain.
+
+c. What does $\beta_1$ measure in Model B? Which model would you use to estimate the effect of the tutoring program on grades, and why?
