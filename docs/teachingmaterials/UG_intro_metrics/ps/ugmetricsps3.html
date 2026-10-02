@@ -638,13 +638,13 @@ Note
 <li><p>Compute the effect of attendance for students with a prior GPA of 2.0 and of 3.5, or plot it over the range of <code>priGPA</code> in the data. What does the interaction tell you about who benefits more from attending class?</p></li>
 </ol>
 <hr></section><section id="question-6-adjusted-r2-and-overcontrolling" class="level1"><h1>Question 6: Adjusted <span class="math inline">R^2</span> and overcontrolling</h1>
-<p>Continue with <code>attend</code>. The variable <code>ACT</code> is the student’s ACT score.</p>
+<p>Continue with <code>attend</code>.</p>
 <ol type="a">
-<li><p>Estimate <span class="math inline">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i</span>. Compute the adjusted <span class="math inline">R^2</span> by hand from the <span class="math inline">R^2</span>, <span class="math inline">n</span> and <span class="math inline">k</span>, and check that it matches R’s output.</p></li>
+<li><p>Estimate <span class="math inline">stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + u_i</span>. Compute the adjusted <span class="math inline">R^2</span> by hand from the <span class="math inline">R^2</span>, <span class="math inline">n</span> and <span class="math inline">k</span>, and check that it matches R’s output.</p></li>
 <li><p>Add a variable of pure noise to the model:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">265</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">attend</span><span class="op">$</span><span class="va">noise</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">attend</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Re-estimate the model with <code>noise</code> added. What happens to the <span class="math inline">R^2</span> and to the adjusted <span class="math inline">R^2</span>? Explain why, using the formula for the adjusted <span class="math inline">R^2</span>.</p>

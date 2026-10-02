@@ -113,14 +113,14 @@ d. Compute the effect of attendance for students with a prior GPA of 2.0 and of 
 
 # Question 6: Adjusted $R^2$ and overcontrolling
 
-Continue with `attend`. The variable `ACT` is the student's ACT score.
+Continue with `attend`.
 
-a. Estimate $stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + \beta_3 ACT_i + u_i$. Compute the adjusted $R^2$ by hand from the $R^2$, $n$ and $k$, and check that it matches R's output.
+a. Estimate $stndfnl_i = \beta_0 + \beta_1 atndrte_i + \beta_2 priGPA_i + u_i$. Compute the adjusted $R^2$ by hand from the $R^2$, $n$ and $k$, and check that it matches R's output.
 
 b. Add a variable of pure noise to the model:
 
 ```{r, eval=FALSE}
-set.seed(265)
+set.seed(2)
 attend$noise <- rnorm(nrow(attend))
 ```
 
