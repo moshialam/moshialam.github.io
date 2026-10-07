@@ -5,7 +5,6 @@ project:
     - "**/*.qmd"
     - "**/*.ipynb"
     # Unreleased solutions; delete a line to publish that solution
-    - "!teachingmaterials/UG_intro_metrics/pssol/ps2sol.qmd"
     - "!teachingmaterials/UG_intro_metrics/pssol/ps3sol.qmd"
     - "!teachingmaterials/UG_intro_metrics/pssol/ps4sol.qmd"
     - "!teachingmaterials/UG_intro_metrics/pssol/ps5sol.qmd"
