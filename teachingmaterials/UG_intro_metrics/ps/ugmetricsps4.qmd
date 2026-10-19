@@ -8,48 +8,98 @@ toc: true
 code-fold: false
 ---
 
-## Simplified Angrist and Krueger (1991) Replication
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+library(fixest)
+```
 
-You will need libraries `AER`, `ggplot2`, and `lmtest` for this problem set.
+::: {.callout-note}
+*Follow the instructions of completing your problem set detailed in the syllabus.*
+:::
 
-Recall the context of our quiz on Instrumental Variables based on Angrist and Krueger (1991). Load `iv_csl_dataset.csv` in R using `read.csv` function. It contains a simplified simulated dataset based on Angrist and Krueger (1991). The variable `qob` indicates the quarter of birth of individual $i$ (Q1, Q2, Q3, Q4). The rest should be self-explanatory.
+This problem set covers potential outcomes ([07_potentialoutcomes](/teachingmaterials/UG_intro_metrics/07_potentialoutcomes.pdf)), randomized control trials ([08_RCT](/teachingmaterials/UG_intro_metrics/08_RCT.pdf)) and panel data with fixed effects ([10_panelFE](/teachingmaterials/UG_intro_metrics/10_panelFE.qmd)). Whenever you are asked to compare models, report the estimates side by side using the `stargazer`, `modelsummary` or `etable` (from `fixest`) functions. Interpret all coefficients in complete sentences.
 
+------------------------------------------------------------------------
 
-We study the causal effect of education on earnings, controlling for a bunch of other included exogenous variables. 
-$$ \ln(Wage_i) = \beta_0 + \beta_1 Educ_i + \beta_3 Age_i + \beta_4 Region_i + u_i $$
-where `Wage` is the annual wage of individual $i$, `Educ` is years of education, `Age` is age in years, and `Region` is a categorical variable indicating the region of residence (representing region fixed effects) which includes the , and clearly $E(u_i|Educ_i) \neq 0$ so $E(u_i | Educ_i, Age_i, Region_i) \neq 0$ as well.
+# Question 1
 
-### Question 1
+A university runs an optional summer coding bootcamp. Suppose that, unlike in real data, we could see both potential outcomes for six graduates. $Y_i(1)$ is graduate $i$'s starting salary (in \$1,000s) if they attend the bootcamp, $Y_i(0)$ is their salary if they do not, and $D_i = 1$ if they actually attended.
 
-Explore the dataset and report summary statistics of the variables
+| Graduate $i$ | $Y_i(0)$ | $Y_i(1)$ | $D_i$ |
+|:------------:|:--------:|:--------:|:-----:|
+| 1            | 30       | 36       | 1     |
+| 2            | 28       | 33       | 1     |
+| 3            | 26       | 30       | 1     |
+| 4            | 20       | 27       | 0     |
+| 5            | 18       | 24       | 0     |
+| 6            | 16       | 22       | 0     |
 
-### Question 2
+a. Compute each graduate's treatment effect, and then the ATE, the ATT and the ATNT.
 
-Make two plots and describe what you see in each plot:
+b. Write down the observed outcome $Y_i$ for each graduate. Which entries of the table would a researcher actually see in the data?
 
-(a) mean years of education by quarter of birth
-(b) mean log wage by quarter of birth
+c. Compute the observed difference in average salaries, $E[Y_i \mid D_i = 1] - E[Y_i \mid D_i = 0]$. Show that it equals the ATT plus selection bias, and compute the selection bias.
 
-### Question 3
+d. In words, why is there selection bias here? What does its sign tell you about who chose to attend the bootcamp?
 
-Generate a dummy variable Z equal to 1 if an individual was born in Quarter 1, and 0 otherwise.  Explain why Z is a valid instrument for `Educ` in the above regression.
+e. Suppose the bootcamp graduates compete with the non-attendees for the same small number of entry-level jobs. Which assumption of the potential outcomes framework would this violate, and why?
 
-### Question 4
+------------------------------------------------------------------------
 
-Estimate the 1st stage regression. Be careful to include the other exogenous variables in the regression. Report and interpret the results. See slide 39.
+# Question 2
 
-### Question 5
+Load the `jtrain2` dataset from the `wooldridge` package. It comes from the National Supported Work (NSW) demonstration, an experiment in the 1970s in which disadvantaged men were **randomly assigned** to a job training program. The variables you need are:
 
-Predict the values of `Educ` using the 1st stage regression and save them in a new variable called `Educ_hat`. Estimate the 2nd stage regression of `ln(Wage)` on `Educ_hat` and the other exogenous variables. Report and interpret the results. See slide 39 & 40.
+- `train`: =1 if assigned to job training
+- `re78`: real earnings in 1978, after the program (in \$1,000s)
+- `re74`, `re75`: real earnings in 1974 and 1975, before the program (in \$1,000s)
+- `age`, `educ`: age and years of schooling
+- `black`, `hisp`, `married`, `nodegree`: =1 if black, Hispanic, married, or without a high school degree
 
-### Question 6
+a. Check whether randomization produced balanced groups. For each pre-treatment variable (`age`, `educ`, `black`, `hisp`, `married`, `nodegree`, `re74`, `re75`), report the mean for the treatment and control groups and the difference between them. Use a regression of each variable on `train` to judge whether the difference is statistically significant. Are the groups balanced? Is any imbalance a concern?
 
-Now instead of manually doing the 2SLS procedure, use the `ivreg` function from the `AER` package to estimate the IV regression of `ln(Wage)` on `Educ`, using `Z` as an instrument for `Educ`, and including the other exogenous variables. Compare the results. What differs and why?
+b. Estimate $re78_i = \alpha + \beta\, train_i + u_i$. Show that $\hat{\beta}$ equals the difference in average 1978 earnings between the two groups, and interpret it.
 
-Use `summary(yourivmodel, diagnostics = TRUE)` to see the diagnostic tests and interpret whether the instrument is weak or not.
+c. Why can $\hat{\beta}$ in (b) be interpreted as the causal effect of training, while a regression of earnings on training would not have this interpretation in most other datasets? Explain using the decomposition of the observed difference into the ATT and selection bias.
 
-### Question 7
+d. Add `age`, `educ`, `black`, `hisp`, `married`, `re74` and `re75` as controls. Compare the coefficient on `train` and its standard error with (b). Why does the estimate barely change? Why might a researcher still want to include these controls?
 
-Explain why your estimate is a Local Average Treatment Effect and for whom it is identified.
+------------------------------------------------------------------------
 
----
+# Question 3
+
+Now load `jtrain3`. It contains the **same** 185 men who received training in the NSW experiment, but instead of the randomized control group, the comparison group is 2,490 men drawn from a general population survey (the Panel Study of Income Dynamics). The variables have the same names and meanings as in `jtrain2`.
+
+a. Estimate $re78_i = \alpha + \beta\, train_i + u_i$ in this sample and interpret $\hat{\beta}$. Compare it with your estimate in Question 2(b).
+
+b. Compare the average 1975 earnings (`re75`) and other pre-treatment characteristics of the trainees and the comparison group. Use these comparisons to explain the sign and the size of the selection bias in (a).
+
+c. Add the same controls as in Question 2(d). How close does the estimate get to the experimental estimate? What does this tell you about the limits of controlling for observable characteristics?
+
+------------------------------------------------------------------------
+
+# Question 4
+
+Load the `wagepan` dataset, a panel of 545 young men observed every year from 1980 to 1987. We want to estimate the wage premium from belonging to a union. The variables you need are:
+
+- `nr`: person identifier; `year`: year
+- `lwage`: log hourly wage
+- `union`: =1 if the man's wage is set in a union contract that year
+- `married`: =1 if married
+- `educ`: years of schooling; `exper`, `expersq`: years of labor market experience and its square
+- `black`, `hisp`: =1 if black or Hispanic
+
+Use `feols()` from the `fixest` package for all regressions in this question, and cluster the standard errors by person (`cluster = ~nr`).
+
+a. Is this a balanced panel? How many men switch union status at least once during the eight years? Why does that number matter for estimating the union premium with fixed effects?
+
+b. Estimate the pooled OLS regression of `lwage` on `union`, `married`, `educ`, `exper`, `expersq`, `black` and `hisp`, ignoring the panel structure. Interpret the coefficient on `union`.
+
+c. Now add person fixed effects. Interpret the coefficient on `union`. Which variables drop out of the regression, and why?
+
+d. The union coefficient falls substantially from (b) to (c). Name an unobserved, time-invariant characteristic of workers that could explain this, and explain how it biases the pooled OLS estimate.
+
+e. Add year fixed effects to the model in (c) (two-way fixed effects). What do the year fixed effects control for? `exper` now drops out as well. Why?

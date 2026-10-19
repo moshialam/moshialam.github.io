@@ -1,5 +1,5 @@
 ---
-title: "Econometrics PS 4 - Solution key"
+title: "Econometrics PS 6 - Solution key"
 author: "Prof Alam"
 format: html
 editor: visual
