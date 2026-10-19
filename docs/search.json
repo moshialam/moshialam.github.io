@@ -886,7 +886,7 @@
     "href": "morepages/UG_intro_metrics.html#problem-sets",
     "title": "Introduction to Econometrics",
     "section": " Problem Sets",
-    "text": "Problem Sets\n\nProblem Set 1 (Due Sep 19, 5pm)\n Assignment |  Solutions\n\n\nProblem Set 2 (Due Oct 2, 5pm)\n Assignment |  Solutions\n\n\nProblem Set 3 (Due Oct 10, 5pm)\n Assignment"
+    "text": "Problem Sets\n\nProblem Set 1 (Due Sep 19, 5pm)\n Assignment |  Solutions\n\n\nProblem Set 2 (Due Oct 2, 5pm)\n Assignment |  Solutions\n\n\nProblem Set 3 (Due Oct 10, 5pm)\n Assignment |  Solutions"
   },
   {
     "objectID": "teaching.html",
@@ -1797,5 +1797,166 @@
     "title": "Econometrics PS 2 - Solution key",
     "section": "Part (e)",
     "text": "Part (e)\nLets residualize lwage from educ exper female and tenure to see how the data pattern looks with exper^2 and tenure^2 after expunging variation in lwage from educ exper female and tenure.\n\nmodel_resid &lt;- lm(lwage ~ educ + female + exper + tenure, data = wage1)\nwage1$residuals &lt;- resid(model_resid)\n\npar(mfrow = c(1, 2))\nplot((wage1$exper)^2, wage1$residuals, main = \"Residualized Log Wage \\n vs Experience squared\", \n     xlab = \"Experience\", ylab = \"Residualized Log Wage\", col = rgb(0,0,1,0.3), pch = 19)\nlines(lowess((wage1$exper)^2, wage1$residuals), col = \"red\", lwd = 2)\nplot((wage1$tenure)^2, wage1$residuals, main = \"Residualized Log Wage\\n  vs Tenure squared\",\n     xlab = \"Tenure\", ylab = \"Residualized Log Wage\", col = rgb(0,0,1,0.3), pch = 19)\nlines(lowess((wage1$tenure)^2, wage1$residuals), col = \"red\", lwd = 2)\n\n\n\n\n\n\n\nThese patterns suggest adding exper² and tenure² diminishing marginal returns to experience and tenure commonly observed in labor economics.. Adding these non-linearities could improve model fit."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "",
+    "text": "Md Moshi Ul Alam\n      Assistant Professor of Economics\n      \n        Clark University\n      \n      \n        \n          \n          Email\n        \n        \n          \n          CV"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\n\ndata(vote1)\n\nm_level &lt;- lm(voteA ~ expendA + expendB + prtystrA, data = vote1)\nsummary(m_level)\n\n\nCall:\nlm(formula = voteA ~ expendA + expendB + prtystrA, data = vote1)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-26.661  -8.385   0.362   8.536  30.814 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 33.267190   4.416784   7.532 2.87e-12 ***\nexpendA      0.034924   0.003369  10.365  &lt; 2e-16 ***\nexpendB     -0.034924   0.003001 -11.636  &lt; 2e-16 ***\nprtystrA     0.342514   0.087952   3.894 0.000142 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 11.12 on 169 degrees of freedom\nMultiple R-squared:  0.5687,    Adjusted R-squared:  0.561 \nF-statistic: 74.27 on 3 and 169 DF,  p-value: &lt; 2.2e-16\n\n\nHolding B’s spending and A’s party strength fixed, an extra $1,000 of spending by A is associated with a 0.035 percentage point higher vote share for A on average. The coefficient is statistically significant at the 1% level (t = 10.4).\nHolding both candidates’ spending fixed, a district where A’s party got one percentage point more of the last presidential vote gives A a 0.343 percentage point higher vote share on average. This is also significant at the 1% level (t = 3.9)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\nPredictions. Dividing a regressor by 1,000 multiplies its coefficient and its standard error by 1,000. The intercept, the coefficient on prtystrA and their standard errors do not change. The fitted values and residuals are identical, so the R^2 does not change either.\n\nvote1$expendA_mil &lt;- vote1$expendA / 1000\nvote1$expendB_mil &lt;- vote1$expendB / 1000\n\nm_mil &lt;- lm(voteA ~ expendA_mil + expendB_mil + prtystrA, data = vote1)\n\nstargazer(m_level, m_mil, type = \"text\",\n          column.labels = c(\"$1,000s\", \"$ millions\"),\n          keep.stat = c(\"n\", \"rsq\"))\n\n\n=========================================\n                 Dependent variable:     \n             ----------------------------\n                        voteA            \n                 1,000s       millions   \n                  (1)            (2)     \n-----------------------------------------\nexpendA         0.035***                 \n                (0.003)                  \n                                         \nexpendB        -0.035***                 \n                (0.003)                  \n                                         \nexpendA_mil                   34.924***  \n                               (3.369)   \n                                         \nexpendB_mil                  -34.924***  \n                               (3.001)   \n                                         \nprtystrA        0.343***      0.343***   \n                (0.088)        (0.088)   \n                                         \nConstant       33.267***      33.267***  \n                (4.417)        (4.417)   \n                                         \n-----------------------------------------\nObservations      173            173     \nR2               0.569          0.569    \n=========================================\nNote:         *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01\n\n\nThe predictions are confirmed. An extra $1 million of spending by A is associated with a 34.9 percentage point higher vote share.\nIf voteA were measured as a share between 0 and 1 (i.e. divided by 100), every coefficient, including the intercept, and every standard error would be divided by 100. The R^2 would again be unchanged."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\n\nm_log &lt;- lm(voteA ~ log(expendA) + log(expendB) + prtystrA, data = vote1)\nsummary(m_log)\n\n\nCall:\nlm(formula = voteA ~ log(expendA) + log(expendB) + prtystrA, \n    data = vote1)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-20.3968  -5.4174  -0.8679   4.9551  26.0660 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  45.07893    3.92631   11.48   &lt;2e-16 ***\nlog(expendA)  6.08332    0.38215   15.92   &lt;2e-16 ***\nlog(expendB) -6.61542    0.37882  -17.46   &lt;2e-16 ***\nprtystrA      0.15196    0.06202    2.45   0.0153 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.712 on 169 degrees of freedom\nMultiple R-squared:  0.7926,    Adjusted R-squared:  0.7889 \nF-statistic: 215.2 on 3 and 169 DF,  p-value: &lt; 2.2e-16\n\n\nIn a level-log model, \\Delta voteA \\approx (\\beta_1/100)\\,\\%\\Delta expendA. Holding B’s spending and party strength fixed, a 1% increase in A’s spending is associated with a 0.061 percentage point higher vote share for A. The coefficient is significant at the 1% level (t = 15.9).\nFor a 10% increase, the approximation gives \\hat{\\beta}_1/10 = 0.61 percentage points."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (d)",
+    "text": "Part (d)\n\ndata.frame(model = c(\"Level (a)\", \"Level-log (c)\"),\n           n = c(nobs(m_level), nobs(m_log)),\n           r_squared = round(c(summary(m_level)$r.squared, summary(m_log)$r.squared), 3))\n\n          model   n r_squared\n1     Level (a) 173     0.569\n2 Level-log (c) 173     0.793\n\n\nThe comparison is legitimate here. Both models have the same dependent variable (voteA in levels), the same sample, and the same number of regressors. So R^2 measures the share of the same variation in voteA that each model explains. The level-log model explains a lot more: 0.79 versus 0.57.\n\npar(mfrow = c(1, 2))\nplot(vote1$expendA, vote1$voteA, pch = 19, col = rgb(0, 0, 1, 0.4),\n     xlab = \"expendA ($1,000s)\", ylab = \"voteA\", main = \"Level\")\nlines(lowess(vote1$expendA, vote1$voteA), col = \"red\", lwd = 2)\nplot(log(vote1$expendA), vote1$voteA, pch = 19, col = rgb(0, 0, 1, 0.4),\n     xlab = \"log(expendA)\", ylab = \"voteA\", main = \"Log\")\nlines(lowess(log(vote1$expendA), vote1$voteA), col = \"red\", lwd = 2)\n\n\n\n\n\n\n\nIn levels, most races are bunched at low spending and the relationship is clearly concave: vote share rises steeply with the first few hundred thousand dollars and then flattens out. A straight line fits this poorly. Against log(expendA) the relationship is close to linear, so the level-log specification fits much better.\nThis makes economic sense because spending has diminishing returns. The first $100,000 buys name recognition and basic advertising, while an extra $100,000 for a candidate already spending $1 million adds little. The log specification says that the same percentage increase in spending moves the vote share by the same amount, which builds those diminishing returns in."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-1",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-1",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\n\nm_std &lt;- lm(scale(voteA) ~ scale(expendA) + scale(expendB) + scale(prtystrA), data = vote1)\nsummary(m_std)\n\n\nCall:\nlm(formula = scale(voteA) ~ scale(expendA) + scale(expendB) + \n    scale(prtystrA), data = vote1)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.58842 -0.49957  0.02157  0.50858  1.83584 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      3.330e-16  5.037e-02   0.000 1.000000    \nscale(expendA)   5.847e-01  5.641e-02  10.365  &lt; 2e-16 ***\nscale(expendB)  -6.373e-01  5.476e-02 -11.636  &lt; 2e-16 ***\nscale(prtystrA)  2.037e-01  5.231e-02   3.894 0.000142 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6626 on 169 degrees of freedom\nMultiple R-squared:  0.5687,    Adjusted R-squared:  0.561 \nF-statistic: 74.27 on 3 and 169 DF,  p-value: &lt; 2.2e-16\n\n\nHolding B’s spending and party strength fixed, a one standard deviation increase in A’s spending (about $281,000) is associated with a 0.58 standard deviation higher vote share for A. It is significant at the 1% level (t = 10.4)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-1",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-1",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\n\nb_prty &lt;- coef(m_level)[\"prtystrA\"]\ns_x &lt;- sd(vote1$prtystrA)\ns_y &lt;- sd(vote1$voteA)\n\nc(raw = unname(b_prty), s_x = s_x, s_y = s_y,\n  by_hand = unname(b_prty * s_x / s_y),\n  from_scale = unname(coef(m_std)[\"scale(prtystrA)\"]))\n\n       raw        s_x        s_y    by_hand from_scale \n 0.3425140  9.9836504 16.7847606  0.2037289  0.2037289 \n\n\n\\hat{\\beta}^*_{prtystrA} = 0.3425 \\times 9.984 / 16.785 = 0.2037, matching the coefficient from the scale() regression."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-1",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-1",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\nThe raw coefficient on prtystrA (0.343) is about ten times the one on expendA (0.035). But the standardized coefficients reverse this ranking. A one SD increase in A’s spending is associated with a 0.58 SD higher vote share, compared with only 0.2 SD for a one SD increase in party strength. A’s spending has the larger association.\nThe raw coefficients are misleading because they are in different units. One unit of expendA is $1,000, a tiny change compared with its SD of about $281,000. One unit of prtystrA is a percentage point, which is a sizeable fraction of its SD of about 10 points. Comparing “one unit” across variables compares changes of very different sizes. Standardizing puts both on the same scale: a typical (one SD) change in each."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-2",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-2",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\n\ndata(nbasal)\n\nm_nba &lt;- lm(lwage ~ points + exper + expersq + guard + forward, data = nbasal)\nsummary(m_nba)\n\n\nCall:\nlm(formula = lwage ~ points + exper + expersq + guard + forward, \n    data = nbasal)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.0823 -0.3096  0.1078  0.4404  1.5852 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  5.604324   0.134725  41.598  &lt; 2e-16 ***\npoints       0.082822   0.006827  12.131  &lt; 2e-16 ***\nexper        0.170496   0.037479   4.549 8.23e-06 ***\nexpersq     -0.007241   0.002715  -2.667  0.00813 ** \nguard       -0.234464   0.112091  -2.092  0.03742 *  \nforward      0.002932   0.111680   0.026  0.97907    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6288 on 263 degrees of freedom\nMultiple R-squared:  0.5005,    Adjusted R-squared:  0.491 \nF-statistic: 52.71 on 5 and 263 DF,  p-value: &lt; 2.2e-16\n\n\nHolding experience and position fixed, one more point per game is associated with roughly 8.3% higher salary on average. The coefficient is significant at the 1% level (t = 12.1)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-2",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-2",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\n\\frac{\\partial \\log(wage)}{\\partial exper} = \\beta_2 + 2\\beta_3\\, exper\n\nb &lt;- coef(m_nba)\nexper_vals &lt;- c(2, 5, 10)\ndata.frame(exper = exper_vals,\n           effect = round(b[\"exper\"] + 2 * b[\"expersq\"] * exper_vals, 4),\n           pct = round(100 * (b[\"exper\"] + 2 * b[\"expersq\"] * exper_vals), 1))\n\n  exper effect  pct\n1     2 0.1415 14.2\n2     5 0.0981  9.8\n3    10 0.0257  2.6\n\n\nHolding points and position fixed, one more year of experience is associated with about 14.2% higher salary for a player with 2 years of experience, 9.8% at 5 years and only 2.6% at 10 years. The effect is decreasing in experience, because \\hat{\\beta}_3 &lt; 0."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-2",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-2",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\nPredicted log salary peaks where the marginal effect equals zero: exper^* = -\\hat{\\beta}_2 / (2\\hat{\\beta}_3).\n\nturn &lt;- -b[\"exper\"] / (2 * b[\"expersq\"])\nc(turning_point = unname(turn),\n  n_above = sum(nbasal$exper &gt; turn),\n  max_exper = max(nbasal$exper))\n\nturning_point       n_above     max_exper \n     11.77278      11.00000      18.00000 \n\n\nPredicted log salary peaks at about 11.8 years. Only 11 of the 269 players have more experience than that.\nThis does not show that the most experienced players earn less than they did a few years earlier:\n\nThe downward part of the curve is estimated from only 11 players. The quadratic is symmetric around its peak by construction, so the fit for the bulk of the sample (1 to 10 years) determines where the downturn occurs. The decline is mostly an artifact of the functional form.\nThis is a cross-section, not a panel: we compare different players with different experience levels, not the same player over time.\nHolding points fixed, a 15-year veteran with the same scoring as a 5-year player may simply be past their prime in other dimensions. And the players who survive that long are a selected group."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-1",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-1",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (d)",
+    "text": "Part (d)\n\npred_data &lt;- data.frame(exper = seq(min(nbasal$exper), max(nbasal$exper), by = 0.1),\n                        points = mean(nbasal$points),\n                        guard = 0, forward = 0)\npred_data$expersq &lt;- pred_data$exper^2\npred_data$lwage_hat &lt;- predict(m_nba, newdata = pred_data)\n\nggplot(pred_data, aes(x = exper, y = lwage_hat)) +\n  geom_line(color = \"blue\", linewidth = 1) +\n  labs(x = \"Years of experience\", y = \"Predicted log salary\",\n       title = \"Center scoring the sample-average points per game\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-3",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-3",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\nThe base group is centers, the position dummy left out of the regression.\n\nm_all &lt;- lm(lwage ~ points + exper + expersq + guard + forward + center, data = nbasal)\nsummary(m_all)\n\n\nCall:\nlm(formula = lwage ~ points + exper + expersq + guard + forward + \n    center, data = nbasal)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.0823 -0.3096  0.1078  0.4404  1.5852 \n\nCoefficients: (1 not defined because of singularities)\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  5.604324   0.134725  41.598  &lt; 2e-16 ***\npoints       0.082822   0.006827  12.131  &lt; 2e-16 ***\nexper        0.170496   0.037479   4.549 8.23e-06 ***\nexpersq     -0.007241   0.002715  -2.667  0.00813 ** \nguard       -0.234464   0.112091  -2.092  0.03742 *  \nforward      0.002932   0.111680   0.026  0.97907    \ncenter             NA         NA      NA       NA    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6288 on 263 degrees of freedom\nMultiple R-squared:  0.5005,    Adjusted R-squared:  0.491 \nF-statistic: 52.71 on 5 and 263 DF,  p-value: &lt; 2.2e-16\n\n\nEach player plays exactly one position, so guard + forward + center = 1 for every observation. This is an exact linear combination of the intercept, so including all three dummies with an intercept is perfect multicollinearity (the dummy variable trap). OLS cannot separate their effects. R detects this and drops the last collinear variable, center (its coefficient is reported as NA, “not defined because of singularities”), so we get back the regression from Question 3(a)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-3",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-3",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\nHolding points and experience fixed:\n\n\nGuards earn about 23.4% less than centers by the approximation. The exact difference is 100(e^{-0.2345} - 1) = -20.9\\%. The difference is significant at the 5% level (t = -2.09).\n\nForwards earn about 0.3% more than centers (exactly 0.3%). This is essentially zero and not statistically significant (t = 0.03)."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-3",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-3",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\n\nm_guardbase &lt;- lm(lwage ~ points + exper + expersq + forward + center, data = nbasal)\n\nstargazer(m_nba, m_guardbase, type = \"text\",\n          column.labels = c(\"Base: center\", \"Base: guard\"),\n          keep.stat = c(\"n\", \"rsq\"))\n\n\n=========================================\n                 Dependent variable:     \n             ----------------------------\n                        lwage            \n              Base: center   Base: guard \n                  (1)            (2)     \n-----------------------------------------\npoints          0.083***      0.083***   \n                (0.007)        (0.007)   \n                                         \nexper           0.170***      0.170***   \n                (0.037)        (0.037)   \n                                         \nexpersq        -0.007***      -0.007***  \n                (0.003)        (0.003)   \n                                         \nguard           -0.234**                 \n                (0.112)                  \n                                         \nforward          0.003        0.237***   \n                (0.112)        (0.084)   \n                                         \ncenter                         0.234**   \n                               (0.112)   \n                                         \nConstant        5.604***      5.370***   \n                (0.135)        (0.123)   \n                                         \n-----------------------------------------\nObservations      269            269     \nR2               0.501          0.501    \n=========================================\nNote:         *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01\n\n\nUnchanged: the coefficients and standard errors on points, exper and expersq, and the R^2. Changing the base group is just a reparameterization: the fitted values are identical.\nChanged: the intercept (now the intercept for guards) and the position coefficients, since they are now measured relative to guards.\nForward minus guard is the same in both:\n\nc(center_base = unname(coef(m_nba)[\"forward\"] - coef(m_nba)[\"guard\"]),\n  guard_base = unname(coef(m_guardbase)[\"forward\"]))\n\ncenter_base  guard_base \n  0.2373961   0.2373961"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-2",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-2",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (d)",
+    "text": "Part (d)\n\nm_marr &lt;- lm(lwage ~ points + exper + expersq + guard + forward + marr + black + marrblck,\n             data = nbasal)\nsummary(m_marr)\n\n\nCall:\nlm(formula = lwage ~ points + exper + expersq + guard + forward + \n    marr + black + marrblck, data = nbasal)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.05573 -0.33434  0.08919  0.41872  1.79787 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  5.424849   0.166768  32.529  &lt; 2e-16 ***\npoints       0.081747   0.006858  11.920  &lt; 2e-16 ***\nexper        0.172755   0.037990   4.547 8.33e-06 ***\nexpersq     -0.007394   0.002718  -2.720  0.00696 ** \nguard       -0.261012   0.113590  -2.298  0.02237 *  \nforward     -0.031450   0.113566  -0.277  0.78205    \nmarr         0.152260   0.180767   0.842  0.40039    \nblack        0.271064   0.142651   1.900  0.05851 .  \nmarrblck    -0.225179   0.196147  -1.148  0.25202    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6276 on 260 degrees of freedom\nMultiple R-squared:  0.5081,    Adjusted R-squared:  0.493 \nF-statistic: 33.57 on 8 and 260 DF,  p-value: &lt; 2.2e-16\n\n\n\nd &lt;- coef(m_marr)\ndata.frame(group = c(\"Unmarried non-black (base)\", \"Married non-black\",\n                     \"Unmarried black\", \"Married black\"),\n           formula = c(\"0\", \"b_marr\", \"b_black\", \"b_marr + b_black + b_marrblck\"),\n           diff_log_salary = round(c(0, d[\"marr\"], d[\"black\"],\n                                     d[\"marr\"] + d[\"black\"] + d[\"marrblck\"]), 3))\n\n                       group                       formula diff_log_salary\n1 Unmarried non-black (base)                             0           0.000\n2          Married non-black                        b_marr           0.152\n3            Unmarried black                       b_black           0.271\n4              Married black b_marr + b_black + b_marrblck           0.198\n\n\nRelative to unmarried non-black players with the same points, experience and position:\n\n\nMarried non-black players earn about 15.2% more (\\hat{\\beta}_{marr}). This is not statistically significant (t = 0.84).\n\nUnmarried black players earn about 27.1% more (\\hat{\\beta}_{black}). This is significant only at the 10% level (t = 1.9).\n\nMarried black players earn about 19.8% more (\\hat{\\beta}_{marr} + \\hat{\\beta}_{black} + \\hat{\\beta}_{marrblck}).\n\nThe coefficient on marrblck measures how much the marriage premium differs for black players compared with non-black players. Equivalently, it is how much the black–non-black gap differs between married and unmarried players."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-4",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-4",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\n\ndata(attend)\n\nm_att &lt;- lm(stndfnl ~ atndrte + priGPA + I(priGPA^2) + atndrte:priGPA, data = attend)\nsummary(m_att)\n\n\nCall:\nlm(formula = stndfnl ~ atndrte + priGPA + I(priGPA^2) + atndrte:priGPA, \n    data = attend)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.4527 -0.5662 -0.0375  0.6319  2.4342 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)     2.011844   0.802862   2.506   0.0125 *  \natndrte        -0.009835   0.010540  -0.933   0.3511    \npriGPA         -2.002773   0.494606  -4.049 5.73e-05 ***\nI(priGPA^2)     0.433779   0.102354   4.238 2.57e-05 ***\natndrte:priGPA  0.004509   0.004454   1.012   0.3117    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.9035 on 675 degrees of freedom\nMultiple R-squared:  0.1712,    Adjusted R-squared:  0.1663 \nF-statistic: 34.85 on 4 and 675 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-4",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-4",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\n\\frac{\\partial E(stndfnl \\mid \\cdot)}{\\partial\\, atndrte} = \\beta_1 + \\beta_4\\, priGPA\n\\hat{\\beta}_1 on its own is the effect of attendance for a student with priGPA = 0. No such student exists (the lowest prior GPA in the sample is 0.857), so \\hat{\\beta}_1 by itself has no useful interpretation. That it is negative (-0.0098) does not mean attendance lowers exam scores. With an interaction, the effect of attendance has to be evaluated at a meaningful value of priGPA."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-4",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-4",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\n\ng &lt;- coef(m_att)\ngpa_bar &lt;- mean(attend$priGPA)\n\natt_effect &lt;- function(gpa) unname(g[\"atndrte\"] + g[\"atndrte:priGPA\"] * gpa)\natt_effect(gpa_bar)\n\n[1] 0.001830448\n\n\nAt the average prior GPA (2.59), one more percentage point of attendance is associated with a 0.0018 SD higher final exam score. A student who attends 10 percentage points more of the classes is predicted to score about 0.018 standard deviations higher."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-3",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-d-3",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (d)",
+    "text": "Part (d)\n\ndata.frame(priGPA = c(2, 3.5), effect = round(c(att_effect(2), att_effect(3.5)), 4))\n\n  priGPA  effect\n1    2.0 -0.0008\n2    3.5  0.0059\n\n\nThe estimated effect of attendance is essentially zero for a student with a 2.0 prior GPA (-0.0008 SD per percentage point). For a student with a 3.5 prior GPA it is 0.0059 SD per percentage point, so 10 more points of attendance would mean about 0.06 SD. The positive interaction says that students with higher prior GPAs benefit more from attending class."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-5",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-a-5",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (a)",
+    "text": "Part (a)\nStudents who choose to use tutoring are likely to differ systematically in prior academic ability. Weaker students may seek help more, or more motivated students may be more likely to use the free resource. Prior GPA also strongly predicts the final grade. Leaving it out would therefore bias \\hat{\\beta}_1 (omitted variable bias). Crucially, priorGPA is measured before the semester, so it cannot be affected by tutoring: it is a confounder, not an outcome of the program."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-5",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-b-5",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (b)",
+    "text": "Part (b)\n\\hat{\\beta}_1 should be larger in Model A. Tutoring raises grades through two channels: directly (better understanding of the material) and indirectly, by increasing study hours, which in turn raise grades. Model A leaves study hours out, so \\hat{\\beta}_1 picks up both channels. In Model B, study hours are held fixed, which shuts down the indirect channel. That leaves only the direct effect."
+  },
+  {
+    "objectID": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-5",
+    "href": "teachingmaterials/UG_intro_metrics/pssol/ps3sol.html#part-c-5",
+    "title": "Econometrics PS 3 - Solution key",
+    "section": "Part (c)",
+    "text": "Part (c)\nIn Model B, \\beta_1 measures the effect of tutoring on grades holding study hours fixed: the part of the program’s effect that does not work through extra studying. It compares tutored and non-tutored students who study the same number of hours.\nTo estimate the effect of the tutoring program on grades, use Model A. Study hours are a mediator: they are an outcome of the program, measured during the semester. Controlling for them “controls away” part of the very effect we want to measure. This is the over-controlling (bad control) problem from class. The college cares about the total effect of offering tutoring, including the fact that it gets students to study more."
   }
 ]

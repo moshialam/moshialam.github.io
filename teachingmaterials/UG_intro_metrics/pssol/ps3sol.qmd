@@ -1,0 +1,308 @@
+---
+title: "Econometrics PS 3 - Solution key"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+library(stargazer)
+```
+
+# Question 1
+
+## Part (a)
+
+```{r}
+data(vote1)
+
+m_level <- lm(voteA ~ expendA + expendB + prtystrA, data = vote1)
+summary(m_level)
+```
+
+Holding B's spending and A's party strength fixed, an extra \$1,000 of spending by A is associated with a `r round(coef(m_level)["expendA"], 3)` percentage point higher vote share for A on average. The coefficient is statistically significant at the 1% level (t = `r round(summary(m_level)$coefficients["expendA", "t value"], 1)`).
+
+Holding both candidates' spending fixed, a district where A's party got one percentage point more of the last presidential vote gives A a `r round(coef(m_level)["prtystrA"], 3)` percentage point higher vote share on average. This is also significant at the 1% level (t = `r round(summary(m_level)$coefficients["prtystrA", "t value"], 1)`).
+
+## Part (b)
+
+**Predictions.** Dividing a regressor by 1,000 multiplies its coefficient and its standard error by 1,000. The intercept, the coefficient on `prtystrA` and their standard errors do not change. The fitted values and residuals are identical, so the $R^2$ does not change either.
+
+```{r}
+vote1$expendA_mil <- vote1$expendA / 1000
+vote1$expendB_mil <- vote1$expendB / 1000
+
+m_mil <- lm(voteA ~ expendA_mil + expendB_mil + prtystrA, data = vote1)
+
+stargazer(m_level, m_mil, type = "text",
+          column.labels = c("$1,000s", "$ millions"),
+          keep.stat = c("n", "rsq"))
+```
+
+The predictions are confirmed. An extra \$1 million of spending by A is associated with a `r round(coef(m_mil)["expendA_mil"], 1)` percentage point higher vote share.
+
+If `voteA` were measured as a share between 0 and 1 (i.e. divided by 100), **every** coefficient, including the intercept, and every standard error would be divided by 100. The $R^2$ would again be unchanged.
+
+## Part (c)
+
+```{r}
+m_log <- lm(voteA ~ log(expendA) + log(expendB) + prtystrA, data = vote1)
+summary(m_log)
+```
+
+In a level-log model, $\Delta voteA \approx (\beta_1/100)\,\%\Delta expendA$. Holding B's spending and party strength fixed, a 1% increase in A's spending is associated with a `r round(coef(m_log)[2] / 100, 3)` percentage point higher vote share for A. The coefficient is significant at the 1% level (t = `r round(summary(m_log)$coefficients[2, "t value"], 1)`).
+
+For a 10% increase, the approximation gives $\hat{\beta}_1/10 =$ `r round(coef(m_log)[2] / 10, 2)` percentage points.
+
+## Part (d)
+
+```{r}
+data.frame(model = c("Level (a)", "Level-log (c)"),
+           n = c(nobs(m_level), nobs(m_log)),
+           r_squared = round(c(summary(m_level)$r.squared, summary(m_log)$r.squared), 3))
+```
+
+The comparison is legitimate here. Both models have the **same dependent variable** (`voteA` in levels), the same sample, and the same number of regressors. So $R^2$ measures the share of the same variation in `voteA` that each model explains. The level-log model explains a lot more: `r round(summary(m_log)$r.squared, 2)` versus `r round(summary(m_level)$r.squared, 2)`.
+
+```{r, fig.width = 8}
+par(mfrow = c(1, 2))
+plot(vote1$expendA, vote1$voteA, pch = 19, col = rgb(0, 0, 1, 0.4),
+     xlab = "expendA ($1,000s)", ylab = "voteA", main = "Level")
+lines(lowess(vote1$expendA, vote1$voteA), col = "red", lwd = 2)
+plot(log(vote1$expendA), vote1$voteA, pch = 19, col = rgb(0, 0, 1, 0.4),
+     xlab = "log(expendA)", ylab = "voteA", main = "Log")
+lines(lowess(log(vote1$expendA), vote1$voteA), col = "red", lwd = 2)
+```
+
+In levels, most races are bunched at low spending and the relationship is clearly concave: vote share rises steeply with the first few hundred thousand dollars and then flattens out. A straight line fits this poorly. Against `log(expendA)` the relationship is close to linear, so the level-log specification fits much better.
+
+This makes economic sense because spending has **diminishing returns**. The first \$100,000 buys name recognition and basic advertising, while an extra \$100,000 for a candidate already spending \$1 million adds little. The log specification says that the same *percentage* increase in spending moves the vote share by the same amount, which builds those diminishing returns in.
+
+------------------------------------------------------------------------
+
+# Question 2
+
+## Part (a)
+
+```{r}
+m_std <- lm(scale(voteA) ~ scale(expendA) + scale(expendB) + scale(prtystrA), data = vote1)
+summary(m_std)
+```
+
+Holding B's spending and party strength fixed, a one standard deviation increase in A's spending (about \$`r round(sd(vote1$expendA))`,000) is associated with a `r round(coef(m_std)[2], 2)` standard deviation higher vote share for A. It is significant at the 1% level (t = `r round(summary(m_std)$coefficients[2, "t value"], 1)`).
+
+## Part (b)
+
+```{r}
+b_prty <- coef(m_level)["prtystrA"]
+s_x <- sd(vote1$prtystrA)
+s_y <- sd(vote1$voteA)
+
+c(raw = unname(b_prty), s_x = s_x, s_y = s_y,
+  by_hand = unname(b_prty * s_x / s_y),
+  from_scale = unname(coef(m_std)["scale(prtystrA)"]))
+```
+
+$\hat{\beta}^*_{prtystrA} = `r round(b_prty, 4)` \times `r round(s_x, 3)` / `r round(s_y, 3)` = `r round(b_prty * s_x / s_y, 4)`$, matching the coefficient from the `scale()` regression.
+
+## Part (c)
+
+The raw coefficient on `prtystrA` (`r round(coef(m_level)["prtystrA"], 3)`) is about ten times the one on `expendA` (`r round(coef(m_level)["expendA"], 3)`). But the standardized coefficients reverse this ranking. A one SD increase in A's spending is associated with a `r round(coef(m_std)[2], 2)` SD higher vote share, compared with only `r round(coef(m_std)[4], 2)` SD for a one SD increase in party strength. **A's spending has the larger association.**
+
+The raw coefficients are misleading because they are in different units. One unit of `expendA` is \$1,000, a tiny change compared with its SD of about \$`r round(sd(vote1$expendA))`,000. One unit of `prtystrA` is a percentage point, which is a sizeable fraction of its SD of about `r round(sd(vote1$prtystrA), 1)` points. Comparing "one unit" across variables compares changes of very different sizes. Standardizing puts both on the same scale: a typical (one SD) change in each.
+
+------------------------------------------------------------------------
+
+# Question 3
+
+## Part (a)
+
+```{r}
+data(nbasal)
+
+m_nba <- lm(lwage ~ points + exper + expersq + guard + forward, data = nbasal)
+summary(m_nba)
+```
+
+Holding experience and position fixed, one more point per game is associated with roughly `r round(100 * coef(m_nba)["points"], 1)`% higher salary on average. The coefficient is significant at the 1% level (t = `r round(summary(m_nba)$coefficients["points", "t value"], 1)`).
+
+## Part (b)
+
+$$\frac{\partial \log(wage)}{\partial exper} = \beta_2 + 2\beta_3\, exper$$
+
+```{r}
+b <- coef(m_nba)
+exper_vals <- c(2, 5, 10)
+data.frame(exper = exper_vals,
+           effect = round(b["exper"] + 2 * b["expersq"] * exper_vals, 4),
+           pct = round(100 * (b["exper"] + 2 * b["expersq"] * exper_vals), 1))
+```
+
+Holding points and position fixed, one more year of experience is associated with about `r round(100 * (b["exper"] + 2 * b["expersq"] * 2), 1)`% higher salary for a player with 2 years of experience, `r round(100 * (b["exper"] + 2 * b["expersq"] * 5), 1)`% at 5 years and only `r round(100 * (b["exper"] + 2 * b["expersq"] * 10), 1)`% at 10 years. The effect is **decreasing** in experience, because $\hat{\beta}_3 < 0$.
+
+## Part (c)
+
+Predicted log salary peaks where the marginal effect equals zero: $exper^* = -\hat{\beta}_2 / (2\hat{\beta}_3)$.
+
+```{r}
+turn <- -b["exper"] / (2 * b["expersq"])
+c(turning_point = unname(turn),
+  n_above = sum(nbasal$exper > turn),
+  max_exper = max(nbasal$exper))
+```
+
+Predicted log salary peaks at about `r round(turn, 1)` years. Only `r sum(nbasal$exper > turn)` of the `r nrow(nbasal)` players have more experience than that.
+
+This does **not** show that the most experienced players earn less than they did a few years earlier:
+
+- The downward part of the curve is estimated from only `r sum(nbasal$exper > turn)` players. The quadratic is symmetric around its peak by construction, so the fit for the bulk of the sample (1 to 10 years) determines where the downturn occurs. The decline is mostly an artifact of the functional form.
+- This is a cross-section, not a panel: we compare *different* players with different experience levels, not the same player over time.
+- Holding `points` fixed, a 15-year veteran with the same scoring as a 5-year player may simply be past their prime in other dimensions. And the players who survive that long are a selected group.
+
+## Part (d)
+
+```{r}
+pred_data <- data.frame(exper = seq(min(nbasal$exper), max(nbasal$exper), by = 0.1),
+                        points = mean(nbasal$points),
+                        guard = 0, forward = 0)
+pred_data$expersq <- pred_data$exper^2
+pred_data$lwage_hat <- predict(m_nba, newdata = pred_data)
+
+ggplot(pred_data, aes(x = exper, y = lwage_hat)) +
+  geom_line(color = "blue", linewidth = 1) +
+  labs(x = "Years of experience", y = "Predicted log salary",
+       title = "Center scoring the sample-average points per game") +
+  theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+# Question 4
+
+## Part (a)
+
+The base group is **centers**, the position dummy left out of the regression.
+
+```{r}
+m_all <- lm(lwage ~ points + exper + expersq + guard + forward + center, data = nbasal)
+summary(m_all)
+```
+
+Each player plays exactly one position, so `guard + forward + center = 1` for every observation. This is an exact linear combination of the intercept, so including all three dummies with an intercept is **perfect multicollinearity** (the dummy variable trap). OLS cannot separate their effects. R detects this and drops the last collinear variable, `center` (its coefficient is reported as `NA`, "not defined because of singularities"), so we get back the regression from Question 3(a).
+
+## Part (b)
+
+Holding points and experience fixed:
+
+- **Guards** earn about `r round(100 * abs(b["guard"]), 1)`% less than centers by the approximation. The exact difference is $100(e^{`r round(b["guard"], 4)`} - 1) = `r round(100 * (exp(b["guard"]) - 1), 1)`\%$. The difference is significant at the 5% level (t = `r round(summary(m_nba)$coefficients["guard", "t value"], 2)`).
+- **Forwards** earn about `r round(100 * b["forward"], 1)`% more than centers (exactly `r round(100 * (exp(b["forward"]) - 1), 1)`%). This is essentially zero and not statistically significant (t = `r round(summary(m_nba)$coefficients["forward", "t value"], 2)`).
+
+## Part (c)
+
+```{r}
+m_guardbase <- lm(lwage ~ points + exper + expersq + forward + center, data = nbasal)
+
+stargazer(m_nba, m_guardbase, type = "text",
+          column.labels = c("Base: center", "Base: guard"),
+          keep.stat = c("n", "rsq"))
+```
+
+**Unchanged:** the coefficients and standard errors on `points`, `exper` and `expersq`, and the $R^2$. Changing the base group is just a reparameterization: the fitted values are identical.
+
+**Changed:** the intercept (now the intercept for guards) and the position coefficients, since they are now measured relative to guards.
+
+**Forward minus guard** is the same in both:
+
+```{r}
+c(center_base = unname(coef(m_nba)["forward"] - coef(m_nba)["guard"]),
+  guard_base = unname(coef(m_guardbase)["forward"]))
+```
+
+## Part (d)
+
+```{r}
+m_marr <- lm(lwage ~ points + exper + expersq + guard + forward + marr + black + marrblck,
+             data = nbasal)
+summary(m_marr)
+```
+
+```{r}
+d <- coef(m_marr)
+data.frame(group = c("Unmarried non-black (base)", "Married non-black",
+                     "Unmarried black", "Married black"),
+           formula = c("0", "b_marr", "b_black", "b_marr + b_black + b_marrblck"),
+           diff_log_salary = round(c(0, d["marr"], d["black"],
+                                     d["marr"] + d["black"] + d["marrblck"]), 3))
+```
+
+Relative to unmarried non-black players with the same points, experience and position:
+
+- **Married non-black** players earn about `r round(100 * d["marr"], 1)`% more ($\hat{\beta}_{marr}$). This is not statistically significant (t = `r round(summary(m_marr)$coefficients["marr", "t value"], 2)`).
+- **Unmarried black** players earn about `r round(100 * d["black"], 1)`% more ($\hat{\beta}_{black}$). This is significant only at the 10% level (t = `r round(summary(m_marr)$coefficients["black", "t value"], 2)`).
+- **Married black** players earn about `r round(100 * (d["marr"] + d["black"] + d["marrblck"]), 1)`% more ($\hat{\beta}_{marr} + \hat{\beta}_{black} + \hat{\beta}_{marrblck}$).
+
+The coefficient on `marrblck` measures how much the marriage premium differs for black players compared with non-black players. Equivalently, it is how much the black–non-black gap differs between married and unmarried players.
+
+------------------------------------------------------------------------
+
+# Question 5
+
+## Part (a)
+
+```{r}
+data(attend)
+
+m_att <- lm(stndfnl ~ atndrte + priGPA + I(priGPA^2) + atndrte:priGPA, data = attend)
+summary(m_att)
+```
+
+## Part (b)
+
+$$\frac{\partial E(stndfnl \mid \cdot)}{\partial\, atndrte} = \beta_1 + \beta_4\, priGPA$$
+
+$\hat{\beta}_1$ on its own is the effect of attendance for a student with `priGPA = 0`. No such student exists (the lowest prior GPA in the sample is `r min(attend$priGPA)`), so $\hat{\beta}_1$ by itself has no useful interpretation. That it is negative (`r round(coef(m_att)["atndrte"], 4)`) does **not** mean attendance lowers exam scores. With an interaction, the effect of attendance has to be evaluated at a meaningful value of `priGPA`.
+
+## Part (c)
+
+```{r}
+g <- coef(m_att)
+gpa_bar <- mean(attend$priGPA)
+
+att_effect <- function(gpa) unname(g["atndrte"] + g["atndrte:priGPA"] * gpa)
+att_effect(gpa_bar)
+```
+
+At the average prior GPA (`r round(gpa_bar, 2)`), one more percentage point of attendance is associated with a `r round(att_effect(gpa_bar), 4)` SD higher final exam score. A student who attends 10 percentage points more of the classes is predicted to score about `r round(10 * att_effect(gpa_bar), 3)` standard deviations higher.
+
+## Part (d)
+
+```{r}
+data.frame(priGPA = c(2, 3.5), effect = round(c(att_effect(2), att_effect(3.5)), 4))
+```
+
+The estimated effect of attendance is essentially zero for a student with a 2.0 prior GPA (`r sprintf("%.4f", att_effect(2))` SD per percentage point). For a student with a 3.5 prior GPA it is `r round(att_effect(3.5), 4)` SD per percentage point, so 10 more points of attendance would mean about `r round(10 * att_effect(3.5), 2)` SD. The positive interaction says that **students with higher prior GPAs benefit more from attending class**.
+
+------------------------------------------------------------------------
+
+# Question 6
+
+## Part (a)
+
+Students who choose to use tutoring are likely to differ systematically in prior academic ability. Weaker students may seek help more, or more motivated students may be more likely to use the free resource. Prior GPA also strongly predicts the final grade. Leaving it out would therefore bias $\hat{\beta}_1$ (omitted variable bias). Crucially, `priorGPA` is measured *before* the semester, so it cannot be affected by tutoring: it is a confounder, not an outcome of the program.
+
+## Part (b)
+
+$\hat{\beta}_1$ should be **larger in Model A**. Tutoring raises grades through two channels: directly (better understanding of the material) and indirectly, by increasing study hours, which in turn raise grades. Model A leaves study hours out, so $\hat{\beta}_1$ picks up both channels. In Model B, study hours are held fixed, which shuts down the indirect channel. That leaves only the direct effect.
+
+## Part (c)
+
+In Model B, $\beta_1$ measures the effect of tutoring on grades **holding study hours fixed**: the part of the program's effect that does *not* work through extra studying. It compares tutored and non-tutored students who study the same number of hours.
+
+To estimate the effect of the tutoring program on grades, use **Model A**. Study hours are a *mediator*: they are an outcome of the program, measured during the semester. Controlling for them "controls away" part of the very effect we want to measure. This is the over-controlling (bad control) problem from class. The college cares about the total effect of offering tutoring, including the fact that it gets students to study more.
