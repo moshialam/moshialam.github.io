@@ -31,7 +31,6 @@ library(data.table)
 
 - So far we have dealt with a **single cross-sectional dataset**
 - The biggest challenge to causal inference is **selection bias** because we do not observe the counterfactual
-- But IVs are not always easy to find — especially good ones
 - Often, **data over multiple time periods** can reveal interesting patterns and provide additional variation to consistently estimate parameters of interest
 - ... especially **if** the unobservables that make our estimates inconsistent do not change over time
 

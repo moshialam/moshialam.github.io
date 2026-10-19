@@ -4,7 +4,7 @@
     "href": "teachingmaterials/UG_intro_metrics/10_panelFE.html#motivation",
     "title": "Panel Data and Fixed Effects",
     "section": "Motivation",
-    "text": "Motivation\n\nSo far we have dealt with a single cross-sectional dataset\nThe biggest challenge to causal inference is selection bias because we do not observe the counterfactual\nBut IVs are not always easy to find — especially good ones\nOften, data over multiple time periods can reveal interesting patterns and provide additional variation to consistently estimate parameters of interest\n… especially if the unobservables that make our estimates inconsistent do not change over time"
+    "text": "Motivation\n\nSo far we have dealt with a single cross-sectional dataset\nThe biggest challenge to causal inference is selection bias because we do not observe the counterfactual\nOften, data over multiple time periods can reveal interesting patterns and provide additional variation to consistently estimate parameters of interest\n… especially if the unobservables that make our estimates inconsistent do not change over time"
   },
   {
     "objectID": "teachingmaterials/UG_intro_metrics/10_panelFE.html#motivation-continued",
