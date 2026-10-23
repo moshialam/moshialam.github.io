@@ -67,6 +67,8 @@ c. Why can $\hat{\beta}$ in (b) be interpreted as the causal effect of training,
 
 d. Add `age`, `educ`, `black`, `hisp`, `married`, `re74` and `re75` as controls. Compare the coefficient on `train` and its standard error with (b). Why does the estimate barely change? Why might a researcher still want to include these controls?
 
+    *Hint:* use $Var(\hat{\beta}_{train}) = \dfrac{\sigma^2}{(1 - R^2_{train})\,SST_{train}}$, where $\sigma^2$ is the variance of the error term, $SST_{train}$ is the total sample variation in `train`, and $R^2_{train}$ is the $R^2$ from a regression of `train` on all the other explanatory variables in the model (here, the controls). (i) If the controls help predict `re78`, what happens to $\sigma^2$? (ii) Because `train` was randomly assigned, how large do you expect $R^2_{train}$ to be? (iii) Use your answers to explain why the standard error changes so little here, and when adding controls would help more.
+
 ------------------------------------------------------------------------
 
 # Question 3
