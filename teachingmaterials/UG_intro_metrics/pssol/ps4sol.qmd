@@ -1,0 +1,301 @@
+---
+title: "Econometrics PS 4 - Solution key"
+author: "Prof Alam"
+format: html
+editor: visual
+theme: flatly
+toc: true
+code-fold: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.height = 4, fig.width = 6)
+library(wooldridge)
+library(ggplot2)
+library(knitr)
+library(stargazer)
+library(fixest)
+```
+
+# Question 1
+
+## Part (a)
+
+Each graduate's treatment effect is $\delta_i = Y_i(1) - Y_i(0)$:
+
+| Graduate $i$ | $Y_i(0)$ | $Y_i(1)$ | $D_i$ | $\delta_i$ |
+|:------------:|:--------:|:--------:|:-----:|:----------:|
+| 1            | 30       | 36       | 1     | 6          |
+| 2            | 28       | 33       | 1     | 5          |
+| 3            | 26       | 30       | 1     | 4          |
+| 4            | 20       | 27       | 0     | 7          |
+| 5            | 18       | 24       | 0     | 6          |
+| 6            | 16       | 22       | 0     | 6          |
+
+- $ATE = \frac{1}{6}(6 + 5 + 4 + 7 + 6 + 6) = \frac{34}{6} \approx 5.67$: on average, the bootcamp raises starting salaries by about \$5,670.
+- $ATT = \frac{1}{3}(6 + 5 + 4) = 5$: among those who attended, it raised salaries by \$5,000 on average.
+- $ATNT = \frac{1}{3}(7 + 6 + 6) = \frac{19}{3} \approx 6.33$: among those who did not attend, it would have raised salaries by about \$6,330 on average.
+
+## Part (b)
+
+The observed outcome is $Y_i = D_i\, Y_i(1) + (1 - D_i)\, Y_i(0)$:
+
+| Graduate $i$ | 1  | 2  | 3  | 4  | 5  | 6  |
+|:-------------|:--:|:--:|:--:|:--:|:--:|:--:|
+| $Y_i$        | 36 | 33 | 30 | 20 | 18 | 16 |
+
+A researcher sees $D_i$ for everyone, $Y_i(1)$ for graduates 1 to 3 (who attended) and $Y_i(0)$ for graduates 4 to 6 (who did not). $Y_i(0)$ for graduates 1 to 3 and $Y_i(1)$ for graduates 4 to 6 are counterfactuals that are never observed.
+
+## Part (c)
+
+$$E[Y_i \mid D_i = 1] - E[Y_i \mid D_i = 0] = \frac{36 + 33 + 30}{3} - \frac{20 + 18 + 16}{3} = 33 - 18 = 15$$
+
+The decomposition is
+
+$$
+\underbrace{E[Y_i \mid D_i = 1] - E[Y_i \mid D_i = 0]}_{15}
+= \underbrace{E[Y_i(1) - Y_i(0) \mid D_i = 1]}_{ATT \,=\, 5}
++ \underbrace{E[Y_i(0) \mid D_i = 1] - E[Y_i(0) \mid D_i = 0]}_{\text{selection bias}}
+$$
+
+with $E[Y_i(0) \mid D_i = 1] = \frac{30 + 28 + 26}{3} = 28$ and $E[Y_i(0) \mid D_i = 0] = 18$. So the selection bias is $28 - 18 = 10$, and indeed $15 = 5 + 10$.
+
+## Part (d)
+
+The graduates who attended would have earned more than the non-attendees even **without** the bootcamp: their average $Y_i(0)$ is \$28,000, compared with \$18,000. The observed difference in salaries mixes the effect of the bootcamp with this pre-existing difference.
+
+The positive sign says that the graduates with higher earning potential (for example, the more able, motivated or better-connected ones) chose to attend. Here two-thirds of the observed gap of \$15,000 is selection, not the effect of the bootcamp.
+
+## Part (e)
+
+This violates **SUTVA** (the stable unit treatment value assumption): each graduate's potential outcomes depend only on their own treatment, not on anyone else's. If attendees compete with non-attendees for a fixed number of entry-level jobs, a non-attendee's salary depends on how many of the others attended: the more bootcamp graduates there are, the fewer good jobs are left for them. Then $Y_i(0)$ is not a single fixed number for each graduate, and the table above is not well defined.
+
+------------------------------------------------------------------------
+
+# Question 2
+
+## Part (a)
+
+```{r}
+data(jtrain2)
+
+pre <- c("age", "educ", "black", "hisp", "married", "nodegree", "re74", "re75")
+
+balance <- t(sapply(pre, function(v) {
+  s <- summary(lm(jtrain2[[v]] ~ jtrain2$train))$coefficients
+  c(control = mean(jtrain2[[v]][jtrain2$train == 0]),
+    treated = mean(jtrain2[[v]][jtrain2$train == 1]),
+    difference = s[2, "Estimate"],
+    se = s[2, "Std. Error"],
+    t_stat = s[2, "t value"],
+    p_value = s[2, "Pr(>|t|)"])
+}))
+round(balance, 3)
+```
+
+If randomization works, the treatment and control groups are the same on average, so we expect the differences to be small and not statistically significant. Most of them are: the differences in age, schooling, race, marital status and 1974 and 1975 earnings are small and not statistically significant. But two differences are statistically significant:
+
+- Trainees are `r round(100 * abs(balance["nodegree", "difference"]), 1)` percentage points less likely to lack a high school degree. This is significant at the 1% level (t = `r round(balance["nodegree", "t_stat"], 2)`).
+- Trainees are `r round(100 * abs(balance["hisp", "difference"]), 1)` percentage points less likely to be Hispanic. This is significant at the 10% level (t = `r round(balance["hisp", "t_stat"], 2)`).
+
+So the groups are not fully balanced. This is a concern if these characteristics affect earnings. For example, men with a high school degree tend to earn more, so the trainees might have earned more in 1978 even without training. The simple comparison of 1978 earnings in (b) would then overstate the effect of training.
+
+## Part (b)
+
+```{r}
+m_exp <- lm(re78 ~ train, data = jtrain2)
+summary(m_exp)
+
+c(beta_hat = unname(coef(m_exp)["train"]),
+  diff_means = mean(jtrain2$re78[jtrain2$train == 1]) - mean(jtrain2$re78[jtrain2$train == 0]))
+```
+
+With a single binary regressor, $\hat{\alpha}$ is the average of `re78` in the control group (`r round(mean(jtrain2$re78[jtrain2$train == 0]), 3)`) and $\hat{\alpha} + \hat{\beta}$ is the average in the treatment group (`r round(mean(jtrain2$re78[jtrain2$train == 1]), 3)`). So $\hat{\beta}$ is exactly the difference in means, as the output confirms.
+
+Men assigned to job training earned on average \$`r format(round(1000 * coef(m_exp)["train"]), big.mark = ",")` more in 1978 than men in the control group, who earned \$`r format(round(1000 * mean(jtrain2$re78[jtrain2$train == 0])), big.mark = ",")` on average. The difference is statistically significant at the 1% level (t = `r round(summary(m_exp)$coefficients["train", "t value"], 2)`).
+
+## Part (c)
+
+The observed difference in means decomposes as
+
+$$
+E[Y_i \mid D_i = 1] - E[Y_i \mid D_i = 0]
+= \underbrace{E[Y_i(1) - Y_i(0) \mid D_i = 1]}_{ATT}
++ \underbrace{E[Y_i(0) \mid D_i = 1] - E[Y_i(0) \mid D_i = 0]}_{\text{selection bias}}
+$$
+
+In the NSW experiment, training was **randomly assigned**, so `train` is independent of the potential outcomes. The men assigned to training would, on average, have earned the same as the control group without it: $E[Y_i(0) \mid D_i = 1] = E[Y_i(0) \mid D_i = 0]$. The selection bias is zero, and $\hat{\beta}$ estimates the ATT (which here also equals the ATE, since the two groups are the same on average).
+
+In most other datasets, men **choose** whether to enroll in training, or are selected by a caseworker. Those who enroll typically differ from those who don't in ways that also affect earnings (motivation, ability, how poor their job prospects are), so $E[Y_i(0) \mid D_i = 1] \neq E[Y_i(0) \mid D_i = 0]$. The regression coefficient then mixes the effect of training with selection bias. Question 3 shows how large that bias can be.
+
+## Part (d)
+
+```{r}
+m_ctrl <- lm(re78 ~ train + age + educ + black + hisp + married + re74 + re75, data = jtrain2)
+
+stargazer(m_exp, m_ctrl, type = "text",
+          column.labels = c("No controls", "Controls"),
+          keep.stat = c("n", "rsq"))
+```
+
+Holding the controls fixed, men assigned to training earned on average \$`r format(round(1000 * coef(m_ctrl)["train"]), big.mark = ",")` more in 1978 than the control group. The estimate is still significant at the 1% level (t = `r round(summary(m_ctrl)$coefficients["train", "t value"], 2)`). It is close to the estimate of `r round(coef(m_exp)["train"], 3)` in (b), and the standard error is almost identical (`r round(summary(m_ctrl)$coefficients["train", "Std. Error"], 3)` versus `r round(summary(m_exp)$coefficients["train", "Std. Error"], 3)`).
+
+**Why the estimate barely changes.** Random assignment makes `train` unrelated to the controls: in (a), none of them differs between the groups at the 5% level. In the omitted variable bias formula, the slope from regressing each control on `train` is about zero, so leaving the controls out causes essentially no bias, and adding them leaves the estimate where it was. The small drop is in line with the trainees having slightly more years of schooling in (a).
+
+**Using the hint.**
+
+```{r}
+aux <- lm(train ~ age + educ + black + hisp + married + re74 + re75, data = jtrain2)
+
+data.frame(model = c("(b) no controls", "(d) controls"),
+           sigma_hat = round(c(summary(m_exp)$sigma, summary(m_ctrl)$sigma), 3),
+           r_squared = round(c(summary(m_exp)$r.squared, summary(m_ctrl)$r.squared), 3),
+           se_train = round(c(summary(m_exp)$coefficients["train", "Std. Error"],
+                              summary(m_ctrl)$coefficients["train", "Std. Error"]), 3))
+
+summary(aux)$r.squared
+```
+
+(i) Controls that help predict `re78` take that variation out of the error term, so $\sigma^2$ falls. Here they explain little: the $R^2$ only rises from `r round(summary(m_exp)$r.squared, 3)` to `r round(summary(m_ctrl)$r.squared, 3)`, and $\hat{\sigma}$ only falls from `r round(summary(m_exp)$sigma, 2)` to `r round(summary(m_ctrl)$sigma, 2)`.
+
+(ii) Because `train` was randomly assigned, the controls should not predict it, so $R^2_{train}$ should be close to zero. Here it is `r round(summary(aux)$r.squared, 3)`.
+
+(iii) The small fall in $\sigma^2$ lowers the variance, while $1 - R^2_{train} \approx `r round(1 - summary(aux)$r.squared, 3)`$ raises it very slightly. The two roughly offset, so the standard error hardly changes. Adding controls helps more when they are **strong predictors of the outcome**: they then lower $\sigma^2$ a lot, while randomization keeps $R^2_{train}$ near zero, so the standard error falls.
+
+So why would a researcher still include these controls? **In practice, we always control for variables that matter for the outcome. They reduce the residual variation in the outcome, $\sigma^2$, so we get more precise estimates, following**
+
+$$Var(\hat{\beta}_{train}) = \frac{\sigma^2}{(1 - R^2_{train})\, SST_{train}}$$
+
+Controls also let us check that the estimate is not driven by differences between the groups like those in (a). For example, `nodegree` had the largest imbalance in (a). Adding it to the controls:
+
+```{r}
+m_ctrl_deg <- lm(re78 ~ train + age + educ + black + hisp + married + re74 + re75 + nodegree,
+                 data = jtrain2)
+summary(m_ctrl_deg)$coefficients[c("train", "nodegree"), ]
+```
+
+The coefficient on `train` stays at `r sprintf("%.2f", coef(m_ctrl_deg)["train"])`, significant at the 1% level (t = `r sprintf("%.2f", summary(m_ctrl_deg)$coefficients["train", "t value"])`). The coefficient on `nodegree` is small and not statistically significant (t = `r sprintf("%.2f", summary(m_ctrl_deg)$coefficients["nodegree", "t value"])`). So the degree imbalance does not drive the estimate.
+
+------------------------------------------------------------------------
+
+# Question 3
+
+## Part (a)
+
+```{r}
+data(jtrain3)
+
+m_nonexp <- lm(re78 ~ train, data = jtrain3)
+summary(m_nonexp)
+```
+
+Trainees earned on average \$`r format(round(1000 * abs(coef(m_nonexp)["train"])), big.mark = ",")` **less** in 1978 than the men in the PSID comparison group. The difference is significant at the 1% level (t = `r round(summary(m_nonexp)$coefficients["train", "t value"], 1)`).
+
+This has the opposite sign of the experimental estimate in Question 2(b), a gain of \$`r format(round(1000 * coef(m_exp)["train"]), big.mark = ",")`. Taken at face value, it would say that job training lowers earnings by about \$15,000 a year, which is not credible.
+
+## Part (b)
+
+*Students only need to explain why the selection bias is large and negative. For how big it is, see* ***More details*** *below.*
+
+```{r}
+pre3 <- c("age", "educ", "black", "hisp", "married", "re74", "re75")
+
+round(data.frame(trainees = sapply(pre3, function(v) mean(jtrain3[[v]][jtrain3$train == 1])),
+                 comparison = sapply(pre3, function(v) mean(jtrain3[[v]][jtrain3$train == 0]))), 3)
+```
+
+The two groups are very different before the program. Men in the comparison group earned \$`r format(round(1000 * mean(jtrain3$re75[jtrain3$train == 0])), big.mark = ",")` on average in 1975, compared with \$`r format(round(1000 * mean(jtrain3$re75[jtrain3$train == 1])), big.mark = ",")` for the trainees. They are also older, have more schooling, are much more likely to be married and much less likely to be black. The NSW program was targeted at disadvantaged men, while the PSID sample is drawn from the general population.
+
+So even without training, the comparison group would have earned far more in 1978 than the trainees: $E[Y_i(0) \mid D_i = 1]$ is much smaller than $E[Y_i(0) \mid D_i = 0]$. The selection bias is **large and negative**.
+
+**More details.** We can gauge the size of the selection bias because the trainees are the same 185 men as in Question 2. The randomized control group in `jtrain2` tells us what they would have earned on average without training, $E[Y_i(0) \mid D_i = 1] \approx$ `r round(mean(jtrain2$re78[jtrain2$train == 0]), 2)`. The PSID comparison group earned `r round(mean(jtrain3$re78[jtrain3$train == 0]), 2)`. So the selection bias is about `r sprintf("%.2f", mean(jtrain2$re78[jtrain2$train == 0]) - mean(jtrain3$re78[jtrain3$train == 0]))`, or roughly \$`r format(round(abs(mean(jtrain2$re78[jtrain2$train == 0]) - mean(jtrain3$re78[jtrain3$train == 0]))) * 1000, big.mark = ",")`, and
+
+$$\underbrace{`r sprintf("%.2f", coef(m_nonexp)["train"])`}_{\text{observed difference}} \approx \underbrace{`r round(coef(m_exp)["train"], 2)`}_{ATT \text{ (experiment)}} + \underbrace{(`r sprintf("%.2f", mean(jtrain2$re78[jtrain2$train == 0]) - mean(jtrain3$re78[jtrain3$train == 0]))`)}_{\text{selection bias}}$$
+
+## Part (c)
+
+```{r}
+m_nonexp_ctrl <- lm(re78 ~ train + age + educ + black + hisp + married + re74 + re75, data = jtrain3)
+
+stargazer(m_exp, m_ctrl, m_nonexp, m_nonexp_ctrl, type = "text",
+          column.labels = c("Experiment", "Experiment", "PSID", "PSID"),
+          keep.stat = c("n", "rsq"))
+```
+
+Holding the controls fixed, trainees earned on average \$`r format(round(1000 * coef(m_nonexp_ctrl)["train"]), big.mark = ",")` more in 1978 than comparison men. This is not statistically significant (t = `r round(summary(m_nonexp_ctrl)$coefficients["train", "t value"], 2)`).
+
+The controls move the estimate a long way, from `r sprintf("%.2f", coef(m_nonexp)["train"])` to `r sprintf("%.2f", coef(m_nonexp_ctrl)["train"])`, and give it the right sign. But it is still only about half of the experimental estimate (`r round(coef(m_ctrl)["train"], 2)` with the same controls), and it cannot be distinguished from zero.
+
+Controlling for observable characteristics can only remove the part of the selection bias that comes from the variables we measure. Trainees and comparison men also differ in things we do not observe, such as motivation, ability, health or why they ended up in a program for disadvantaged workers. These still bias the estimate. And without the experiment as a benchmark, we would have no way of knowing how far off the estimate is.
+
+------------------------------------------------------------------------
+
+# Question 4
+
+::: {.callout-note}
+**Note on standard errors.** The standard errors in this question are clustered by person (`cluster = ~nr`), as the problem set asked. We did not have time to cover clustered standard errors in class, but this is the correct way to compute them with panel data. The same man appears in all 8 years, and the unobserved factors that affect his wage in one year are likely related to those in other years. The usual standard errors treat all 4,360 observations as independent, and here they would be too small.
+:::
+
+## Part (a)
+
+```{r}
+data(wagepan)
+
+c(observations = nrow(wagepan), men = length(unique(wagepan$nr)))
+table(table(wagepan$nr))
+
+status <- tapply(wagepan$union, wagepan$nr, function(x) {
+  if (all(x == 1)) "always union" else if (all(x == 0)) "never union" else "switcher"
+})
+table(status)
+```
+
+Yes, it is a balanced panel: each of the `r length(unique(wagepan$nr))` men is observed in all 8 years, giving `r format(nrow(wagepan), big.mark = ",")` observations. `r sum(status == "switcher")` men switch union status at least once.
+
+Fixed effects use only the variation **within** each man over time. For a man whose union status never changes, `union` minus his own average is zero in every year, so he contributes nothing to estimating the union coefficient. The fixed effects estimate of the union premium therefore comes entirely from the `r sum(status == "switcher")` switchers.
+
+## Part (b)
+
+```{r}
+pooled <- feols(lwage ~ union + married + educ + exper + expersq + black + hisp,
+                data = wagepan, cluster = ~nr)
+summary(pooled)
+```
+
+Holding marital status, schooling, experience and race fixed, men whose wages are set in a union contract earn about `r sprintf("%.1f", 100 * coef(pooled)["union"])`% higher hourly wages on average than men who are not. The coefficient is significant at the 1% level (t = `r round(tstat(pooled)["union"], 2)`).
+
+## Part (c)
+
+```{r}
+fe <- feols(lwage ~ union + married + educ + exper + expersq + black + hisp | nr,
+            data = wagepan, cluster = ~nr)
+
+etable(pooled, fe, signif.code = c("***" = 0.01, "**" = 0.05, "*" = 0.10))
+
+fe$collin.var
+```
+
+Comparing the same man across years, and holding his marital status and experience fixed, his hourly wage is about `r round(100 * coef(fe)["union"], 1)`% higher in years when he is covered by a union contract than in years when he is not. The coefficient is significant at the 1% level (t = `r sprintf("%.2f", tstat(fe)["union"])`).
+
+`educ`, `black` and `hisp` drop out. None of them changes over time for any man in the sample (all of them have finished school by 1980), so each is perfectly collinear with the person fixed effects. The within transformation turns them into zeros, and their effects are absorbed into $a_i$.
+
+## Part (d)
+
+One example is a worker's unobserved **ability or productivity**. Pooled OLS leaves it in the error term. It raises wages, and it is likely to be positively related to union membership: union jobs pay above-market wages, so union employers can choose from many applicants and hire the most productive ones. By the omitted variable bias formula, the bias is (effect of ability on wages) × (relationship between ability and union) > 0. Pooled OLS therefore **overstates** the union premium, attributing to the union part of the higher wages that more productive workers would earn anyway.
+
+Person fixed effects remove all time-invariant traits like this, which is why the estimate falls from `r sprintf("%.3f", coef(pooled)["union"])` to `r sprintf("%.3f", coef(fe)["union"])`.
+
+## Part (e)
+
+```{r}
+twfe <- feols(lwage ~ union + married + educ + exper + expersq + black + hisp | nr + year,
+              data = wagepan, cluster = ~nr)
+
+etable(pooled, fe, twfe, signif.code = c("***" = 0.01, "**" = 0.05, "*" = 0.10))
+
+twfe$collin.var
+```
+
+Year fixed effects control for anything that shifts the wages of all men in the sample equally in a given year, such as economy-wide wage growth, inflation or the recession of the early 1980s.
+
+`exper` drops out because every man gains exactly one year of experience each year: $exper_{it} = exper_{i,1980} + (t - 1980)$. The first term is constant for each man, so the person fixed effects absorb it. The second term is the same for everyone in a given year, so the year fixed effects absorb it. `exper` is therefore a perfect linear combination of the fixed effects. `expersq` stays because the square is not linear in the year.

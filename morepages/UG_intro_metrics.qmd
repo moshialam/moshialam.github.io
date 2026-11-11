@@ -61,7 +61,8 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 
 ::: {.resource-card}
 **Problem Set 4** *(Due Oct 29, 5pm)*  
-[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps4.qmd)
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps4.qmd) | 
+[<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps4sol.qmd)
 :::
 
 <!-- 
