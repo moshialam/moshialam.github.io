@@ -391,12 +391,16 @@ details {
 <script>
 // BibTeX citations for all papers
 const bibtexCitations = {
-  workerdisc: `@article{alam2025employee,
-  title = {Employee-Side Discrimination: Beliefs and Preferences},
+  workerdisc: `@article{alam2026employee,
+  title = {Worker-Side Discrimination: Beliefs and Preferences},
   author = {Alam, Md Moshi Ul and Mookerjee, Mehreen and Roy, Sanket},
+  journal = {Quantitative Economics},
+  volume = {17},
+  number = {4},
+  pages = {1033--1102},
   year = {2026},
-  note = {Forthcoming at Quantitative Economics},
-  url = {https://moshialam.github.io/papers/Alam_JMP_Oct21.pdf}
+  publisher = {Econometric Society},
+  doi = {10.3982/QE2409}
 }`,
 
   sanitation: `@article{agarwal2024unintended,
@@ -596,7 +600,7 @@ Limited policy variation, data constraints in defining 'equal work', and complia
 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 
 ::: {.modal__header}
-### Employee-Side Discrimination: Beliefs and Preferences {#abs_workerdisc-title}
+### Worker-Side Discrimination: Beliefs and Preferences {#abs_workerdisc-title}
 *with Mehreen Mookerjee and Sanket Roy*
 :::
 
@@ -660,13 +664,12 @@ The optimal redistribution of income across locations is determined by two suffi
 
 <div data-state="published" class="paper-item">
 <div class="paper-title-line">
-<a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a>
+<a href="https://www.econometricsociety.org/publications/quantitative-economics/2026/11/01/Worker-Side-Discrimination-Beliefs-and-Preferences">Worker-Side Discrimination: Beliefs and Preferences</a>
 </div>
 <div class="paper-meta">with Mehreen Mookerjee and Sanket Roy</div>
 <div class="paper-status">
-<!-- <span class="badge-status badge-accept">Forthcoming at ***Quantitative Economics***</span> -->
 <div class="journal-info">
-<i class="bi bi-journal-text"></i> Forthcoming at ***Quantitative Economics***
+<i class="bi bi-journal-text"></i> ***Quantitative Economics*** 17(4) 2026: 1033-1102
 <span class="badge-jmp">PhD JMP</span>
 </div>
 </div>
@@ -803,7 +806,7 @@ The optimal redistribution of income across locations is determined by two suffi
 <strong>Identification in Models of Discrimination</strong>
 </div>
 <div class="paper-meta">
-[Subsumed in PhD job market paper "Employee Side Discrimination: Beliefs and Preferences"]
+[Subsumed in PhD job market paper "Worker-Side Discrimination: Beliefs and Preferences"]
 </div>
 </div>
 
