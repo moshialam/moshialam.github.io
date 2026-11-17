@@ -51,3 +51,15 @@ teach.qmd
 
 # Word source docs for syllabi/papers (PDFs are what get published)
 *.docx
+
+# Pop quizzes (kept local, not published)
+teachingmaterials/UG_intro_metrics/popquiz/
+
+# Exams (kept local, not published)
+teachingmaterials/UG_intro_metrics/exams/
+
+# Private teaching schedule
+teachingmaterials/UG_intro_metrics/schedule.md
+
+# Beamer slide sources copied from Dropbox econ265/LN (kept local, not published)
+teachingmaterials/UG_intro_metrics/slides_tex/
