@@ -65,14 +65,16 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 [<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps4sol.qmd)
 :::
 
+::: {.resource-card}
+**Problem Set 6** *(Due Nov 24, 5pm)*  
+[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps6.qmd) | 
+[<i class="bi bi-database"></i> Data](/teachingmaterials/UG_intro_metrics/iv_csl_dataset.csv)
+:::
+
 <!-- 
 ::: {.resource-card}
 **Problem Set 5** *(Due Dec 1)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps5.qmd) | 
-
-**Problem Set 6** *(Due Nov 16)*  
-[<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps6.qmd) | 
-[<i class="bi bi-check-circle"></i> Solutions](/teachingmaterials/UG_intro_metrics/pssol/ps6sol.qmd)
 ::: -->
 :::
 

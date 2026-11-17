@@ -151,7 +151,7 @@ iv <- ivreg(logwage ~ Educ + age + region | Z + age + region, data = dat)
 summary(iv, diagnostics = TRUE)
 ```
 
-The corresponding F-stat is more than a thousand, so we can reject the null of weak instrument.
+The corresponding F-stat is well above the rule-of-thumb threshold of 10 (here it is more than a thousand), so we can reject the null of weak instrument.
 
 The IV estimate of the return to education is approximately 6.7% per additional year of education, controlling for age and region fixed effects, but now with correct standard errors.
 

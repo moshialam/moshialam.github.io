@@ -17,7 +17,7 @@ Recall the context of our quiz on Instrumental Variables based on Angrist and Kr
 
 We study the causal effect of education on earnings, controlling for a bunch of other included exogenous variables. 
 $$ \ln(Wage_i) = \beta_0 + \beta_1 Educ_i + \beta_3 Age_i + \beta_4 Region_i + u_i $$
-where `Wage` is the annual wage of individual $i$, `Educ` is years of education, `Age` is age in years, and `Region` is a categorical variable indicating the region of residence (representing region fixed effects) which includes the , and clearly $E(u_i|Educ_i) \neq 0$ so $E(u_i | Educ_i, Age_i, Region_i) \neq 0$ as well.
+where `Wage` is the annual wage of individual $i$, `Educ` is years of education, `Age` is age in years, and `Region` is a categorical variable indicating the region of residence (Northeast, Midwest, South, or West), which we include as region fixed effects. Clearly $E(u_i|Educ_i) \neq 0$ (for example, ability is in $u_i$), so $E(u_i | Educ_i, Age_i, Region_i) \neq 0$ as well.
 
 ### Question 1
 
