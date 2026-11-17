@@ -247,16 +247,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#simple-2x2-did" id="toc-simple-2x2-did" class="nav-link active" data-scroll-target="#simple-2x2-did">Simple 2x2 DiD</a>
+  <li><a href="#part-1-simple-2x2-did" id="toc-part-1-simple-2x2-did" class="nav-link active" data-scroll-target="#part-1-simple-2x2-did">Part 1: Simple 2x2 DiD</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
   <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
   </ul></li>
-  <li><a href="#xt-event-study" id="toc-xt-event-study" class="nav-link" data-scroll-target="#xt-event-study">2xT Event Study</a>
+  <li><a href="#part-2-2xt-event-study" id="toc-part-2-2xt-event-study" class="nav-link" data-scroll-target="#part-2-2xt-event-study">Part 2: 2xT Event Study</a>
   <ul class="collapse">
   <li><a href="#bonus-not-to-be-turned-in" id="toc-bonus-not-to-be-turned-in" class="nav-link" data-scroll-target="#bonus-not-to-be-turned-in">Bonus not to be turned in</a></li>
+  </ul></li>
+  <li><a href="#part-3-simplified-angrist-and-krueger-1991-replication" id="toc-part-3-simplified-angrist-and-krueger-1991-replication" class="nav-link" data-scroll-target="#part-3-simplified-angrist-and-krueger-1991-replication">Part 3: Simplified Angrist and Krueger (1991) Replication</a>
+  <ul class="collapse">
+  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
+  <li><a href="#question-2-1" id="toc-question-2-1" class="nav-link" data-scroll-target="#question-2-1">Question 2</a></li>
+  <li><a href="#question-3-1" id="toc-question-3-1" class="nav-link" data-scroll-target="#question-3-1">Question 3</a></li>
+  <li><a href="#question-4-1" id="toc-question-4-1" class="nav-link" data-scroll-target="#question-4-1">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -554,8 +564,8 @@ window.Quarto = {
 </header>
 
 
-<section id="simple-2x2-did" class="level2">
-<h2 class="anchored" data-anchor-id="simple-2x2-did">Simple 2x2 DiD</h2>
+<section id="part-1-simple-2x2-did" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-simple-2x2-did">Part 1: Simple 2x2 DiD</h2>
 <p>Use the .Rmd file that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called <code>ckdata</code>. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class.</p>
 <p>IMPORTANT: In all estimations, whenever you are interpreting your estimates, state all necessary assumptions for you to claim that the estimated effect is causal (i.e.&nbsp;identification assumptions).</p>
 <section id="question-1" class="level3">
@@ -583,8 +593,8 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="xt-event-study" class="level2">
-<h2 class="anchored" data-anchor-id="xt-event-study">2xT Event Study</h2>
+<section id="part-2-2xt-event-study" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-2xt-event-study">Part 2: 2xT Event Study</h2>
 <p>The .Rmd notebook I uploded on canvas where we worked on such problems will be a helpful reference for this part of the problem set.</p>
 <p>Use the data <code>2xT_did_ps5data.csv</code> provided on Canvas for this part of the problem set. This dataset contains data from 2000 to 2004 on firm id, firm profits, treatment status, and other firm characteristics.</p>
 <p>In 2002, a government introduces a profit tax credit to encourage small manufacturing firms to upgrade to more energy-efficient machinery. Because of budget and administrative constraints, the program is offered first to firms that already have relatively high electricity usage per unit of output. Firms with lower electricity intensity are not initially eligible and thus do not adopt the program during the sample period. On average, profits increase over time in both treated and control firms, reflecting improving economic conditions that affect all firms. But we are interested in estimating the causal effect of the energy-efficiency program on firm profits.</p>
@@ -601,6 +611,46 @@ window.Quarto = {
 <ul>
 <li>Plot the event study coefficients with 95% confidence intervals. Interpret the plot.</li>
 </ul>
+</section>
+</section>
+<section id="part-3-simplified-angrist-and-krueger-1991-replication" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-simplified-angrist-and-krueger-1991-replication">Part 3: Simplified Angrist and Krueger (1991) Replication</h2>
+<p>You will need libraries <code>AER</code>, <code>ggplot2</code>, and <code>lmtest</code> for this part of the problem set.</p>
+<p>Recall the context of our quiz on Instrumental Variables based on Angrist and Krueger (1991). Load <code>iv_csl_dataset.csv</code> in R using <code>read.csv</code> function. It contains a simplified simulated dataset based on Angrist and Krueger (1991). The variable <code>qob</code> indicates the quarter of birth of individual <span class="math inline">i</span> (Q1, Q2, Q3, Q4). The rest should be self-explanatory.</p>
+<p>We study the causal effect of education on earnings, controlling for a bunch of other included exogenous variables. <span class="math display"> \ln(Wage_i) = \beta_0 + \beta_1 Educ_i + \beta_3 Age_i + \beta_4 Region_i + u_i </span> where <code>Wage</code> is the annual wage of individual <span class="math inline">i</span>, <code>Educ</code> is years of education, <code>Age</code> is age in years, and <code>Region</code> is a categorical variable indicating the region of residence (Northeast, Midwest, South, or West), which we include as region fixed effects. Clearly <span class="math inline">E(u_i|Educ_i) \neq 0</span> (for example, ability is in <span class="math inline">u_i</span>), so <span class="math inline">E(u_i | Educ_i, Age_i, Region_i) \neq 0</span> as well.</p>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<p>Explore the dataset and report summary statistics of the variables</p>
+</section>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p>Make two plots and describe what you see in each plot:</p>
+<ol type="a">
+<li>mean years of education by quarter of birth</li>
+<li>mean log wage by quarter of birth</li>
+</ol>
+</section>
+<section id="question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
+<p>Generate a dummy variable Z equal to 1 if an individual was born in Quarter 1, and 0 otherwise. Explain why Z is a valid instrument for <code>Educ</code> in the above regression.</p>
+</section>
+<section id="question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<p>Estimate the 1st stage regression. Be careful to include the other exogenous variables in the regression. Report and interpret the results. See slide 39.</p>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>Predict the values of <code>Educ</code> using the 1st stage regression and save them in a new variable called <code>Educ_hat</code>. Estimate the 2nd stage regression of <code>ln(Wage)</code> on <code>Educ_hat</code> and the other exogenous variables. Report and interpret the results. See slide 39 &amp; 40.</p>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p>Now instead of manually doing the 2SLS procedure, use the <code>ivreg</code> function from the <code>AER</code> package to estimate the IV regression of <code>ln(Wage)</code> on <code>Educ</code>, using <code>Z</code> as an instrument for <code>Educ</code>, and including the other exogenous variables. Compare the results. What differs and why?</p>
+<p>Use <code>summary(yourivmodel, diagnostics = TRUE)</code> to see the diagnostic tests and interpret whether the instrument is weak or not.</p>
+</section>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
+<p>Explain why your estimate is a Local Average Treatment Effect and for whom it is identified.</p>
+<hr>
 
 
 </section>
