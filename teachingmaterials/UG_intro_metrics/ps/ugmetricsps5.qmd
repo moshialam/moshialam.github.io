@@ -10,7 +10,7 @@ code-fold: false
 
 ## Part 1: Simple 2x2 DiD
 
-Use the .Rmd file that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called `ckdata`. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class. 
+Use the [.Rmd file](/teachingmaterials/UG_intro_metrics/2x2did.Rmd) that we used in class to load the cleaned Card and Krueger (1994) dataset from github remotes, and assign it to an object called `ckdata`. Load other associated libraries as needed. Prepare the data for estimation of the impact of the minimum wage increase policy on employment as we did in class. 
 
 IMPORTANT: In all estimations, whenever you are interpreting your estimates, state all necessary assumptions for you to claim that the estimated effect is causal (i.e. identification assumptions).
 

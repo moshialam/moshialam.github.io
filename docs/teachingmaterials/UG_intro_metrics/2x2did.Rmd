@@ -1,0 +1,61 @@
+---
+title: "Simple 2x2 D-i-D"
+author: "Moshi Alam"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+# install.packages("remotes")
+# library(remotes)
+#remotes::install_github("b-rodrigues/diffindiff")
+library(diffindiff)
+library(ggplot2)
+library(dplyr)
+
+ck1994 <- njmin
+
+# explore the ducmentation by running: ? njmin
+#View(ck1994)
+```
+
+```{r}
+table(ck1994$state, ck1994$observation)
+# you can explore the data in a bunch of more ways
+```
+
+```{r}
+
+ck1994$empfte <- ck1994$empft + 0.5 * ck1994$emppt + ck1994$nmgrs
+summary(ck1994$empfte)
+```
+
+```{r}
+ck1994 %>%
+  group_by(state, observation) %>%
+  summarize(mean_empfte = mean(empfte, na.rm = TRUE))
+```
+
+```{r}
+ggplot(ck1994, aes(x = wage_st, fill = factor(state))) +
+  geom_histogram(position = "dodge", bins = 30) +
+  facet_wrap(~ observation) +
+  labs(title = "Histogram of Starting Wages by State and date",
+       x = "Starting Wage",
+       y = "Count",
+       fill = "State")
+```
+
+```{r}
+ck1994 <- ck1994 %>%
+  mutate(
+    post = ifelse(observation == "November 1992", 1, 0),
+    treat = ifelse(state == "New Jersey", 1, 0),
+    interaction = post * treat
+  )
+
+did_model <- lm(empfte ~ post + treat + I(post * treat), data = ck1994)
+summary(did_model)
+```
+
