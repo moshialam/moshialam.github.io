@@ -34,7 +34,7 @@ Plot the data of starting wages by the state and the year (before and after the 
 
 ## Part 2: 2xT Event Study
 
-The .Rmd notebook I uploded on canvas where we worked on such problems will be a helpful reference for this part of the problem set.
+The [.Rmd notebook](/teachingmaterials/UG_intro_metrics/2xT_did_ES.Rmd) where we worked on such problems will be a helpful reference for this part of the problem set. It uses the data [`2xT_did_data.csv`](/teachingmaterials/UG_intro_metrics/2xT_did_data.csv).
 
 Use the data [`2xT_did_ps5data.csv`](/teachingmaterials/UG_intro_metrics/2xT_did_ps5data.csv) for this part of the problem set. This dataset contains data from 2000 to 2004 on firm id, firm profits, treatment status, and other firm characteristics. 
 

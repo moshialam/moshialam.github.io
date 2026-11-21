@@ -1,0 +1,143 @@
+---
+title: "2xT D-i-D and Event studies"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+
+
+We use the simulated data that I shared in the announcements on Canvas. explore the data on your own before running estimations. Load libraries: `dplyr, ggplot2, fixest`
+
+
+```{r, setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(fixest)
+```
+
+```{r}
+data2xT <- read.csv("2xT_did_data.csv")
+```
+
+Need to do some minimal cleaning to be able to run the 2XT D-i-D estimation to obtain the ATT estimate:
+
+$$Y_{ist} = \alpha + \beta D_s + \gamma post_t + \delta (D_s \times post_t) + \epsilon_{ist}$$
+
+Where $D_s$ is a binary treatment indicator, and $post_t$ is a binary time indicator (0 for all pre-treatment period, 1 for all post-treatment periods, including the year of treatment period.
+
+*Extra*: When treatment is defined at the state level $s$, the precise notation is to use $D_s(i)$ to indicate that treatment is defined at the state level $s$, but the data is measured at the individual level $i$. Thus $s(i)$ indicates the state $s$ that individual $i$ belongs to, and hence $D_{s(i)}$ is the treatment status of the state that individual $i$ belongs to.
+
+```{r}
+data2xT <-  data2xT |>
+  mutate(
+    time = year - 1992,
+    post = as.integer(time >= 0)
+  )
+# 2xT D-i-D estimation
+simple_2xTdid <-  lm(y ~  D + post + D:post, data = data2xT)
+summary(simple_2xTdid)
+```
+
+Always remember the two assumptions behind the D-i-D estimation:
+
+- Parallel trends assumption
+- No anticipation assumption
+
+In the exam I dont expect you to write just these words, I expect you to explain them. 
+
+
+## Event study / Dynamic treatment effects
+
+We can further estimate the treatment effects in each time period which can help us estimate:
+
+- the dynamic treatment effects of the policy
+- the pre-treatment effects of the policy, which can help us test for parallel trends assumption.
+
+Specifically, we will estimate the following model, given that we have 2 pre periods and 3 post periods, we would have:
+
+$$Y_{ist} = \alpha + \beta D_s \\ + \gamma_{-2} 1\{t = -2\} + \gamma_{0} 1\{t = 0\} + \gamma_{1} 1\{t = 1\} + \gamma_{2} 1\{t = 2\} \\ + \tau_{-2} (D_s \times 1\{t = -2\}) + \tau_{0} (D_s \times 1\{t = 0\}) + \tau_{1} (D_s \times 1\{t = 1\}) + \tau_{2} (D_s \times 1\{t = 2\}) \\  + \epsilon_{ist}$$
+
+
+Where $1\{t = k\}$ is an indicator variable that takes the value of 1 if time since treatment $t$ is equal to $k$, and 0 otherwise. *Note that we have omitted the interaction term for $k = -1$ (the period just before treatment) to avoid perfect multicollinearity.*
+
+Remember, as discussed in class $\gamma_t$ are time fixed effects that control for any time-varying factors that affect all units equally. This is equivalent to adding a dummy variable for each time period in the regression except for the omitted period (-1). **Hence $\gamma_t$ generalizes the $post_t$ variable from the simple 2xT D-i-D set up.**
+
+Note that we omit the period just before treatment ($k = -1$) to avoid perfect multicollinearity. You can also think back to the simple 2x2 set up where your estimates were relative to the pre-treatment period. Here too, we are estimating the effects relative to the period just before treatment.
+
+If we were to write this equation generically : 
+$$Y_{ist} = \alpha + \beta D_s + \gamma_t + \sum_{k \neq -1} \tau_k (D_s \times 1\{t = k\})  + \epsilon_{ist}$$
+
+Where we have omitted the interaction term for $k = -1$.
+
+It is useful to create this as a factor variable and tell R that the reference level is -1.
+
+
+```{r}
+
+data2xT <- data2xT |>
+  mutate(
+    rel_time_fct = relevel(factor(time), ref = "-1") 
+  )
+
+dyn_2xTdid <- lm(y ~ D + rel_time_fct +  D:rel_time_fct, data = data2xT)
+summary(dyn_2xTdid)
+
+```
+
+CLearly we see the effect of the policy showing up one year after the treatment, with no effect in the year of implementation. 
+
+Reassuringly the pre-treatment effects (periods -2) we find statistically insignificant effects, which supports the parallel trends assumption.
+
+## Extra: Event study plots of Dynamic treatment effects
+
+We didnt cover this in class. Extra for you. It is useful to visualize these estimates in something that is called an event study plot.
+
+```{r}
+
+# Extract event-time coefficients (D * rel_time_fct)
+coefs <- coef(dyn_2xTdid)
+vc    <- vcov(dyn_2xTdid)
+
+# levels of rel_time_fct, numeric
+levs      <- levels(data2xT$rel_time_fct)
+levs_num  <- as.numeric(levs)
+
+# event times other than the reference (-1)
+ev_times  <- levs_num[levs_num != -1]
+
+# names of interaction coefficients in the lm output
+coef_names <- paste0("D:rel_time_fct", ev_times)
+
+# pull estimates and standard errors
+est <- coefs[coef_names]
+se  <- sqrt(diag(vc[coef_names, coef_names]))
+
+# Build tidy data frame for plotting
+event_df <- data.frame(
+  rel_time = c(-1, ev_times),         # include the reference period with effect 0
+  est      = c(0, est),
+  se       = c(0, se)
+) |>
+  mutate(
+    ci_low  = est - 1.96 * se,
+    ci_high = est + 1.96 * se
+  )
+
+#  Plot the event-study
+ggplot(event_df, aes(x = rel_time, y = est)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_vline(xintercept = -1, linetype = "dotted") +
+  geom_point() +
+  geom_errorbar(aes(ymin = ci_low, ymax = ci_high), width = 0.1) +
+  geom_line() +
+  scale_x_continuous(breaks = sort(unique(event_df$rel_time))) +
+  labs(
+    x = "Event time (relative to treatment)",
+    y = "Effect on y (vs. t = -1)"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+
