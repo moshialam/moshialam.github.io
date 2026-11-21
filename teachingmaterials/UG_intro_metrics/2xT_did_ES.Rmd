@@ -8,7 +8,7 @@ output:
 ---
 
 
-We use the simulated data that I shared in the announcements on Canvas. explore the data on your own before running estimations. Load libraries: `dplyr, ggplot2, fixest`
+We use the simulated data [`2xT_did_data.csv`](https://moshialam.github.io/teachingmaterials/UG_intro_metrics/2xT_did_data.csv) posted on the course website. explore the data on your own before running estimations. Load libraries: `dplyr, ggplot2, fixest`
 
 
 ```{r, setup, include=FALSE}
