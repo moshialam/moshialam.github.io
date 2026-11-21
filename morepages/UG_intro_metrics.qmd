@@ -69,6 +69,7 @@ All R-scripts, R-markdown files, and data files for the lectures will be uploade
 **Problem Set 5** *(Due Dec 1, 5pm)*  
 [<i class="bi bi-file-earmark-text"></i> Assignment](/teachingmaterials/UG_intro_metrics/ps/ugmetricsps5.qmd) |
 [<i class="bi bi-file-earmark-code"></i> 2x2 DiD Rmd (Part 1)](/teachingmaterials/UG_intro_metrics/2x2did.Rmd) |
+[<i class="bi bi-database"></i> Event study data (Part 2)](/teachingmaterials/UG_intro_metrics/2xT_did_ps5data.csv) |
 [<i class="bi bi-database"></i> IV data (Part 3)](/teachingmaterials/UG_intro_metrics/iv_csl_dataset.csv)
 :::
 
