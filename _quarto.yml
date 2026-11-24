@@ -4,6 +4,9 @@ project:
   render:
     - "**/*.qmd"
     - "**/*.ipynb"
+    # Local-only working slides (gitignored, never published); their scratch
+    # .qmd files must not break the site build
+    - "!teachingmaterials/UG_intro_metrics/slides_tex/**"
     # Unreleased solutions; delete a line to publish that solution
     - "!teachingmaterials/UG_intro_metrics/pssol/ps5sol.qmd"
     - "!teachingmaterials/UG_intro_metrics/pssol/ps7sol.qmd"

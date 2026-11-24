@@ -895,12 +895,16 @@ details {
 <script>
 // BibTeX citations for all papers
 const bibtexCitations = {
-  workerdisc: `@article{alam2025employee,
-  title = {Employee-Side Discrimination: Beliefs and Preferences},
+  workerdisc: `@article{alam2026employee,
+  title = {Worker-Side Discrimination: Beliefs and Preferences},
   author = {Alam, Md Moshi Ul and Mookerjee, Mehreen and Roy, Sanket},
+  journal = {Quantitative Economics},
+  volume = {17},
+  number = {4},
+  pages = {1033--1102},
   year = {2026},
-  note = {Forthcoming at Quantitative Economics},
-  url = {https://moshialam.github.io/papers/Alam_JMP_Oct21.pdf}
+  publisher = {Econometric Society},
+  doi = {10.3982/QE2409}
 }`,
 
   sanitation: `@article{agarwal2024unintended,
@@ -1020,17 +1024,17 @@ function showToast(message, type = 'success') {
 <div class="cell" data-include="false">
 <details class="code-fold hidden">
 <summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="525" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 524;"><span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="co">// Abstract links are &lt;button&gt;s, not &lt;a href="#"&gt;: Quarto's smooth-scroll</span></span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="co">// intercepts same-page anchors and swallows the click before Micromodal</span></span>
-<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="co">// sees it. Both await* options stay false: they make Micromodal wait for an</span></span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="co">// animationend event, which never fires when motion is reduced, leaving the</span></span>
-<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="co">// dialog stuck open.</span></span>
-<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
-<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="529" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 528;"><span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a>micro <span class="op">=</span> <span class="pp">require</span>(<span class="st">"micromodal@0.4.10"</span>)<span class="op">;</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="co">// Abstract links are &lt;button&gt;s, not &lt;a href="#"&gt;: Quarto's smooth-scroll</span></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="co">// intercepts same-page anchors and swallows the click before Micromodal</span></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="co">// sees it. Both await* options stay false: they make Micromodal wait for an</span></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="co">// animationend event, which never fires when motion is reduced, leaving the</span></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="co">// dialog stuck open.</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a>micro<span class="op">.</span><span class="fu">init</span>({</span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitOpenAnimation</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>  <span class="dt">awaitCloseAnimation</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display hidden">
 <div>
@@ -1048,11 +1052,11 @@ function showToast(message, type = 'success') {
 </div>
 <details class="code-fold hidden">
 <summary>Code</summary>
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="543" data-source-offset="-919"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 542;"><span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"keydown"</span><span class="op">,</span> (e) <span class="kw">=&gt;</span> {</span>
-<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">key</span> <span class="op">!==</span> <span class="st">"Escape"</span> <span class="op">||</span> e<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> <span class="dv">27</span>) <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> open <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".micromodal-slide.is-open"</span>)<span class="op">;</span></span>
-<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (open) open<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".modal__close"</span>)<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
-<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="547" data-source-offset="-919"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 546;"><span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"keydown"</span><span class="op">,</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">key</span> <span class="op">!==</span> <span class="st">"Escape"</span> <span class="op">||</span> e<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> <span class="dv">27</span>) <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> open <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".micromodal-slide.is-open"</span>)<span class="op">;</span></span>
+<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (open) open<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">".modal__close"</span>)<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
+<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display hidden">
 <div>
@@ -1105,7 +1109,7 @@ Limited policy variation, data constraints in defining 'equal work', and complia
 <button class="modal__close" aria-label="Close modal" data-micromodal-close="">
 </button>
 <section id="abs_workerdisc-title" class="level3 modal__header">
-<h3 class="anchored" data-anchor-id="abs_workerdisc-title">Employee-Side Discrimination: Beliefs and Preferences</h3>
+<h3 class="anchored" data-anchor-id="abs_workerdisc-title">Worker-Side Discrimination: Beliefs and Preferences</h3>
 <p><em>with Mehreen Mookerjee and Sanket Roy</em></p>
 </section>
 <div class="modal__content">
@@ -1153,15 +1157,14 @@ Show: <button type="button" data-filter="all" aria-pressed="true">All work</butt
 <h4 class="paper-section-heading anchored" data-state="published" data-anchor-id="publications"><i class="bi bi-bookmark-check-fill"></i> Publications/Accepted</h4>
 <div class="paper-item" data-state="published">
 <div class="paper-title-line">
-<p><a href="papers/Alam_JMP_Oct21.pdf">Employee-Side Discrimination: Beliefs and Preferences</a></p>
+<p><a href="https://www.econometricsociety.org/publications/quantitative-economics/2026/11/01/Worker-Side-Discrimination-Beliefs-and-Preferences">Worker-Side Discrimination: Beliefs and Preferences</a></p>
 </div>
 <div class="paper-meta">
 with Mehreen Mookerjee and Sanket Roy
 </div>
 <div class="paper-status">
-<!-- <span class="badge-status badge-accept">Forthcoming at ***Quantitative Economics***</span> -->
 <div class="journal-info">
-<p><i class="bi bi-journal-text"></i> Forthcoming at <strong><em>Quantitative Economics</em></strong> <span class="badge-jmp">PhD JMP</span></p>
+<p><i class="bi bi-journal-text"></i> <strong><em>Quantitative Economics</em></strong> 17(4) 2026: 1033-1102 <span class="badge-jmp">PhD JMP</span></p>
 </div>
 </div>
 <div class="paper-links">
@@ -1270,7 +1273,7 @@ with Steven Lehrer and Nuno Souso Pereira
 <p><strong>Identification in Models of Discrimination</strong></p>
 </div>
 <div class="paper-meta">
-<p>[Subsumed in PhD job market paper “Employee Side Discrimination: Beliefs and Preferences”]</p>
+<p>[Subsumed in PhD job market paper “Worker-Side Discrimination: Beliefs and Preferences”]</p>
 </div>
 </div>
 </div>
