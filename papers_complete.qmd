@@ -660,6 +660,49 @@ The optimal redistribution of income across locations is determined by two suffi
 <button type="button" data-filter="progress" aria-pressed="false">In progress</button>
 </p>
 
+#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading data-state="working"}
+
+<div class="papers-list">
+
+
+<div data-state="working" class="paper-item">
+<div class="paper-title-line">
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
+</div>
+<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
+<div class="paper-status">
+<span><button type="button" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</button></span>
+<button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
+<span class="badge-status badge-rr">Under Review</span>
+</div>
+</div>
+
+
+<div data-state="working" class="paper-item">
+<div class="paper-title-line">
+<strong>Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers</strong>
+</div>
+<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
+<div class="paper-status">
+<span class="badge-status badge-rr">Updated draft coming soon</span>
+<span class="badge-jmp">Post-doc JMP</span>
+</div>
+<div class="paper-links">
+<!-- Abstract hidden until the updated draft is posted
+<span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span>
+-->
+<button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
+  <i class="bi bi-clipboard"></i> Cite (BibTeX)
+</button>
+</div>
+</div>
+
+</div>
+
+
+
 #### <i class="bi bi-bookmark-check-fill"></i> Publications/Accepted {#publications .paper-section-heading data-state="published"}
 
 <div data-state="published" class="paper-item">
@@ -723,49 +766,6 @@ The optimal redistribution of income across locations is determined by two suffi
 </div>
 
 
-
-</div>
-
-
-
-#### <i class="bi bi-bookmark-check"></i> Working Papers {#working-papers .paper-section-heading data-state="working"}
-
-<div class="papers-list">
-
-
-<div data-state="working" class="paper-item">
-<div class="paper-title-line">
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7192721">Optimal Place-Based Transfers: Theory, Identification and a New Survey for Measurement</a>
-</div>
-<div class="paper-meta">with Morris Davis and Jesse Gregory</div>
-<div class="paper-status">
-<span><button type="button" data-micromodal-trigger="abs_placebased" class="btn-abstract">Abstract</button></span>
-<button onclick="copyBibTeX('placebased')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> Cite (BibTeX)
-</button>
-<span class="badge-status badge-rr">Under Review</span>
-</div>
-</div>
-
-
-<div data-state="working" class="paper-item">
-<div class="paper-title-line">
-<strong>Equal Pay for Equal Work: Wage Gaps and Incidence Across Workers</strong>
-</div>
-<div class="paper-meta">with Steven Lehrer and Nuno Souso Pereira</div>
-<div class="paper-status">
-<span class="badge-status badge-rr">Updated draft coming soon</span>
-<span class="badge-jmp">Post-doc JMP</span>
-</div>
-<div class="paper-links">
-<!-- Abstract hidden until the updated draft is posted
-<span><button type="button" data-micromodal-trigger="abs_payequity" class="btn-abstract">Abstract</button></span>
--->
-<button onclick="copyBibTeX('payequity')" class="btn-abstract" title="Copy BibTeX citation">
-  <i class="bi bi-clipboard"></i> Cite (BibTeX)
-</button>
-</div>
-</div>
 
 </div>
 
